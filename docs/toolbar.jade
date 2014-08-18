@@ -13,11 +13,11 @@ block content
       include ../jade/_docs-menu
     .docs-content.with-device
       .full-width
-        h1 Toolbar
-        p Toolbar is a fixed <em>(with Fixed and Through layout types)</em> area at the bottom of a screen that contains navigation elements. 
-        p Toolbar does not have any parts, just plain links inside.
-      h2(data-device-preview="../docs-demos/toolbar-layout.html") Toolbar layout
-      p Toolbar layout is very simple:
+        h1 工具栏
+        p 工具栏是位于屏幕底端的固定（在固定和穿透布局类型中）区域，它包含导航元素。
+        p 工具栏不包含任何其他部分，内部只含有普通文本。
+      h2(data-device-preview="../docs-demos/toolbar-layout.html") 工具栏布局
+      p 工具栏布局非常简单：
       pre
         code
           | &lt;div class="toolbar"&gt;
@@ -27,19 +27,19 @@ block content
           |         &lt;a href="#" class="link"&gt;Link 3&lt;/a&gt;
           |     &lt;/div&gt;
           | &lt;/div&gt;
-      p By default, all Toolbar elements (links) equally spaced along toolbar - they have equal space between each other.
+      p 默认情况下，所有的工具栏元素（链接）沿着工具栏等距分布 - 它们之间的距离相等。
          
-      h2(data-device-preview="../docs-demos/toolbar-hide.html") Related View methods
-      p If we have <a href="views.html">initialized View</a> we can use following methods available for Toolbars:
+      h2(data-device-preview="../docs-demos/toolbar-hide.html") 相关视图方法
+      p 如果我们已经<a href="views.html">初始化视图</a>我们可以使用工具栏的如下方法：
       table.methods-table
         tbody
           tr
             td view.hideToolbar()
-            td Hide toolbar in this View
+            td 隐藏该视图中的工具栏
           tr
             td view.showToolbar()
-            td Show toolbar in this View
-      p And the following example:
+            td 显示该视图中的工具栏
+      p 下面为示例：
       pre
         code
           | var myApp = new Framework7();
@@ -55,9 +55,9 @@ block content
           | $('.show-toolbar').on('click', function () {
           |     mainView.showToolbar();
           | });
-      h2(data-device-preview="../docs-demos/toolbar-hide-auto.html") Hide Toolbar automatically
-      p Framework7 allows you to hide/show Toolbar automatically for some Ajax loaded pages where you may not need Toolbar. It is useful only when you use through-type layout.
-      p To make it work all you need is to add <srong>"no-toolbar"</srong> class to loaded page (<code>&lt;div class="page no-toolbar"&gt;</code>) and put there empty Toolbar:
+      h2(data-device-preview="../docs-demos/toolbar-hide-auto.html") 自动隐藏工具栏
+      p Framework7允许你在不需要工具栏而且通过Ajax载入的页面上，自动隐藏工具栏。它只在你使用穿透类型的布局时才有用。
+      p 为了实现这点，你要做的是添加<srong>"no-toolbar"</srong>类到载入的页面中(<code>&lt;div class="page no-toolbar"&gt;</code>)，然后在那里放置一个空的导航栏：
       pre
         code
           | &lt;!-- Page has additional "no-toolbar" class --&gt;
