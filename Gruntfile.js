@@ -97,6 +97,17 @@ module.exports = function (grunt) {
           }]
         },
       },
+      less: {
+        build: {
+          files: [{
+            expand: true,
+            cwd: 'css/',
+            src: ['*.less'],
+            dest: 'css/',
+            ext: '.css'
+          }]
+        }
+      },
       watch: {
         index: {
           files: ['./*.jade'],
@@ -137,7 +148,11 @@ module.exports = function (grunt) {
         donate: {
           files: ['donate/*.jade'],
           tasks: ['newer:jade:donate']
-        }
+        },
+        less: {
+          files: ['css/*.less'],
+          tasks: ['newer:less:build']
+        },
       }
     });
     this.registerTask('default', ['jade']);

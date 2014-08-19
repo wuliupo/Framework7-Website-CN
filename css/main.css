@@ -999,3 +999,8 @@ h1 + .tutorial-author {
   width: 100px;
   height: 44px;
 }
+.disqus-container {
+  max-width: 1180px;
+  margin: auto;
+  margin-top: 40px;
+}
