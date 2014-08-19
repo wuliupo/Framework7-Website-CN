@@ -17,17 +17,17 @@
           <div class="title">Framework7</div>
           <div class="links-row">
             <div class="links-label">项目:</div>
-            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">下载</a><a href="../plugins/">插件</a><a href="../contribute/">贡献者</a><a href="../donate/">捐助</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">更新日志</a>
+            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">下载</a><a href="../contribute/">贡献</a><a href="../donate/">捐助</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">更新日志</a>
             </div>
           </div>
           <div class="links-row">
             <div class="links-label">学习:</div>
-            <div class="links"><a href="../get-started/">开始使用</a><a href="../docs/" class="active">文档</a><a href="../tutorials/">教程</a><a href="../forum/">论坛</a>
+            <div class="links"><a href="../get-started/">开始使用</a><a href="../docs/" class="active">文档</a><a href="../tutorials/">教程</a>
             </div>
           </div>
           <div class="links-row">
             <div class="links-label">应用:</div>
-            <div class="links"><a href="../examples/">案例</a><a href="../apps/">示例</a><a href="../showcase/">演示</a>
+            <div class="links"><a href="../examples/">案例</a><a href="../apps/">示例</a><a href="../showcase/">应用</a>
             </div>
           </div>
         </div>
@@ -136,29 +136,29 @@
         </div>
         <div class="docs-content with-device">
           <div class="full-width">
-            <h1>Action Sheet</h1>
-            <p>Action Sheet is a slide-up pane for presenting the user with a set of alternatives for how to proceed with a given task</p>
-            <p>You can also use action sheets to prompt the user to confirm a potentially dangerous action. </p>
-            <p>The action sheet contains an optional title and one or more buttons, each of which corresponds to an action to take.</p>
+            <h1>操作表</h1>
+            <p>操作表是一个上滑面板，用来向用户展示进行一个任务所需的选项。</p>
+            <p>你也可以使用它来提示用户，确认潜在的危险操作。</p>
+            <p>操作表包含一个可选的标题和至少一个按钮，每个按钮都对应一个操作。</p>
             <div class="important-note">
-              <p>Note that is not recommended to use Action Sheet on large screens (iPad). On large screens you should use <a href="popover.html">Popover</a> instead.</p>
+              <p>注意，不建议在大屏幕（iPad）上使用操作表。在大屏幕上，你应该使用<a href="popover.html">弹出框</a>。</p>
             </div>
-            <h2>Create and open Action Sheet</h2>
-            <p>Action sheet is the dynamic element, it could be created and opened only using JavaScript. Let's look at the related App's method to create Action Sheet:</p>
-            <p><span class="method">myApp.actions(<span>groups</span>)</span> - create and open Action Sheet with specified amount of buttons groups</span><br>or <br><span class="method">myApp.actions(<span>buttons</span>)</span> - create and open Action Sheet with one group and specified buttons</span></p>
+            <h2>创建并弹出操作表</h2>
+            <p>操作表是动态元素，只能使用Javascript来创建并弹出它。让我们看一下创建操作表相关的App方法：</p>
+            <p><span class="method">myApp.actions(<span>groups</span>)</span> - 创建并弹出操作表，其包含指定数量群组的按钮</span><br>或者 <br><span class="method">myApp.actions(<span>buttons</span>)</span> - 创建并弹出操作表，其包含一个群组，群组包含指定数量的按钮</span></p>
             <ul class="method-parameters">
-              <li><span class="parameter">groups</span> - <span class="parameter-type">array</span>. Array of groups, each group contains array of buttons</li>
-              <li><span class="parameter">buttons</span> - <span class="parameter-type">array</span>. Array of buttons. In this case there will be one group</li>
-              <li class="method-returns">This method returns dynamically created Action Sheet's HTMLElement</li>
+              <li><span class="parameter">groups</span> - <span class="parameter-type">array</span>. 一组群组，每个群组包含若干按钮</li>
+              <li><span class="parameter">buttons</span> - <span class="parameter-type">array</span>. 一组按钮，这种情况下，只有一个群组</li>
+              <li class="method-returns">这个方法返回动态创建的操作表HTML元素</li>
             </ul>
-            <p>Each Button in <em>buttons</em> should be presented as Object with button parameters:</p>
+            <p>每个在<em>buttons</em>中的按钮应该作为一个对象，其包含如下参数：</p>
             <table class="params-table">
               <thead>
                 <tr>
-                  <th>Parameter</th>
-                  <th>Type</th>
-                  <th>Default</th>
-                  <th>Description</th>
+                  <th>参数</th>
+                  <th>类型</th>
+                  <th>默认值</th>
+                  <th>描述</th>
                 </tr>
               </thead>
               <tbody>
@@ -166,35 +166,35 @@
                   <td>text</td>
                   <td>string</td>
                   <td></td>
-                  <td>String with Button's text (could be HTML string)</td>
+                  <td>按钮上的文本（可以是HTML字符串）</td>
                 </tr>
                 <tr>
                   <td>bold</td>
                   <td>boolean</td>
                   <td>false</td>
-                  <td>Optional. Set to true for bold button text</td>
+                  <td>可选，若为真，则按钮上文本加粗</td>
                 </tr>
                 <tr>
                   <td>color</td>
                   <td>string</td>
                   <td></td>
-                  <td>Optional. Button color, one of 10 default colors</td>
+                  <td>可选，按钮颜色，待选颜色有10种</td>
                 </tr>
                 <tr>
                   <td>label</td>
                   <td>boolean</td>
                   <td>true</td>
-                  <td>Optional. If "true" then it will be title instead of button</td>
+                  <td>可选，若为真，它会成为标题，而不是按钮</td>
                 </tr>
                 <tr>
                   <td>onClick</td>
                   <td>function</td>
                   <td></td>
-                  <td>Optional. Callback function that will be executed when user click this button</td>
+                  <td>可选，当用户点击该按钮时，会调用这个函数</td>
                 </tr>
               </tbody>
             </table>
-            <p>Let's look at examples</p>
+            <p>让我们来看一下例子</p>
           </div>
           <pre data-device-preview="../docs-demos/action-sheet.html"><code>&lt;body&gt;
   ...
@@ -340,53 +340,68 @@ $$('.ac-5').on('click', function () {
     myApp.actions(buttons);
 });   </code></pre>
           <div class="full-width stop-scroll-device">
-            <h2>Close Action Sheet</h2>
-            <p>By default, Action sheet will be automatically closed when:</p>
+            <h2>关闭操作表</h2>
+            <p>默认情况下，操作表会在以下情况下自动关闭：</p>
             <ul>
-              <li>you click one of its buttons</li>
-              <li>you click outside its window on overlay (configurable via <code>modalActionsCloseByOutside</code> <a href="init-app.html">App initialization</a> parameter)</li>
+              <li>点击任意一个按钮</li>
+              <li>点击窗口之外的遮罩（可以通过<code>modalActionsCloseByOutside</code>这个应用初始化参数配置）</li>
             </ul>
-            <p>To close Action sheet manually we can use appropriate App's method:</p>
-            <p><span class="method">myApp.closeModal(<span>actionSheet</span>)</span> - close Popup</span></p>
+            <p>也可以使用适当的App方法来手动关闭操作表：</p>
+            <p><span class="method">myApp.closeModal(<span>actionSheet</span>)</span> - 关闭弹出窗口</span></p>
             <ul class="method-parameters">
-              <li><span class="parameter">actionSheet</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of Action sheet to be closed. Optional. If not specified, any opened Action sheet will be closed</li>
+              <li><span class="parameter">actionSheet</span> - 表示要关闭的操作表的<span class="parameter-type">HTML元素</span>或者（包含CSS选择器的）<span class="parameter-type">字符串</span>。可选，如果没有指定，任何打开的操作表都会被关闭</li>
             </ul>
-            <h2>Action Sheet Events</h2>
-            <p>Action Sheet has the same events as any <a href="modal.html">Modal</a></p>
+            <h2>操作表事件</h2>
+            <p>操作表和任意<a href="modal.html">模态框</a>拥有相同的事件</p>
             <table class="events-table">
               <thead>
                 <tr>
-                  <th>Event</th>
-                  <th>Target</th>
-                  <th>Description</th>
+                  <th>事件</th>
+                  <th>目标</th>
+                  <th>描述</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>open</td>
-                  <td>Action Sheet Element<span>&lt;div class="actions-modal"&gt;</span></td>
-                  <td>Event will be triggered when Action Sheet starts its opening animation</td>
+                  <td>操作表元素<span>&lt;div class="actions-modal"&gt;</span></td>
+                  <td>当操作表开始弹出动画的时候，事件触发</td>
                 </tr>
                 <tr>
                   <td>opened</td>
-                  <td>Action Sheet Element<span>&lt;div class="actions-modal"&gt;</span></td>
-                  <td>Event will be triggered after Action Sheet completes its opening animation</td>
+                  <td>操作表元素<span>&lt;div class="actions-modal"&gt;</span></td>
+                  <td>当操作表完成弹出动画的时候，事件触发</td>
                 </tr>
                 <tr>
                   <td>close</td>
-                  <td>Action Sheet Element<span>&lt;div class="actions-modal"&gt;</span></td>
-                  <td>Event will be triggered when Action Sheet starts its closing animation</td>
+                  <td>操作表元素<span>&lt;div class="actions-modal"&gt;</span></td>
+                  <td>当操作表开始结束动画的时候，事件触发</td>
                 </tr>
                 <tr>
                   <td>closed</td>
-                  <td>Action Sheet Element<span>&lt;div class="actions-modal"&gt;</span></td>
-                  <td>Event will be triggered after Action Sheet completes its closing animation      </td>
+                  <td>操作表元素<span>&lt;div class="actions-modal"&gt;</span></td>
+                  <td>当操作表完成结束动画的时候，事件触发    </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
+    </div>
+    <div class="disqus-container">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">
@@ -410,8 +425,9 @@ $$('.ac-5').on('click', function () {
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献者</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
+        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
         <div class="copy">2014 © Framework7 by iDangero.us</div>
+        <div class="copy">翻译 SDC-ALIBABA</div>
       </div>
     </footer>
     <script src="../js/vendor/jquery-1.11.0.min.js"></script>

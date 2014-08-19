@@ -24,6 +24,15 @@ module.exports = function (grunt) {
             ext: '.html'
           }]
         },
+        'docs-demos': {
+          files: [{
+            expand: true,
+            cwd: 'docs-demos/',
+            src: ['*.jade', '!_*.jade'],
+            dest: 'docs-demos/',
+            ext: '.html'
+          }]
+        },
         getStarted: {
           files: [{
             expand: true,
@@ -88,6 +97,17 @@ module.exports = function (grunt) {
           }]
         },
       },
+      less: {
+        build: {
+          files: [{
+            expand: true,
+            cwd: 'css/',
+            src: ['*.less'],
+            dest: 'css/',
+            ext: '.css'
+          }]
+        }
+      },
       watch: {
         index: {
           files: ['./*.jade'],
@@ -96,6 +116,10 @@ module.exports = function (grunt) {
         docs: {
           files: ['docs/*.jade'],
           tasks: ['newer:jade:docs']
+        },
+        'docs-demos': {
+          files: ['docs-demos/*.jade'],
+          tasks: ['newer:jade:docs-demos']
         },
         getStarted: {
           files: ['get-started/*.jade'],
@@ -124,7 +148,11 @@ module.exports = function (grunt) {
         donate: {
           files: ['donate/*.jade'],
           tasks: ['newer:jade:donate']
-        }
+        },
+        less: {
+          files: ['css/*.less'],
+          tasks: ['newer:less:build']
+        },
       }
     });
     this.registerTask('default', ['jade']);

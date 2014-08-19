@@ -13,19 +13,19 @@ block content
       include ../jade/_docs-menu
     .docs-content.with-device
       .full-width
-        h1 Navbar
-        p Navbar is a fixed <em>(with Fixed and Through layout types)</em> area at the top of a screen that contains Page title and navigation elements. 
-        p Navbar has 3 main parts: Left, Center and Right. Each part may contain any HTML content, but it is recommended to use them in the following way:
+        h1 导航栏
+        p 导航栏是一个固定区域 <em>（在固定和穿透布局类型中）</em> 。它位于屏幕顶部，包含页面标题和导航元素。
+        p 导航栏包含3个部分：左、中、右。每个部分都可以包含任意的HTML内容，但推荐按照如下方式使用：
         ul
           li
-            p <strong>Left</strong> part is designed to be used with "back link", icons or with single text link.
+            p <strong>左部</strong> 用来放置返回链接、图标以及单独的文字链接。
           li
-            p <strong>Center</strong> part is used to display page title or tab links (buttons row/segmented controller).
+            p <strong>中部</strong> 用来显示页面标题和标签链接（即按钮控制）。
           li
-            p <strong>Right</strong> part is for the same as the Left part.
+            p <strong>右部</strong> 和左部一样。
 
-      h2(data-device-preview="../docs-demos/navbar-layout.html") Navbar layout
-      p Navbar layout is pretty simple and self explaining:
+      h2(data-device-preview="../docs-demos/navbar-layout.html") 导航栏布局
+      p 导航栏布局相当简单，根据字面意思即可理解：
       pre
         code
           | &lt;div class="navbar"&gt;
@@ -36,10 +36,10 @@ block content
           |     &lt;/div&gt;
           | &lt;/div&gt;
       .important-note
-        p Note that Navbar's Center element has lowest width priority, and when window screen will not fit all three elements during window resize, then Center part will be cuted. 
-      p So if you use plain text in Center part it will have ellipsis (...) on the end when cuted. But you need to take care about it if you have some custom elements there.
-      h3(data-device-preview="../docs-demos/navbar-links.html") Navbar with links
-      p To add links in Left or Right part you just need to add the plain <code>&lt;a&gt;</code> tag with additional <code>link</code> class:
+        p 注意，导航栏的中心元素具有最低的宽度优先级，当屏幕不能放下全部3个元素时，中部会被截断。
+      p 所以，如果你在中部使用普通文本，在截断的时候会在末尾加上省略号（...）。但如果你使用定制的元素，那就要格外注意了。
+      h3(data-device-preview="../docs-demos/navbar-links.html") 含有链接的导航栏
+      p 要想在左/右部添加链接，只需要添加<code>&lt;a&gt;</code> 标签，以及额外的 <code>link</code> 类:
       pre
         code
           | &lt;div class="navbar"&gt;
@@ -53,9 +53,9 @@ block content
           |         &lt;/div&gt;
           |     &lt;/div&gt;
           | &lt;/div&gt;     
-      p Additional <code>link</code> class is not required but recommended, because it adds required link sizes and "active" opacity effect
-      h3(data-device-preview="../docs-demos/navbar-multiple-links.html") Multiple links
-      p Nothing extraordinary. Just add more <code>&lt;a class="link"</code> to the required part:
+      p 额外的 <code>link</code> 类并不是必须的，但是推荐使用，因为它添加了需要的链接尺寸，以及透明度特效。
+      h3(data-device-preview="../docs-demos/navbar-multiple-links.html") 多链接
+      p 没什么特别的，只要在需要的部分添加 <code>&lt;a class="link"</code>：
       pre
         code
           | &lt;div class="navbar"&gt;
@@ -70,8 +70,8 @@ block content
           |         &lt;/div&gt;
           |     &lt;/div&gt;
           | &lt;/div&gt;
-      h3(data-device-preview="../docs-demos/navbar-links-icons.html") Links with icons + text
-      p Here comes a little difference. In this case we need to <strong>wrap link's text with</strong> <code>&lt;span&gt;</code> element. It is required for correct spacing between icon and "word", and for animation:
+      h3(data-device-preview="../docs-demos/navbar-links-icons.html") 含有图标和文本的链接
+      p 这里有一些变化，我们需要<strong>把链接的文本用</strong><code>&lt;span&gt;</code>元素包起来。它用来保持图标和文本之间的正确间距，并且在动画中也有用处：
       pre
         code
           | &lt;div class="navbar"&gt;
@@ -91,8 +91,8 @@ block content
           |         &lt;/div&gt;
           |     &lt;/div&gt;
           | &lt;/div&gt;
-      h3(data-device-preview="../docs-demos/navbar-only-icons.html") Links with icons only
-      p If need links with icons and without text we need to additional <strong>"icon-only"</strong> class to links. With this class link will have fixed 44x44 px size so we can't miss it with finger:
+      h3(data-device-preview="../docs-demos/navbar-only-icons.html") 只有图标的链接
+      p 如果需要含有图标而不含有文本的链接，我们需要对链接添加额外的<strong>"icon-only"</strong> 类。含有这个类的链接会拥有44x44px的固定大小，以便于我们的手指触到它：
       pre
         code
           | &lt;div class="navbar"&gt;
@@ -110,17 +110,17 @@ block content
           |         &lt;/div&gt;
           |     &lt;/div&gt;
           | &lt;/div&gt;    
-      h2(data-device-preview="../docs-demos/navbar-hide.html") Related View methods
-      p If we have <a href="views.html">initialized View</a> we can use following methods available for Navbar:
+      h2(data-device-preview="../docs-demos/navbar-hide.html") 相关的视图方法
+      p 如果我们已经<a href="views.html">初始化视图</a>，我们可以使用导航栏的如下方法：
       table.methods-table
         tbody
           tr
             td view.hideNavbar()
-            td Hide navbar in this View
+            td 隐藏该视图中的导航栏
           tr
             td view.showNavbar()
-            td Show navbar in this View
-      p And the following example:
+            td 显示该视图中的导航栏
+      p 下面是示例：
       pre
         code
           | var myApp = new Framework7();
@@ -136,9 +136,9 @@ block content
           | $('.show-navbar').on('click', function () {
           |     mainView.showNavbar();
           | });
-      h2(data-device-preview="../docs-demos/navbar-hide-auto.html") Hide Navbar automatically
-      p Framework7 allows you to hide/show navbar automatically for some Ajax loaded pages where you may not need Navbar. It is useful only when you use through-type layout.
-      p To make it work all you need is to add <srong>"no-navbar"</srong> class to loaded page (<code>&lt;div class="page no-navbar"&gt;</code>) and put there empty Navbar:
+      h2(data-device-preview="../docs-demos/navbar-hide-auto.html") 自动隐藏导航栏
+      p Framework7允许你在不需要导航栏而且通过Ajax载入的页面上，自动隐藏导航栏。它只在你使用穿透类型的布局时才有用。
+      p 为了实现这一点，你要做的是添加<srong>"no-navbar"</srong>类到载入的页面中(<code>&lt;div class="page no-navbar"&gt;</code>)，然后在那里放置一个空的导航栏：
       pre
         code
           | &lt;!-- Empty Navbar --&gt;
@@ -158,7 +158,7 @@ block content
           | &lt;/div&gt;
 
       .full-width.stop-scroll-device
-        h2 Related App methods
+        h2 相关的App方法
         table.methods-table
           tbody
             tr
@@ -167,9 +167,8 @@ block content
                 ul.method-parameters
                   li
                     span.parameter viewContainer
-                    |  - CSS Selector <span class="parameter-type">string</span> or <span class="parameter-type">HTMLEelement</span>. URL of page to load
+                    |  - CSS选择器<span class="parameter-type">字符串</span>或<span class="parameter-type">HTML元素</span>。要载入的页面地址
             tr
               td 
-                p Call this method to recalculate positional styles for Navbar in selected View. For example: <code>myApp.sizeNavbars('.view-main')</code>
-                p It could be useful after you change some of Navbar elements dynamically.
-
+                p 调用这个方法来重新计算选中的视图的位置类型。例如：<code>myApp.sizeNavbars('.view-main')</code>
+                p 在你动态改变导航栏元素后，它会有用处。

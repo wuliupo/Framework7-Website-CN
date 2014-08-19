@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Pull To Refresh | Framework7 Documentation';
+  - var title = '下拉刷新 | Framework7 文档';
 
 block content
   .docs-demo-device
@@ -13,10 +13,9 @@ block content
       include ../jade/_docs-menu
     .docs-content.with-device
       .full-width
-        h1 Pull To Refresh
-        p Pull to refresh is a special component that can be used to initiate the refreshing of a page’s contents.
-        h2 Pull To Refresh layout
-        p Let's look on how to integrate pull to refresh to page:
+        h1 下拉刷新
+        h2 下拉刷新的HTML布局结构
+        p 看一下如何让下拉刷新组件和页面融为一体:
         pre
           code
             | &lt;div class="page"&gt;
@@ -34,15 +33,15 @@ block content
             |     &lt;/div&gt;
             |   &lt;/div&gt;
             | &lt;/div&gt;   
-        p Where
+        p 其中
           ul
-            li <code>page-content</code> should have additional <code>pull-to-refresh-content</code> class. This is required to enable pull to refresh
-            li <code>pull-to-refresh-layer</code> hidden layer with pull to refresh visual elements: preloader and arrow. 
-        h2 Pull To Refresh sequence
-        p When user pulls down <b>pull-to-refresh-content</b> on a distance more than 44px (when <b>pull-to-refresh-layer</b> will be fully visible), then <b>pull-to-refresh-layer</b> will receive additional "<b>pull-up</b>" class which changes arrow rotation to notify user about refresh action on release.
-        p When user release pull to refresh content when it is in "pull-up" state, then <b>pull-to-refresh-layer</b> will receive additional "<b>refreshing</b>" class. In "refreshing" state arrow will be hidden and user will see preloader indicator. On this stage you probably need to do Ajax request and refresh page content.
-        h2 Pull To Refresh event
-        p There is a special JavaScript event that helps us to recognize when we need to refresh content:
+            li <code>page-content</code>需要额外添加<code>pull-to-refresh-content</code>的class。他会激活这块page拥有下拉刷新功能。
+            li <code>pull-to-refresh-layer</code> 平时隐藏的布局块，包含下拉刷新的可视元素：转动小菊花和上/下箭头。
+        h2 下拉刷新的行为顺序
+        p 当用户下拉使 <b>pull-to-refresh-content</b> 元素超过下降超过44px时 (即<b>pull-to-refresh-layer</b>元素完全可视), 之后<b>pull-to-refresh-layer</b>元素将自动添加 "<b>pull-up</b>" class使箭头转向180度以告诉用户界面将在他释放手指时刷新。
+        p 当用户在“pull-up”状态释放下拉区块使页面刷新时，<b>pull-to-refresh-layer</b>区块将会添加一个"<b>refreshing</b>" class.在“refreshing”状态，箭头icon会隐藏，同时会展现一个loading的转动小菊花指示器。这个时候你通常正在进行Ajax异步请求。
+        h2 下拉刷新事件
+        p 以下是下拉刷新的特殊事件，用以帮助我们识别须要刷新界面的时机:
         table.events-table
           thead
             tr
@@ -52,29 +51,29 @@ block content
           tbody
             tr
               td refresh
-              td Pull To Refresh content<span>&lt;div class="pull-to-refresh-content"&gt;</span>
-              td Event will be triggered when pull to refresh enters in "refreshing" state
-        h2 Reset Pull To Refresh
-        p After we refreshed page content, we need to reset pull to refresh component to let user pull it again:
+              td 拥有下拉刷新功能的界面<span>&lt;div class="pull-to-refresh-content"&gt;</span>
+              td 事件会在下拉刷新进入“refreshing” 状态时触发
+        h2 重置下拉刷新
+        p 在我们下拉刷新页面之后，需要重置下拉刷新组件以使之可以继续进行下拉刷新操作:
         .method-wrap
           p
             span.method myApp.pullToRefreshDone(<span>ptrContent</span>) 
-            span - reset specified pull to refresh content
+            span - 重置特定的下拉刷新界面
           ul.method-parameters
             li
               span.parameter ptrContent
-              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of pull-to-refresh-content we need to reset
-        h2 Trigger Pull To Refresh
-        p We can also trigger Pull To Refresh manually by using the following method:
+              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (需要完整CSS选择器) 须要重置的 "pull-to-refresh-content" 页面
+        h2 JS触发下拉刷新
+        p 我们也可以通过下面的方法手工触发下拉刷新:
         .method-wrap
           p
             span.method myApp.pullToRefreshTrigger(<span>ptrContent</span>) 
-            span - trigger pull to refresh on specified content content
+            span - 触发特定界面的下拉刷新
           ul.method-parameters
             li
               span.parameter ptrContent
-              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of pull-to-refresh-content we need to trigger
-      h2(data-device-preview="../docs-demos/pull-to-refresh.html") Example
+              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (需要完整CSS选择器) 须要触发下拉刷新的 "pull-to-refresh-content" 页面
+      h2(data-device-preview="../docs-demos/pull-to-refresh.html") 例子
       pre
         code
           | &lt;div class="page-content pull-to-refresh-content"&gt;
