@@ -16,18 +16,18 @@
         <div class="title-links">
           <div class="title">Framework7</div>
           <div class="links-row">
-            <div class="links-label">Project:</div>
-            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">Download</a><a href="../plugins/">Plugins</a><a href="../contribute/">Contribute</a><a href="../donate/">Donate</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">Changelog</a>
+            <div class="links-label">项目:</div>
+            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">下载</a><a href="../plugins/">插件</a><a href="../contribute/">贡献者</a><a href="../donate/">捐助</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">更新日志</a>
             </div>
           </div>
           <div class="links-row">
-            <div class="links-label">Learn:</div>
-            <div class="links"><a href="../get-started/">Get Started  </a><a href="../docs/" class="active">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a>
+            <div class="links-label">学习:</div>
+            <div class="links"><a href="../get-started/">开始使用</a><a href="../docs/" class="active">文档</a><a href="../tutorials/">教程</a><a href="../forum/">论坛</a>
             </div>
           </div>
           <div class="links-row">
-            <div class="links-label">Apps:</div>
-            <div class="links"><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a>
+            <div class="links-label">应用:</div>
+            <div class="links"><a href="../examples/">案例</a><a href="../apps/">示例</a><a href="../showcase/">演示</a>
             </div>
           </div>
         </div>
@@ -136,9 +136,9 @@
         </div>
         <div class="docs-content with-device">
           <div class="full-width">
-            <h1>Media List View</h1>
-            <p>Media list view is extended case of <a href="list-view.html">list view</a> indended to display more complex data like products, services, users, etc.</p>
-            <p>And of course it has a bit more complex layout:</p>
+            <h1>媒体列表视图（Media List View）</h1>
+            <p>媒体列表视图是<a href="list-view.html">列表视图（list view）</a>的拓展，它是为了展示更复杂的数据比如产品，服务，用户等等.</p>
+            <p>当然，它的布局更为复杂:</p>
             <pre><code>&lt;!-- Media list block has additional "media-list" class --&gt;
 &lt;div class="list-block media-list"&gt;
     &lt;ul&gt;
@@ -158,42 +158,42 @@
             &lt;/div&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
-&lt;/div&gt;  </code></pre>
-            <p>Where:</p>
+&lt;/div&gt;</code></pre>
+            <p>上面的代码:</p>
             <ul>
               <li>
-                <p><code>item-content</code> - main flex wrapper for <code>item-media</code> and <code>item-inner</code>. <strong>Requred</strong> element.</p>
+                <p><code>item-media</code> 和 <code>item-inner</code>的主要弹性包裹元素（flex wrapper）. <strong>必选</strong>元素.</p>
               </li>
               <ul>
                 <li>
-                  <p><code>item-media</code> - container for your media element like icon, image, etc. <strong>Optional</strong> element.</p>
+                  <p><code>item-media</code> - 媒体元素（如图标，图片等）的容器. <strong>可选</strong>元素.</p>
                 </li>
                 <li>
-                  <p><code>item-inner</code> - <strong>Requred</strong> element.</p>
+                  <p><code>item-inner</code> - <code>item-title</code> 和 <code>item-after</code>的主要弹性包裹元素（flex wrapper）. <strong>必选</strong>元素.</p>
                 </li>
                 <ul>
                   <li>
-                    <p><code>item-title-row</code> - main flex wrapper for <code>item-title</code> and <code>item-after</code>. <strong>Optional</strong> element.</p>
+                    <p><code>item-title-row</code> - <code>item-title</code> 和 <code>item-after</code>的主要弹性包裹元素（flex wrapper）. <strong>可选</strong>元素.</p>
                   </li>
                   <ul>
                     <li>
-                      <p><code>item-title</code> - single-line list item title. <strong>Optional</strong> element.</p>
+                      <p><code>item-title</code> - 单行列表项目标题. <strong>可选</strong>元素.</p>
                     </li>
                     <li>
-                      <p><code>item-after</code> - list item label. Could countain any additional HTML elements, like label text, or badge, or switch/toggle or button, etc. <strong>Optional</strong> element.            </p>
+                      <p><code>item-after</code> - 列表项目标签. 可以包含其他额外的html标签（如label text, or badge, or switch/toggle or button等）. <strong>可选</strong>元素.</p>
                     </li>
                   </ul>
                   <li>
-                    <p><code>item-subtitle</code> - additional single-line title. <strong>Optional</strong> element.</p>
+                    <p><code>item-subtitle</code> - 额外的单行标题. <strong>可选</strong>元素.</p>
                   </li>
                   <li>
-                    <p><code>item-text</code> - additional two-lines container for detailed description. <strong>Optional</strong> element.</p>
+                    <p><code>item-text</code> - 额外的，两行布局的，细节描述区域的容器. <strong>可选</strong>元素.</p>
                   </li>
                 </ul>
               </ul>
             </ul>
           </div>
-          <h4 data-device-preview="../docs-demos/media-list.html">Example</h4>
+          <h4 data-device-preview="../docs-demos/media-list.html">示例</h4>
           <pre><code>&lt;div class="content-block-title"&gt;Songs&lt;/div&gt;
 &lt;div class="list-block media-list"&gt;
   &lt;ul&gt;
@@ -213,7 +213,6 @@
     ...
   &lt;/ul&gt;
 &lt;/div&gt;
- 
 &lt;div class="content-block-title"&gt;Mail App&lt;/div&gt;
 &lt;div class="list-block media-list"&gt;
   &lt;ul&gt;
@@ -230,10 +229,8 @@
       &lt;/a&gt;
     &lt;/li&gt;
     ...
- 
   &lt;/ul&gt;
 &lt;/div&gt;
- 
 &lt;div class="content-block-title"&gt;Something more simple&lt;/div&gt;
 &lt;div class="list-block media-list"&gt;
   &lt;ul&gt;
@@ -251,7 +248,6 @@
     ...
   &lt;/ul&gt;
 &lt;/div&gt;
- 
 &lt;div class="content-block-title"&gt;Inset&lt;/div&gt;
 &lt;div class="list-block media-list inset"&gt;
   &lt;ul&gt;
@@ -268,9 +264,24 @@
     &lt;/li&gt;
     ...
   &lt;/ul&gt;
-&lt;/div&gt;          </code></pre>
+&lt;/div&gt;</code></pre>
         </div>
       </div>
+    </div>
+    <div class="disqus-container">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">
@@ -294,7 +305,7 @@
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="../">Framework7</a><a href="../contribute/">Contribute</a><a href="../get-started/">Get Started</a><a href="../docs/">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a></div>
+        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献者</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
         <div class="copy">2014 © Framework7 by iDangero.us</div>
       </div>
     </footer>

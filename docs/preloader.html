@@ -16,18 +16,18 @@
         <div class="title-links">
           <div class="title">Framework7</div>
           <div class="links-row">
-            <div class="links-label">Project:</div>
-            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">Download</a><a href="../plugins/">Plugins</a><a href="../contribute/">Contribute</a><a href="../donate/">Donate</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">Changelog</a>
+            <div class="links-label">项目:</div>
+            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">下载</a><a href="../plugins/">插件</a><a href="../contribute/">贡献者</a><a href="../donate/">捐助</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">更新日志</a>
             </div>
           </div>
           <div class="links-row">
-            <div class="links-label">Learn:</div>
-            <div class="links"><a href="../get-started/">Get Started  </a><a href="../docs/" class="active">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a>
+            <div class="links-label">学习:</div>
+            <div class="links"><a href="../get-started/">开始使用</a><a href="../docs/" class="active">文档</a><a href="../tutorials/">教程</a><a href="../forum/">论坛</a>
             </div>
           </div>
           <div class="links-row">
-            <div class="links-label">Apps:</div>
-            <div class="links"><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a>
+            <div class="links-label">应用:</div>
+            <div class="links"><a href="../examples/">案例</a><a href="../apps/">示例</a><a href="../showcase/">演示</a>
             </div>
           </div>
         </div>
@@ -136,41 +136,36 @@
         </div>
         <div class="docs-content with-device">
           <div class="full-width">
-            <h1>Preloader</h1>
-            <p>Framework 7 has a nice preloader indicator. Preloader is made with SVG and animated with CSS so it can be easily resized. </p>
-            <p>If you look for a Modal (popup) preloader/indicator look in the Modals section: <a href="modal.html#preloader">Modal Preloader</a>, <a href="modal.html#indicator">Modal Indicator</a>.</p>
-            <p>By default, Preloader available in two colors: the default is for a light background and another one for dark background. The HTML is pretty easy, just create any element (for example <strong>&lt;span&gt;</strong>) with "preloader" class:</p>
+            <h1>加载指示符（Preloader）</h1>
+            <p>Framework 7 提供了一个好用的预加载指示符。 这个加载指示符使用svg绘制，并使用css来进行动画，可以很方便的改变它的大小。</p>
+            <p>如果你需要的是一个模态弹窗的预加载指示符（Modal (popup) preloader/indicator），请查阅模态模块章节：<a href="modal.html#preloader">Modal Preloader</a>, <a href="modal.html#indicator">Modal Indicator</a></p>
+            <p>预加载指示符提供2个颜色供选择: 其中一个颜色是配合亮色背景，另一个颜色配合暗色背景，默认的是亮色背景。使用预加载提示符非常简单，创建任意标签并加上preloader类（create any element with "preloader" class）。</p>
           </div>
           <pre data-device-preview="../docs-demos/preloader.html"><code>&lt;body&gt;
   ...
   &lt;div class="page-content"&gt;
     &lt;div class="content-block row"&gt;
- 
       &lt;!-- Default preloader --&gt;
       &lt;div class="col-25"&gt;
         Default&lt;br&gt;
         &lt;span class="preloader"&gt;&lt;/span&gt;
       &lt;/div&gt;
- 
       &lt;!-- White preloader, additional "preloader-white" class --&gt;
       &lt;div class="col-25 col-dark"&gt;
         White&lt;br&gt;
         &lt;span class="preloader preloader-white"&gt;&lt;/span&gt;
       &lt;/div&gt;
- 
       &lt;!-- Default with custom size --&gt;
       &lt;div class="col-25"&gt;
         Big&lt;br&gt;
         &lt;span style="width:42px; height:42px" class="preloader"&gt;&lt;/span&gt;
       &lt;/div&gt;
- 
       &lt;!-- White with custom size --&gt;
       &lt;div class="col-25 col-dark"&gt;
         White&lt;br&gt;
         &lt;span style="width:42px; height:42px" class="preloader preloader-white"&gt;&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
- 
   &lt;/div&gt;
   ...
   &lt;style&gt;
@@ -185,6 +180,21 @@
 &lt;/body&gt;</code></pre>
         </div>
       </div>
+    </div>
+    <div class="disqus-container">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">
@@ -208,7 +218,7 @@
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="../">Framework7</a><a href="../contribute/">Contribute</a><a href="../get-started/">Get Started</a><a href="../docs/">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a></div>
+        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献者</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
         <div class="copy">2014 © Framework7 by iDangero.us</div>
       </div>
     </footer>

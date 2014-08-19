@@ -13,92 +13,92 @@ block content
       include ../jade/_docs-menu
     .docs-content.with-device
       .full-width
-        h1 Notifications
-        p With Notifications component you can show required messages that looks like Push (or Local) iOS notifications.
+        h1 通知
+        p 使用通知组件，你可以向用户展示和iOS远程推送通知或本地通知类似的通知消息。
         
-        h2 Notifications JavaScript API
-        p To add/close notifications we need to use related App's methods:
+        h2 JS API
+        p 我们需要通过调用App相关的方法来创建/关闭通知
         .method-wrap
           p
             span.method myApp.addNotification(<span>parameters</span>) 
-            span - add/show notification with specified parameters
+            span - 通过指定的参数来创建/显示通知
           ul.method-parameters
             li
               span.parameter parameters
-              |  - <span class="parameter-type">object</span> with notification parameters. Required
-            li.method-returns This method returns HTMLElement with dynamically created notification element
+              |  - <span class="parameter-type">object</span> 包含通知相关的参数（如下表）。 必选
+            li.method-returns 方法返回一个动态创建的通知体的HTML元素
         .method-wrap
           p
             span.method myApp.closeNotification(<span>notificationElement</span>) 
-            span - close specified notification
+            span - 关闭指定的通知
           ul.method-parameters
             li
               span.parameter notificationElement
-              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - of required Notification. Required
+              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (通知对应HTML元素的CSS选择器)。 必选
         
-        p Let's look at notification parameters when we add new notification:
+        p 创建一个通知所需要的参数:
         table.params-table
           thead
             tr
-              th Parameter
-              th Type
-              th Default
-              th Description
+              th 参数
+              th 类型
+              th 默认值
+              th 参数说明
           tbody
             tr
               td title
               td string
               td 
-              td Notification title. By default, equal to the <code>notificationTitle</code> App's parameter - undefined. 
+              td 标题. 默认和App参数中的 <code>notificationTitle</code> 相同，为 <code>undefined</code>
             tr
               td subtitle
               td string
               td 
-              td Notification subtitle. By default, equal to the <code>notificationSubtitle</code> App's parameter - undefined. 
+              td 子标题，默认和App参数中的 <code>notificationSubtitle</code> 相同，为 <code>undefined</code>
             tr
               td media
               td string
               td 
-              td Notification media element - HTML string with icon or image. By default, equal to the <code>notificationMedia</code> App's parameter - undefined. 
+              td 媒体元素（图标或图片） - 包含icon或图片的HTML片段。默认和App参数中的 <code>notificationMedia</code> 相同，为 <code>undefined</code>
             tr
               td hold
               td number
               td 
-              td Specify this parameter (in ms) if you want to close notification automatically after specified timeout. By default, equal to the <code>notificationHold</code> App's parameter - undefined. 
+              td 通知的停驻时间（毫秒为单位），如果指定了该参数，那么通知将在指定的时间过后关闭。默认和App参数中的 <code>notificationHold</code> 相同，为 <code>undefined</code>
             tr
               td closeIcon
               td boolean
               td true
-              td Disable to remove Close icon/button from notification. By default, equal to the <code>notificationCloseIcon</code> App's parameter - true. 
+              td 是否显示关闭按钮。默认和App参数中的 <code>notificationCloseIcon</code> 相同，为 <code>true</code>
             tr
               td closeOnClick
               td boolean
               td false
-              td Set to true and notification will be closed after click on it. By default, equal to the <code>notificationCloseOnClick</code> App's parameter - false. 
+              td 点击通知的HTML元素时，是否关闭通知。默认和App参数中的 <code>notificationCloseOnClick</code> 相同，为 <code>false</code>
             tr
               td additionalClass
               td string
               td 
-              td Add additional specified CSS class to notification element (for additional styling)
+              td 添加给通知HTML元素的className，一般用于自定义样式
             
             tr
               td custom
               td string
               td 
-              td Use this parameter if you want to use notification with custom HTML layout. <strong>"title", "subtitle", "media" and "closeIcon" parameters will be ignored when using "custom" parameter</strong>
+              td 给通知自定义HTML内容结构（如果你想的话）。<strong>如果使用的"custom"参数，"title", "subtitle", "media" 和 "closeIcon" 参数会被忽略。</strong>
             tr
               td onClick
               td function
               td 
-              td Callback function that will be executed after click on notification item
+              td 点击通知HTML元素的回调函数
             tr
               td onClose
               td function
               td 
-              td Callback function that will be executed when notification is closed (by click on close icon or via API using myApp.closeNotification method)
+              td 通知关闭的回调函数（无论是手动关闭还是通过调用 <code>myApp.closeNotification</code>方法，都会执行）
 
-        h2 Notifications Layout
-        p Notifications are just particual case of <a href="media-list-view.html">Media List View</a>. You probably don't need to use it manually because Notifications will be added using JavaScript, but it could be useful for understanding and custom styling. When you add notification F7 will add special "notifications" div to the body with list block:
+        h2 HTML 布局
+        p 通知仅仅是<a href="media-list-view.html">Media List View</a>的一种特殊形式。由于一般情况下通知都是直接被javascript调用，因此你通常不需要手动指定它的HTML布局。但是了解它对于理解其原理和自定义样式会非常有帮助。当你创建一个F7通知是，如下形式的"通知"div将被添加到body元素中。
         pre
           code
             | &lt;body&gt;
@@ -135,7 +135,7 @@ block content
             |     &lt;/ul&gt;
             |   &lt;/div&gt;    
             | &lt;/body&gt;
-        p Custom notification will have the following layout:
+        p 自定义通知将添加如下的"通知"div到body元素中：
         pre
           code
             | &lt;body&gt;
@@ -151,20 +151,20 @@ block content
             |     &lt;/ul&gt;
             |   &lt;/div&gt;    
             | &lt;/body&gt;  
-      h2(data-device-preview="../docs-demos/notifications.html") Example
+      h2(data-device-preview="../docs-demos/notifications.html") 示例
       pre
         code
           | &lt;div class="page-content"&gt;
           |   &lt;div class="content-block"&gt;
-          |     &lt;p&gt;&lt;a href="#" class="button notification-default"&gt;Default notification&lt;/a&gt;&lt;/p&gt;
-          |     &lt;p&gt;&lt;a href="#" class="button notification-full"&gt;Full-layout notification&lt;/a&gt;&lt;/p&gt;
-          |     &lt;p&gt;&lt;a href="#" class="button notification-custom"&gt;With custom image&lt;/a&gt;&lt;/p&gt;
-          |     &lt;p&gt;&lt;a href="#" class="button notification-callback"&gt;With callback on close&lt;/a&gt;&lt;/p&gt;
+          |     &lt;p&gt;&lt;a href="#" class="button notification-default"&gt;默认通知&lt;/a&gt;&lt;/p&gt;
+          |     &lt;p&gt;&lt;a href="#" class="button notification-full"&gt;包含所有元素&lt;/a&gt;&lt;/p&gt;
+          |     &lt;p&gt;&lt;a href="#" class="button notification-custom"&gt;包含自定义图片&lt;/a&gt;&lt;/p&gt;
+          |     &lt;p&gt;&lt;a href="#" class="button notification-callback"&gt;关闭时触发回调函数&lt;/a&gt;&lt;/p&gt;
           |   &lt;/div&gt;
           | &lt;/div&gt; 
       pre
         code
-          | var myApp = new Framework7(); 
+          | var myApp = new Framework7();
           | var mainView = myApp.addView('.view-main');
           | 
           | var $$ = Dom7;
@@ -172,33 +172,34 @@ block content
           | $$('.notification-default').on('click', function () {
           |     myApp.addNotification({
           |         title: 'Framework7',
-          |         message: 'This is a simple notification message with title and message'
+          |         message: '这是一个包含标题和消息内容的简单通知'
           |     });
           | });
           | $$('.notification-full').on('click', function () {
           |     myApp.addNotification({
           |         title: 'Framework7',
-          |         subtitle: 'Notification subtitle',
+          |         subtitle: '通知子标题',
           |         message: 'This is a simple notification message with custom icon and subtitle',
+          |         message: '这是一个包含自定义icon和子标题的通知',
           |         media: '&lt;i class="icon icon-f7"&gt;&lt;/i&gt;'
           |     });
           | });
           | $$('.notification-custom').on('click', function () {
           |     myApp.addNotification({
-          |         title: 'My Awesome App',
-          |         subtitle: 'New message from John Doe',
-          |         message: 'Hello, how are you? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut posuere erat. Pellentesque id elementum urna, a aliquam ante. Donec vitae volutpat orci. Aliquam sed molestie risus, quis tincidunt dui.',
+          |         title: '真是个酷炫狂拽的App',
+          |         subtitle: '来自土豆的消息',
+          |         message: '地瓜地瓜，土豆呼叫地瓜。在9点方向发现如花，BalaBalaBala',
           |         media: '&lt;img width="44" height="44" style="border-radius:100%" src="http://lorempixel.com/output/people-q-c-100-100-9.jpg"&gt;'
           |     });
           | });
           | $$('.notification-callback').on('click', function () {
           |     myApp.addNotification({
-          |         title: 'My Awesome App',
-          |         subtitle: 'New message from John Doe',
-          |         message: 'Hello, how are you? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut posuere erat. Pellentesque id elementum urna, a aliquam ante. Donec vitae volutpat orci. Aliquam sed molestie risus, quis tincidunt dui.',
+          |         title: '真是个酷炫狂拽的App',
+          |         subtitle: '来自土豆的消息',
+          |         message: '地瓜地瓜，土豆呼叫地瓜。在9点方向发现如花，BalaBalaBala',
           |         media: '&lt;img width="44" height="44" style="border-radius:100%" src="http://lorempixel.com/output/people-q-c-100-100-9.jpg"&gt;',
           |         onClose: function () {
-          |             myApp.alert('Notification closed');
+          |             myApp.alert('通知被关闭了~');
           |         }
           |     });
-          | });                 
+          | });

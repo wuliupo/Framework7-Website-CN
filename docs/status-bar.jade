@@ -9,34 +9,34 @@ block content
     .docs-nav
       include ../jade/_docs-menu
     .docs-content
-      h1 Status bar overlay
-      p iOS 7 allows you to have make full screen apps. But there could be such problem when status bar overlap your app:
+      h1 状态栏遮罩
+      p iOS 7 允许创建全屏应用，但是当状态栏覆盖你的应用时，会有这样的问题：
       .row
         .col-50
           p
-            strong Not good!
+            strong 不好！
           img(src="../i/docs/statusbar1.png", width="320")
         .col-50
           p
-            strong Good!
+            strong 好！
           img(src="../i/docs/statusbar2.png", width="320")
-      p Framework7 helps you to solve this issue. It automatically detects if your app in full screen mode, and automatically adds <strong>"with-statusbar-overlay"</strong> class to <code>&lt;html&gt;</code> if app in full screen mode (or remove this class if app not in full screen mode). With this <strong>"with-statusbar-overlay"</strong> class (when app in full screen mode) <code>&lt;html&gt;</code> has additional padding on top to move bottom whole app's content on size of Status bar (20px).
-      p Now, when Framework7 did its job on this part, we can control background color of Status bar, we need to add <code>&lt;div class="statusbar-overlay"&gt;</code> right in <code>&lt;body&gt;</code>:
+      p Framework7帮助你解决这个问题。它自动检测你的应用是否是全屏模式，如果是的话，自动添加<strong>"with-statusbar-overlay"</strong>类到<code>&lt;html&gt;</code>（如果不是的话，移除这个类）。通过<strong>"with-statusbar-overlay"</strong>类（应用处于全屏模式的时候），<code>&lt;html&gt;</code>在顶部拥有额外的padding，把整个应用的内容下移状态栏的高度（20px）。
+      p 为了配合上面的功能，我们需要在<code>&lt;body&gt;</code>内添加<code>&lt;div class="statusbar-overlay"&gt;</code>：
       pre
         code
           | ...
           | &lt;body&gt;
           |   &lt;div class="statusbar-overlay"&gt;&lt;/div&gt;
           |   ...
-      p This <strong>"statusbar-overlay"</strong> div is always fixed on top of screen and hidden by default. It becomes visible only when app is in full screen mode and <code>html</code> has "with-statusbar-overlay" class.
-      p We need just one CSS rule to make our status bar background pink:
+      p 这个<strong>"statusbar-overlay"</strong>div总是固定在屏幕顶端，默认隐藏。当应用处于全屏模式，并且<code>html</code>含有"with-statusbar-overlay"类时，它可见。
+      p 为了使我们的状态栏背景变成粉色，我们只需要添加一个CSS规则：
       pre
         code
           | .statusbar-overlay {
           |     background: pink;
           | }
-      p Such logic allows pretty flexible control over Status bar background and we can change its background dynamically. 
-      p For example, we have dark left-side panel with cover effect. We may change Status bar background to more dark color when panel opened:
+      p 这种逻辑允许对状态栏背景自由地控制，我们可以动态改变它的背景。 
+      p 比如，我们有暗色的带有覆盖效果的左侧边栏。当侧边栏打开时，我们可以让状态栏背景更暗：
       pre
         code
           | /* Default Status bar background */
@@ -51,9 +51,9 @@ block content
           | body.with-panel-left-cover .statusbar-overlay {
           |     background: #222;
           | }       
-      h4 Problems
+      h4 问题
       ul
         li
-          p On home-screen web apps Status bar text color is always white. There is no way to change it.
+          p 在大屏幕网络应用上，状态栏文本颜色总是白色的，没有必要改变它。
         li
-          p In PhoneGap apps Status bar text color is always black by default. It can't be changed from Framework7, but can be customized with PhoneGap plugins like <a href="https://github.com/apache/cordova-plugin-statusbar" target="_blank">cordova-plugin-statusbar</a>
+          p 在PhoneGap应用中，默认情况下，应用状态栏文本颜色总是黑色的。在Framework7中，它不能被改变，但可以通过PhoneGap插件定制，如<a href="https://github.com/apache/cordova-plugin-statusbar" target="_blank">cordova-plugin-statusbar</a>。 

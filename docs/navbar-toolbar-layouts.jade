@@ -12,11 +12,11 @@ block content
     .docs-nav
       include ../jade/_docs-menu
     .docs-content.with-device
-      h1 Navbars & Toolbars Layout
-      p Before we add Navbars and Toolbar to our App we need to decide which type of their layout we will use.
-      p Framework7 allows you to be very flexible with it and there are 3 different types of Navbar/Toolbar layout which defines where to put them on your page/view
-      h2(data-device-preview="../docs-demos/bars-static-index.html") "Static" Layout
-      p Static layout is the probably most rarely used layout type. In this case Navbar and Toolbar are just parts of the scrollable page content and each page has its own Navbar and Toolbar:
+      h1 导航栏&工具栏布局
+      p 在向应用添加导航栏和工具栏之前，我们需要决定使用哪种布局。
+      p Framework7在这方面很自由，有3种不同类型的导航栏/工具栏布局，它们对应着在页面/视图中的不同位置。
+      h2(data-device-preview="../docs-demos/bars-static-index.html") 静态布局
+      p 静态布局可能是最少使用的布局。在这种情况下，导航栏和工具栏只是滚动页面的一部分，每个页面都有它自己的导航栏和工具栏：
       pre
         code
           | &lt;body&gt;
@@ -53,8 +53,8 @@ block content
           |   &lt;/div&gt;
           |   ...
           | &lt;/body&gt;
-      h2(data-device-preview="../docs-demos/bars-fixed-index.html") "Fixed" Layout
-      p In Fixed layout each page also has its own navbar and toolbar but they are always visible on screen, so they not depend on page scroll:
+      h2(data-device-preview="../docs-demos/bars-fixed-index.html") 固定布局
+      p 在固定布局中，每个页面都有它自己的导航栏和工具栏，在屏幕上始终可见，不依赖于滚动：
       pre
         code
           | &lt;body&gt;
@@ -92,16 +92,16 @@ block content
           |   &lt;/div&gt;
           |   ...
           | &lt;/body&gt;
-      p As you may see the difference from Static layout is that:
+      p 正如你所见，与静态布局相比，固定布局的不同之处在于：
       ul
         li
-          p Navbar and Toolbar are now child elements of Page (<code>&lt;div class="page"&gt;</code>)
+          p 导航栏和工具栏是页面的子元素(<code>&lt;div class="page"&gt;</code>)
         li
-          p Each page has additional "navbar-fixed" (for fixed Navbar) and "toolbar-fixed" (for fixed Toolbar) classes.
+          p 每个页面拥有额外的“navbar-fixed”类（对于固定导航栏）和“toolbar-fixed”类（对于固定工具栏）
       p
-        strong Note, that if you want to use Fixed layout for every page within single View, you can just add "navbar-fixed" and "toolbar-fixed" to parent Pages (<code>&lt;div class="pages"&gt;</code>) instead of adding them to every single page.
-      h2(data-device-preview="../docs-demos/bars-through-index.html") "Through" Layout
-      p This one is the most interesting and widely used layout type - when Navbar and Toolbar stay the same through all pages within single View. With such layout you can use cool <strong>Dynamic Navbar</strong> (don't forget to enable it on <a href="views.html">View initialization</a>)
+        strong 注意，如果你想要对单视图中的每个页面使用固定布局，可以只对父页面(<code>&lt;div class="pages"&gt;</code>)添加“navbar-fixed”和“toolbar-fixed”类，而不是对每个单页面分别添加。
+      h2(data-device-preview="../docs-demos/bars-through-index.html") 穿透布局
+      p 这是最有趣，最被广泛使用的布局 —— 在不同页面间切换时，导航栏和工具栏保持不变。通过这种布局，可以实现酷炫的<strong>动态导航</strong>（不要忘记在视图初始化的时候启用它）。<a href="views.html">视图初始化</a>)
       pre
         code
           | &lt;body&gt;
@@ -139,15 +139,15 @@ block content
           |   &lt;/div&gt;
           |   ...
           | &lt;/body&gt;
-      p As you may see the difference from Static and Fixed layout are:
+      p 正如你所见，与静态和固定布局相比，穿透布局的不同之处在于：
       ul
         li 
-          p Navbar and Toolbar are now child elements of View (<code>&lt;div class="view"&gt;</code>)
+          p 导航栏和工具栏是视图的子元素(<code>&lt;div class="view"&gt;</code>)
         li
-          p View with "through" Navbar and Toolbar has additional "navbar-through" (for through-type Navbar) and "toolbar-through" (for through-type Toolbar) classes.
+          p 具有穿透布局的导航栏和工具栏的视图拥有额外的“navbar-through”类（对于穿透类型的导航栏）和"toolbar-through"类（对于穿透类型的工具栏）。
       
-      h2(data-device-preview="../docs-demos/bars-mixed-index.html") Mixed Layouts
-      p As you guess you can different layout types for different Views, like "Fixed" layout in one View and "Through" in other one. But you can also mix these layouts within single View. For example, you may have "Through" Navbar and Fixed Toolbar:
+      h2(data-device-preview="../docs-demos/bars-mixed-index.html") 混合布局
+      p 对于不同的视图，你可以使用不同的布局，比如在一个视图中使用固定布局，在另一个中使用穿透布局。其实，你也可以在单视图中，混合使用这些布局。例如，你可以使用穿透的导航栏和固定的工具栏：
       pre
         code
           | &lt;body&gt;
@@ -185,12 +185,12 @@ block content
           |   &lt;/div&gt;
           |   ...
           | &lt;/body&gt;
-      h2.stop-scroll-device No Navbar/Toolbar
-      p And of course if you don't need Navbar or Toolbar or both you may just not include them, and don't add appropriate classes ("navbar-fixed", "navbar-through", "toolbar-fixed", "toolbar-through") to page/pages/view.
+      h2.stop-scroll-device 无导航栏/工具栏
+      p 当然，如果你不需要导航栏或工具栏，你大可不必包含它们，并且不用在page/pages/view中添加相应的类（“"navbar-fixed”，“navbar-through”，“toolbar-fixed”，“toolbar-through”）
 
-      h2 Cheat sheet
-      p So as you may see all these layout types are pretty easy to understand, all their difference is in additional classes on parent elements and different nesting level. Here is cheat sheet
-      h4 Static
+      h2 速记表
+      p 正如你所见，这些布局都很容易理解，不同之处在于父元素上额外添加的类，以及不同的嵌套层级。下面是速记表
+      h4 静态
       pre
         code
           | .view   
@@ -200,7 +200,7 @@ block content
           |         .navbar   
           |         // other page content
           |         .toolbar    
-      h4 Fixed
+      h4 固定
       pre
         code
           | .view
@@ -209,7 +209,7 @@ block content
           |       .navbar
           |       .page-content
           |       .toolbar
-      h4 Through
+      h4 穿透
       pre
         code
           | .view

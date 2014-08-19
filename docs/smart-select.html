@@ -16,18 +16,18 @@
         <div class="title-links">
           <div class="title">Framework7</div>
           <div class="links-row">
-            <div class="links-label">Project:</div>
-            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">Download</a><a href="../plugins/">Plugins</a><a href="../contribute/">Contribute</a><a href="../donate/">Donate</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">Changelog</a>
+            <div class="links-label">项目:</div>
+            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">下载</a><a href="../plugins/">插件</a><a href="../contribute/">贡献者</a><a href="../donate/">捐助</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">更新日志</a>
             </div>
           </div>
           <div class="links-row">
-            <div class="links-label">Learn:</div>
-            <div class="links"><a href="../get-started/">Get Started  </a><a href="../docs/" class="active">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a>
+            <div class="links-label">学习:</div>
+            <div class="links"><a href="../get-started/">开始使用</a><a href="../docs/" class="active">文档</a><a href="../tutorials/">教程</a><a href="../forum/">论坛</a>
             </div>
           </div>
           <div class="links-row">
-            <div class="links-label">Apps:</div>
-            <div class="links"><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a>
+            <div class="links-label">应用:</div>
+            <div class="links"><a href="../examples/">案例</a><a href="../apps/">示例</a><a href="../showcase/">演示</a>
             </div>
           </div>
         </div>
@@ -197,17 +197,17 @@
           </p>
           <h2 data-device-preview="../docs-demos/smart-select-custom.html">自定义页面的title和返回按钮的文案</h2>
           <p>默认情况下，Smart Select 页面的标题总是和被点击条目的 "item-title" 文案一直，返回按钮的文案总是和 "smartSelectBackText" 中设置的文案一直。</p>
-          <p>有时候你需要自定义文案，可以通过在 Smart Select 链接上使用 "data-pagetitle" 和 "data-backtext" 来设置</p>
+          <p>有时候你需要自定义文案，可以通过在 Smart Select 链接上使用 "data-page-title" 和 "data-back-text" 来设置</p>
           <pre><code>&lt;div class="list-block"&gt;
   &lt;ul&gt;
     &lt;!-- Smart select item --&gt;
     &lt;li&gt;
-      &lt;a href="#" class="item-link smart-select" data-pagetitle="Awesome Fruits" data-backtext="Go back"&gt;
+      &lt;a href="#" class="item-link smart-select" data-page-title="Awesome Fruits" data-back-text="Go back"&gt;
         ... same Smart select Fruits structure as in previous example ...
       &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-      &lt;a href="#" class="item-link smart-select" data-pagetitle="Super Cars" data-backtext="Go back"&gt;
+      &lt;a href="#" class="item-link smart-select" data-page-title="Super Cars" data-back-text="Go back"&gt;
         ... same Smart select Cars structure as in previous example ...
       &lt;/a&gt;
     &lt;/li&gt;
@@ -250,12 +250,12 @@
 &lt;/div&gt;</code></pre>
           <p>我们可以通过 &lt;optgroup&gt; 来使用分组，可以通过在 select 上设置 "multiple" 属性来使用多选（页面会自动换成checkbox)。</p>
           <h2 class="stop-scroll-device">选择之后自动关闭</h2>
-          <p>可以设置用户选择之后自动关闭页面。只需要设置 <b>data-backonselect</b> 属性即可：</p>
+          <p>可以设置用户选择之后自动关闭页面。只需要设置 <b>data-back-onselect</b> 属性即可：</p>
           <pre><code>&lt;div class="list-block"&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href="#" class="item-link smart-select"&gt;
-        &lt;!-- data-backonselect="true" to close page automatically --&gt;
-        &lt;select data-backonselect="true" name="car" multiple&gt;
+        &lt;!-- data-back-onselect="true" to close page automatically --&gt;
+        &lt;select data-back-onselect="true" name="car" multiple&gt;
           ...
         &lt;/select&gt;
         &lt;div class="item-content"&gt;
@@ -274,6 +274,21 @@
           </ul>
         </div>
       </div>
+    </div>
+    <div class="disqus-container">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">
@@ -297,7 +312,7 @@
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="../">Framework7</a><a href="../contribute/">Contribute</a><a href="../get-started/">Get Started</a><a href="../docs/">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a></div>
+        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献者</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
         <div class="copy">2014 © Framework7 by iDangero.us</div>
       </div>
     </footer>

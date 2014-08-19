@@ -16,18 +16,18 @@
         <div class="title-links">
           <div class="title">Framework7</div>
           <div class="links-row">
-            <div class="links-label">Project:</div>
-            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">Download</a><a href="../plugins/">Plugins</a><a href="../contribute/">Contribute</a><a href="../donate/">Donate</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">Changelog</a>
+            <div class="links-label">项目:</div>
+            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">下载</a><a href="../plugins/">插件</a><a href="../contribute/">贡献者</a><a href="../donate/">捐助</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">更新日志</a>
             </div>
           </div>
           <div class="links-row">
-            <div class="links-label">Learn:</div>
-            <div class="links"><a href="../get-started/">Get Started  </a><a href="../docs/" class="active">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a>
+            <div class="links-label">学习:</div>
+            <div class="links"><a href="../get-started/">开始使用</a><a href="../docs/" class="active">文档</a><a href="../tutorials/">教程</a><a href="../forum/">论坛</a>
             </div>
           </div>
           <div class="links-row">
-            <div class="links-label">Apps:</div>
-            <div class="links"><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a>
+            <div class="links-label">应用:</div>
+            <div class="links"><a href="../examples/">案例</a><a href="../apps/">示例</a><a href="../showcase/">演示</a>
             </div>
           </div>
         </div>
@@ -136,9 +136,9 @@
         </div>
         <div class="docs-content with-device">
           <div class="full-width">
-            <h1>Accordion / Collapsible</h1>
-            <h2>Accordion Layout</h2>
-            <p>Common Accordion layout could be treat as the following:</p>
+            <h1>手风琴布局／可折叠布局（Accordion / Collapsible）</h1>
+            <h2>手风琴布局Accordion Layout</h2>
+            <p>通常，手风琴布局可以这样实现:</p>
             <pre><code>&lt;div class="accordion-list"&gt;
     &lt;div class="accordion-item"&gt;
         &lt;div class="accordion-item-toggle"&gt;...&lt;/div&gt;
@@ -153,36 +153,35 @@
         &lt;div class="accordion-item-content"&gt;...&lt;/div&gt;
     &lt;/div&gt;
     ...
-&lt;/div&gt;  </code></pre>
-            <p>Where</p>
+&lt;/div&gt;</code></pre>
+            <p>上面的代码:</p>
             <ul>
-              <li><code>accordion-list</code> - list of accordion items set. Optional class
+              <li><code>accordion-list</code> - 多个手风琴元素的列表. 可选
                 <ul>
-                  <li><code>accordion-item</code> - single accordion item. Required
+                  <li><code>accordion-item</code> - 单个手风琴元素. 必选
                     <ul>
-                      <li><code>accordion-item-toggle</code> - link to expand/collapse accordion item content. Required</li>
-                      <li><code>accordion-item-content</code> - hidden accordion item content. Required</li>
+                      <li><code>accordion-item-toggle</code> - 用来展开／折叠手风琴元素内容的开关. 必选</li>
+                      <li><code>accordion-item-content</code> - 隐藏的手风琴元素的内容. 必选</li>
                     </ul>
                   </li>
-                  <li><code>accordion-item-expanded</code> - single expandend/opened accordion item</li>
+                  <li><code>accordion-item-expanded</code> - 展开的手风琴元素</li>
                 </ul>
               </li>
             </ul>
-            <h2>Collapsible Layout</h2>
-            <p>If you want to use single separate collapsible element you may just omit "accordion-list" wrapper element:</p>
+            <h2>折叠布局(Collapsible Layout)</h2>
+            <p>如果你希望独立的可折叠元素，你可以不使用"accordion-list"包裹元素:</p>
             <pre><code>    &lt;!-- Single collapsible element --&gt;
     &lt;div class="accordion-item"&gt;
         &lt;div class="accordion-item-toggle"&gt;...&lt;/div&gt;
         &lt;div class="accordion-item-content"&gt;...&lt;/div&gt;
     &lt;/div&gt;
- 
     &lt;!-- Another separate collapsible element --&gt;
     &lt;div class="accordion-item"&gt;
         &lt;div class="accordion-item-toggle"&gt;...&lt;/div&gt;
         &lt;div class="accordion-item-content"&gt;...&lt;/div&gt;
     &lt;/div&gt;</code></pre>
-            <h2>Accordion List View</h2>
-            <p>If you use list view as accordion you may use "item-link" element instead of "accordion-toggle":</p>
+            <h2>手风琴列表视图（Accordion List View）</h2>
+            <p>如果你希望给列表视图加上手风琴布局，你应该使用"item-link"元素而不是"accordion-toggle"元素:</p>
             <pre><code>&lt;div class="list-block accordion-list"&gt;
     &lt;ul&gt;
         &lt;li class="accordion-item"&gt;
@@ -190,7 +189,7 @@
                 &lt;div class="item-inner"&gt;
                     &lt;div class="item-title"&gt;Item 1&lt;/div&gt;
                 &lt;/div&gt;
-            &lt;/a&gt; 
+            &lt;/a&gt;
             &lt;div class="accordion-item-content"&gt;Item 1 content ...&lt;/div&gt;
         &lt;/li&gt;
         &lt;li class="accordion-item"&gt;
@@ -198,13 +197,13 @@
                 &lt;div class="item-inner"&gt;
                     &lt;div class="item-title"&gt;Item 2&lt;/div&gt;
                 &lt;/div&gt;
-            &lt;/a&gt; 
+            &lt;/a&gt;
             &lt;div class="accordion-item-content"&gt;Item 2 content ...&lt;/div&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
           </div>
-          <h2 data-device-preview="../docs-demos/accordion.html">Example         </h2>
+          <h2 data-device-preview="../docs-demos/accordion.html">示例</h2>
           <pre><code>&lt;!-- List View --&gt;
 &lt;div class="content-block-title"&gt;List View Accordion&lt;/div&gt;
 &lt;div class="list-block accordion-list"&gt;
@@ -232,7 +231,6 @@
     ...
   &lt;/ul&gt;
 &lt;/div&gt;
- 
 &lt;!-- Separate collapsibles - omit "accordion-list" class--&gt;
 &lt;div class="content-block-title"&gt;Separate Collapsibles&lt;/div&gt;
 &lt;div class="list-block"&gt;
@@ -260,7 +258,6 @@
     ...
   &lt;/ul&gt;
 &lt;/div&gt;
- 
 &lt;!-- Custom Accordion --&gt;
 &lt;div class="content-block-title"&gt;Custom Accordion&lt;/div&gt;
 &lt;div class="content-block accordion-list custom-accordion"&gt;
@@ -285,9 +282,24 @@
     &lt;/div&gt;
   &lt;/div&gt;
   ...
-&lt;/div&gt;          </code></pre>
+&lt;/div&gt;</code></pre>
         </div>
       </div>
+    </div>
+    <div class="disqus-container">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">
@@ -311,7 +323,7 @@
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="../">Framework7</a><a href="../contribute/">Contribute</a><a href="../get-started/">Get Started</a><a href="../docs/">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a></div>
+        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献者</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
         <div class="copy">2014 © Framework7 by iDangero.us</div>
       </div>
     </footer>
