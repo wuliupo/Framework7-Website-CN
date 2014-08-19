@@ -99,7 +99,8 @@ html
     .content.center
       block content
     .disqus-container
-      include ../jade/_disqus
+      if !noDisqus
+        include ../jade/_disqus
     .share-line
       .center 
         .share
