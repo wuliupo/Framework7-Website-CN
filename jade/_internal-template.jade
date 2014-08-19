@@ -21,15 +21,10 @@ html
             .links
               a(href="https://github.com/nolimits4web/Framework7", target="_blank") 下载
               
-              - if (activeLink == 'plugins')
-                a(href="../plugins/").active 插件
-              - else
-                a(href="../plugins/") 插件
-
               - if (activeLink == 'contribute')
-                a(href="../contribute/").active 贡献者 
+                a(href="../contribute/").active 贡献
               - else
-                a(href="../contribute/") 贡献者
+                a(href="../contribute/") 贡献
 
               - if (activeLink == 'donate')
                 a(href="../donate/").active 捐助
@@ -55,7 +50,6 @@ html
               - else
                 a(href="../tutorials/") 教程
 
-              a(href="../forum/") 论坛
           .links-row
             .links-label 应用:
             .links
@@ -70,9 +64,9 @@ html
                 a(href="../apps/") 示例
 
               - if (activeLink == 'showcase')
-                a(href="../showcase/").active 演示
+                a(href="../showcase/").active 应用
               - else
-                a(href="../showcase/") 演示
+                a(href="../showcase/") 应用
             
     .share-line
       .center
@@ -127,7 +121,7 @@ html
       .center
         .links
           a(href="./") Framework7
-          a(href="./contribute/") 贡献者
+          a(href="./contribute/") 贡献
           a(href="./get-started/") 开始使用
           a(href="./docs/") 文档
           a(href="./tutorials/") 教程
@@ -136,6 +130,7 @@ html
           a(href="./apps/") 示例
           a(href="./showcase/") 应用
         .copy 2014 © Framework7 by iDangero.us
+        .copy 翻译 SDC-ALIBABA
 
     script(src="../js/vendor/jquery-1.11.0.min.js")
     script(src="../js/plugins.js")
