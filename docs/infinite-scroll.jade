@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Infinite Scroll | Framework7 Documentation';
+  - var title = '无限滚动 | Framework7 文档';
 
 block content
   .docs-demo-device
@@ -13,11 +13,11 @@ block content
       include ../jade/_docs-menu
     .docs-content.with-device
       .full-width
-        h1 Infinite Scroll
-        p Infinite Scroll allows to load additional content or do any other required action when page scroll is near to the bottom.
+        h1 无限滚动
+        p 无限滚动用来在页面滚动到接近底部时进行加载新内容或其他任何须要的动作。
 
-        h2 Infinite Scroll Layout
-        p All you need to make it work is to add additional "infinite-scroll" class to any scrollable container, particularly to our page scrolling area - <code>&lt;div class="page-content"&gt;</code>:
+        h2 无限滚动HTML结构
+        p 你需要做的只有在可滚动的内容容器元素上添加“infinite-scroll” class，具体到我们的页面就是<code>&lt;div class="page-content"&gt;</code>:
         pre
           code
             | &lt;div class="page"&gt;
@@ -25,13 +25,13 @@ block content
             |         ... 
             |     &lt;/div&gt;
             | &lt;/div&gt;
-        p Where:
+        p 其中:
         ul
           li
-            p <code>div class="page-content infinite-scroll"</code> our infinite scroll container
+            p <code>div class="page-content infinite-scroll"</code> 是我们无限滚动页面的容器
           li
-            p <code>data-distance</code> attribute allows to configure distance from the bottom of page (in px) to trigger infinite scroll event. By default, if note specified, it is <b>50</b> (px)
-        h2 Infinite Scroll Events
+            p <code>data-distance</code>属性用来配置页面滚动到离底部多远时触发无限滚动事件，默认是<b>50</b> (px)
+        h2 无限滚动事件
         table.events-table
           thead
             tr
@@ -41,29 +41,29 @@ block content
           tbody
             tr
               td infinite
-              td Infinite Scroll container<span>&lt;div class="page-content infinite-scroll"&gt;</span>
-              td Event will be triggered when page scroll reaches specified (in data-distance attribute) distance to the bottom.
-        h2 Infinite Scroll API
-        p There are two App's methods that can be used with infinite scroll container:
+              td 可无限滚动的页面的容器<span>&lt;div class="page-content infinite-scroll"&gt;</span>
+              td 事件会在页面滚动至距底部还有data-distance所配置的距离时触发
+        h2 无限滚动API
+        p 有2个f7应用实例方法可用来配合无限滚动组件使用:
         .method-wrap
           p
             span.method myApp.attachInfiniteScroll(<span>container</span>) 
-            span - add infinite scroll event listener to the specified HTML container
+            span - 为指定的HTML元素容器添加无限滚动事件监听器
           ul.method-parameters
             li
               span.parameter parameters
-              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - infinite scroll container. Required.
+              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (完整CSS选择器) - 可无限滚动内容区的容器. 必需.
         .method-wrap
           p
             span.method myApp.detachInfiniteScroll(<span>container</span>) 
-            span - remove infinite scroll event listener from the specified HTML container
+            span - 为指定的HTML元素容器删除无限滚动事件监听器
           ul.method-parameters
             li
               span.parameter parameters
-              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - infinite scroll container. Required.
+              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (完整CSS选择器) - 可无限滚动内容区的容器. 必需.
         .important-note
-          p Use myApp.attachInfiniteScroll method only if you detached infinite scroll events using myApp.detachInfiniteScroll because infinite scroll event listener will be attached automatically within 'pageInit'
-      h2(data-device-preview="../docs-demos/infinite-scroll.html") Example
+          p 注意，仅在你使用myApp.detachInfiniteScroll方法删除过事件监听器后,才可能需要使用 myApp.attachInfiniteScroll 方法，因为无限滚动组件的事件监听器会在“pageInit”时被自动添加。
+      h2(data-device-preview="../docs-demos/infinite-scroll.html") 栗子们
       pre
         code
           | &lt;div class="page-content infinite-scroll"&gt;
