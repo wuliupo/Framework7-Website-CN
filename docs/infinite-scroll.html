@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Infinite Scroll | Framework7 Documentation</title>
+    <title>无限滚动 | Framework7 文档</title>
     <meta property="og:image" content="http://idangero.us/framework7/i/f7-banner.jpg">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -136,25 +136,25 @@
         </div>
         <div class="docs-content with-device">
           <div class="full-width">
-            <h1>Infinite Scroll</h1>
-            <p>Infinite Scroll allows to load additional content or do any other required action when page scroll is near to the bottom.</p>
-            <h2>Infinite Scroll Layout</h2>
-            <p>All you need to make it work is to add additional "infinite-scroll" class to any scrollable container, particularly to our page scrolling area - <code>&lt;div class="page-content"&gt;</code>:</p>
+            <h1>无限滚动</h1>
+            <p>无限滚动用来在页面滚动到接近底部时进行加载新内容或其他任何须要的动作。</p>
+            <h2>无限滚动HTML结构</h2>
+            <p>你需要做的只有在可滚动的内容容器元素上添加“infinite-scroll” class，具体到我们的页面就是<code>&lt;div class="page-content"&gt;</code>:</p>
             <pre><code>&lt;div class="page"&gt;
     &lt;div class="page-content infinite-scroll" data-distance="100"&gt;
         ... 
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-            <p>Where:</p>
+            <p>其中:</p>
             <ul>
               <li>
-                <p><code>div class="page-content infinite-scroll"</code> our infinite scroll container</p>
+                <p><code>div class="page-content infinite-scroll"</code> 是我们无限滚动页面的容器</p>
               </li>
               <li>
-                <p><code>data-distance</code> attribute allows to configure distance from the bottom of page (in px) to trigger infinite scroll event. By default, if note specified, it is <b>50</b> (px)</p>
+                <p><code>data-distance</code>属性用来配置页面滚动到离底部多远时触发无限滚动事件，默认是<b>50</b> (px)</p>
               </li>
             </ul>
-            <h2>Infinite Scroll Events</h2>
+            <h2>无限滚动事件</h2>
             <table class="events-table">
               <thead>
                 <tr>
@@ -166,30 +166,30 @@
               <tbody>
                 <tr>
                   <td>infinite</td>
-                  <td>Infinite Scroll container<span>&lt;div class="page-content infinite-scroll"&gt;</span></td>
-                  <td>Event will be triggered when page scroll reaches specified (in data-distance attribute) distance to the bottom.</td>
+                  <td>可无限滚动的页面的容器<span>&lt;div class="page-content infinite-scroll"&gt;</span></td>
+                  <td>事件会在页面滚动至距底部还有data-distance所配置的距离时触发</td>
                 </tr>
               </tbody>
             </table>
-            <h2>Infinite Scroll API</h2>
-            <p>There are two App's methods that can be used with infinite scroll container:</p>
+            <h2>无限滚动API</h2>
+            <p>有2个f7应用实例方法可用来配合无限滚动组件使用:</p>
             <div class="method-wrap">
-              <p><span class="method">myApp.attachInfiniteScroll(<span>container</span>) </span><span>- add infinite scroll event listener to the specified HTML container</span></p>
+              <p><span class="method">myApp.attachInfiniteScroll(<span>container</span>) </span><span>- 为指定的HTML元素容器添加无限滚动事件监听器</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">parameters</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - infinite scroll container. Required.</li>
+                <li><span class="parameter">parameters</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (完整CSS选择器) - 可无限滚动内容区的容器. 必需.</li>
               </ul>
             </div>
             <div class="method-wrap">
-              <p><span class="method">myApp.detachInfiniteScroll(<span>container</span>) </span><span>- remove infinite scroll event listener from the specified HTML container</span></p>
+              <p><span class="method">myApp.detachInfiniteScroll(<span>container</span>) </span><span>- 为指定的HTML元素容器删除无限滚动事件监听器</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">parameters</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - infinite scroll container. Required.</li>
+                <li><span class="parameter">parameters</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (完整CSS选择器) - 可无限滚动内容区的容器. 必需.</li>
               </ul>
             </div>
             <div class="important-note">
-              <p>Use myApp.attachInfiniteScroll method only if you detached infinite scroll events using myApp.detachInfiniteScroll because infinite scroll event listener will be attached automatically within 'pageInit'</p>
+              <p>注意，仅在你使用myApp.detachInfiniteScroll方法删除过事件监听器后,才可能需要使用 myApp.attachInfiniteScroll 方法，因为无限滚动组件的事件监听器会在“pageInit”时被自动添加。</p>
             </div>
           </div>
-          <h2 data-device-preview="../docs-demos/infinite-scroll.html">Example</h2>
+          <h2 data-device-preview="../docs-demos/infinite-scroll.html">栗子们</h2>
           <pre><code>&lt;div class="page-content infinite-scroll"&gt;
   &lt;div class="list-block"&gt;
     &lt;ul&gt;
