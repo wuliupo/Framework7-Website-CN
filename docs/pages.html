@@ -79,7 +79,7 @@
             </li>
             <li><a href="searchbar.html">搜索栏</a></li>
             <li><a href="status-bar.html">状态栏</a></li>
-            <li><a href="side-panels.html">边栏</a></li>
+            <li><a href="side-panels.html">侧栏 </a></li>
             <li><a href="content-block.html">内容区</a></li>
             <li><a href="grid.html">栅格</a></li>
             <li>弹层
@@ -190,27 +190,27 @@
               <tr>
                 <td>pageBeforeInit</td>
                 <td>Page Element<span>&lt;div class="page"&gt;</span></td>
-                <td>Event will be triggered when Framework7 just inserts new page to DOM</td>
+                <td>当Framework7把新页面插入DOM的时候会触发</td>
               </tr>
               <tr>
                 <td>pageInit</td>
                 <td>Page Element<span>&lt;div class="page"&gt;</span></td>
-                <td>Event will be triggered after Framework7 initialize required page's components and navbar</td>
+                <td>当Framework7初始化页面的组件的时候会触发</td>
               </tr>
               <tr>
                 <td>pageBeforeAnimation</td>
                 <td>Page Element<span>&lt;div class="page"&gt;</span></td>
-                <td>Event will be triggered when everything initialized and page (and navbar) is ready to be animated</td>
+                <td>当页面初始化完成并且可以做动画的时候触发</td>
               </tr>
               <tr>
                 <td>pageAfterAnimation</td>
                 <td>Page Element<span>&lt;div class="page"&gt;</span></td>
-                <td>Event will be triggered after page (and navbar) animation</td>
+                <td>在页面动画完成之后触发</td>
               </tr>
               <tr>
                 <td>pageBeforeRemove</td>
                 <td>Page Element<span>&lt;div class="page"&gt;</span></td>
-                <td>Event will be triggered right before Page will be removed from DOM. This event could be very useful if you need to detach some events / destroy some plugins to free memory</td>
+                <td>当页面从DOM中删除的时候会触发。如果你希望在页面移除的时候删除一个事件绑定或者销毁一些插件，这个方法将会很有用。</td>
               </tr>
             </tbody>
           </table>
@@ -241,15 +241,15 @@ $$(document).on('pageInit', function (e) {
               </tr>
               <tr>
                 <td>page.name</td>
-                <td>Contains <span class="parameter-type">string</span> value of <code>data-page</code> attribute</td>
+                <td>就是 <code>data-page</code> 设定的名称</td>
               </tr>
               <tr>
                 <td>page.url</td>
-                <td>Contains <span class="parameter-type">string</span> URL of just loaded page</td>
+                <td>当前页面的URL</td>
               </tr>
               <tr>
                 <td>page.query</td>
-                <td><span class="parameter-type">object</span> with URL query parameters. If your page URL is<strong> "about.html?id=10&count=20&color=blue"</strong> then page.query will contain:
+                <td>当前页面的get参数，是一个对象。假设你的页面URL是 <strong> "about.html?id=10&count=20&color=blue"</strong>，那么query就是：
                   <pre><code>{
   id: '10',
   count: '20',
@@ -259,23 +259,23 @@ $$(document).on('pageInit', function (e) {
               </tr>
               <tr>
                 <td>page.view</td>
-                <td><span class="parameter-type">object</span>. View instance that contains this page (if this View was initialized)</td>
+                <td><span class="parameter-type">object</span>. 包含当前页面的view对象(前提是view已经初始化完成)</td>
               </tr>
               <tr>
                 <td>page.container</td>
-                <td>Link to Page <span class="parameter-type">HTMLElement</span></td>
+                <td>Page 对应的 <span class="parameter-type">HTMLElement</span></td>
               </tr>
               <tr>
                 <td>page.from</td>
-                <td><span class="parameter-type">string</span> - direction of where Page comes from. It will be "right" if you load new page, and "left" - if page comes after you click on "Back" button</td>
+                <td><span class="parameter-type">string</span> 当前页面从哪个方向加载进来。如果是新加载的页面，则为"right"，如果是返回上一步的页面，则为"left"</td>
               </tr>
               <tr>
                 <td>page.navbarInnerContainer</td>
-                <td>Link to related "navbar-inner" <span class="parameter-type">HTMLElement</span>. Only for Dynamic Navbars</td>
+                <td>navbar-inner" 对应的 <span class="parameter-type">HTMLElement</span>，只有动态导航栏才有。</td>
               </tr>
               <tr>
                 <td>page.swipeBack</td>
-                <td><span class="parameter-type">boolean</span>. Equals to <code>true</code> if page animation was initiated by swipe back. Available only within onPageBefore/AfterAnimation callbacks/events.</td>
+                <td><span class="parameter-type">boolean</span>。是否可以滑动返回。只有在 onPageBefore/AfterAnimation 回调函数/事件 中才可以访问。</td>
               </tr>
             </tbody>
           </table>

@@ -20,68 +20,69 @@ block content
       .method-wrap
         p
           span.method myApp.onPageBeforeInit(<span>pageName</span>, <span>callback(page)</span>) 
-          span - "callback" function will be executed when Framework7 just inserts new page <em>(with "pageName" data-page attribute)</em> to DOM
+          span - 当Framework7把新页面(必须带有data-page属性)插入到DOM的时候会触发。
         ul.method-parameters
           li
             span.parameter pageName
-            |  - <span class="parameter-type">string</span> - expected page's "data-page" attribute
+            |  - <span class="parameter-type">string</span> - 页面的 "data-page" 属性
           li
             span.parameter callback(page)
-            |  - <span class="parameter-type">function</span> - callback function that will be executed. As an argument it receives <a href="pages.html#page-data">Page Data</a> object
+            |  - <span class="parameter-type">function</span> - 要执行的回调. 会传入一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数
       .method-wrap
         p
           span.method myApp.onPageInit(<span>pageName</span>, <span>callback(page)</span>) 
-          span - "callback" function will be executed after Framework7 initialize required page's <em>(with "pageName" data-page attribute)</em> components and navbar
+          span - 当Framework7初始化一个页面(必须带有data-page属性)的组件和导航栏的时候会触发。
         ul.method-parameters
           li
             span.parameter pageName
-            |  - <span class="parameter-type">string</span> - expected page's "data-page" attribute
+            |  - <span class="parameter-type">string</span> - 页面的 "data-page" 属性
           li
             span.parameter callback(page)
-            |  - <span class="parameter-type">function</span> - callback function that will be executed. As an argument it receives <a href="pages.html#page-data">Page Data</a> object
+            |  - <span class="parameter-type">function</span> - 要执行的回调. 会传入一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数
       .method-wrap
         p
           span.method myApp.onPageBeforeAnimation(<span>pageName</span>, <span>callback(page)</span>) 
-          span - "callback" function will be executed when everything initialized and page <em>(with "pageName" data-page attribute)</em> is ready to be animated
+          span - 当一个页面(有 data-page 属性)初始化完成并且可以开始做动画的时候触发
         ul.method-parameters
           li
             span.parameter pageName
-            |  - <span class="parameter-type">string</span> - expected page's "data-page" attribute
+            |  - <span class="parameter-type">string</span> - 页面的 "data-page" 属性
           li
             span.parameter callback(page)
-            |  - <span class="parameter-type">function</span> - callback function that will be executed. As an argument it receives <a href="pages.html#page-data">Page Data</a> object
+            |  - <span class="parameter-type">function</span> - 要执行的回调. 会传入一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数
       .method-wrap
         p
           span.method myApp.onPageAfterAnimation(<span>pageName</span>, <span>callback(page)</span>) 
-          span - "callback" function will be executed after page <em>(with "pageName" data-page attribute)</em> animation
+          span - 当一个页面(有 data-page 属性)动画完成之后会触发
         ul.method-parameters
           li
             span.parameter pageName
-            |  - <span class="parameter-type">string</span> - expected page's "data-page" attribute
+            |  - <span class="parameter-type">string</span> - 页面的 "data-page" 属性
           li
             span.parameter callback(page)
-            |  - <span class="parameter-type">function</span> - callback function that will be executed. As an argument it receives <a href="pages.html#page-data">Page Data</a> object
+            |  - <span class="parameter-type">function</span> - 要执行的回调. 会传入一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数
       .method-wrap
         p
           span.method myApp.onPageBeforeRemove(<span>pageName</span>, <span>callback(page)</span>) 
           span - "callback" function will be executed right before page <em>(with "pageName" data-page attribute)</em> will be removed from DOM
+          span - 当一个页面(有 data-page 属性)从DOM移除之前会触发
         ul.method-parameters
           li
             span.parameter pageName
-            |  - <span class="parameter-type">string</span> - expected page's "data-page" attribute
+            |  - <span class="parameter-type">string</span> - 页面的 "data-page" 属性
           li
             span.parameter callback(page)
-            |  - <span class="parameter-type">function</span> - callback function that will be executed. As an argument it receives <a href="pages.html#page-data">Page Data</a> object
+            |  - <span class="parameter-type">function</span> - 要执行的回调. 会传入一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数
       h2 回调对象
       p 上面的每一个方法都会返回一个回调对象，这个对象有两个方法，你可以用来手动触发或者移除这个回调。
       .method-wrap
         p
           span.method callbackObject.trigger() 
-          span - trigger callback function
+          span - 触发回调函数
       .method-wrap
         p
           span.method callbackObject.remove() 
-          span - remove callback function
+          span - 删除回调函数
 
       h3 例子
       p 下面是一些Page回调函数的用法例子

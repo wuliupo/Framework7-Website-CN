@@ -66,23 +66,23 @@ block content
           tr
             td pageBeforeInit
             td Page Element<span>&lt;div class="page"&gt;</span>
-            td Event will be triggered when Framework7 just inserts new page to DOM
+            td 当Framework7把新页面插入DOM的时候会触发
           tr
             td pageInit
             td Page Element<span>&lt;div class="page"&gt;</span>
-            td Event will be triggered after Framework7 initialize required page's components and navbar
+            td 当Framework7初始化页面的组件的时候会触发
           tr
             td pageBeforeAnimation
             td Page Element<span>&lt;div class="page"&gt;</span>
-            td Event will be triggered when everything initialized and page (and navbar) is ready to be animated
+            td 当页面初始化完成并且可以做动画的时候触发
           tr
             td pageAfterAnimation
             td Page Element<span>&lt;div class="page"&gt;</span>
-            td Event will be triggered after page (and navbar) animation
+            td 在页面动画完成之后触发
           tr
             td pageBeforeRemove
             td Page Element<span>&lt;div class="page"&gt;</span>
-            td Event will be triggered right before Page will be removed from DOM. This event could be very useful if you need to detach some events / destroy some plugins to free memory
+            td 当页面从DOM中删除的时候会触发。如果你希望在页面移除的时候删除一个事件绑定或者销毁一些插件，这个方法将会很有用。
       p 有两种方式来使用Page事件:
       pre
         code.
@@ -113,13 +113,13 @@ block content
             th(colspan="2") Page Data Properties
           tr
             td page.name
-            td Contains <span class="parameter-type">string</span> value of <code>data-page</code> attribute
+            td 就是 <code>data-page</code> 设定的名称
           tr
             td page.url
-            td Contains <span class="parameter-type">string</span> URL of just loaded page
+            td 当前页面的URL
           tr
             td page.query
-            td <span class="parameter-type">object</span> with URL query parameters. If your page URL is<strong> "about.html?id=10&count=20&color=blue"</strong> then page.query will contain:
+            td 当前页面的get参数，是一个对象。假设你的页面URL是 <strong> "about.html?id=10&count=20&color=blue"</strong>，那么query就是：
               pre
                 code
                   | {
@@ -129,19 +129,19 @@ block content
                   | }                  
           tr
             td page.view
-            td <span class="parameter-type">object</span>. View instance that contains this page (if this View was initialized)
+            td <span class="parameter-type">object</span>. 包含当前页面的view对象(前提是view已经初始化完成)
           tr
             td page.container
-            td Link to Page <span class="parameter-type">HTMLElement</span>
+            td Page 对应的 <span class="parameter-type">HTMLElement</span>
           tr
             td page.from
-            td <span class="parameter-type">string</span> - direction of where Page comes from. It will be "right" if you load new page, and "left" - if page comes after you click on "Back" button
+            td <span class="parameter-type">string</span> 当前页面从哪个方向加载进来。如果是新加载的页面，则为"right"，如果是返回上一步的页面，则为"left"
           tr
             td page.navbarInnerContainer
-            td Link to related "navbar-inner" <span class="parameter-type">HTMLElement</span>. Only for Dynamic Navbars
+            td navbar-inner" 对应的 <span class="parameter-type">HTMLElement</span>，只有动态导航栏才有。
           tr
             td page.swipeBack
-            td <span class="parameter-type">boolean</span>. Equals to <code>true</code> if page animation was initiated by swipe back. Available only within onPageBefore/AfterAnimation callbacks/events.
+            td <span class="parameter-type">boolean</span>。是否可以滑动返回。只有在 onPageBefore/AfterAnimation 回调函数/事件 中才可以访问。
       p 我们就可以在一个handler中处理不同的页面了:
       pre
         code.
