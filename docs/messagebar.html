@@ -131,10 +131,10 @@
           </ul>
         </div>
         <div class="docs-content">
-          <h1>Message Bar</h1>
+          <h1>消息栏</h1>
           <p>Framework7 comes with special resizealbe toolbar for usage with <a href="messages.html">Messages</a></p>
-          <h2>Message Bar Layout</h2>
-          <p>Message Bar layour is pretty simple:</p>
+          <h2>消息栏的结构</h2>
+          <p>消息栏的结构是很简单的:</p>
           <pre><code>&lt;div class="toolbar messagebar" data-max-height="200"&gt;
   &lt;div class="toolbar-inner"&gt;
     &lt;textarea placeholder="Message"&gt;&lt;/textarea&gt;&lt;a href="#" class="link"&gt;Send&lt;/a&gt;
@@ -142,10 +142,10 @@
 &lt;/div&gt;   </code></pre>
           <p>Where
             <ul>
-              <li><code>data-max-height</code> - message bar max height limit when it grows depending on its content</li>
+              <li><code>data-max-height</code> - 限制Message Bar的最大高度</li>
             </ul>
           </p>
-          <p>But its place is very important, it should be inside of "page" and right before "messages-content":</p>
+          <p>请注意它的位置，应该在”page“里边并且在"messages-content"前边:</p>
           <pre><code>&lt;div class="page toolbar-fixed"&gt;
   &lt;!-- messagebar --&gt;
   &lt;div class="toolbar messagebar"&gt;
@@ -160,15 +160,15 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-          <h2>Related App Methods</h2>
+          <h2>相关的方法</h2>
           <div class="method-wrap">
-            <p><span class="method">myApp.destroyMessagebar(<span>container</span>) </span><span>- detach all message bar events and actions</span></p>
+            <p><span class="method">myApp.destroyMessagebar(<span>container</span>) </span><span>- 解绑所有的监听器和动作</span></p>
             <ul class="method-parameters">
               <li><span class="parameter">container</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - of message bar element (&lt;div class="messagebar"&gt;) or of page that contains message bar</li>
             </ul>
           </div>
           <div class="method-wrap">
-            <p><span class="method">myApp.initMessagebar(<span>container</span>) </span><span>- attach all message bar events and actions again after destroy</span></p>
+            <p><span class="method">myApp.initMessagebar(<span>container</span>) </span><span>- 在销毁之后绑定所有的事件和动作</span></p>
             <ul class="method-parameters">
               <li><span class="parameter">container</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - of message bar element (&lt;div class="messagebar"&gt;) or of page that contains message bar</li>
             </ul>

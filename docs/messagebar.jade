@@ -9,10 +9,10 @@ block content
     .docs-nav
       include ../jade/_docs-menu
     .docs-content
-      h1 Message Bar
+      h1 消息栏
       p Framework7 comes with special resizealbe toolbar for usage with <a href="messages.html">Messages</a>
-      h2 Message Bar Layout
-      p Message Bar layour is pretty simple:
+      h2 消息栏的结构
+      p 消息栏的结构是很简单的:
       pre
         code
           | &lt;div class="toolbar messagebar" data-max-height="200"&gt;
@@ -22,8 +22,8 @@ block content
           | &lt;/div&gt;   
       p Where
         ul
-          li <code>data-max-height</code> - message bar max height limit when it grows depending on its content
-      p But its place is very important, it should be inside of "page" and right before "messages-content":
+          li <code>data-max-height</code> - 限制Message Bar的最大高度
+      p 请注意它的位置，应该在”page“里边并且在"messages-content"前边:
       pre
         code
           | &lt;div class="page toolbar-fixed"&gt;
@@ -40,11 +40,11 @@ block content
           |     &lt;/div&gt;
           |   &lt;/div&gt;
           | &lt;/div&gt;
-      h2 Related App Methods
+      h2 相关的方法
       .method-wrap
         p
           span.method myApp.destroyMessagebar(<span>container</span>) 
-          span - detach all message bar events and actions
+          span - 解绑所有的监听器和动作
         ul.method-parameters
           li
             span.parameter container
@@ -52,7 +52,7 @@ block content
       .method-wrap
         p
           span.method myApp.initMessagebar(<span>container</span>) 
-          span - attach all message bar events and actions again after destroy
+          span - 在销毁之后绑定所有的事件和动作
         ul.method-parameters
           li
             span.parameter container

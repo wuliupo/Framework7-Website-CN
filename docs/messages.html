@@ -136,9 +136,9 @@
         </div>
         <div class="docs-content with-device">
           <div class="full-width">
-            <h1>Messages</h1>
-            <p>Messages component will help you with visualisation of comments and messaging system in your App.</p>
-            <h2>Messages Layout</h2>
+            <h1>消息</h1>
+            <p>消息组件会让App的消息系统更加丰富多彩</p>
+            <h2>消息组件</h2>
             <pre><code>...   
 &lt;div class="page"&gt;
   &lt;div class="page-content messages-content"&gt;
@@ -185,79 +185,79 @@
             <p>Where:</p>
             <ul>
               <li>
-                <p><code>"messages-content"</code> - required additional class for messages wrapper. Should be added to "page-content"</p>
+                <p><code>"messages-content"</code> - 用来包装消息，这个元素应该在"page-content"类内部</p>
               </li>
               <li>
-                <p><code>"messages"</code> - required additional wrapper for messages bubbles. Required element.</p>
+                <p><code>"messages"</code> - 用来包装消息气泡</p>
               </li>
               <li>
-                <p><code>"messages-date"</code> - single date stamp container. Contains coversation date and time (in &lt;span&gt;)</p>
+                <p><code>"messages-date"</code> - 标识这条对话的时间</p>
               </li>
               <li>
-                <p><code>"message"</code> - single message</p>
+                <p><code>"message"</code> - 标识一条消息</p>
               </li>
               <li>
-                <p><code>"message-name"</code> - sender name</p>
+                <p><code>"message-name"</code> - 发送人名称</p>
               </li>
               <li>
-                <p><code>"message-text"</code> - text bubble</p>
+                <p><code>"message-text"</code> - 文本气泡</p>
               </li>
               <li>
-                <p><code>"message-avatar"</code> - sender avatar</p>
+                <p><code>"message-avatar"</code> - 发送人头像</p>
               </li>
               <li>
-                <p><code>"message-sent"</code> - additional class for single message which indicates that this message was sent by user. It stays on right side with green background color.</p>
+                <p><code>"message-sent"</code> - 标识一条被用户发送过的消息，它会位于容器的右侧并且拥有绿色的背景</p>
               </li>
               <li>
-                <p><code>"message-received"</code> - additional class for single message which indicates that this message was received by user. It stays on left side with grey background color.</p>
+                <p><code>"message-received"</code> - 标识一条被用户接收的消息，它会位于容器的左侧并且拥有灰色的背景</p>
               </li>
             </ul>
-            <p>Additional classes that will be added by JavaScript automatically:</p>
+            <p>JavaScript将自动的添加样式</p>
             <ul>
               <li>
-                <p><code>"message-pic"</code> - additional class for single message (received or sent) with &lt;img&gt; Such message shouldn't contain anything except image.</p>
+                <p><code>"message-pic"</code> - 为单条带<img>的消息添加样式，该条消息不可以包括其他元素，除了image</p>
               </li>
               <li>
-                <p><code>"message-last"</code> - additional class for single message (received or sent) to indicate last received or last sent message in current conversation by one sender. Such message' bubble will have "tail", avatar and larger bottom offset. </p>
+                <p><code>"message-last"</code> - 如果这是一个发送者连续会话的最后一条，则带有一个小尾巴并且有更大的底部留白</p>
               </li>
               <li>
-                <p><code>"message-first"</code> - additional class for single message (received or sent) to indicate first received or first sent message in current conversation by one sender. Such message' bubble will have also have visible sender name. </p>
+                <p><code>"message-first"</code> - 如果这是一个发送者会话的第一条，则带有发送者的名称和头像</p>
               </li>
               <li>
-                <p><code>"message-with-avatar"</code> - additional class for single message (received or sent) that contains avatar</p>
+                <p><code>"message-with-avatar"</code> - 一条包含头像的单条信息</p>
               </li>
             </ul>
             <div class="important-note">
-              <p>In such default layout - new messages will appear on bottom of the page. If you need to have new messages on top of the page you need to add additional "<b>new-messages-first</b>" class to &lt;div class="messages"&gt;</p>
+              <p>默认的布局，新消息会出现在页面底部，但如果你需要让它出现在页面的顶部，那么你可以加入"new-messages-first"样式到 &lt;div class="messages"&gt;</p>
             </div>
-            <h2>Messages JavaScript API</h2>
-            <p>There are few App's methods that we can use with Messages:</p>
+            <h2>消息 JavaScript API</h2>
+            <p>以下是我们可以使用的方法：</p>
             <div class="method-wrap">
-              <p><span class="method">myApp.addMessage(<span>parameters</span>) </span><span>- add message</span></p>
+              <p><span class="method">myApp.addMessage(<span>parameters</span>) </span><span>- 添加消息</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">parameters</span> - <span class="parameter-type">object</span> message parameters. Required.</li>
+                <li><span class="parameter">parameters</span> - <span class="parameter-type">object</span> 消息参数，必选的</li>
               </ul>
             </div>
             <div class="method-wrap">
-              <p><span class="method">myApp.updateMessagesAngles(<span>messagesContainer</span>) </span><span>- set "message-last" class along all messages bubbles in messagesContainer to add "tail" on required messages</span></p>
+              <p><span class="method">myApp.updateMessagesAngles(<span>messagesContainer</span>) </span><span>- 为需要的消息添加"message-last" 样式</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">messagesContainer</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - messages container (&lt;div class="messages"&gt;). Required</li>
+                <li><span class="parameter">messagesContainer</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - 消息容器 (&lt;div class="messages"&gt;). 必选的</li>
               </ul>
             </div>
             <div class="method-wrap">
               <p><span class="method">myApp.scrollMessagesContainer(<span>messagesContent</span>) </span><span>- animated scroll "messages-content" to the last message</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">messagesContent</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - messages content (&lt;div class="page-content messages-content"&gt;). Optional</li>
+                <li><span class="parameter">messagesContent</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - 消息内容 (&lt;div class="page-content messages-content"&gt;). 可选的</li>
               </ul>
             </div>
-            <p>Let's look on single message parameters object that we should pass to myApp.addMessage method:</p>
+            <p>来看一下相关的参数和方法：</p>
             <table class="params-table">
               <thead>
                 <tr>
-                  <th>Parameter</th>
-                  <th>Type</th>
-                  <th>Default</th>
-                  <th>Description</th>
+                  <th>参数</th>
+                  <th>类型</th>
+                  <th>默认</th>
+                  <th>说明</th>
                 </tr>
               </thead>
               <tbody>
@@ -265,37 +265,37 @@
                   <td>text</td>
                   <td>string</td>
                   <td></td>
-                  <td>Message text. Also could be HTML string. So if you want to add message with picture, you should pass here image's HTML: <code>&lt;img src="..."&gt;</code>. <b>Required</b></td>
+                  <td>消息文本，也可以使用HTML串，如果你下给你添加图片消息，则应该使用: <code>&lt;img src="..."&gt;</code>. <b>必选的</b></td>
                 </tr>
                 <tr>
                   <td>name</td>
                   <td>string</td>
                   <td></td>
-                  <td>Sender name. <b>Optional</b></td>
+                  <td>发送者名称 <b>可选的</b></td>
                 </tr>
                 <tr>
                   <td>avatar</td>
                   <td>string</td>
                   <td></td>
-                  <td>Sender avatar URL string. <b>Optional</b></td>
+                  <td>发送者头像url <b>可选的</b></td>
                 </tr>
                 <tr>
                   <td>type</td>
                   <td>string</td>
                   <td>'sent'</td>
-                  <td>Message type - 'sent' or 'received'. <b>Optional</b></td>
+                  <td>消息类型，’发送‘或者’接收‘ <b>Optional</b></td>
                 </tr>
                 <tr>
                   <td>day</td>
                   <td>string</td>
                   <td></td>
-                  <td>Day string, for example - 'Today', 'Monday', 'Yesterday', 'Fri', '22.05.2014'. <b>Optional</b></td>
+                  <td>日期，例如 - 'Today', 'Monday', 'Yesterday', 'Fri', '22.05.2014'. <b>Optional</b></td>
                 </tr>
                 <tr>
                   <td>time</td>
                   <td>string</td>
                   <td></td>
-                  <td>Time string, for example - '22:45', '10:30 AM'. <b>Optional</b></td>
+                  <td>时间, 例如 - '22:45', '10:30 AM'. <b>Optional</b></td>
                 </tr>
               </tbody>
             </table>
