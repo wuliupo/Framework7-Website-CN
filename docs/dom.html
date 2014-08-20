@@ -79,7 +79,7 @@
             </li>
             <li><a href="searchbar.html">搜索栏</a></li>
             <li><a href="status-bar.html">状态栏</a></li>
-            <li><a href="side-panels.html">边栏</a></li>
+            <li><a href="side-panels.html">侧栏 </a></li>
             <li><a href="content-block.html">内容区</a></li>
             <li><a href="grid.html">栅格</a></li>
             <li>弹层
@@ -197,11 +197,11 @@ var $$ = Framework7.$;</code></pre>
             </tr>
             <tr>
               <td>.transform(<span>CSSTransformString</span>) </td>
-              <td>Adds prefixed CSS transform property: <code>$$('a').transform('rotate(90deg)')</code></td>
+              <td>增加带前缀的 CSS transform property: <code>$$('a').transform('rotate(90deg)')</code></td>
             </tr>
             <tr>
               <td>.transition(<span>transitionDuration</span>) </td>
-              <td>Set CSS transition-duration property to collection: <code>$$('p').transition(300)</code></td>
+              <td>设置 CSS transition-duration: <code>$$('p').transition(300)</code></td>
             </tr>
             <tr>
               <td>.on(<span>eventName</span>, <span>handler</span>) </td>
@@ -209,7 +209,7 @@ var $$ = Framework7.$;</code></pre>
             </tr>
             <tr>
               <td>.on(<span>eventName</span>, <span>delegatedTarget</span>, <span>handler</span>) </td>
-              <td>Live/delegated event listener</td>
+              <td>事件监听</td>
             </tr>
             <tr>
               <td>.off(<span>eventName</span>, <span>handler</span>) </td>
@@ -217,7 +217,7 @@ var $$ = Framework7.$;</code></pre>
             </tr>
             <tr>
               <td>.off(<span>eventName</span>, <span>delegatedTarget</span>, <span>handler</span>) </td>
-              <td>Remove live/delegated event listener</td>
+              <td>删除事件监听</td>
             </tr>
             <tr>
               <td>.trigger(<span>eventName</span>, <span>eventData</span>) </td>
@@ -225,13 +225,13 @@ var $$ = Framework7.$;</code></pre>
             </tr>
             <tr>
               <td>.transitionEnd(<span>callback</span>, <span>permanent</span>) </td>
-              <td>Adds prefixed transitionEnd event listener to collection:
+              <td>增加 transitionEnd 事件监听
                 <pre><code>$$('a').transitionEnd(function(){ /* do something */ })</code></pre>
               </td>
             </tr>
             <tr>
               <td>.animationEnd(<span>callback</span>) </td>
-              <td>Adds prefixed animationEnd event listener to collection:
+              <td>增加 animationEnd 事件监听
                 <pre><code>$$('a').animationEnd(function(){ /* do something */ })</code></pre>
               </td>
             </tr>
@@ -381,23 +381,23 @@ var $$ = Framework7.$;</code></pre>
             </tr>
             <tr>
               <td>.scrollTop() </td>
-              <td>Get scrollTop position of element</td>
+              <td>返回元素的scrollTop值</td>
             </tr>
             <tr>
               <td>.scrollTop(position, duration) </td>
-              <td>Set scrollTop "position" with animation during "duration" (in ms). Scroll top position will be set immediately if duration is not specified</td>
+              <td>指定时间内滚动到 scropTop 位置。如果没有指定 duration，则没有动画。</td>
             </tr>
             <tr>
               <td>.scrollLeft() </td>
-              <td>Get scrollLeft position of element</td>
+              <td>返回元素的 scrollLeft 值</td>
             </tr>
             <tr>
               <td>.scrollLeft(position, duration) </td>
-              <td>Set scrollLeft "position" with animation during "duration" (in ms). Scroll left postion will be set immediately if duration is not specified</td>
+              <td>指定时间内滚动到 scropTop 位置。如果没有指定 duration，则没有动画效果。</td>
             </tr>
             <tr>
               <td>.scrollTo(left, top, duration) </td>
-              <td>Set scroll left and scroll top with animation during "duration" (in ms). Scroll postion will be set immediately if duration is not specified</td>
+              <td>指定时间内滚动到left, top位置。如果没有指定 duration，则没有动画效果。</td>
             </tr>
             <th colspan="2">Shortcuts</th>
             <tr>
