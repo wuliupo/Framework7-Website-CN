@@ -9,81 +9,81 @@ block content
     .docs-nav
       include ../jade/_docs-menu
     .docs-content
-      h1 Framework7 Custom Build
-      p Since version 0.9.4 Framework7 comes with Grunt builder that allows to build custom library version where you may include only required components/modules. We need the following:
+      h1 Framework7定制
+      p 自从0.9.4版本以来，Framework7就使用Grunt构建工具，你可以使用它来定制版本，只包含需要的组件/模块。步骤如下：
       ol
         li 
-          p Download and unzip <a href="https://github.com/nolimits4web/Framework7" target="_blank">Framework7 GitHub repository</a> to local folder
+          p 下载<a href="https://github.com/nolimits4web/Framework7" target="_blank">Framework7 GitHub repository</a>，解压到本地目录
         li
-          p Install <a href="http://nodejs.org/" target="_blank">Node.js</a> (if not installed)
+          p 安装<a href="http://nodejs.org/" target="_blank">Node.js</a> （如果没有安装的话）
         li
-          p Install Grunt (if not installed) by executing the following command in terminal:
+          p 安装Grunt（如果没有安装的话），在终端中执行如下命令：
           pre
             code $ npm install -g grunt-cli
         li
-          p Now, we need to install required dependencies. Go to the folder with downloaded and unzipped Framework7 repository and execute in terminal:
+          p 然后，我们需要安装需要的依赖，进入Framework7 repository解压的路径，在终端中执行如下命令：
           pre
             code $ npm install
         li 
-          p Now, we are ready to build custom version of Framework7. We need to execute <code>grunt custom</code> command and pass components/modules that we want to include as argument. For example, if we want to include just Accordion and Tabs:
+          p 现在，我们做好了构建定制版本Framework7的准备工作。我们需要执行<code>grunt custom</code>命令，传递我们想要添加的组件/模块作为参数。例如，如果我们只想要手风琴（Accordion ）和标签页（Tabs）的话：
             pre
               code $ grunt custom:accordion,tabs
-            .important-note Note, that there shouldn't be spaces between comma and components name
+            .important-note 注意，在逗号和组件名之间不应有空格
         li
-          p That is all. Now you should see new <code>custom/</code> folder that will contain custom JS and CSS files and their minified versions
-      h2 Available Components/Modules
-      p Here is the list of all additional to core components that you can use for custom build:
+          p 以上即为全部操作。现在，你应该可以看到<code>custom/</code>文件夹，它包含定制的JS和CSS文件，以及相应的压缩版本
+      h2 可用的组件/模块
+      p 这里是你可以用来定制构建的核心组件列表：
       table
         tr
           td.nowrap accordion
-          td <a href="accordion.html">Accordion</a> component
+          td <a href="accordion.html">手风琴</a>组件
         tr
           td.nowrap searchbar
-          td <a href="searchbar.html">Search Bar</a> component
+          td <a href="searchbar.html">搜索栏</a>组件
         tr
           td.nowrap messages
-          td Includes <a href="messages.html">Messages</a> and <a href="messagebar.html">Message Bar</a> components
+          td 包含<a href="messages.html">消息</a>和<a href="messagebar.html">消息栏</a>组件
         tr
           td.nowrap modals
-          td This includes all overlays components: <a href="modal.html">Modal</a>, <a href="popup.html">Popup</a>, <a href="popover.html">Popover</a>, <a href="action-sheet.html">Action Sheet</a> and <a href="login-screen.html">Login Screen</a>
+          td 包含所有遮罩组件：<a href="modal.html">模态框</a>, <a href="popup.html">上弹框</a>, <a href="popover.html">弹出框</a>, <a href="action-sheet.html">操作表</a>和<a href="login-screen.html">登陆屏</a>
         tr
           td.nowrap swipeout
-          td <a href="swipeout.html">Swipeout</a> component
+          td <a href="swipeout.html">滑动操作</a>组件
         tr
           td.nowrap sortable
-          td <a href="sortable-list.html">Sortable</a> component
+          td <a href="sortable-list.html">可排序列表</a>组件
         tr
           td.nowrap smart-select
-          td <a href="smart-select.html">Smart Select</a> component
+          td <a href="smart-select.html">智能选择</a>组件
         tr
           td.nowrap pull-to-refresh
-          td <a href="pull-to-refresh.html">Pull To Refresh</a> component
+          td <a href="pull-to-refresh.html">下拉刷新</a>组件
         tr
           td.nowrap infinite-scroll
-          td <a href="infinite-scroll.html">Pull To Refresh</a> component
+          td <a href="infinite-scroll.html">无限滚动</a>组件
         tr
           td tabs
-          td <a href="tabs.html">Tabs</a> component
+          td <a href="tabs.html">标签页</a>组件
         tr
           td.nowrap fast-clicks
-          td This library required to remove 300ms click delay in mobile browser. You may not include it if you want to use third-party Fast Clicks library
+          td 这个库用来去除在移动端浏览器中300ms的点击延时。如果你想要使用第三方的快速点击库，你无需添加它
         tr
           td.nowrap forms
-          td Forms logic. Includes <a href="form-storage.html">Form Storate</a>, <a href="form-data.html">Form Data</a> and <a href="form-ajax-submit.html">Ajax Form Submit</a>
+          td 表单逻辑。包含<a href="form-storage.html">表单存储</a>, <a href="form-data.html">表单数据</a>和<a href="form-ajax-submit.html">Ajax表单提交</a>
         tr
           td.nowrap push-state
-          td Push State logic
+          td 添加浏览历史
         tr
           td.nowrap slider
-          td <a href="slider.html">Slider</a> component
+          td <a href="slider.html">幻灯片</a>组件
         tr
           td.nowrap photo-browser
-          td <a href="photo-browser.html">Photo Browser</a> component. Slider is also will be installed, because it is required for Photo Browser.
+          td <a href="photo-browser.html">图片浏览器</a>组件。幻灯片也会被安装，因为图片浏览器需要它
         tr
           td.nowrap notifications
-          td <a href="notifications.html">Notifications</a> component
-      h2 Only Core
-      p If you don't want to include any of this components, then just execute "grunt custom" without any arguments:
+          td <a href="notifications.html">通知</a>组件
+      h2 只有内核
+      p 如果你不添加任何组件，只需要执行“grunt custom”，而不添加任何参数：
       pre
         code $ grunt custom
 
