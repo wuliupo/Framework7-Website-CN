@@ -132,75 +132,75 @@
         </div>
         <div class="docs-content">
           <h1>Device API</h1>
-          <p>Framework7 comes with Device detection library. After you <a href="init-app.html">initialize your app</a> you can access <code>myApp.device</code> object which contains useful information about device and platform:</p>
+          <p>Framework7拥有设备检测库。在你<a href="init-app.html">初始化应用</a>之后，你可以访问<code>myApp.device</code>这个对象，它包含了关于设备和平台的有用信息：</p>
           <table class="methods-table">
             <tr>
               <td>myApp.device.os</td>
-              <td><em>string</em>. Contains <strong>"android"</strong> (for Android), <strong>"ios"</strong> (for iOS), <strong>undefined</strong> (for any other OS/platform)</td>
+              <td><em>string</em>. 包含<strong>"android"</strong> (对于Android), <strong>"ios"</strong> (对于iOS), <strong>undefined</strong> (对于任意其他操作系统/平台)</td>
             </tr>
             <tr>
               <td>myApp.device.osVersion</td>
-              <td><em>string</em>. Contains version of operating system. Available only for Android and iOS devices. For example, if it is iOS device with iOS version 7.1 then it will contain "7.1".</td>
+              <td><em>string</em>. 包含操作系统版本号，只在Android和iOS设备上可用。例如，如果是iOS设备，且其版本为7.1，则会显示“7.1”</td>
             </tr>
             <tr>
               <td>myApp.device.iso</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> for iOS device, otherwise contains false</td>
+              <td><em>boolean</em>. 对于iOS设备，为<strong>true</strong>，对于其他设备，为false</td>
             </tr>
             <tr>
               <td>myApp.device.android</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> for Android device, otherwise contains false</td>
+              <td><em>boolean</em>. 对于Android设备，为<strong>true</strong>，对于其他设备，为false</td>
             </tr>
             <tr>
               <td>myApp.device.ios</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> for iOS device, otherwise contains false</td>
+              <td><em>boolean</em>. 对于iOS设备，为<strong>true</strong>，对于其他设备，为false</td>
             </tr>
             <tr>
               <td>myApp.device.ipad</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> for iPad, otherwise contains false</td>
+              <td><em>boolean</em>. 对于iPad，为<strong>true</strong>，对于其他设备，为false</td>
             </tr>
             <tr>
               <td>myApp.device.iphone</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> for iPhone/iPod Touch, otherwise contains false</td>
+              <td><em>boolean</em>. 对于iPhone/iPod Touch，为<strong>true</strong>，对于其他设备，为false</td>
             </tr>
             <tr>
               <td>myApp.device.pixelRatio</td>
-              <td><em>number</em>. Returns device screen pixel ratio. Actually it is a shortcut of <code>window.devicePixelRatio</code></td>
+              <td><em>number</em>. 返回设备屏幕像素比，实际上，它就是<code>window.devicePixelRatio</code>的快捷方式</td>
             </tr>
             <tr>
               <td>myApp.device.webView</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> if app runs in UIWebView - webapp installed to home screen or phone gap.</td>
+              <td><em>boolean</em>. 如果应用在UIWebView（安装在家用电脑或phone gap上的网络应用）中运行，为<strong>true</strong></td>
             </tr>
             <tr>
               <td>myApp.device.minimalUi</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> if minimal-ui mode is enabled: web app running in browser on iPhone/iPod with iOS 7.1+ and minimal-ui viewport meta tag value.</td>
+              <td><em>boolean</em>. 如果启用了minimal-ui模式，为<strong>true</strong>。所谓minimal-ui模式，即为：当网络应用运行在iOS 7.1+的iPhone/iPod上，并且添加了minimal-ui viewport这个meta标签</td>
             </tr>
             <tr>
               <td>myApp.device.statusBar</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> if app running in <a href="status-bar.html">full-screen mode</a> and requires for <a href="status-bar.html">Status bar overlay</a>. <strong>iOS only</strong></td>
+              <td><em>boolean</em>. 如果应用运行在<a href="status-bar.html">全屏模式</a>，并且需要<a href="status-bar.html">状态栏遮罩</a>，为true。<strong>只针对iOS</strong></td>
             </tr>
           </table>
-          <h2>Additional &lt;html&gt; classes</h2>
-          <p>Also this Device detecting library adds additional classes on <code>&lt;html&gt;</code> element which can help you with different CSS styles for different OS and platforms.</p>
-          <p>So if you open app with iOS 7.1 device you may have the following classes:</p>
+          <h2>额外的&lt;html&gt;类</h2>
+          <p>这个设备检测库也在<code>&lt;html&gt;</code>元素上加入了额外的类，以在不同的操作系统和平台上，具有不同的CSS样式。</p>
+          <p>所以，如果你用iOS 7.1的设备打开应用，你会拥有以下类：</p>
           <pre><code>&lt;html class="ios ios-7 ios-7-1 ios-gt-6"&gt;
 ...</code></pre>
-          <p>If you open app with iOS 7.1 device with retina screen and your app running in full screen mode (myApp.device.statusBar = true):</p>
+          <p>如果你用具有retina屏的iOS 7.1设备来打开应用，并且运行在全屏模式下（myApp.device.statusBar = true）：</p>
           <pre><code>&lt;html class="ios ios-7 ios-7-1 ios-gt-6 retina with-statusbar-overlay"&gt;
 ...</code></pre>
-          <p>If you open app with iOS 8.0 device and your app running in full screen mode (myApp.device.statusBar = true):</p>
+          <p>如果你用iOS 8.0设备来打开应用，并且运行在全屏模式下（myApp.device.statusBar = true）：</p>
           <pre><code>&lt;html class="ios ios-8 ios-8-0 ios-gt-6 ios-gt-7 with-statusbar-overlay"&gt;
 ...</code></pre>
-          <p>If you open app with Android 4.4 device you will have the following classes:</p>
+          <p>如果你用Android 4.4设备来打开应用，你会拥有以下类：</p>
           <pre><code>&lt;html class="android android-4 android-4-4"&gt;
 ...</code></pre>
-          <p>In other words class calculated by the following rule: </p>
+          <p>换句话说，类基于以下规则计算：</p>
           <pre><code>&lt;html class="[os] [os major version] [os full version] [retina] [with-statusbar-overlay]"&gt;
 ...</code></pre>
           <div class="important-note">
-            <p>Note that "greater than" (ios-gt-6: for all iOS greater than iOS 6) classes available only for iOS</p>
+            <p>注意，“greater than”（ios-gt-6: 对于所有高于iOS 6的iOS）类只对iOS有效</p>
           </div>
-          <h2>Access to Device object without/before initialization</h2>
-          <p>It is also possible to access Device object with all its parameters using prototype:</p>
+          <h2>未经初始化或在初始化之前访问Device对象</h2>
+          <p>也可以通过原型来访问Device对象的参数：</p>
           <pre><code>var device = Framework7.prototype.device;
 if (device.iphone) {
   console.log('this is iPhone')

@@ -132,15 +132,15 @@
         </div>
         <div class="docs-content">
           <h1>Support API</h1>
-          <p>Framework7 also comes with features detection library. After you <a href="init-app.html">initialize your app</a> you can access <code>myApp.support</code> object which contains information about supported features:</p>
+          <p>Framework7也拥有特性检测库。在你<a href="init-app.html">初始化应用</a>之后，你可以访问<code>myApp.support</code>对象，它包含了支持的特性的信息：</p>
           <table class="methods-table">
             <tr>
               <td>myApp.support.touch</td>
-              <td><em>boolean</em>. Contains <strong>true</strong> if browser supports Touch events (touchstart, touchmove, touchend)</td>
+              <td><em>boolean</em>. 如果浏览器支持触屏事件（touchstart, touchmove, touchend），为true</td>
             </tr>
           </table>
-          <h2>Access to Support object without/before initialization</h2>
-          <p>It is also possible to access this Support object with all its parameters using prototype:</p>
+          <h2>未经初始化或在初始化之前访问Support对象</h2>
+          <p>也可以通过原型来访问Support对象的参数：</p>
           <pre><code>var support = Framework7.prototype.support;
 if (support.touch) {
   console.log('Browser has touch event')
