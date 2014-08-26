@@ -13,12 +13,12 @@ block content
       include ../jade/_docs-menu
     .docs-content.with-device
       .full-width
-        h1 媒体列表视图（Media List View）
-        p 媒体列表视图是<a href="list-view.html">列表视图（list view）</a>的拓展，它是为了展示更复杂的数据比如产品，服务，用户等等.
-        p 当然，它的布局更为复杂:
+        h1 多媒体列表（Media List View）
+        p 多媒体列表是<a href="list-view.html">列表（list view）</a>的扩展，它是为了展示更复杂的数据比如产品，服务，用户等等。
+        p 当然，它的布局更为复杂：
         pre
           code
-            | &lt;!-- Media list block has additional "media-list" class --&gt;
+            | &lt;!-- 多媒体列表有额外的“media-list”类 --&gt;
             | &lt;div class="list-block media-list"&gt;
             |     &lt;ul&gt;
             |         &lt;li&gt;
@@ -38,27 +38,27 @@ block content
             |         &lt;/li&gt;
             |     &lt;/ul&gt;
             | &lt;/div&gt;
-        p 上面的代码:
+        p 其中：
         ul
           li
-            p <code>item-media</code> 和 <code>item-inner</code>的主要弹性包裹元素（flex wrapper）. <strong>必选</strong>元素.
+            p <code>item-media</code>和<code>item-inner</code>的主要弹性(flex)容器。<strong>必选</strong>元素。
           ul
             li
               p <code>item-media</code> - 媒体元素（如图标，图片等）的容器. <strong>可选</strong>元素.
             li
-              p <code>item-inner</code> - <code>item-title</code> 和 <code>item-after</code>的主要弹性包裹元素（flex wrapper）. <strong>必选</strong>元素.
+              p <code>item-inner</code> - <code>item-title</code>和<code>item-after</code>的主要弹性(flex)容器。<strong>必选</strong>元素。
             ul
               li
-                p <code>item-title-row</code> - <code>item-title</code> 和 <code>item-after</code>的主要弹性包裹元素（flex wrapper）. <strong>可选</strong>元素.
+                p <code>item-title-row</code> - <code>item-title</code> 和 <code>item-after</code>的主要弹性(flex)容器。<strong>必选</strong>元素。
               ul
                 li
-                  p <code>item-title</code> - 单行列表项目标题. <strong>可选</strong>元素.
+                  p <code>item-title</code> - 单行列表项目标题。<strong>可选</strong>元素。
                 li
-                  p <code>item-after</code> - 列表项目标签. 可以包含其他额外的html标签（如label text, or badge, or switch/toggle or button等）. <strong>可选</strong>元素.
+                  p <code>item-after</code> - 列表项目标签。可以包含任意额外的html元素（例如标签文本、徽章、switch/toggle、按钮等等）。<strong>可选</strong>元素。
               li
-                p <code>item-subtitle</code> - 额外的单行标题. <strong>可选</strong>元素.
+                p <code>item-subtitle</code> - 额外的单行标题。<strong>可选</strong>元素。
               li
-                p <code>item-text</code> - 额外的，两行布局的，细节描述区域的容器. <strong>可选</strong>元素.
+                p <code>item-text</code> - 额外的两行布局的容器，用来放置细节描述。<strong>可选</strong>元素。
       h4(data-device-preview="../docs-demos/media-list.html") 示例
 
       pre
