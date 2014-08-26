@@ -134,52 +134,52 @@
         <div class="docs-content with-device">
           <div class="full-width">
             <h1>可排序列表（Sortable List）</h1>
-            <p>可排序列表是<a href="list-view.html">列表视图list view</a>的扩展，可以对列表进行排序.</p>
-            <p>让我们来看一下可排序列表元素的布局结构:</p>
-            <pre><code>&lt;!-- Additional "sortable" class on list-block --&gt;
+            <p>可排序列表是<a href="list-view.html">列表</a>的扩展，可以对列表进行排序.</p>
+            <p>让我们来看一下可排序列表元素的布局结构：</p>
+            <pre><code>&lt;!-- 加在列表区上额外的“sortable”类 --&gt;
 &lt;div class="list-block sortable"&gt;
     &lt;li&gt;
         &lt;div class="item-content"&gt;
             &lt;div class="item-media"&gt;...&lt;/div&gt;
             &lt;div class="item-inner"&gt;...&lt;/div&gt;
         &lt;/div&gt;
-        &lt;!-- Sortable handler element --&gt;
+        &lt;!-- 可排序句柄元素 --&gt;
         &lt;div class="sortable-handler"&gt;&lt;/div&gt;
     &lt;/li&gt;
 &lt;/div&gt;</code></pre>
-            <p>上面的代码:</p>
+            <p>其中：</p>
             <ul>
-              <li><code>sortable-handler</code> - 可拖拽元素（"draggable" element）（默认隐藏），允许你通过它来控制顺序</li>
+              <li><code>sortable-handler</code> - 可拖拽元素（"draggable" element）（默认隐藏），允许你通过它来调整列表顺序</li>
             </ul>
-            <p>使列表视图变成可排序列表视图十分简单，只需要给列表区域加上"sortable"样式类，并在列表视图元素的&lt;li&gt;加入"sortable-handler"元素作为其直接子节点</p>
+            <p>使列表变成可排序列表视图十分简单，只需要给列表区加上“sortable”类，并在列表元素&lt;li&gt;中加入“sortable-handler”元素作为其直接子元素</p>
           </div>
           <h2>开启和关闭排序功能</h2>
-          <p>当完成上边的操作后，需要去开启或者关闭排序功能.</p>
-          <h3 data-device-preview="../docs-demos/sortable.html">通过html标签控制（From HTML）</h3>
-          <p>可以通过在链接中设置特定的样式类和data属性来开启或者关闭排序功能:</p>
+          <p>在拥有可排序列表之后，我们需要某种方法来开启或者关闭排序功能。</p>
+          <h3 data-device-preview="../docs-demos/sortable.html">通过HTML标签控制</h3>
+          <p>可以通过在链接中设置特定的类和data属性来开启或者关闭排序功能：</p>
           <div class="important-note">
             <ul>
               <li>
-                <p>将<strong>"open-sortable"</strong>样式类加入到任意html元素中（推荐链接元素），点击该元素实现开启排序功能</p>
+                <p>将<strong>"open-sortable"</strong>类加入到任意HTML元素中（推荐链接元素），点击该元素实现开启排序功能</p>
               </li>
               <li>
-                <p>将<strong>"close-sortable"</strong>样式类加入到任意html元素中（推荐链接元素），点击该元素实现关闭排序功能</p>
+                <p>将<strong>"close-sortable"</strong>类加入到任意HTML元素中（推荐链接元素），点击该元素实现关闭排序功能</p>
               </li>
               <li>
-                <p>将<strong>"toggle-sortable"</strong>样式类加入到任意html元素中（推荐链接元素），点击该元素实现切换（开启／关闭）排序功能</p>
+                <p>将<strong>"toggle-sortable"</strong>类加入到任意HTML元素中（推荐链接元素），点击该元素实现切换（开启／关闭）排序功能</p>
               </li>
               <li>
-                <p>如果在页面中有多个可排序列表，你需要在以上元素中加入<strong>data-sortable=".sortable"</strong>属性，以css选择符对应相应的可排序列表</p>
+                <p>如果在应用中有多个可排序列表，你需要在以上元素中加入<strong>data-sortable=".sortable"</strong>属性，以CSS选择器对应相应的可排序列表</p>
               </li>
             </ul>
           </div>
           <pre><code>&lt;div class="content-block"&gt;
-    &lt;!-- We specify target sortable list in data-sortable attribute  --&gt;
+    &lt;!-- 我们在data-sortable属性中指定目标可排序列表 --&gt;
     &lt;p&gt;&lt;a href="#" data-sortable=".sortable" class="open-sortable"&gt;Enable sortable&lt;/a&gt;&lt;/p&gt;
     &lt;p&gt;&lt;a href="#" data-sortable=".sortable" class="close-sortable"&gt;Disable sortable&lt;/a&gt;&lt;/p&gt;
     &lt;p&gt;&lt;a href="#" data-sortable=".sortable" class="toggle-sortable"&gt;Toggle sortable&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;!-- Sortable list  --&gt;
+&lt;!-- 可排序列表 --&gt;
 &lt;div class="list-block sortable"&gt;
     &lt;ul&gt;
       &lt;li&gt;
@@ -190,7 +190,7 @@
             &lt;div class="item-after"&gt;$10&lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-        &lt;!-- Sortable handler  --&gt;
+        &lt;!-- 可排序句柄  --&gt;
         &lt;div class="sortable-handler"&gt;&lt;/div&gt;
       &lt;/li&gt;
       &lt;li&gt;
@@ -207,18 +207,18 @@
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
           <h3 data-device-preview="../docs-demos/sortable-js.html">通过JavaScript控制</h3>
-          <p>可以通过恰当的应用程序方法（App methods）:</p>
+          <p>可以通过恰当的App方法：</p>
           <p><span class="method">myApp.sortableOpen(<span>sortableContainer</span>)</span> - 在指定的可排序列表开启排序功能</p>
           <ul class="method-parameters">
-            <li><span class="parameter">sortableContainer</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of sortable container (&lt;div class="list-block sortable"&gt;). 可选的. 如果没有指定, Framework7默认将第一个&lt;div class="list-block sortable"&gt;元素作为该方法目标.</li>
+            <li><span class="parameter">sortableContainer</span> - 可排序列表的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>，可选的。如果没有指定，Framework7默认将第一个&lt;div class="list-block sortable"&gt;元素作为该方法目标。</li>
           </ul>
           <p><span class="method">myApp.sortableClose(<span>sortableContainer</span>)</span> - 在指定的可排序列表关闭排序功能</span></p>
           <ul class="method-parameters">
-            <li><span class="parameter">sortableContainer</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of sortable container (&lt;div class="list-block sortable"&gt;). 可选的. 如果没有指定, Framework7默认将第一个&lt;div class="list-block sortable"&gt;元素作为该方法目标.</li>
+            <li><span class="parameter">sortableContainer</span> - 可排序列表的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>，可选的。如果没有指定，Framework7默认将第一个&lt;div class="list-block sortable"&gt;元素作为该方法目标。</li>
           </ul>
           <p><span class="method">myApp.sortableToggle(<span>sortableContainer</span>)</span> - 在指定的可排序列表切换（开启／关闭）排序功能</span></p>
           <ul class="method-parameters">
-            <li><span class="parameter">sortableContainer</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of sortable container (&lt;div class="list-block sortable"&gt;). 可选的. 如果没有指定, Framework7默认将第一个&lt;div class="list-block sortable"&gt;元素作为该方法目标.</li>
+            <li><span class="parameter">sortableContainer</span> - 可排序列表的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>，可选的。如果没有指定，Framework7默认将第一个&lt;div class="list-block sortable"&gt;元素作为该方法目标。</li>
           </ul>
           <pre><code>&lt;p&gt;&lt;a href="#" class="open"&gt;Enable sortable&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="#" class="close"&gt;Disable sortable&lt;/a&gt;&lt;/p&gt;
@@ -249,18 +249,18 @@ $$('.toggle').on('click', function () {
               <tbody>
                 <tr>
                   <td>open</td>
-                  <td>可排序列表（Sortable Container<span>&lt;div class="list-block sortable"&gt;</span>）</td>
-                  <td>当开启排序功能时触发（Event will be triggered when sortable mode is enabled）</td>
+                  <td>可排序列表<span>&lt;div class="list-block sortable"&gt;</span></td>
+                  <td>当开启排序功能时触发</td>
                 </tr>
                 <tr>
                   <td>close</td>
-                  <td>可排序列表（Sortable Container<span>&lt;div class="list-block sortable"&gt;</span>）</td>
-                  <td>当关闭排序功能时触发（Event will be triggered when sortable mode is disabled）</td>
+                  <td>可排序列表<span>&lt;div class="list-block sortable"&gt;</span></td>
+                  <td>当关闭排序功能时触发</td>
                 </tr>
                 <tr>
                   <td>sort</td>
-                  <td>列表项目（List view element<span>&lt;li&gt;</span>）</td>
-                  <td>当用户释放正在排序的列表项目（&lt;li&gt;）且该项目的顺序改变时触发（Event will be triggered after user release currently sorting element in new position）</td>
+                  <td>列表项目<span>&lt;li&gt;</span></td>
+                  <td>当用户释放正在排序的列表项目（&lt;li&gt;）且该项目的顺序改变时触发</td>
                 </tr>
               </tbody>
             </table>
