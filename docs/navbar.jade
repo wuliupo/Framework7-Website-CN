@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Navbar | Framework7 Documentation';
+  - var title = '导航栏 | Framework7 文档';
 
 block content
   .docs-demo-device
@@ -54,7 +54,7 @@ block content
           |     &lt;/div&gt;
           | &lt;/div&gt;     
       p 额外的 <code>link</code> 类并不是必须的，但是推荐使用，因为它添加了需要的链接尺寸，以及透明度特效。
-      h3(data-device-preview="../docs-demos/navbar-multiple-links.html") 多链接
+      h3(data-device-preview="../docs-demos/navbar-multiple-links.html") 多个链接
       p 没什么特别的，只要在需要的部分添加 <code>&lt;a class="link"</code>：
       pre
         code
@@ -137,7 +137,7 @@ block content
           |     mainView.showNavbar();
           | });
       h2(data-device-preview="../docs-demos/navbar-hide-auto.html") 自动隐藏导航栏
-      p Framework7允许你在不需要导航栏而且通过Ajax载入的页面上，自动隐藏导航栏。它只在你使用穿透类型的布局时才有用。
+      p 在通过Ajax载入的页面上，当你不需要导航栏时，Framework7允许你自动隐藏导航栏。它只在你使用穿透类型的布局时才有用。
       p 为了实现这一点，你要做的是添加<srong>"no-navbar"</srong>类到载入的页面中(<code>&lt;div class="page no-navbar"&gt;</code>)，然后在那里放置一个空的导航栏：
       pre
         code

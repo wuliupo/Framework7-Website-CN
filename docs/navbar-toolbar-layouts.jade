@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Navbars & Toolbars Layout | Framework7 Documentation';
+  - var title = '导航栏&工具栏布局 | Framework7 文档';
 
 block content
   .docs-demo-device
@@ -16,7 +16,7 @@ block content
       p 在向应用添加导航栏和工具栏之前，我们需要决定使用哪种布局。
       p Framework7在这方面很自由，有3种不同类型的导航栏/工具栏布局，它们对应着在页面/视图中的不同位置。
       h2(data-device-preview="../docs-demos/bars-static-index.html") 静态布局
-      p 静态布局可能是最少使用的布局。在这种情况下，导航栏和工具栏只是滚动页面的一部分，每个页面都有它自己的导航栏和工具栏：
+      p 静态布局可能是最少使用的布局。在这种情况下，导航栏和工具栏只是可以滚动的页面内容的一部分，每个页面都有它自己的导航栏和工具栏：
       pre
         code
           | &lt;body&gt;
@@ -54,7 +54,7 @@ block content
           |   ...
           | &lt;/body&gt;
       h2(data-device-preview="../docs-demos/bars-fixed-index.html") 固定布局
-      p 在固定布局中，每个页面都有它自己的导航栏和工具栏，在屏幕上始终可见，不依赖于滚动：
+      p 在固定布局中，也是每个页面都有它自己的导航栏和工具栏，但是它们在屏幕上始终可见，不会随着页面内容滚动：
       pre
         code
           | &lt;body&gt;
@@ -95,11 +95,11 @@ block content
       p 正如你所见，与静态布局相比，固定布局的不同之处在于：
       ul
         li
-          p 导航栏和工具栏是页面的子元素(<code>&lt;div class="page"&gt;</code>)
+          p 导航栏和工具栏是Page的子元素(<code>&lt;div class="page"&gt;</code>)
         li
           p 每个页面拥有额外的“navbar-fixed”类（对于固定导航栏）和“toolbar-fixed”类（对于固定工具栏）
       p
-        strong 注意，如果你想要对单视图中的每个页面使用固定布局，可以只对父页面(<code>&lt;div class="pages"&gt;</code>)添加“navbar-fixed”和“toolbar-fixed”类，而不是对每个单页面分别添加。
+        strong 注意，如果你想要对单视图中的每个页面使用固定布局，可以直接在父页面(<code>&lt;div class="pages"&gt;</code>)上添加“navbar-fixed”和“toolbar-fixed”类，而不是对每个单页面分别添加。
       h2(data-device-preview="../docs-demos/bars-through-index.html") 穿透布局
       p 这是最有趣，最被广泛使用的布局 —— 在不同页面间切换时，导航栏和工具栏保持不变。通过这种布局，可以实现酷炫的<strong>动态导航</strong>（不要忘记在视图初始化的时候启用它）。<a href="views.html">视图初始化</a>)
       pre
@@ -147,7 +147,7 @@ block content
           p 具有穿透布局的导航栏和工具栏的视图拥有额外的“navbar-through”类（对于穿透类型的导航栏）和"toolbar-through"类（对于穿透类型的工具栏）。
       
       h2(data-device-preview="../docs-demos/bars-mixed-index.html") 混合布局
-      p 对于不同的视图，你可以使用不同的布局，比如在一个视图中使用固定布局，在另一个中使用穿透布局。其实，你也可以在单视图中，混合使用这些布局。例如，你可以使用穿透的导航栏和固定的工具栏：
+      p 对于不同的视图，你可以使用不同的布局，比如在一个视图中使用固定布局，在另一个中使用穿透布局。其实，你也可以在单视图中混合使用这些布局。例如，你可以使用穿透的导航栏和固定的工具栏：
       pre
         code
           | &lt;body&gt;

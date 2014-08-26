@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Dynamic Navbar | Framework7 Documentation';
+  - var title = '动态导航栏 | Framework7 文档';
 
 block content
   .docs-demo-device
@@ -14,7 +14,7 @@ block content
     .docs-content.with-device
       .full-width
         h1 动态导航栏
-        p iOS7的好评特性之一是动态导航栏。当页面过渡时，导航栏元素会滑动褪色。
+        p iOS7的好评特性之一是动态导航栏。当页面过渡时，导航栏元素会滑动渐变。
         .important-note
           ul
             li 
@@ -27,12 +27,12 @@ block content
         .important-note
           ul
             li
-              p 默认情况下（如果没有额外的类），每个导航栏部分都具有<b>"褪色"</b>过渡特效
+              p 默认情况下（如果没有额外的类），每个导航栏部分都具有<b>"渐变"</b>过渡特效
             li
               p 如果你向任何一个导航栏部分添加<b>"sliding"</b>类，它会具有<b>"滑动"</b>特效
             li
               p 为了美观起见，在不同的页面之间，你应当保持同一个过渡类型
-      h3(data-device-preview="../docs-demos/dynamic-navbar-fade.html") 默认(褪色)过渡
+      h3(data-device-preview="../docs-demos/dynamic-navbar-fade.html") 默认(渐变)过渡
       pre
         code
           | &lt;!-- Navbar on index page --&gt;

@@ -96,6 +96,15 @@ module.exports = function (grunt) {
             ext: '.html'
           }]
         },
+        kitchenSink: {
+          files: [{
+            expand: true,
+            cwd: 'kitchen-sink/jade',
+            src: ['*.jade'],
+            dest: 'kitchen-sink/',
+            ext: '.html'
+          }]
+        },
       },
       less: {
         build: {
@@ -148,6 +157,10 @@ module.exports = function (grunt) {
         donate: {
           files: ['donate/*.jade'],
           tasks: ['newer:jade:donate']
+        },
+        kitchenSinkJade: {
+          files: ['kitchen-sink/jade/*.jade'],
+          tasks: ['newer:jade:kitchenSink']
         },
         less: {
           files: ['css/*.less'],
