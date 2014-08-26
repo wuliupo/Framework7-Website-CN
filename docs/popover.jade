@@ -14,9 +14,9 @@ block content
     .docs-content.with-device
       .full-width
         h1 Popover
-        p Popover 组件是用来管理popover里的内容展示。你可以用 popovers 去呈现临时的信息. popover 保持可见直到用户点击popover窗口外面或者你明确地移除它。
+        p Popover 组件是用来管理popover里的内容展示。你可以用 popovers 临时显示一些信息. popover 保持可见直到用户点击popover窗口外面或者你明确地移除它。
         .important-note
-          p 注意，不推荐在小屏幕(iPhone)上使用 Popover 。 在小屏幕上你应该使用 <a href="action-sheet.html">Action Sheet</a> 来代替。
+          p 注意，不推荐在小屏幕(iPhone)上使用 Popover 。 在小屏幕上你应该使用 <a href="action-sheet.html">操作表</a> 来代替。
         h2 Popover 布局
         p 首先让我们来看看 Popover 布局, 它非常简单, 只需要添加在 <code>&lt;body&gt;</code>的结尾处:
         pre
@@ -33,9 +33,9 @@ block content
             |         &lt;/div&gt;
             |     &lt;/div&gt;
             | &lt;/body&gt;  
-        p Popover 是高度可定制元素，你可以往里面放任何东西，是通知事件的另一种视图导航。
+        p Popover 是高度可定制元素，你可以往里面放任何东西，甚至是另一个完整的视图。
       h2(data-device-preview="../docs-demos/popover.html") 打开和关闭 Popover
-      h3 From HTML
+      h3 通过HTML
       p 可以通过在链接里使用特定的类名和data属性，打开和关闭所需的 Popover :
       .important-note
         ul
@@ -47,7 +47,7 @@ block content
             p 如果你的App里有超过一个 popover, 你需要指定适当 popover，则需添加额外的属性<strong>data-popover=".my-popover"</strong> 到这个 HTML 元素上
       h4 Popover 定位
       .important-note
-        p 当我们通过这样的方法（从HTML）打开 Popover , 它可能被这样自动定位：在我们点击调用这个Popover的元素附近。
+        p 当我们通过这样的方法（通过HTML）打开 Popover , 它会被自动定位到我们点击打开Popover的元素附近。
       pre
         code
           | &lt;body&gt;
@@ -110,17 +110,17 @@ block content
       ul.method-parameters
         li
           span.parameter popover
-          |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> ( CSS 选择器) 打开 Popover. 必需
+          |  - 需要打开的popover的<span class="parameter-type">HTML元素</span> 或者 <span class="parameter-type">字符串</span> ( CSS 选择器). 必需
         li
           span.parameter target
-          |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> ( CSS 选择器) 设置 popover 围绕的目标元素. 必需
+          |  - popover需要围绕的元素（定位元素）<span class="parameter-type">HTML元素</span> 或者 <span class="parameter-type">字符串</span> ( CSS 选择器). 必需
         li.method-returns 这个方法返回 Popover的 HTML元素
       p
         span.method myApp.closeModal(<span>popover</span>)</span> - 关闭 Popover
       ul.method-parameters
         li
           span.parameter popover
-          |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector). 可选. 如果你没有指定，则任意被打开的 都将被关闭
+          |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (CSS 选择器). 可选. 如果你没有指定，则所有被打开的都将被关闭
       h4 Popover 位置
       .important-note
         p 当我们使用 JavaScript 打开popover ，我们需要通过 <strong>target</strong> 元素去设定 popover 所围绕的目标元素.
@@ -169,9 +169,9 @@ block content
           | });          
 
       h2(data-device-preview="../docs-demos/popover-dynamic.html") 动态的 Popover
-      p Framework7允许你通过HTML使用相关的App方法，动态地创建 Popover:
+      p Framework7允许你把HTML内容传给相关的App方法来动态地创建 Popover:
       p
-        span.method myApp.popover(<span>popoverHTML</span>, <span>target</span>, <span>removeOnClose</span>)</span> - open Popover with <strong>popoverHTML</strong> content around <strong>target</strong> element
+        span.method myApp.popover(<span>popoverHTML</span>, <span>target</span>, <span>removeOnClose</span>)</span> - 使用 <strong>popoverHTML</strong> 内容在 <strong>target</strong> 元素附近打开popover
       ul.method-parameters
         li
           span.parameter popoverHTML
@@ -263,6 +263,3 @@ block content
               td closed
               td Popover Element<span>&lt;div class="popover"&gt;</span>
               td 当 Popover 完成结束动画后，事件将被触发。   
-
-
-          

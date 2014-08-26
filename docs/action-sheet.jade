@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Action Sheet | Framework7 Documentation';
+  - var title = '操作表 | Framework7 Documentation';
 
 block content
   .docs-demo-device
@@ -24,7 +24,7 @@ block content
         p
           span.method myApp.actions(<span>groups</span>)</span> - 创建并弹出操作表，其包含指定数量群组的按钮
           br
-          | 或者 
+          | 或者
           br
           span.method myApp.actions(<span>buttons</span>)</span> - 创建并弹出操作表，其包含一个群组，群组包含指定数量的按钮
 
@@ -48,28 +48,28 @@ block content
           tbody
             tr
               td text
-              td string
-              td 
+              td 字符串
+              td
               td 按钮上的文本（可以是HTML字符串）
             tr
               td bold
-              td boolean
+              td 布尔值
               td false
               td 可选，若为真，则按钮上文本加粗
             tr
               td color
-              td string
-              td 
+              td 字符串
+              td
               td 可选，按钮颜色，待选颜色有10种
             tr
               td label
-              td boolean
+              td 布尔值
               td true
               td 可选，若为真，它会成为标题，而不是按钮
             tr
               td onClick
-              td function
-              td 
+              td 函数
+              td
               td 可选，当用户点击该按钮时，会调用这个函数
         p 让我们来看一下例子
 
@@ -259,6 +259,3 @@ block content
               td closed
               td 操作表元素<span>&lt;div class="actions-modal"&gt;</span>
               td 当操作表完成结束动画的时候，事件触发    
-
-
-          
