@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Notifications | Framework7 Documentation';
+  - var title = '通知 | Framework7 Documentation';
 
 block content
   .docs-demo-device
@@ -14,10 +14,10 @@ block content
     .docs-content.with-device
       .full-width
         h1 通知
-        p 使用通知组件，你可以向用户展示和iOS远程推送通知或本地通知类似的通知消息。
+        p 使用通知组件，你可以让消息看起来像iOS的推送通知一样。
         
-        h2 JS API
-        p 我们需要通过调用App相关的方法来创建/关闭通知
+        h2 通知组件JavaScript API
+        p 要想创建/关闭通知，我们需要调用相关的App方法
         .method-wrap
           p
             span.method myApp.addNotification(<span>parameters</span>) 
@@ -25,7 +25,7 @@ block content
           ul.method-parameters
             li
               span.parameter parameters
-              |  - <span class="parameter-type">object</span> 包含通知相关的参数（如下表）。 必选
+              |  - 包含通知相关的参数的<span class="parameter-type">对象</span>。必选。
             li.method-returns 方法返回一个动态创建的通知体的HTML元素
         .method-wrap
           p
@@ -34,58 +34,58 @@ block content
           ul.method-parameters
             li
               span.parameter notificationElement
-              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (通知对应HTML元素的CSS选择器)。 必选
+              |  - 通知元素的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>。必选。
         
-        p 创建一个通知所需要的参数:
+        p 创建一个通知所需要的参数：
         table.params-table
           thead
             tr
-              th 参数
-              th 类型
-              th 默认值
-              th 参数说明
+              th 参数（Parameter）
+              th 类型（Type）
+              th 默认值（Default）
+              th 参数说明（Description）
           tbody
             tr
               td title
               td string
               td 
-              td 标题. 默认和App参数中的 <code>notificationTitle</code> 相同，为 <code>undefined</code>
+              td 标题。默认和App参数中的<code>notificationTitle</code>相同，为<code>undefined</code>
             tr
               td subtitle
               td string
               td 
-              td 子标题，默认和App参数中的 <code>notificationSubtitle</code> 相同，为 <code>undefined</code>
+              td 副标题。默认和App参数中的<code>notificationSubtitle</code>相同，为<code>undefined</code>
             tr
               td media
               td string
               td 
-              td 媒体元素（图标或图片） - 包含icon或图片的HTML片段。默认和App参数中的 <code>notificationMedia</code> 相同，为 <code>undefined</code>
+              td 媒体元素（图标或图片） - 包含icon或图片的HTML片段。默认和App参数中的<code>notificationMedia</code>相同，为<code>undefined</code>
             tr
               td hold
               td number
               td 
-              td 通知的停驻时间（毫秒为单位），如果指定了该参数，那么通知将在指定的时间过后关闭。默认和App参数中的 <code>notificationHold</code> 相同，为 <code>undefined</code>
+              td 通知的停驻时间（单位ms），如果指定了该参数，那么通知将在指定的时间后自动关闭。默认和App参数中的<code>notificationHold</code>相同，为<code>undefined</code>
             tr
               td closeIcon
               td boolean
               td true
-              td 是否显示关闭按钮。默认和App参数中的 <code>notificationCloseIcon</code> 相同，为 <code>true</code>
+              td 是否显示关闭按钮。默认和App参数中的<code>notificationCloseIcon</code>相同，为<code>true</code>
             tr
               td closeOnClick
               td boolean
               td false
-              td 点击通知的HTML元素时，是否关闭通知。默认和App参数中的 <code>notificationCloseOnClick</code> 相同，为 <code>false</code>
+              td 点击通知的HTML元素时，是否关闭通知。默认和App参数中的<code>notificationCloseOnClick</code>相同，为<code>false</code>
             tr
               td additionalClass
               td string
               td 
-              td 添加给通知HTML元素的className，一般用于自定义样式
+              td 添加给通知HTML元素的类，一般用于自定义样式
             
             tr
               td custom
               td string
               td 
-              td 给通知自定义HTML内容结构（如果你想的话）。<strong>如果使用的"custom"参数，"title", "subtitle", "media" 和 "closeIcon" 参数会被忽略。</strong>
+              td 给通知自定义HTML内容结构（如果你想的话）。<strong>如果使用"custom"参数，"title"，"subtitle"，"media"和"closeIcon"参数会被忽略。</strong>
             tr
               td onClick
               td function
@@ -95,10 +95,10 @@ block content
               td onClose
               td function
               td 
-              td 通知关闭的回调函数（无论是手动关闭还是通过调用 <code>myApp.closeNotification</code>方法，都会执行）
+              td 通知关闭的回调函数（无论是手动关闭还是通过调用<code>myApp.closeNotification</code>方法，都会执行）
 
-        h2 HTML 布局
-        p 通知仅仅是<a href="media-list-view.html">Media List View</a>的一种特殊形式。由于一般情况下通知都是直接被javascript调用，因此你通常不需要手动指定它的HTML布局。但是了解它对于理解其原理和自定义样式会非常有帮助。当你创建一个F7通知是，如下形式的"通知"div将被添加到body元素中。
+        h2 HTML布局
+        p 通知仅仅是<a href="media-list-view.html">多媒体列表</a>的一种特殊形式。由于一般情况下通知都是直接被javascript调用，因此你通常不需要手动指定它的HTML布局。但是了解它对于理解其原理和自定义样式会非常有帮助。当你创建一个通知时，F7会添加如下形式的"notifications"div到列表区元素中。
         pre
           code
             | &lt;body&gt;
@@ -106,27 +106,27 @@ block content
             |   &lt;div class="notifications list-block media-list"&gt;
             |     &lt;ul&gt;
             | 
-            |       &lt;!-- Single notification item --&gt;
+            |       &lt;!-- 单个通知条目 --&gt;
             |       &lt;li class="notification-item"&gt;
             |         &lt;div class="item-content"&gt;
             |           &lt;div class="item-media"&gt;
-            |             &lt;!-- Notification media --&gt;
+            |             &lt;!-- 通知多媒体 --&gt;
             |           &lt;/div&gt;
             |           &lt;div class="item-inner"&gt;
             |             &lt;div class="item-title-row"&gt;
             |               &lt;div class="item-title"&gt;
-            |                 &lt;!-- Notification title --&gt;
+            |                 &lt;!-- 通知标题 --&gt;
             |               &lt;/div&gt;
             |               &lt;div class="item-after"&gt;
-            |                   &lt;!-- Notification close icon --&gt;
+            |                   &lt;!-- 通知关闭图标 --&gt;
             |                   &lt;a href="#" class="close-notification"&gt;&lt;/a&gt;
             |               &lt;/div&gt;
             |             &lt;/div&gt;
             |             &lt;div class="item-subtitle"&gt;
-            |               &lt;!-- Notification subtitle --&gt;
+            |               &lt;!-- 通知副标题 --&gt;
             |             &lt;/div&gt;
             |             &lt;div class="item-text"&gt;
-            |               &lt;!-- Notification message --&gt;
+            |               &lt;!-- 通知消息 --&gt;
             |             &lt;/div&gt;
             |           &lt;/div&gt;
             |         &lt;/div&gt;
@@ -135,7 +135,7 @@ block content
             |     &lt;/ul&gt;
             |   &lt;/div&gt;    
             | &lt;/body&gt;
-        p 自定义通知将添加如下的"通知"div到body元素中：
+        p 自定义通知的布局如下：
         pre
           code
             | &lt;body&gt;
@@ -143,9 +143,9 @@ block content
             |   &lt;div class="notifications list-block media-list"&gt;
             |     &lt;ul&gt;
             | 
-            |       &lt;!-- Single notification item --&gt;
+            |       &lt;!-- 单个通知条目 --&gt;
             |       &lt;li class="notification-item"&gt;
-            |         &lt;!-- Custom notification content --&gt;
+            |         &lt;!-- 自定义通知内容 --&gt;
             |       &lt;/li&gt;
             | 
             |     &lt;/ul&gt;
@@ -178,9 +178,9 @@ block content
           | $$('.notification-full').on('click', function () {
           |     myApp.addNotification({
           |         title: 'Framework7',
-          |         subtitle: '通知子标题',
+          |         subtitle: '通知副标题',
           |         message: 'This is a simple notification message with custom icon and subtitle',
-          |         message: '这是一个包含自定义icon和子标题的通知',
+          |         message: '这是一个包含自定义icon和副标题的通知',
           |         media: '&lt;i class="icon icon-f7"&gt;&lt;/i&gt;'
           |     });
           | });

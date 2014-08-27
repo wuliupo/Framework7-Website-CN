@@ -134,56 +134,57 @@
         <div class="docs-content with-device">
           <div class="full-width">
             <h1>下拉刷新</h1>
+            <p>下拉刷新是一个特别的组件，可以用来初始化页面内容的刷新。</p>
             <h2>下拉刷新的HTML布局结构</h2>
-            <p>看一下如何让下拉刷新组件和页面融为一体:</p>
+            <p>让我们来看一下如何把下拉刷新组件集成到页面中：</p>
             <pre><code>&lt;div class="page"&gt;
-  &lt;!-- Page content should have additional "pull-to-refresh-content" class --&gt;
+  &lt;!-- Page content应该拥有"pull-to-refresh-content"类 --&gt;
   &lt;div class="page-content pull-to-refresh-content"&gt;
-    &lt;!-- Default pull to refresh layer--&gt;
+    &lt;!-- 默认的下拉刷新层 --&gt;
     &lt;div class="pull-to-refresh-layer"&gt;
       &lt;div class="preloader"&gt;&lt;/div&gt;
       &lt;div class="pull-to-refresh-arrow"&gt;&lt;/div&gt;
     &lt;/div&gt;
  
-    &lt;!-- usual content below --&gt;
+    &lt;!-- 下面是正文 --&gt;
     &lt;div class="list-block"&gt;
       ...
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;   </code></pre>
-            <p>其中
+            <p>其中：
               <ul>
-                <li><code>page-content</code>需要额外添加<code>pull-to-refresh-content</code>的class。他会激活这块page拥有下拉刷新功能。</li>
-                <li><code>pull-to-refresh-layer</code> 平时隐藏的布局块，包含下拉刷新的可视元素：转动小菊花和上/下箭头。</li>
+                <li><code>page-content</code>需要额外添加<code>pull-to-refresh-content</code>类，它会开启下拉刷新。</li>
+                <li><code>pull-to-refresh-layer</code> 平时隐藏的布局块，包含下拉刷新的可视元素：加载提示符和上/下箭头。</li>
               </ul>
             </p>
             <h2>下拉刷新的行为顺序</h2>
-            <p>当用户下拉使 <b>pull-to-refresh-content</b> 元素超过下降超过44px时 (即<b>pull-to-refresh-layer</b>元素完全可视), 之后<b>pull-to-refresh-layer</b>元素将自动添加 "<b>pull-up</b>" class使箭头转向180度以告诉用户界面将在他释放手指时刷新。</p>
-            <p>当用户在“pull-up”状态释放下拉区块使页面刷新时，<b>pull-to-refresh-layer</b>区块将会添加一个"<b>refreshing</b>" class.在“refreshing”状态，箭头icon会隐藏，同时会展现一个loading的转动小菊花指示器。这个时候你通常正在进行Ajax异步请求。</p>
+            <p>当用户下拉使<b>pull-to-refresh-content</b>元素下降超过44px时(即<b>pull-to-refresh-layer</b>元素完全可视)，<b>pull-to-refresh-layer</b>元素将自动添加"<b>pull-up</b>"类，使箭头转向180度，以提醒用户界面将在他松开手指时刷新。</p>
+            <p>当用户在“pull-up”状态释放下拉区块使页面刷新时，<b>pull-to-refresh-layer</b>区块将会添加一个"<b>refreshing</b>"类。在“refreshing”状态，箭头将会隐藏，同时会展现一个加载提示符。这个时候你通常需要进行Ajax异步请求并刷新页面内容。</p>
             <h2>下拉刷新事件</h2>
-            <p>以下是下拉刷新的特殊事件，用以帮助我们识别须要刷新界面的时机:</p>
+            <p>以下是下拉刷新的特殊事件，用以帮助我们识别需要刷新界面的时机：</p>
             <table class="events-table">
               <thead>
                 <tr>
-                  <th>Event</th>
-                  <th>Target</th>
-                  <th>Description</th>
+                  <th>事件（Event）</th>
+                  <th>对象（Target）</th>
+                  <th>描述（Description）</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>refresh</td>
                   <td>拥有下拉刷新功能的界面<span>&lt;div class="pull-to-refresh-content"&gt;</span></td>
-                  <td>事件会在下拉刷新进入“refreshing” 状态时触发</td>
+                  <td>事件会在下拉刷新进入“refreshing”状态时触发</td>
                 </tr>
               </tbody>
             </table>
             <h2>重置下拉刷新</h2>
-            <p>在我们下拉刷新页面之后，需要重置下拉刷新组件以使之可以继续进行下拉刷新操作:</p>
+            <p>在我们刷新页面内容之后，需要重置下拉刷新组件，以使用户可以再次下拉：</p>
             <div class="method-wrap">
               <p><span class="method">myApp.pullToRefreshDone(<span>ptrContent</span>) </span><span>- 重置特定的下拉刷新界面</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">ptrContent</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (需要完整CSS选择器) 须要重置的 "pull-to-refresh-content" 页面</li>
+                <li><span class="parameter">ptrContent</span> - 我们想要重置的下拉刷新页面的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span></li>
               </ul>
             </div>
             <h2>JS触发下拉刷新</h2>
@@ -191,11 +192,11 @@
             <div class="method-wrap">
               <p><span class="method">myApp.pullToRefreshTrigger(<span>ptrContent</span>) </span><span>- 触发特定界面的下拉刷新</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">ptrContent</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (需要完整CSS选择器) 须要触发下拉刷新的 "pull-to-refresh-content" 页面</li>
+                <li><span class="parameter">ptrContent</span> - 我们想要触发的下拉刷新页面的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span></li>
               </ul>
             </div>
           </div>
-          <h2 data-device-preview="../docs-demos/pull-to-refresh.html">例子</h2>
+          <h2 data-device-preview="../docs-demos/pull-to-refresh.html">示例</h2>
           <pre><code>&lt;div class="page-content pull-to-refresh-content"&gt;
   &lt;div class="pull-to-refresh-layer"&gt;
     &lt;div class="preloader"&gt;&lt;/div&gt;
@@ -223,24 +224,24 @@
  
 var $$ = Dom7;
  
-// Dummy Content
+// 随意编造的内容
 var songs = ['Yellow Submarine', 'Don\'t Stop Me Now', 'Billie Jean', 'Californication'];
 var authors = ['Beatles', 'Queen', 'Michael Jackson', 'Red Hot Chili Peppers'];
  
-// Pull to refresh content
+// 下拉刷新页面
 var ptrContent = $$('.pull-to-refresh-content');
  
-// Add 'refresh' listener on it
+// 添加'refresh'监听器
 ptrContent.on('refresh', function (e) {
-    // Emulate 2s loading
+    // 模拟2s的加载过程
     setTimeout(function () {
-        // Random image
+        // 随机图片
         var picURL = 'http://hhhhold.com/88/d/jpg?' + Math.round(Math.random() * 100);
-        // Random song
+        // 随机音乐
         var song = songs[Math.floor(Math.random() * songs.length)];
-        // Random author
+        // 随机作者
         var author = authors[Math.floor(Math.random() * authors.length)];
-        // List item html
+        // 列表元素的HTML字符串
         var itemHTML = '&lt;li class="item-content"&gt;' +
                           '&lt;div class="item-media"&gt;&lt;img src="' + picURL + '" width="44"/&gt;&lt;/div&gt;' +
                           '&lt;div class="item-inner"&gt;' +
@@ -250,9 +251,9 @@ ptrContent.on('refresh', function (e) {
                             '&lt;div class="item-subtitle"&gt;' + author + '&lt;/div&gt;' +
                           '&lt;/div&gt;' +
                         '&lt;/li&gt;';
-        // Prepend new list element
+        // 前插新列表元素
         ptrContent.find('ul').prepend(itemHTML);
-        // When loading done, we need to reset it
+        // 加载完毕需要重置
         myApp.pullToRefreshDone();
     }, 2000);
 });</code></pre>

@@ -134,12 +134,12 @@
         <div class="docs-content with-device">
           <div class="full-width">
             <h1>幻灯片(Slider)</h1>
-            <p>Framework7自带一个强力的幻灯片组件,集成了启用硬件加速的过渡动画效果和完美的仿native应用行为。他以著名的<a href="http://www.idangero.us/sliders/swiper/">Swiper</a>的方式内置在Framework7中。</p>
+            <p>Framework7自带一个强大的幻灯片组件，集成了启用硬件加速的过渡动画效果和完美的仿native应用行为。它以著名的<a href="http://www.idangero.us/sliders/swiper/">Swiper</a>的方式内置在Framework7中。</p>
             <h2>幻灯片HTML布局结构</h2>
-            <p>HTML结构相当简单:</p>
+            <p>HTML结构相当简单：</p>
             <pre><code>&lt;!-- Slider container --&gt;
 &lt;div class="slider-container"&gt;
-    &lt;!-- Slides wrapper --&gt;
+    &lt;!-- Slider wrapper --&gt;
     &lt;div class="slider-wrapper"&gt;
         &lt;!-- Slides --&gt;
         &lt;div class="slider-slide"&gt;Slide 1&lt;/div&gt;
@@ -147,10 +147,10 @@
         &lt;div class="slider-slide"&gt;Slide 3&lt;/div&gt;
         ... other slides ...
     &lt;/div&gt;
-    &lt;!-- Pagination, if required --&gt;
+    &lt;!-- 分页条，可选 --&gt;
     &lt;div class="slider-pagination"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-            <p>其中:</p>
+            <p>其中：</p>
             <ul>
               <li>
                 <p><code>slider-container</code> - 幻灯片和分页条的总容器。必需。</p>
@@ -164,36 +164,36 @@
                     </ul>
                   </li>
                   <li>
-                    <p><code>slider-pagination</code> - 分页条容器。注意，分页条里每一项是自动生成的。可选。</p>
+                    <p><code>slider-pagination</code> -分页条的容器。注意，分页条会自动生成。可选。</p>
                   </li>
                 </ul>
               </li>
             </ul>
-            <h2>通过JS初始化幻灯片</h2>
-            <p>现在我们有了幻灯片的HTML结构，还需要通过相关的App方法初始化它:</p>
+            <h2>通过JavaScript初始化幻灯片</h2>
+            <p>现在我们有了幻灯片的HTML结构，还需要通过相关的App方法初始化它：</p>
             <div class="method-wrap">
               <p><span class="method">myApp.slider(<span>sliderContainer</span>, <span>parameters</span>) </span><span>- 传入参数初始化幻灯片</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">sliderContainer</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) HTML容器。 必需。</li>
+                <li><span class="parameter">sliderContainer</span> - 幻灯片容器的<span class="parameter-type">DOM节点</span>或<span class="parameter-type">CSS选择器</span>。必需。</li>
                 <li><span class="parameter">parameters</span> - <span class="parameter-type">object</span> - 幻灯片的对象参数。可选。</li>
                 <li class="method-returns"><strong>方法返回初始化后的幻灯片实例</strong></li>
               </ul>
             </div>
-            <p>举个栗子:</p>
+            <p>举个例子：</p>
             <pre><code>var mySlider = app.slider('.slider-container', {
     speed: 400,
     spaceBetween: 100
 });   </code></pre>
-            <div class="important-note">注意幻灯片容器在初始化时应该已经在DOM里存在了。所以如果你不是在首页使用幻灯片，应该在<a href="pages.html#page-events">pageInit</a>事件回调里执行初始化操作。</div>
+            <div class="important-note">注意幻灯片容器在初始化时应该已经在DOM里存在了。所以如果你不是在首页使用幻灯片，应该在<a href="pages.html#page-事件">pageInit</a>事件回调函数里执行初始化操作。</div>
             <h2>幻灯片参数</h2>
-            <p>下方是所有可用的参数:</p>
+            <p>下面是所有可用的参数：</p>
             <table class="params-table">
               <thead>
                 <tr>
-                  <th>Parameter</th>
-                  <th>Type</th>
-                  <th>Default</th>
-                  <th>Description</th>
+                  <th>参数（Parameter）</th>
+                  <th>类型（Type）</th>
+                  <th>默认（Default）</th>
+                  <th>描述（Description）</th>
                 </tr>
               </thead>
               <tbody>
@@ -201,7 +201,7 @@
                   <td>initialSlide</td>
                   <td>number</td>
                   <td>0</td>
-                  <td>初始展示的幻灯片是几页.</td>
+                  <td>初始展示的幻灯片序号</td>
                 </tr>
                 <tr>
                   <td>spaceBetween</td>
@@ -213,13 +213,13 @@
                   <td>slidesPerView</td>
                   <td>number</td>
                   <td>1</td>
-                  <td>每个视图可显示几张幻灯片。（在幻灯片容器里同一时间可容纳展示的幻灯片数量）</td>
+                  <td>同时可显示几张幻灯片（在幻灯片容器里同一时间可容纳展示的幻灯片数量）</td>
                 </tr>
                 <tr>
                   <td>direction</td>
                   <td>string</td>
                   <td>'horizontal'</td>
-                  <td>水平还是垂直滑动。可选值是'horizontal' 或 'vertical' </td>
+                  <td>水平还是垂直滑动。可选值是'horizontal'和'vertical' </td>
                 </tr>
                 <tr>
                   <td>speed</td>
@@ -231,7 +231,7 @@
                   <td>preventClicks</td>
                   <td>boolean</td>
                   <td>true</td>
-                  <td>设置为"true"可在滑动过程中阻止页码链接点击事件</td>
+                  <td>设置为"true"可在滑动过程中阻止链接点击事件</td>
                 </tr>
                 <tr>
                   <td>preventClicksPropagation</td>
@@ -240,19 +240,19 @@
                   <td>设置为"true"可在滑动过程中阻止点击事件冒泡</td>
                 </tr>
                 <tr>
-                  <th colspan="4">分页条相关</th>
+                  <th colspan="4">分页条</th>
                 </tr>
                 <tr>
                   <td>pagination</td>
                   <td>string / HTMLElement</td>
                   <td>undefined</td>
-                  <td>指定分页条的DOM节点或HTML字符串 </td>
+                  <td>指定分页条的DOM节点或CSS选择器</td>
                 </tr>
                 <tr>
                   <td>paginationHide</td>
                   <td>boolean</td>
                   <td>true</td>
-                  <td>当点击幻灯片容器时，切换分页条容器是否可视</td>
+                  <td>当点击幻灯片容器时，分页条是否可见</td>
                 </tr>
                 <tr>
                   <th colspan="4">自动播放</th>
@@ -267,7 +267,7 @@
                   <td>autoplayDisableOnInteraction</td>
                   <td>boolean</td>
                   <td>true</td>
-                  <td>设置为false后，自动播放将不会因用户交互（比如手指拨弄滑动）而被停止，他会在每次用户交互后重新开始自动播放</td>
+                  <td>设置为false后，自动播放将不会因用户交互（比如手指拨弄滑动）而被停止，它会在每次用户交互后重新开始自动播放</td>
                 </tr>
                 <tr>
                   <th colspan="4">导航按钮</th>
@@ -276,19 +276,19 @@
                   <td>nextButton</td>
                   <td>string / HTMLElement</td>
                   <td>undefined</td>
-                  <td>传入HTML字符串或DOM节点，顾名思义，点一下往后翻一页</td>
+                  <td>传入DOM节点或CSS选择器，顾名思义，点一下往后翻一页</td>
                 </tr>
                 <tr>
                   <td>prevButton</td>
                   <td>string / HTMLElement</td>
                   <td>undefined</td>
-                  <td>传入HTML字符串或DOM节点，顾名思义，点一下往前翻一页</td>
+                  <td>传入DOM节点或CSS选择器，顾名思义，点一下往前翻一页</td>
                 </tr>
                 <tr>
                   <td>indexButton</td>
                   <td>string / HTMLElement</td>
                   <td>undefined</td>
-                  <td>传入HTML字符串或DOM节点，使分页条的每一项成为可点击的链接，点击哪一项则幻灯片滑动至对应页码的幻灯片显示</td>
+                  <td>传入DOM节点或CSS选择器，使分页条的每一项成为可点击的链接，点击哪一项则幻灯片滑动至对应页码的幻灯片显示</td>
                 </tr>
                 <tr>
                   <th colspan="4">回调函数</th>
@@ -309,19 +309,19 @@
                   <td>onTouchStart(slider, event)</td>
                   <td>function</td>
                   <td></td>
-                  <td>当用户开始触摸幻灯片范围时执行。接受一个幻灯片实例对象和'touchstart'事件作为参数</td>
+                  <td>当用户开始触摸幻灯片时执行。接受一个幻灯片实例对象和'touchstart'事件作为参数</td>
                 </tr>
                 <tr>
                   <td>onTouchMove(slider, event)</td>
                   <td>function</td>
                   <td></td>
-                  <td>当用户按住幻灯片范围并移动手指时执行。接受一个幻灯片实例对象和'touchmove'事件作为参数</td>
+                  <td>当用户按住幻灯片并移动手指时执行。接受一个幻灯片实例对象和'touchmove'事件作为参数</td>
                 </tr>
                 <tr>
                   <td>onOppositeTouchMove(slider, event)</td>
                   <td>function</td>
                   <td></td>
-                  <td>当用户按住幻灯片范围并以与"direction"参数值相反的方式移动手指时执行。接受一个幻灯片实例对象和'touchmove'事件作为参数</td>
+                  <td>当用户按住幻灯片并以与"direction"参数值相反的方向移动手指时执行。接受一个幻灯片实例对象和'touchmove'事件作为参数</td>
                 </tr>
                 <tr>
                   <td>onSliderMove(slider, event)</td>
@@ -360,48 +360,48 @@
                   <td>slideClass</td>
                   <td>string</td>
                   <td>'slider-slide'</td>
-                  <td>幻灯片组件的css命名空间</td>
+                  <td>幻灯片元素的CSS类名</td>
                 </tr>
                 <tr>
                   <td>slideActiveClass</td>
                   <td>string</td>
                   <td>'slider-slide-active'</td>
-                  <td>当前显示的幻灯片元素的class命名空间</td>
+                  <td>当前显示的幻灯片元素的CSS类名</td>
                 </tr>
                 <tr>
                   <td>slideNextClass</td>
                   <td>string</td>
                   <td>'slider-slide-next'</td>
-                  <td>紧邻当前显示的幻灯片下一张的class命名空间</td>
+                  <td>紧邻当前显示的幻灯片下一张的CSS类名</td>
                 </tr>
                 <tr>
                   <td>slidePrevClass</td>
                   <td>string</td>
                   <td>'slider-slide-prev'</td>
-                  <td>紧邻当前显示的幻灯片上一张的class命名空间</td>
+                  <td>紧邻当前显示的幻灯片上一张的CSS类名</td>
                 </tr>
                 <tr>
                   <td>wrapperClass</td>
                   <td>string</td>
                   <td>'slider-wrapper'</td>
-                  <td>幻灯片容器的class命名空间</td>
+                  <td>幻灯片容器的CSS类名</td>
                 </tr>
                 <tr>
                   <td>bulletClass</td>
                   <td>string</td>
                   <td>'slider-pagination-bullet'</td>
-                  <td>分页条中每一项(表示每一页的那个点)的class命名空间</td>
+                  <td>分页条中每一项(表示每一页的那个点)的CSS类名</td>
                 </tr>
                 <tr>
                   <td>bulletActiveClass</td>
                   <td>string</td>
                   <td>'slider-pagination-active'</td>
-                  <td>分页条中当前显示项的class命名空间</td>
+                  <td>分页条中当前显示项的CSS类名</td>
                 </tr>
               </tbody>
             </table>
             <h2>幻灯片方法和属性</h2>
-            <p>在我们初始化幻灯片后，我们拥有他的实例化对象(上面的例子里类似<code>mySlider</code>变量),他本身带有一些方法和属性:</p>
+            <p>在我们初始化幻灯片后，我们拥有它的实例化对象(类似于上面的例子里的<code>mySlider</code>变量)，它本身带有一些方法和属性:</p>
             <table class="methods-table">
               <tbody>
                 <tr>
@@ -409,7 +409,7 @@
                 </tr>
                 <tr>
                   <td>mySlider.params</td>
-                  <td>初始化时传入的参数</td>
+                  <td>初始化时传入的参数对象</td>
                 </tr>
                 <tr>
                   <td>mySlider.container</td>
@@ -429,11 +429,11 @@
                 </tr>
                 <tr>
                   <td>mySlider.isFirst</td>
-                  <td>当前幻灯片是否是在最左（或最上）的位置</td>
+                  <td>若当前幻灯片在最左（或最上）的位置，为true</td>
                 </tr>
                 <tr>
                   <td>mySlider.isLast</td>
-                  <td>当前幻灯片是否是在最右（或最下）的位置</td>
+                  <td>若当前幻灯片在最右（或最下）的位置，为true</td>
                 </tr>
                 <tr>
                   <th colspan="2">方法</th>
@@ -460,7 +460,7 @@
                 </tr>
                 <tr>
                   <td>mySlider.updateSlides();</td>
-                  <td>该方法会重新计算幻灯片数量和他们的位置。当你通过JS动态添加了一些幻灯片时会有用</td>
+                  <td>该方法会重新计算幻灯片数量和他们的位置。当你通过JS动态添加/删除了一些幻灯片时会有用</td>
                 </tr>
                 <tr>
                   <td>mySlider.updateSize();</td>
@@ -468,7 +468,7 @@
                 </tr>
                 <tr>
                   <td>mySlider.detachEvents();</td>
-                  <td>取消所有的事件监听器</td>
+                  <td>解除所有的事件监听器</td>
                 </tr>
                 <tr>
                   <td>mySlider.attachEvents();</td>
@@ -482,7 +482,7 @@
             </table>
             <h2>通过HTML、无JS方式初始化</h2>
             <p>如果你不需要幻灯片组件的回调函数，那你可以通过HTML、无JS方式初始化。只需添加"slider-init"这个class到<code>slider-container</code>上</p>
-            <pre><code>&lt;!-- slider-init to initialize slider automatically --&gt;
+            <pre><code>&lt;!-- 添加“slider-init”来自动初始化幻灯片组件 --&gt;
 &lt;div class="slider-container slider-init"&gt;
     &lt;div class="slider-wrapper"&gt;
         &lt;div class="slider-slide"&gt;Slide 1&lt;/div&gt;
@@ -491,8 +491,8 @@
         ... other slides ...
     &lt;/div&gt;
 &lt;/div&gt;  </code></pre>
-            <p>各种配置参数通过<b>data-</b>属性传入:</p>
-            <pre><code>&lt;!-- slider properties in data- attributes --&gt;
+            <p>各种配置参数通过<b>data-</b>属性传入：</p>
+            <pre><code>&lt;!-- 在data-属性中传入幻灯片参数 --&gt;
 &lt;div class="slider-container slider-init" data-speed="400" data-spaceBetween="40" data-pagination=".slider-pagination"&gt;
     &lt;div class="slider-wrapper"&gt;
         &lt;div class="slider-slide"&gt;Slide 1&lt;/div&gt;
@@ -502,8 +502,8 @@
     &lt;/div&gt;
     &lt;div class="slider-pagination"&gt;&lt;/div&gt;
 &lt;/div&gt;        </code></pre>
-            <p>或者将所有参数以<strong>合法的JSON格式</strong>放在 data-slider属性里:</p>
-            <pre><code>&lt;!-- slider properties in JSON format in data-slider attribute --&gt;
+            <p>或者将所有参数以<strong>合法的JSON格式</strong>放在data-slider属性里：</p>
+            <pre><code>&lt;!-- 以JSON格式放在data-slider属性里的幻灯片参数 --&gt;
 &lt;div class="slider-container slider-init" data-slider="{'speed':'400', 'spaceBetween':'40', 'pagination': '.slider-pagination'}"&gt;
     &lt;div class="slider-wrapper"&gt;
         &lt;div class="slider-slide"&gt;Slide 1&lt;/div&gt;
@@ -513,16 +513,16 @@
     &lt;/div&gt;
     &lt;div class="slider-pagination"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-            <h2>得到幻灯片组件实例对象</h2>
-            <p>即使你通过纯HTML方式初始化组件，仍然有场景需要获取实例对象，他被挂载在幻灯片容器元素的'f7Slider'属性上：</p>
+            <h2>访问幻灯片实例对象</h2>
+            <p>即使你通过纯HTML方式初始化幻灯片组件，仍然可以访问其实例对象，它被挂载在幻灯片容器元素的'f7Slider'属性上：</p>
             <pre><code>var mySlider = $$('.slider-container')[0].f7Slider;
  
-// Now you can use all slider methods like
+// 你可以用下面的方式调用幻灯片的方法
 mySlider.slideNext();</code></pre>
           </div>
-          <h2>一堆栗子</h2>
+          <h2>示例</h2>
           <h3 data-device-preview="../docs-demos/slider-default.html">有分页条的默认幻灯片形式 </h3>
-          <pre><code>/* A bit of demo styles */;
+          <pre><code>/* 演示样式 */;
 .slider-slide {
   background:#fff;
 }
@@ -534,7 +534,7 @@ mySlider.slideNext();</code></pre>
 }</code></pre>
           <pre><code>...
 &lt;div class="page-content"&gt;
-  &lt;!-- Slider --&gt;
+  &lt;!-- 幻灯片 --&gt;
   &lt;div class="slider-container"&gt;
     &lt;div class="slider-wrapper"&gt;
       &lt;div class="slider-slide"&gt;&lt;span&gt;Slide 1&lt;/span&gt;&lt;/div&gt;
@@ -548,7 +548,7 @@ mySlider.slideNext();</code></pre>
 ...</code></pre>
           <pre><code>  var myApp = new Framework7(); 
  
-  // Init slider and store its instance in mySlider variable
+  // 初始化幻灯片，并把它的实例存储在mySlider变量中
   var mySlider = myApp.slider('.slider-container', {
     pagination:'.slider-pagination'
   });</code></pre>
@@ -556,7 +556,7 @@ mySlider.slideNext();</code></pre>
           <p>除了滑动方向，其余均和默认形式相同</p>
           <pre><code>  var myApp = new Framework7(); 
  
-  // Init slider and store its instance in mySlider variable
+  // 初始化幻灯片，并把它的实例存储在mySlider变量中
   var mySlider = myApp.slider('.slider-container', {
     pagination:'.slider-pagination',
     direction: 'vertical'
@@ -565,10 +565,10 @@ mySlider.slideNext();</code></pre>
           <h3 data-device-preview="../docs-demos/slider-space.html">2张幻灯片间留有空白区域</h3>
           <pre><code>  var myApp = new Framework7(); 
  
-  // Init slider and store its instance in mySlider variable
+  // 初始化幻灯片，并把它的实例存储在mySlider变量中
   var mySlider = myApp.slider('.slider-container', {
     pagination:'.slider-pagination',
-    spaceBetween: 100 // 100px between slides
+    spaceBetween: 100 // 幻灯片间有100px的间距
   });</code></pre>
           <div style="height:200px"></div>
           <h3 data-device-preview="../docs-demos/slider-multiple.html">多重幻灯片</h3>
@@ -647,39 +647,39 @@ mySlider.slideNext();</code></pre>
 &lt;/div&gt;  </code></pre>
           <pre><code>var myApp = new Framework7(); 
  
-// 1 Slide Per View, 50px Between
+// 每次显示1张幻灯片，之间有50px的间距
 var mySlider1 = myApp.slider('.slider-1', {
   pagination:'.slider-1 .slider-pagination',
   spaceBetween: 50
 });
  
-// 2 Slides Per View, 20px Between
+// 每次显示2张幻灯片，之间有20px的间距
 var mySlider2 = myApp.slider('.slider-2', {
   pagination:'.slider-2 .slider-pagination',
   spaceBetween: 20,
   slidesPerView: 2
 });
  
-// 3 Slides Per View, 10px Between
+// 每次显示3张幻灯片，之间有10px的间距
 var mySlider3 = myApp.slider('.slider-3', {
   pagination:'.slider-3 .slider-pagination',
   spaceBetween: 10,
   slidesPerView: 2
 });
  
-// Vertical, 0px Between
+// 垂直显示幻灯片，之间间距为0
 var mySliderVertical = myApp.slider('.slider-vertical', {
   pagination:'.slider-vertical .slider-pagination',
   direction: 'vertical'
 });
  
-// Slow speed
+// 慢速
 var mySliderSlow = myApp.slider('.slider-slow', {
   pagination:'.slider-slow .slider-pagination',
   speed: 600
 });                  </code></pre>
-          <h3 data-device-preview="../docs-demos/slider-nested.html">混合模式的幻灯片</h3>
-          <p>我们依然可以使用纯HTML初始化:</p>
+          <h3 data-device-preview="../docs-demos/slider-nested.html">嵌套幻灯片</h3>
+          <p>在这个例子中，我们使用纯HTML来初始化</p>
           <pre><code>.slider-slide {
   background:#fff;
 }
@@ -690,14 +690,14 @@ var mySliderSlow = myApp.slider('.slider-slow', {
   font-size:21px;
 }</code></pre>
           <pre><code>&lt;div class="page-content"&gt;
-  &lt;!-- Horizontal parent slider --&gt;
+  &lt;!-- 水平父幻灯片 --&gt;
   &lt;div data-pagination=".slider-pagination-h" data-paginationHide="false" class="slider-container slider-init"&gt;
     &lt;div class="slider-pagination slider-pagination-h"&gt;&lt;/div&gt;
     &lt;div class="slider-wrapper"&gt;
       &lt;div class="slider-slide"&gt;&lt;span&gt;Horizontal Slide 1&lt;/span&gt;&lt;/div&gt;
       &lt;div class="slider-slide"&gt;
  
-        &lt;!-- Vertical nested child slider --&gt;
+        &lt;!-- 垂直嵌套子幻灯片 --&gt;
         &lt;div class="slider-container slider-init" data-pagination=".slider-pagination-v" data-direction="vertical" data-paginationHide="false"&gt;
           &lt;div class="slider-pagination slider-pagination-v"&gt;&lt;/div&gt;
           &lt;div class="slider-wrapper"&gt;
