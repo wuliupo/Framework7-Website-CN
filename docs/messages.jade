@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Messages | Framework7 Documentation';
+  - var title = '消息 | Framework7 Documentation';
 
 block content
   .docs-demo-device
@@ -14,88 +14,88 @@ block content
     .docs-content.with-device
       .full-width
         h1 消息
-        p 消息组件会让App的消息系统更加丰富多彩
-        h2 消息组件
+        p 消息组件为你的App提供了可视评论和消息系统。
+        h2 消息组件布局
         pre
           code
             | ...   
             | &lt;div class="page"&gt;
             |   &lt;div class="page-content messages-content"&gt;
             |     &lt;div class="messages"&gt;
-            |       &lt;!-- Date stamp --&gt;
+            |       &lt;!-- 时间戳 --&gt;
             |       &lt;div class="messages-date"&gt;Sunday, Feb 9 &lt;span&gt;12:58&lt;/span&gt;&lt;/div&gt;
             | 
-            |       &lt;!-- Sent message (by default - green and on right side) --&gt;
+            |       &lt;!-- 发送的消息 (默认为绿色背景，在右边) --&gt;
             |       &lt;div class="message message-sent"&gt;
             |         &lt;!-- Bubble with text --&gt;
             |         &lt;div class="message-text"&gt;Hello&lt;/div&gt;
             |       &lt;/div&gt;
             | 
-            |       &lt;!-- Another sent message --&gt;
+            |       &lt;!-- 另一条发送的消息 --&gt;
             |       &lt;div class="message message-sent"&gt;
-            |         &lt;!-- Bubble with text --&gt;
+            |         &lt;!-- 文本气泡 --&gt;
             |         &lt;div class="message-text"&gt;How are you?&lt;/div&gt;
             |       &lt;/div&gt;
             | 
-            |       &lt;!-- Received message (by default - grey on left side) --&gt;
+            |       &lt;!-- 接收的信息(默认为灰色背景，在左边) --&gt;
             |       &lt;div class="message message-received"&gt;
-            |         &lt;!-- Sender name --&gt;
+            |         &lt;!-- 发送者名称 --&gt;
             |         &lt;div class="message-name"&gt;Kate&lt;/div&gt;
             | 
-            |         &lt;!-- Bubble with text --&gt;
+            |         &lt;!-- 文本气泡 --&gt;
             |         &lt;div class="message-text"&gt;I am fine, thanks&lt;/div&gt;
             | 
-            |         &lt;!-- Sender avatar --&gt;
+            |         &lt;!-- 发送者头像 --&gt;
             |         &lt;div style="background-image:url(http://lorempixel.com/output/people-q-c-100-100-9.jpg)" class="message-avatar"&gt;&lt;/div&gt;
             |       &lt;/div&gt;
             | 
-            |       &lt;!-- Another date stamp --&gt;
+            |       &lt;!-- 另一个时间戳 --&gt;
             |       &lt;div class="messages-date"&gt;Sunday, Feb 3 &lt;span&gt;11:58&lt;/span&gt;&lt;/div&gt;
             | 
-            |       &lt;!-- Sent message with image --&gt;
+            |       &lt;!-- 带有图片的发送的消息 --&gt;
             |       &lt;div class="message message-sent"&gt;
-            |         &lt;!-- Bubble with image --&gt;
+            |         &lt;!-- 图片气泡 --&gt;
             |         &lt;div class="message-text"&gt;&lt;img src="http://lorempixel.com/300/300/"&gt;&lt;/div&gt;
             |       &lt;/div&gt;
             |     &lt;/div&gt;
             |   &lt;/div&gt;
             | &lt;/div&gt;        
             | ...   
-        p Where:
+        p 其中：
         ul
           li
-            p <code>"messages-content"</code> - 用来包装消息，这个元素应该在"page-content"类内部
+            p <code>"messages-content"</code> - 消息容器，应该加到"page-content"类上
           li
-            p <code>"messages"</code> - 用来包装消息气泡
+            p <code>"messages"</code> - 消息气泡的容器，必需
           li
-            p <code>"messages-date"</code> - 标识这条对话的时间
+            p <code>"messages-date"</code> - 单个时间戳容器，包含会话日期和时间（在&lt;span&gt;标签中）
           li
-            p <code>"message"</code> - 标识一条消息
+            p <code>"message"</code> - 单条消息
           li
-            p <code>"message-name"</code> - 发送人名称
+            p <code>"message-name"</code> - 发送者名称
           li
             p <code>"message-text"</code> - 文本气泡
           li
-            p <code>"message-avatar"</code> - 发送人头像
+            p <code>"message-avatar"</code> - 发送者头像
           li
             p <code>"message-sent"</code> - 标识一条被用户发送过的消息，它会位于容器的右侧并且拥有绿色的背景
           li
             p <code>"message-received"</code> - 标识一条被用户接收的消息，它会位于容器的左侧并且拥有灰色的背景
           
           
-        p JavaScript将自动的添加样式
+        p JavaScript会自动添加其它样式
         ul
           li
-            p <code>"message-pic"</code> - 为单条带<img>的消息添加样式，该条消息不可以包括其他元素，除了image
+            p <code>"message-pic"</code> - 为单条带&lt;img&gt;的消息添加类，除了image，该条消息不可以包括其他元素
           li
             p <code>"message-last"</code> - 如果这是一个发送者连续会话的最后一条，则带有一个小尾巴并且有更大的底部留白
           li
-            p <code>"message-first"</code> - 如果这是一个发送者会话的第一条，则带有发送者的名称和头像
+            p <code>"message-first"</code> - 如果这是一个发送者会话的第一条，则带有发送者的名称
           li
-            p <code>"message-with-avatar"</code> - 一条包含头像的单条信息
+            p <code>"message-with-avatar"</code> - 一条包含头像的单条消息
           
         .important-note
-          p 默认的布局，新消息会出现在页面底部，但如果你需要让它出现在页面的顶部，那么你可以加入"new-messages-first"样式到 &lt;div class="messages"&gt;
+          p 默认的布局中，新消息会出现在页面底部，如果需要让它出现在页面的顶部，你可以把"new-messages-first"类加到&lt;div class="messages"&gt;
         h2 消息 JavaScript API
         p 以下是我们可以使用的方法：
         .method-wrap
@@ -105,25 +105,25 @@ block content
           ul.method-parameters
             li
               span.parameter parameters
-              |  - <span class="parameter-type">object</span> 消息参数，必选的
+              |  - <span class="parameter-type">object</span> 消息参数，必选
 
         .method-wrap
           p
             span.method myApp.updateMessagesAngles(<span>messagesContainer</span>) 
-            span - 为需要的消息添加"message-last" 样式
+            span - 为需要的消息添加"message-last"类
           ul.method-parameters
             li
               span.parameter messagesContainer
-              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - 消息容器 (&lt;div class="messages"&gt;). 必选的
+              |  - 表示消息容器 (&lt;div class="messages"&gt;)的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>。必选
 
         .method-wrap
           p
             span.method myApp.scrollMessagesContainer(<span>messagesContent</span>) 
-            span - animated scroll "messages-content" to the last message
+            span - 把消息内容（"messages-content"）以动画的形式滚动到最后一条
           ul.method-parameters
             li
               span.parameter messagesContent
-              |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS selector) - 消息内容 (&lt;div class="page-content messages-content"&gt;). 可选的
+              |  - 表示消息内容 (&lt;div class="page-content messages-content"&gt;)的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>。必选
         p 来看一下相关的参数和方法：
         table.params-table
           thead
@@ -137,33 +137,33 @@ block content
               td text
               td string
               td
-              td 消息文本，也可以使用HTML串，如果你下给你添加图片消息，则应该使用: <code>&lt;img src="..."&gt;</code>. <b>必选的</b>
+              td 消息文本，也可以使用HTML字符串，如果你想要添加图片消息，则应该传递<code>&lt;img src="..."&gt;</code>。<b>必选</b>
             tr
               td name
               td string
               td
-              td 发送者名称 <b>可选的</b>
+              td 发送者名称。<b>可选</b>
             tr
               td avatar
               td string
               td
-              td 发送者头像url <b>可选的</b>
+              td 发送者头像url。<b>可选</b>
             tr
               td type
               td string
               td 'sent'
-              td 消息类型，’发送‘或者’接收‘ <b>Optional</b>
+              td 消息类型，'sent'或'received'。<b>可选</b>
             tr
               td day
               td string
               td 
-              td 日期，例如 - 'Today', 'Monday', 'Yesterday', 'Fri', '22.05.2014'. <b>Optional</b>
+              td 日期，例如 - 'Today', 'Monday', 'Yesterday', 'Fri', '22.05.2014'。<b>可选</b>
             tr
               td time
               td string
               td
-              td 时间, 例如 - '22:45', '10:30 AM'. <b>Optional</b>
-      h2(data-device-preview="../docs-demos/messages.html") Example
+              td 时间，例如 - '22:45', '10:30 AM'。<b>可选</b>
+      h2(data-device-preview="../docs-demos/messages.html") 实例
       pre
         code
           | &lt;div class="page toolbar-fixed"&gt;
@@ -203,43 +203,43 @@ block content
           | 
           | var $$ = Dom7;
           | 
-          | // Conversation flag
+          | // 会话flag
           | var conversationStarted = false;
           | 
-          | // Handle message
+          | // 处理消息
           | $$('.messagebar .link').on('click', function () {
           |   var textarea = $$('.messagebar textarea');
-          |   // Message text
+          |   // 消息文本
           |   var messageText = textarea.val().trim();
-          |   // Exit if empy message
+          |   // 如果没有消息，则退出
           |   if (messageText.length === 0) return;
           | 
-          |   // Empty textarea
+          |   // 空textarea
           |   textarea.val('').trigger('change');
           | 
-          |   // Random message type
+          |   // 随机消息类型
           |   var messageType = (['sent', 'received'])[Math.round(Math.random())];
           | 
-          |   // Avatar and name for received message
+          |   // 接收的消息的头像和名称
           |   var avatar, name;
           |   if(messageType === 'received') {
           |     avatar = 'http://lorempixel.com/output/people-q-c-100-100-9.jpg';
           |     name = 'Kate';
           |   }
-          |   // Add message
+          |   // 添加消息
           |   myApp.addMessage({
-          |     // Message text
+          |     // 消息文本
           |     text: messageText,
-          |     // Random message type
+          |     // 随机消息类型
           |     type: messageType,
-          |     // Avatar and name:
+          |     // 头像和名称
           |     avatar: avatar,
           |     name: name,
-          |     // Day
+          |     // 日期
           |     day: !conversationStarted ? 'Today' : false,
           |     time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
           |   })
           | 
-          |   // Update conversation flag
+          |   // 更新会话flag
           |   conversationStarted = true;
           | });             

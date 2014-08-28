@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Photo Browser | Framework7 Documentation';
+  - var title = '图片浏览器 | Framework7 文档';
 
 block content
   .docs-demo-device
@@ -14,38 +14,38 @@ block content
     .docs-content.with-device
       .full-width
         h1 图片浏览器（Photo Browser）
-        p Photo Browser 是一个像IOS图片浏览器一样用来展示图片的组件。 图片可以被缩放或者平移 (可选)。
-        p Photo Browser 使用 <a href="slider.html">Slider</a> 组件来展现图片。
+        p 图片浏览器是一个像iOS图片浏览器一样用来展示图片的组件。图片可以被缩放或者平移 (可选)。
+        p 图片浏览器使用<a href="slider.html">幻灯片</a>组件来展现图片。
 
         h2 创建一个图片浏览器实例
-        p Photo Browser 只需通过javaScript就可以被创建和初始化。我们需要使用App封装好的方法:
+        p 图片浏览器只需通过javaScript就可以被创建和初始化。我们需要使用App封装好的方法：
         .method-wrap
           p
             span.method myApp.photoBrowser(<span>parameters</span>) 
-            span -  带参初始化 Photo Browser
+            span -  带参初始化图片浏览器
           ul.method-parameters
             li
               span.parameter parameters
-              |  - <span class="parameter-type">object</span> - Photo Browser 参数对象（必选）。
+              |  - <span class="parameter-type">object</span> - 图片浏览器参数对象（必选）。
             
-            li.method-returns <strong>该方法返回Photo Browser实例引用</strong>
-        p 案例:
+            li.method-returns <strong>该方法返回图片浏览器实例引用</strong>
+        p 示例：
         pre
           code
             | var myPhotoBrowser = app.photoBrowser({
             |     zoom: 400,
             |     photos: ['path/to/image1.jpg', 'path/to/image2.jpg']
             | });   
-            | myPhotoBrowser.open(); // open photo browser
-        h2 Photo Browser 参数
+            | myPhotoBrowser.open(); // 打开图片浏览器
+        h2 图片浏览器参数
         p 所有可用参数列表：
         table.params-table
           thead
             tr
-              th Parameter
-              th Type
-              th Default
-              th Description
+              th 参数（Parameter）
+              th 类型（Type）
+              th 默认（Default）
+              th 描述（Description）
           tbody
             tr
               td photos
@@ -71,17 +71,17 @@ block content
               td zoom
               td boolean
               td true
-              td 是否启用图片的缩放功能
+              td 是否启用图片的缩放和平移功能
             tr
               td maxZoom
               td number
               td 3
-              td 最大缩放指数
+              td 最大缩放倍数
             tr
               td minZoom
               td number
               td 1
-              td 最小缩放指数
+              td 最小缩放倍数
             tr
               td exposition
               td boolean
@@ -91,152 +91,152 @@ block content
               td expositionHideCaptions
               td boolean
               td false
-              td 是否隐藏在浏览模式中隐藏标题
+              td 是否在浏览模式中隐藏标题
             tr
               td swipeToClose
               td boolean
               td true
-              td 是否可以通过上下触摸的方式来关闭Photo Browser
+              td 是否可以通过上下滑动的方式来关闭图片浏览器
             tr
               td view
               td <a href="views.html">View instance</a>
               td undefined
-              td 如果想用page形式打开，则需要指定一个初始化的View实例，默认的如果不指定，将在Main View中打开
+              td 如果想用page形式打开，则需要指定一个初始化的View实例，如果不指定，将默认在Main View中打开
             tr
               td type
               td string
               td 'standalone'
-              td 定义Photo Browser的打开方式，可选参数有'standalone'（打开时将有一个自定义效果的遮罩层），'popup'（打开一个<a href="popup.html">popup</a>），’page‘（将被放置于View中，作为一个新页面加载）
+              td 定义图片浏览器的打开方式，可选参数有'standalone'（打开时将有一个自定义过渡效果的遮罩层），'popup'（打开一个<a href="popup.html">popup</a>），’page‘（将被放置于View中，作为一个新页面加载）
             tr
               td theme
               td string
               td 'light'
-              td Photo Browser 颜色主题, 可以使用'light'或者'dark'
+              td 图片浏览器颜色主题，可以为'light'或者'dark'
             tr
               td captionsTheme
               td string
               td 
-              td 标题的颜色主题, 可以使用'light'或者'dark'。 默认的, 等于"theme"的参数
+              td 标题的颜色主题，可以为light'或者'dark'。默认与"theme"相同
             tr
               td navbar
               td boolean
               td true
-              td 是否生成Photo Browser的导航栏
+              td 是否生成图片浏览器的导航栏
             tr
               td toolbar
               td boolean
               td true
-              td 是否生成Photo Browser的工具栏
+              td 是否生成图片浏览器的工具栏
             tr
               td backLinkText
               td string
               td 'Close'
-              td Photo Browser的导航栏中返回链接的文案
+              td 图片浏览器的导航栏中返回链接的文本
             tr
               td ofText
               td string
               td 'of'
-              td 图片的序号和总数之间的分割词，例如: "3 of 5"
+              td 图片的序号和总数之间的分割词，例如："3 of 5"
             tr
               th(colspan="4") 模版
             tr
               td template
               td string
-              td *Look below
-              td Photo Browser的html模版
+              td *见下面
+              td 图片浏览器的HTML模版
             tr
               td navbarTemplate
               td string
-              td *Look below
-              td 导航栏的html模版
+              td *见下面
+              td 导航栏的HTML模版
             tr
               td toolbarTemplate
               td string
-              td *Look below
-              td 工具栏的html模版
+              td *见下面
+              td 工具栏的HTML模版
             tr
               td photoTemplate
               td string
-              td *Look below
-              td 单独图片元素的html模版
+              td *见下面
+              td 单独图片元素的HTML模版
             tr
               td objectTemplate
               td string
-              td *Look below
-              td 单独对象元素的html模版
+              td *见下面
+              td 单独对象元素的HTML模版
             tr
               td captionsTemplate
               td string
-              td *Look below
-              td 标题容器的html模版
+              td *见下面
+              td 标题容器的HTML模版
             tr
               td captionTemplate
               td string
-              td *Look below
-              td 单独标题元素的html模版
+              td *见下面
+              td 单独标题元素的HTML模版
             tr
-              th(colspan="4") 回调
+              th(colspan="4") 回调函数
             tr
               td onOpen(photobrowser)
               td function
               td 
-              td 回调函数，当Photo Browser被打开的时候执行
+              td 回调函数，当图片浏览器被打开的时候执行
             tr
               td onClose(photobrowser)
               td function
               td 
-              td 回调函数，当Photo Browser被关闭的时候执行
+              td 回调函数，当图片浏览器被关闭的时候执行
             tr
               td onSwipeToClose(photobrowser)
               td function
               td 
-              td 回调函数，当Photo Browser通过上下触动的形式关闭时执行
+              td 回调函数，当图片浏览器通过上下滑动的形式关闭时执行
             tr
-              th(colspan="4") 幻灯片回调
+              th(colspan="4") 幻灯片回调函数
             tr
               td onSlideChangeStart(slider)
               td function
               td 
-              td 回调函数，当Photo Browser向前或者向后切换图片开始的时候执行，接收幻灯片的实例作为参数
+              td 回调函数，当图片浏览器向前或者向后切换图片开始的时候执行，接受幻灯片的实例作为参数
             tr
               td onSlideChangeEnd(slider)
               td function
               td 
-              td 回调函数，当Photo Browser向前或者向后切换图片结束的时候执行，接收幻灯片的实例作为参数
+              td 回调函数，当图片浏览器向前或者向后切换图片结束的时候执行，接受幻灯片的实例作为参数
             tr
               td onClick(slider, event)
               td function
               td 
-              td 回调函数，当Photo Browser被点击的时候延迟300ms执行，接收幻灯片的实例，touchend事件两个对象作为参数
+              td 回调函数，当图片浏览器被点击/触碰的时候延迟300ms执行，接受幻灯片的实例和touchend事件两个对象作为参数
             tr
               td onTap(slider, event)
               td function
               td 
-              td 回调函数，当Photo Browser被触碰的时候执行，接收幻灯片的实例，touchend事件两个对象作为参数
+              td 回调函数，当图片浏览器被点击/触碰的时候执行，接受幻灯片的实例和touchend事件两个对象作为参数
             tr
               td onDoubleTap(slider, event)
               td function
               td 
-              td 回调函数，当Photo Browser被连续两次触碰的时候执行，接收幻灯片的实例，touchend事件两个对象作为参数
+              td 回调函数，当图片浏览器被连续两次触碰的时候执行，接受幻灯片的实例和touchend事件两个对象作为参数
             
-        h2 Photo Browser 方法及属性
-        p 当我们初始化 Photo Browser 之后，我们将会得到它的实例引用(比如 <code>myPhotoBrowser</code> ) 并且包括很多有用的方法和属性:
+        h2 图片浏览器方法及属性
+        p 当我们初始化图片浏览器之后，我们将会得到它的实例引用（比如<code>myPhotoBrowser</code>）， 并且包括很多有用的方法和属性：
         table.methods-table
           tbody
             tr
               th(colspan="2") 属性
             tr
               td myPhotoBrowser.slider
-              td 包含初始化 <a href="slider.html">Slider</a> 的实例和所有可用的 Slider <a href="slider.html#slider-methods-properties">方法和属性</a>
+              td 包含初始化<a href="slider.html">Slider</a>的实例和所有可用的Slider<a href="slider.html#幻灯片方法和属性">方法和属性</a>
             tr
               td myPhotoBrowser.container
-              td <a href="dom.html">Dom7</a> 形式的Photo Browser的html容器
+              td <a href="dom.html">Dom7</a>形式的图片浏览器HTML容器
             tr
               td myPhotoBrowser.exposed
-              td Photo Browser是否在浏览模式
+              td 图片浏览器是否处于浏览模式
             tr
               td myPhotoBrowser.activeSlideIndex
-              td 当前活动的幻灯片的序号
+              td 当前可见的幻灯片的序号
             tr
               td myPhotoBrowser.params
               td 传入的初始化参数对象
@@ -244,10 +244,10 @@ block content
               th(colspan="2") 方法
             tr
               td myPhotoBrowser.open(<span>index</span>);
-              td 根据’index‘参数的值打卡Photo Browser，如果’index‘参数没有被指定，则打开最后关闭的图片
+              td 根据“index”参数的值打开图片浏览器，如果“index”参数没有被指定，则打开最后关闭的图片
             tr
               td myPhotoBrowser.close();
-              td 关闭Photo Browser
+              td 关闭图片浏览器
             tr
               td myPhotoBrowser.toggleZoom();
               td 切换当前幻灯片的缩放形式
@@ -261,10 +261,10 @@ block content
               td myPhotoBrowser.expositionOff();
               td 禁用浏览模式
         h2 图片数组
-        p 当我们初始化Photo Browser的时候，需要传递一个数组，包括图片或者是视频的相关信息，让我们看看他们的区别吧:
+        p 当我们初始化图片浏览器的时候，需要传递一个数组，包括图片或者是视频的相关信息，让我们看看这个数组的各种变形：
         pre
           code
-            | // 如果我们需要标题的话，则需要包装成一个含有caption属性的对象:
+            | //如果我们只需要图片的话，可以传递图片地址数组
             | var photos = [
             |     'image1.jpg',
             |     'image2.jpg',
@@ -272,7 +272,7 @@ block content
             |     'image4.jpg',
             | ];
             | 
-            | //如果我们使用视频的时候，需要使用到html片段，那么就放到html属性中吧:
+            | //如如果我们需要标题的话，则需要包装成一个含有caption属性的对象:
             | var photos = [
             |     {
             |         url: 'image1.jpg',
@@ -290,7 +290,7 @@ block content
             |     'image4.jpg'
             | ];
             | 
-            | //如果我们使用视频的时候，需要使用到html片段，那么就放到html属性中吧:
+            | //如果我们需要使用视频，则把包含视频元素的HTML片段或者是iframe放到“html”属性里：
             | var photos = [
             |     {
             |         url: 'image1.jpg',
@@ -301,11 +301,11 @@ block content
             |         html: '&lt;video src="video1.mp4"&gt;&lt;/video&gt;',
             |         caption: 'Video Caption'
             |     },
-            |     // 使用视频标签
+            |     // 这个是没有标题的iframe
             |     {
             |         html: '&lt;iframe src="..."&gt;&lt;/iframe&gt;',
             |     },
-            |     // 这个是没有标题的视频
+            |     // 这个是没有标题的视频标签
             |     '&lt;video src="video2.mp4"&gt;&lt;/video&gt;'
             | ];        
       h2(data-device-preview="../docs-demos/photo-browser.html") 示例
@@ -335,7 +335,7 @@ block content
           |   dynamicNavbar: true
           | });
           | 
-          | /*=== Default standalone ===*/
+          | /*=== 默认为 standalone ===*/
           | var myPhotoBrowserStandalone = myApp.photoBrowser({
           |     photos : [
           |         'http://lorempixel.com/1024/1024/sports/1/',
@@ -343,7 +343,7 @@ block content
           |         'http://lorempixel.com/1024/1024/sports/3/',
           |     ]
           | });
-          | //Open photo browser on click
+          | //点击时打开图片浏览器
           | $$('.pb-standalone').on('click', function () {
           |     myPhotoBrowserStandalone.open();
           | });
@@ -361,7 +361,7 @@ block content
           |     myPhotoBrowserPopup.open();
           | });
           | 
-          | /*=== As Page ===*/
+          | /*=== 作为Page ===*/
           | var myPhotoBrowserPage = myApp.photoBrowser({
           |     photos : [
           |         'http://lorempixel.com/1024/1024/sports/1/',
@@ -402,7 +402,7 @@ block content
           |     myPhotoBrowserPopupDark.open();
           | }); 
           | 
-          | /*=== With Captions ===*/
+          | /*=== 有标题 ===*/
           | var myPhotoBrowserPopupDark = myApp.photoBrowser({
           |     photos : [
           |         {
@@ -413,7 +413,7 @@ block content
           |             url: 'http://lorempixel.com/1024/1024/sports/2/',
           |             caption: 'Second Caption Text'
           |         },
-          |         // This one without caption
+          |         // 这个没有标题
           |         {
           |             url: 'http://lorempixel.com/1024/1024/sports/3/',
           |         },
@@ -425,7 +425,7 @@ block content
           |     myPhotoBrowserPopupDark.open();
           | });
           | 
-          | /*=== With Video ===*/
+          | /*=== 有视频 ===*/
           | var myPhotoBrowserPopupDark = myApp.photoBrowser({
           |     photos : [
           |         {
@@ -447,10 +447,10 @@ block content
           |     myPhotoBrowserPopupDark.open();
           | });
       .full-width.stop-scroll-device
-        h2 Photo Browser 模版 
-        p 让我们来看看Photo Browser可用于初始化时的模版
-        h3 Photo Browser 主模版
-        p 您可以通过使用模板参数定制的HTML模板。这是一个模板示例:
+        h2 图片浏览器模版 
+        p 让我们来看看图片浏览器可用于初始化时的模版
+        h3 图片浏览器主模版
+        p 您可以通过<code>template</code>参数传递定制的HTML模板。这是一个示例：
         pre
           code
             | &lt;div class="photo-browser photo-browser-dark"&gt;
@@ -466,15 +466,16 @@ block content
             |         &lt;/div&gt;
             |     &lt;/div&gt;
             | &lt;/div&gt; 
+        p 其中：
         ul
           li
             p <code>{{navbar}}</code> - 会被导航栏模版所替换
           li
             p <code>{{toolbar}}</code> - 会被工具栏模板替换
           li
-            p <code>{{photos}}</code> - 会被单独图片模板替换
+            p <code>{{photos}}</code> - 会被单个图片模板替换
         h3 导航栏模版
-        p 这是导航栏的示例模版，你可以通过 <code>navbarTemplate</code> 传入参数:
+        p 这是导航栏的示例模版，你可以通过<code>navbarTemplate</code>参数传递：
         pre
           code
             | &lt;div class="navbar"&gt;
@@ -490,16 +491,17 @@ block content
             |         &lt;/div&gt;
             |         &lt;div class="right"&gt;&lt;/div&gt;
             |     &lt;/div&gt;
-            | &lt;/div&gt;        
+            | &lt;/div&gt;
+        p 其中：        
         ul
           li    
-            p <code>&lt;a class="photo-browser-close-link"&gt;</code> - 当点击时将关闭 Photo Browser，并且解绑所有的监听器
+            p <code>&lt;a class="photo-browser-close-link"&gt;</code> - 点击时将关闭图片浏览器，并且解绑所有的监听器
           li
-            p <code>&lt;span class="photo-browser-current"&gt;</code>.  Photo Browser将插入当前的活动图片序号，并加载<b>photo-browser-current</b> 样式
+            p <code>&lt;span class="photo-browser-current"&gt;</code> - 图片浏览器将在该元素中插入当前的活动图片序号
           li
-            p <code>&lt;span class="photo-browser-total"&gt;</code>. Photo Browser将插入幻灯片总数，并加载<b>photo-browser-total</b> 样式
+            p <code>&lt;span class="photo-browser-total"&gt;</code> - 图片浏览器将在该元素中插入幻灯片总数
         h3 工具栏模版
-        p 这是工具栏的示例模版，你可以通过<code>toolbarTemplate</code> 传入参数:
+        p 这是工具栏的示例模版，你可以通过<code>toolbarTemplate</code>参数传递：
         pre
           code
             | &lt;div class="toolbar tabbar"&gt;
@@ -508,35 +510,35 @@ block content
             |         &lt;a href="#" class="link photo-browser-next"&gt;&lt;i class="icon icon-next"&gt;&lt;/i&gt;&lt;/a&gt;
             |     &lt;/div&gt;
             | &lt;/div&gt;
-        p 这里是一个tab栏:
+        p 它其实就是一个标签栏，其中：
         ul
           li
-            p <code>&lt;a class="photo-browser-next"&gt;</code> - 使用 <b>photo-browser-next</b> 样式的下一个按钮
+            p <code>&lt;a class="photo-browser-next"&gt;</code> -带有<b>photo-browser-next</b>类的链接，可以充当下一个按钮
           li
-            p <code>&lt;a class="photo-browser-prev"&gt;</code> - 使用 <b>photo-browser-prev</b> 样式的上一个按钮
+            p <code>&lt;a class="photo-browser-prev"&gt;</code> - 带有<b>photo-browser-prev</b>类的链接，可以充当上一个按钮
         h3 图片元素模版
-        p 这是一张幻灯片的模版，你可以通过 <code>photoTemplate</code> 传入参数:
+        p 这是一张幻灯片的模版，你可以通过<code>photoTemplate</code>参数传递；
         pre
           code
             | &lt;div class="photo-browser-slide slider-slide"&gt;
             |     &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
             | &lt;/div&gt;            
         h3 对象元素模版
-        p 这是一个对象元素的模版，你可以通过 <code>objectTemplate</code> 传入参数:
+        p 这是一个对象元素的模版，你可以通过<code>objectTemplate</code>参数传递：
         pre
           code
             | &lt;div class="photo-browser-slide photo-browser-object-slide slider-slide"&gt;
             |     {{html}}
             | &lt;/div&gt;
         h3 标题模版
-        p 这是一个包含所有标题的模版，你可以通过 <code>captionsTemplate</code> 传入参数:
+        p 这是一个包含所有标题的模版，你可以通过<code>captionsTemplate</code>参数传递：
         pre
           code
             | &lt;div class="photo-browser-captions photo-browser-captions-dark"&gt;
             |     {{captions}}
             | &lt;/div&gt;
-        h3 单一标题模版
-        p 这是一个标题的模版，你可以通过 <code>captionTemplate</code> 传入参数:
+        h3 单个标题模版
+        p 这是单个标题的模版，你可以通过<code>captionTemplate</code>参数传递：
         pre
           code
             | &lt;div class="photo-browser-caption" data-caption-index="{{captionIndex}}"&gt;
