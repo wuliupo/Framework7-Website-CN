@@ -134,18 +134,18 @@
         <div class="docs-content with-device">
           <div class="full-width">
             <h1>无限滚动</h1>
-            <p>无限滚动用来在页面滚动到接近底部时进行加载新内容或其他任何须要的动作。</p>
+            <p>无限滚动用来在页面滚动到接近底部时加载新内容或进行其他操作。</p>
             <h2>无限滚动HTML结构</h2>
-            <p>你需要做的只有在可滚动的内容容器元素上添加“infinite-scroll” class，具体到我们的页面就是<code>&lt;div class="page-content"&gt;</code>:</p>
+            <p>你只需在可滚动的容器上添加“infinite-scroll”类，一般是页面滚动区域 - <code>&lt;div class="page-content"&gt;</code>:</p>
             <pre><code>&lt;div class="page"&gt;
     &lt;div class="page-content infinite-scroll" data-distance="100"&gt;
         ... 
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-            <p>其中:</p>
+            <p>其中：</p>
             <ul>
               <li>
-                <p><code>div class="page-content infinite-scroll"</code> 是我们无限滚动页面的容器</p>
+                <p><code>div class="page-content infinite-scroll"</code>是我们无限滚动的容器</p>
               </li>
               <li>
                 <p><code>data-distance</code>属性用来配置页面滚动到离底部多远时触发无限滚动事件，默认是<b>50</b> (px)</p>
@@ -155,38 +155,38 @@
             <table class="events-table">
               <thead>
                 <tr>
-                  <th>Event</th>
-                  <th>Target</th>
-                  <th>Description</th>
+                  <th>事件（Event）</th>
+                  <th>对象（Target）</th>
+                  <th>描述（Description）</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>infinite</td>
-                  <td>可无限滚动的页面的容器<span>&lt;div class="page-content infinite-scroll"&gt;</span></td>
-                  <td>事件会在页面滚动至距底部还有data-distance所配置的距离时触发</td>
+                  <td>可无限滚动的容器<span>&lt;div class="page-content infinite-scroll"&gt;</span></td>
+                  <td>事件会在页面滚动至距底部还有特定距离（可在data-distance中配置）时触发</td>
                 </tr>
               </tbody>
             </table>
             <h2>无限滚动API</h2>
-            <p>有2个f7应用实例方法可用来配合无限滚动组件使用:</p>
+            <p>有2个App方法：</p>
             <div class="method-wrap">
               <p><span class="method">myApp.attachInfiniteScroll(<span>container</span>) </span><span>- 为指定的HTML元素容器添加无限滚动事件监听器</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">parameters</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (完整CSS选择器) - 可无限滚动内容区的容器. 必需.</li>
+                <li><span class="parameter">parameters</span> - 表示无限滚动容器的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>。必选。</li>
               </ul>
             </div>
             <div class="method-wrap">
-              <p><span class="method">myApp.detachInfiniteScroll(<span>container</span>) </span><span>- 为指定的HTML元素容器删除无限滚动事件监听器</span></p>
+              <p><span class="method">myApp.detachInfiniteScroll(<span>container</span>) </span><span>- 从指定的HTML元素容器删除无限滚动事件监听器</span></p>
               <ul class="method-parameters">
-                <li><span class="parameter">parameters</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (完整CSS选择器) - 可无限滚动内容区的容器. 必需.</li>
+                <li><span class="parameter">parameters</span> - 表示无限滚动容器的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>。必选。</li>
               </ul>
             </div>
             <div class="important-note">
-              <p>注意，仅在你使用myApp.detachInfiniteScroll方法删除过事件监听器后,才可能需要使用 myApp.attachInfiniteScroll 方法，因为无限滚动组件的事件监听器会在“pageInit”时被自动添加。</p>
+              <p>注意，仅在你使用myApp.detachInfiniteScroll方法删除过事件监听器后，才可能需要使用myApp.attachInfiniteScroll方法，因为无限滚动组件的事件监听器会在“pageInit”时被自动添加。</p>
             </div>
           </div>
-          <h2 data-device-preview="../docs-demos/infinite-scroll.html">栗子们</h2>
+          <h2 data-device-preview="../docs-demos/infinite-scroll.html">示例</h2>
           <pre><code>&lt;div class="page-content infinite-scroll"&gt;
   &lt;div class="list-block"&gt;
     &lt;ul&gt;
@@ -208,7 +208,7 @@
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
-  &lt;!-- Preloader --&gt;
+  &lt;!-- 加载提示符 --&gt;
   &lt;div class="infinite-scroll-preloader"&gt;
     &lt;div class="preloader"&gt;&lt;/div&gt;
   &lt;/div&gt;
@@ -226,50 +226,50 @@
  
 var $$ = Dom7;
  
-// Loading flag
+// 加载flag
 var loading = false;
  
-// Last loaded index
+// 上次加载的序号
 var lastIndex = $$('.list-block li').length;
  
-// Max items to load
+// 最多可加载的条目
 var maxItems = 60;
  
-// Append items per load
+// 每次加载添加多少条目
 var itemsPerLoad = 20;
  
-// Attach 'infinite' event handler
+// 注册'infinite'事件处理函数
 $$('.infinite-scroll').on('infinite', function () {
  
-  // Exit, if loading in progress
+  // 如果正在加载，则退出
   if (loading) return;
  
-  // Set loading flag
+  // 设置flag
   loading = true;
  
-  // Emulate 1s loading
+  // 模拟1s的加载过程
   setTimeout(function () {
-    // Reset loading flag
+    // 重置加载flag
     loading = false;
  
     if (lastIndex &gt;= maxItems) {
-      // Nothing more to load, detach infinite scroll events to prevent unnecessary loadings
+      // 加载完毕，则注销无限加载事件，以防不必要的加载
       myApp.detachInfiniteScroll($$('.infinite-scroll'));
-      // Remove preloader
+      // 删除加载提示符
       $$('.infinite-scroll-preloader').remove();
       return;
     }
  
-    // Generate new items HTML
+    // 生成新条目的HTML
     var html = '';
     for (var i = lastIndex + 1; i &lt;= lastIndex + itemsPerLoad; i++) {
       html += '&lt;li class="item-content"&gt;&lt;div class="item-inner"&gt;&lt;div class="item-title"&gt;Item ' + i + '&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;';
     }
  
-    // Append new items
+    // 添加新条目
     $$('.list-block ul').append(html);
  
-    // Update last loaded index
+    // 更新最后加载的序号
     lastIndex = $$('.list-block li').length;
   }, 1000);
 });          </code></pre>
