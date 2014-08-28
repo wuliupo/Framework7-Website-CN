@@ -10,7 +10,7 @@
  *
  * Licensed under MIT
  *
- * Released on: August 15, 2014
+ * Released on: August 28, 2014
 */
 (function () {
 
@@ -3141,6 +3141,8 @@
                 touchesStart.x = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
                 touchesStart.y = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
                 touchStartTime = (new Date()).getTime();
+                /*jshint validthis:true */
+                container = $(this);
             }
             
             function handleTouchMove(e) {
@@ -3258,6 +3260,7 @@
                 }
             });
         };
+        
         /* ===============================================================================
         ************   Infinite Scroll   ************
         =============================================================================== */
