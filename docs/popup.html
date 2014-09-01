@@ -136,7 +136,7 @@
             <h1>Popup</h1>
             <p>Popup 是一种可以包含任何Html内容的弹出窗口，从App的主内容区域上弹出。 Popup 和其他所有的遮罩图层一样，是所谓的“临时视图”的一部分。</p>
             <h2>Popup 布局</h2>
-            <p>Popup 布局相当简单. 你所需要做的就是将 <code>&lt;div class="popup"&gt; Any popup content here &lt;/div&gt;</code> 放到 body 里正确的位置上:</p>
+            <p>Popup 布局相当简单. 你所需要做的就是将 <code>&lt;div class="popup"&gt; 任何需要展示的内容 &lt;/div&gt;</code> 放到 body 里正确的位置上:</p>
             <pre><code>&lt;body&gt;
   ...
   &lt;div class="popup"&gt;
@@ -144,7 +144,7 @@
   &lt;/div&gt;
 &lt;/body&gt;            </code></pre>
             <h2>Popup 尺寸</h2>
-            <p>默认的 Popup 在手机和平板(iPad)上尺寸有一些不同。在手机上是全屏的时候，在平板上是630px的宽和高 。如果你想使它在平板上也是全屏的，你应该添加额外的"tablet-fullscreen"类到需要的popup中：</p>
+            <p>默认的 Popup 在手机和平板(iPad)上尺寸有一些不同。在手机上是全屏的，在平板上宽高都是630px。如果你想使它在平板上也是全屏的，你应该添加额外的"tablet-fullscreen"类到需要的popup中：</p>
             <pre><code>&lt;body&gt;
   ...
   &lt;!-- This popup has fullscreen size on tablets --&gt;
@@ -154,15 +154,15 @@
 &lt;/body&gt;            </code></pre>
             <h2>打开和关闭 Popup</h2>
           </div>
-          <h3 data-device-preview="../docs-demos/popup.html">从 HTML</h3>
+          <h3 data-device-preview="../docs-demos/popup.html">通过HTML</h3>
           <p>可以通过在链接上使用特定的类和data属性打开和关闭所需的popups：</p>
           <div class="important-note">
             <ul>
               <li>
-                <p>为了打开popup，我们需要添加 <strong>"open-popup"</strong> 类到任意 HTML 元素中 (最好是链接)</p>
+                <p>为了打开popup，我们需要添加 <strong>"open-popup"</strong> 类到任意 HTML 元素上 (最好是链接)</p>
               </li>
               <li>
-                <p>为了关闭popup，我们需要添加 <strong>"close-popup"</strong> 类到任意 HTML 元素中 (最好是链接)</p>
+                <p>为了关闭popup，我们需要添加 <strong>"close-popup"</strong> 类到任意 HTML 元素上 (最好是链接)</p>
               </li>
               <li>
                 <p>如果你的App里有超过一个popups, 你需要指定适当popup，则需添加额外的属性 <strong>data-popup=".my-popup"</strong> 到这个 HTML 元素上</p>
@@ -201,11 +201,11 @@
           <p>我们也可以用使用JavaScript来打开和关闭Popups ，因此我们需要看一下相关的App方法： </p>
           <p><span class="method">myApp.popup(<span>popup</span>)</span> - 打开 Popup</span></p>
           <ul class="method-parameters">
-            <li><span class="parameter">popup</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> ( CSS 选择器) 打开Popup . 必需</li>
+            <li><span class="parameter">popup</span> - <span class="parameter-type">HTML元素</span> 或者 <span class="parameter-type">字符串</span> (需要打开的popup的 CSS 选择器) . 必需</li>
           </ul>
           <p><span class="method">myApp.closeModal(<span>popup</span>)</span> - 关闭 Popup</span></p>
           <ul class="method-parameters">
-            <li><span class="parameter">popup</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> ( CSS 选择器). 可选. 如果没有特别指定，任何打开着的Popup/Modal 都将被关闭</li>
+            <li><span class="parameter">popup</span> - <span class="parameter-type">HTML元素</span> 或者 <span class="parameter-type">字符串</span> (需要打开的popup的 CSS 选择器). 可选. 如果没有设置这个值，任何打开着的Popup/Modal 都将被关闭</li>
           </ul>
           <pre><code>&lt;body&gt;
   ...
@@ -245,7 +245,7 @@ $$('.open-services').on('click', function () {
   myApp.popup('.popup-services');
 });          </code></pre>
           <h2 data-device-preview="../docs-demos/popup-events.html">Popup 事件</h2>
-          <p>Popup 和 Modals有一样的事件, 他们在你打开/关闭Popup时，需要使用JavaScript做一些事情的时候，很有用。</p>
+          <p>Popup 和 Modals有一样的事件, 如果你需要在打开/关闭popup时使用JavaScript做一些事情的时候，这些事件会很有用。</p>
           <table class="events-table">
             <thead>
               <tr>
@@ -321,7 +321,7 @@ $$('.popup-services').on('closed', function () {
   console.log('Services Popup is closed')
 });          </code></pre>
           <h2 data-device-preview="../docs-demos/popup-dynamic.html">动态的 Popup</h2>
-          <p>Framework7允许你通过HTML使用相关的App方法，动态地创建Popup:</p>
+          <p>Framework7允许你调用相关的App方法时传递HTML内容来动态地创建Popup:</p>
           <p><span class="method">myApp.popup(<span>popupHTML</span>, <span>removeOnClose</span>)</span> - 打开 Popup</span></p>
           <ul class="method-parameters">
             <li><span class="parameter">popupHTML</span> - <span class="parameter-type">string</span>. popup的HTML字符串</li>

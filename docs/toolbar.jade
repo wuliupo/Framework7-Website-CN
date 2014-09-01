@@ -41,20 +41,20 @@ block content
             td 显示该视图中的工具栏
       p 下面为示例：
       pre
-        code
-          | var myApp = new Framework7();
-          |
-          | var $ = Framework7.$;
-          |
-          | var mainView = myApp.addView('.view-main');
-          |
-          | $('.hide-toolbar').on('click', function () {
-          |     mainView.hideToolbar();
-          | });
-          |
-          | $('.show-toolbar').on('click', function () {
-          |     mainView.showToolbar();
-          | });
+        code.
+            var myApp = new Framework7();
+           
+            var $ = Framework7.$;
+           
+            var mainView = myApp.addView('.view-main');
+           
+            $('.hide-toolbar').on('click', function () {
+                mainView.hideToolbar();
+            });
+           
+            $('.show-toolbar').on('click', function () {
+                mainView.showToolbar();
+            });
       h2(data-device-preview="../docs-demos/toolbar-hide-auto.html") 自动隐藏工具栏
       p Framework7允许你在不需要工具栏而且通过Ajax载入的页面上，自动隐藏工具栏。它只在你使用穿透类型的布局时才有用。
       p 为了实现这点，你要做的是添加<srong>"no-toolbar"</srong>类到载入的页面中(<code>&lt;div class="page no-toolbar"&gt;</code>)，然后在那里放置一个空的导航栏：

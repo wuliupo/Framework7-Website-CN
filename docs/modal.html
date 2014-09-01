@@ -140,14 +140,14 @@
             <div class="important-note">
               <ul>
                 <li>
-                  <p>注意，如果你没有指定预定义的model标题，它讲使用默认的标题("Framework7")，这个可以在<a href="init-app.html">App 初始化</a>时，通过传递 <strong>modalTitle</strong> 参数改变。  </p>
+                  <p>注意，如果你没有指定预定义的modal标题，它讲使用默认的标题("Framework7")，这个可以在<a href="init-app.html">App 初始化</a>时，通过传递 <strong>modalTitle</strong> 参数改变。  </p>
                 </li>
                 <li>
                   <p>预定义modals的按钮文本(如 "Ok" 和 "Cancel") 也可以在 <a href="init-app.html">App 初始化</a>时，通过传递 <strong>modalButtonOk</strong> 和 <strong>modalButtonCancel</strong> 参数改变。</p>
                 </li>
               </ul>
             </div>
-            <p>First of all, let's look on most used and already predefined modals in Framework7:</p>
+            <p>首先，让我们看看已经预定义的最常用的modal:</p>
           </div>
           <h3 data-device-preview="../docs-demos/modal-alert.html">Alert</h3>
           <p>我们需要调用以下任一一种App方法来打开Alert modal ：<span class="method">myApp.alert(<span>text, [title, callbackOk]</span>)</span></span><br>or <br><span class="method">myApp.alert(<span>text, [callbackOk]</span>)</span></span></p>
@@ -251,8 +251,8 @@ $$('.confirm-title-ok-cancel').on('click', function () {
           <ul class="method-parameters">
             <li><span class="parameter">text</span> - <span class="parameter-type">string</span>. Prompt 文本/问题</li>
             <li><span class="parameter">title</span> - <span class="parameter-type">string</span>. Optional. Prompt modal 标题 </li>
-            <li><span class="parameter">callbackOk</span> - <span class="parameter-type">function</span>. Optional. 在 Prompt modal下，当用户点击“Ok”按钮时，回调函数将被执行。<strong>方法接收文本输入框里的值作为一个参数</strong></li>
-            <li><span class="parameter">callbackCancel</span> - <span class="parameter-type">function</span>. Optional. 在 Prompt modal下，当用户点击“Cancel”按钮时，回调函数将被执行。<strong>方法接收文本输入框里的值作为一个参数</strong></li>
+            <li><span class="parameter">callbackOk</span> - <span class="parameter-type">function</span>. Optional. 在 Prompt modal下，当用户点击“Ok”按钮时，回调函数将被执行。<strong>回调函数的参数是输入框的值</strong></li>
+            <li><span class="parameter">callbackCancel</span> - <span class="parameter-type">function</span>. Optional. 在 Prompt modal下，当用户点击“Cancel”按钮时，回调函数将被执行。<strong>回调函数的参数是输入框的值</strong></li>
             <li class="method-returns">该方法返回动态创建的modal的HTML元素。</li>
           </ul>
           <pre><code>&lt;body&gt;
@@ -304,24 +304,24 @@ $$('.prompt-title-ok-cancel').on('click', function () {
           <p><span class="method">myApp.modalLogin(<span>text, [title, callbackOk, callbackCancel]</span>)</span></span><br>or <br><span class="method">myApp.modalLogin(<span>text, [callbackOk, callbackCancel]</span>)</span></span></p>
           <ul class="method-parameters">
             <li><span class="parameter">text</span> - <span class="parameter-type">string</span>. Modal 文本</li>
-            <li><span class="parameter">title</span> - <span class="parameter-type">string</span>. Optional. Modal 标题 </li>
-            <li><span class="parameter">callbackOk</span> - <span class="parameter-type">function</span>.  Optional. 用户点击“Ok”按钮时，回调函数将被执行。 <strong>用户名和密码作为参数被方法接收</strong></li>
-            <li><span class="parameter">callbackCancel</span> - <span class="parameter-type">function</span>. Optional. 当用户点击“Cancel”按钮时，回调函数将被执行。 <strong>用户名和密码作为参数被方法接收</strong></li>
+            <li><span class="parameter">title</span> - <span class="parameter-type">string</span>. 可选. Modal 标题 </li>
+            <li><span class="parameter">callbackOk</span> - <span class="parameter-type">function</span>. 可选. 用户点击“确定”按钮时，回调函数将被执行。 <strong>回调函数的参数是用户名和密码</strong></li>
+            <li><span class="parameter">callbackCancel</span> - <span class="parameter-type">function</span>. 可选. 当用户点击“取消”按钮时，回调函数将被执行。 <strong>回调函数的参数是用户名和密码</strong></li>
             <li class="method-returns">该方法返回动态创建的modal的HTML元素。</li>
           </ul>
           <p><span class="method">myApp.modalPassword(<span>text, [title, callbackOk, callbackCancel]</span>)</span></span><br>or <br><span class="method">myApp.modalPassword(<span>text, [callbackOk, callbackCancel]</span>)</span></span></p>
           <ul class="method-parameters">
             <li><span class="parameter">text</span> - <span class="parameter-type">string</span>. Modal 文本</li>
             <li><span class="parameter">title</span> - <span class="parameter-type">string</span>. Optional. Modal 标题 </li>
-            <li><span class="parameter">callbackOk</span> - <span class="parameter-type">function</span>. Optional. 用户点击“Ok”按钮时，回调函数将被执行。 <strong>密码作为参数被方法接收</strong></li>
-            <li><span class="parameter">callbackCancel</span> - <span class="parameter-type">function</span>. Optional. 当用户点击“Cancel”按钮时，回调函数将被执行。 <strong>密码作为参数被方法接收</strong></li>
+            <li><span class="parameter">callbackOk</span> - <span class="parameter-type">function</span>. Optional. 用户点击“确定”按钮时，回调函数将被执行。 <strong>回调函数的参数是用户输入的密码</strong></li>
+            <li><span class="parameter">callbackCancel</span> - <span class="parameter-type">function</span>. Optional. 当用户点击“取消”按钮时，回调函数将被执行。<strong>回调函数的参数是用户输入的密码</strong></li>
           </ul>
           <pre><code>&lt;div class="page-content"&gt;
   &lt;div class="content-block"&gt;
     &lt;p&gt;&lt;a href="#" class="login-modal"&gt;Login Modal&lt;/a&gt;&lt;/p&gt;
     &lt;p&gt;&lt;a href="#" class="password-modal"&gt;Password Modal&lt;/a&gt;&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;  </code></pre>
+&lt;/div&gt;</code></pre>
           <pre><code>var myApp = new Framework7();
  
 var $$ = Dom7;
@@ -337,8 +337,8 @@ $$('.password-modal').on('click', function () {
         myApp.alert('Thank you! Your password is: ' + password);
     });
 });        </code></pre>
-          <h3 data-device-preview="../docs-demos/modal-nest.html">Nesting Modals</h3>
-          <p>当然,您可能已经注意到,你在任何其他回调函数中“nest”这个modals</p>
+          <h3 data-device-preview="../docs-demos/modal-nest.html">嵌套Modals</h3>
+          <p>当然,您可能已经注意到,你在任何其他modal回调函数中“嵌套“这个modals</p>
           <pre><code>&lt;body&gt;
   ...
   &lt;div class="page-content"&gt;
@@ -355,14 +355,14 @@ $$('.password-modal').on('click', function () {
         });
     });
 });</code></pre>
-          <h3 data-device-preview="../docs-demos/modal-preloader.html">Preloader Modal</h3>
-          <p>Preloader Modal 用来提示一些后台活动（像Ajax请求）和阻止在这个活动期间的任何用户操作。 打开 Preloader modal 我们也需要调用适当的App方法:</p>
-          <p><span class="method">myApp.showPreloader(<span>[title]</span>)</span> - 显示 Preloader modal</span></p>
+          <h3 data-device-preview="../docs-demos/modal-preloader.html">预加载 Modal (Preloader Modal)</h3>
+          <p>预加载 Modal 用来提示一些后台活动（像Ajax请求）和阻止在这个活动期间的任何用户操作。 打开预加载 modal 我们也需要调用适当的App方法:</p>
+          <p><span class="method">myApp.show预加载(<span>[title]</span>)</span> - 显示 预加载 modal</span></p>
           <ul class="method-parameters">
-            <li><span class="parameter">title</span> - <span class="parameter-type">string</span>. Optional. Preloader modal 标题. 默认（没有指定）的时候，它等同于 "Loading...". 你可以在App初始化时通过  <strong>modalPreloaderTitle</strong> 参数改变默认的 Preloader 标题。</li>
+            <li><span class="parameter">title</span> - <span class="parameter-type">string</span>. Optional. 预加载 modal 标题. 默认（没有指定）的时候，它等同于 "Loading...". 你可以在App初始化时通过  <strong>modal预加载Title</strong> 参数改变默认的 预加载 标题。</li>
             <li class="method-returns">该方法返回动态创建的modal的HTML元素。</li>
           </ul>
-          <p><span class="method">myApp.hidePreloader()</span> - 隐藏/关闭 Preloader modal. 因为 Preloader modal 没有任何按钮, 它应该用 JavaScript 来关闭</span></p>
+          <p><span class="method">myApp.hide预加载()</span> - 隐藏/关闭 预加载 modal. 因为 预加载 modal 没有任何按钮, 它应该用 JavaScript 来关闭</span></p>
           <pre><code>&lt;body&gt;
   ...
   &lt;div class="page-content"&gt;
@@ -385,10 +385,10 @@ $$('.open-preloader-title').on('click', function () {
         myApp.hidePreloader();
     }, 2000);
 });          </code></pre>
-          <h3 data-device-preview="../docs-demos/modal-indicator.html">Indicator（指示器）</h3>
-          <p>如果你不需要用像Preloader Modal这样如此大的modal 窗口去指示活动, 你可以使用简单并且小的indicator modal:</p>
-          <p><span class="method">myApp.showIndicator()</span> - 显示 Indicator modal</span></p>
-          <p><span class="method">myApp.hideIndicator()</span> - 隐藏/关闭 Indicator modal. 因为Indicator modal没有任何按钮, 它需要用JavaScript来关闭</span></p>
+          <h3 data-device-preview="../docs-demos/modal-indicator.html">指示器(indicator)</h3>
+          <p>如果你不需要用像预加载Modal这样如此大的modal 窗口去指示活动, 你可以使用简单并且小的指示器modal:</p>
+          <p><span class="method">myApp.showIndicator()</span> - 显示指示器 modal</span></p>
+          <p><span class="method">myApp.hideIndicator()</span> - 隐藏/关闭指示器 modal. 因为指示器modal没有任何按钮, 它需要用JavaScript来关闭</span></p>
           <pre><code>&lt;body&gt;
   ...
   &lt;div class="page-content"&gt;
@@ -405,8 +405,8 @@ $$('.open-preloader-title').on('click', function () {
     }, 2000);
 });</code></pre>
           <div class="full-width stop-scroll-device">
-            <h2>Custom Modals</h2>
-            <p>Ok, 所有的预定义modals都指示特殊情况下（如快捷键）的完整的 Modal 方法. 让我们看看如何创建 custom modals:</p>
+            <h2>自定义Modals</h2>
+            <p>Ok, 所有的预定义modals都只是一些适用于特定的场景的方法. 让我们看看如何创建自定义的 modals:</p>
             <p><span class="method">myApp.modal(<span>parameters</span>)</span> - 显示 custom modal</span></p>
             <ul class="method-parameters">
               <li><span class="parameter">parameters</span> - <span class="parameter-type">object</span>. Modal 的 parameters/options对象</li>
@@ -425,31 +425,31 @@ $$('.open-preloader-title').on('click', function () {
               <tbody>
                 <tr>
                   <td>title</td>
-                  <td>string</td>
+                  <td>字符串</td>
                   <td></td>
                   <td>可选. Modal 标题 (可以是html字符串)</td>
                 </tr>
                 <tr>
                   <td>text</td>
-                  <td>string</td>
+                  <td>字符串</td>
                   <td></td>
                   <td>可选. Modal 文本 (可以是html字符串)</td>
                 </tr>
                 <tr>
                   <td>afterText</td>
-                  <td>string</td>
+                  <td>字符串</td>
                   <td></td>
                   <td>可选. 将被放在"text"后的文本 (可以是html字符串)</td>
                 </tr>
                 <tr>
                   <td>buttons</td>
-                  <td>array</td>
+                  <td>数组</td>
                   <td></td>
                   <td>可选. 按钮数组. 每个按钮应该被表示为带按钮参数的对象 (看下面)</td>
                 </tr>
                 <tr>
                   <td>onClick</td>
-                  <td>function</td>
+                  <td>函数</td>
                   <td></td>
                   <td>可选. 回调函数将在用户点击任何Modal按钮后被触发执行. 它接收 <b>modal</b> (Modal的 HTML元素) 和 <b>index</b>作为参数 (被点击按钮的索引号)</td>
                 </tr>
@@ -468,25 +468,25 @@ $$('.open-preloader-title').on('click', function () {
               <tbody>
                 <tr>
                   <td>text</td>
-                  <td>string</td>
+                  <td>字符串</td>
                   <td></td>
                   <td>按钮文本 (可以是 HTML 字符串)</td>
                 </tr>
                 <tr>
                   <td>bold</td>
-                  <td>boolean</td>
+                  <td>布尔值</td>
                   <td>false</td>
                   <td>可选. 设置为true会加粗按钮文本</td>
                 </tr>
                 <tr>
                   <td>close</td>
-                  <td>boolean</td>
+                  <td>布尔值</td>
                   <td>true</td>
                   <td>可选. 如果是“true”，点击这个按钮后modal会被关闭</td>
                 </tr>
                 <tr>
                   <td>onClick</td>
-                  <td>function</td>
+                  <td>函数</td>
                   <td></td>
                   <td>可选. 用户点击这个按钮后，回调函数会被执行</td>
                 </tr>
