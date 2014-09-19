@@ -30,13 +30,17 @@ block content
             |           &lt;div class="item-inner"&gt;...&lt;/div&gt;
             |         &lt;/div&gt;
             |       &lt;/div&gt;
-            |       &lt;!-- 滑动操作 --&gt;
-            |       &lt;div class="swipeout-actions"&gt;
-            |         &lt;div class="swipeout-actions-inner"&gt;
-            |           &lt;!-- 滑动操作链接/按钮 --&gt;
-            |           &lt;a href="#"&gt;Action 1&lt;/a&gt;
-            |           &lt;a href="#"&gt;Action 2&lt;/a&gt;
-            |         &lt;/div&gt;
+            |       &lt;!-- Swipeout actions left --&gt;
+            |       &lt;div class="swipeout-actions-left"&gt;
+            |         &lt;!-- Swipeout actions links/buttons --&gt;
+            |         &lt;a href="#"&gt;Action 1&lt;/a&gt;
+            |         &lt;a href="#"&gt;Action 2&lt;/a&gt;
+            |       &lt;/div&gt;
+            |       &lt;!-- Swipeout actions right --&gt;
+            |       &lt;div class="swipeout-actions-right"&gt;
+            |         &lt;!-- Swipeout actions links/buttons --&gt;
+            |         &lt;a href="#"&gt;Action 1&lt;/a&gt;
+            |         &lt;a href="#"&gt;Action 2&lt;/a&gt;
             |       &lt;/div&gt;
             |     &lt;/li&gt;
             |     ...
@@ -45,10 +49,10 @@ block content
         p 其中：
         ul
           li <code>swipeout-content</code> - 列表元素的容器，它会随着滑动操作移动
-          li <code>swipeout-actions</code> - 当你有滑动操作菜单（swipeout action buttons/links）时，需要将操作菜单放在这个容器中
-          li <code>swipeout-actions-inner</code> - 滑动操作菜单的容器，这个容器会在滑动的过程中显露出来
+          li <code>swipeout-actions-left</code> - 向左滑动的按钮和链接的容器
+          li <code>swipeout-actions-right</code> - 向左滑动的按钮和链接的容器
         .important-note
-          p 注意，<strong>swipeout-content</strong>和<strong>swipeout-actions</strong>应该是<strong>&lt;li&gt;</strong>的直接子元素
+          p 注意，<strong>swipeout-content</strong>和<strong>swipeout-actions-left/right</strong>应该是<strong>&lt;li&gt;</strong>的直接子元素
         p 如果只含有“item-content”类的子元素，可以将“item-content”类加到“swipeout-content”元素上，以简化结构：
         pre
           code
@@ -57,11 +61,9 @@ block content
             |     &lt;div class="item-media"&gt;...&lt;/div&gt;
             |     &lt;div class="item-inner"&gt;...&lt;/div&gt;
             |   &lt;/div&gt;
-            |   &lt;div class="swipeout-actions"&gt;
-            |     &lt;div class="swipeout-actions-inner"&gt;
-            |       &lt;a href="#"&gt;Action 1&lt;/a&gt;
-            |       &lt;a href="#"&gt;Action 2&lt;/a&gt;
-            |     &lt;/div&gt;
+            |   &lt;div class="swipeout-actions-right"&gt;
+            |     &lt;a href="#"&gt;Action 1&lt;/a&gt;
+            |     &lt;a href="#"&gt;Action 2&lt;/a&gt;
             |   &lt;/div&gt;
             | &lt;/li&gt;
         p 如果使用的是<a href="list-view.html#链接元素">链接元素</a>，你可以将上述的类都加到链接元素上：
@@ -72,64 +74,99 @@ block content
             |     &lt;div class="item-media"&gt;...&lt;/div&gt;
             |     &lt;div class="item-inner"&gt;...&lt;/div&gt;
             |   &lt;/a&gt;
-            |   &lt;div class="swipeout-actions"&gt;
-            |     &lt;div class="swipeout-actions-inner"&gt;
-            |       &lt;a href="#"&gt;Action 1&lt;/a&gt;
-            |       &lt;a href="#"&gt;Action 2&lt;/a&gt;
-            |     &lt;/div&gt;
+            |   &lt;div class="swipeout-actions-right"&gt;
+            |     &lt;a href="#"&gt;Action 1&lt;/a&gt;
+            |     &lt;a href="#"&gt;Action 2&lt;/a&gt;
             |   &lt;/div&gt;
             | &lt;/li&gt;
       h4(data-device-preview="../docs-demos/swipeout.html") 示例
       pre
         code
+          | &lt;!-- On right side --&gt;
           | &lt;div class="list-block"&gt;
           |   &lt;ul&gt;
           |     &lt;li class="swipeout"&gt;
           |       &lt;div class="swipeout-content item-content"&gt;
-          |         &lt;div class="item-media"&gt;&lt;i class="icon icon-f7"&gt;&lt;/i&gt;&lt;/div&gt;
-          |         &lt;div class="item-inner"&gt;
-          |           &lt;div class="item-title"&gt;Item title&lt;/div&gt;
-          |           &lt;div class="item-after"&gt;Label&lt;/div&gt;
-          |         &lt;/div&gt;
+          |         &lt;div class="item-media"&gt;...&lt;/div&gt;
+          |         &lt;div class="item-inner"&gt;...&lt;/div&gt;
           |       &lt;/div&gt;
-          |       &lt;div class="swipeout-actions"&gt;
-          |         &lt;div class="swipeout-actions-inner"&gt;
-          |           &lt;a href="#" class="action1"&gt;Action 1&lt;/a&gt;
-          |         &lt;/div&gt;
+          |       &lt;div class="swipeout-actions-right"&gt;
+          |         &lt;a href="#" class="action1"&gt;Action 1&lt;/a&gt;
           |       &lt;/div&gt;
           |     &lt;/li&gt;
           |     &lt;li class="swipeout"&gt;
           |       &lt;div class="swipeout-content item-content"&gt;
-          |         &lt;div class="item-media"&gt;&lt;i class="icon icon-f7"&gt;&lt;/i&gt;&lt;/div&gt;
-          |         &lt;div class="item-inner"&gt;
-          |           &lt;div class="item-title"&gt;Item with badge&lt;/div&gt;
-          |           &lt;div class="item-after"&gt;&lt;span class="badge"&gt;5&lt;/span&gt;&lt;/div&gt;
-          |         &lt;/div&gt;
+          |         &lt;div class="item-media"&gt;...&lt;/div&gt;
+          |         &lt;div class="item-inner"&gt;...&lt;/div&gt;
           |       &lt;/div&gt;
-          |       &lt;div class="swipeout-actions"&gt;
-          |         &lt;div class="swipeout-actions-inner"&gt;
-          |           &lt;a href="#" class="action1"&gt;Action 1&lt;/a&gt;
-          |           &lt;a href="#" class="action2"&gt;Action 2&lt;/a&gt;
-          |         &lt;/div&gt;
+          |       &lt;div class="swipeout-actions-right"&gt;
+          |         &lt;a href="#" class="action1 bg-orange"&gt;Action 1&lt;/a&gt;
+          |         &lt;a href="#" class="action2"&gt;Action 2&lt;/a&gt;
           |       &lt;/div&gt;
           |     &lt;/li&gt;
-          |     &lt;li class="swipeout"&gt;
-          |       &lt;div class="swipeout-content item-content"&gt;
-          |         &lt;div class="item-media"&gt;&lt;i class="icon icon-f7"&gt;&lt;/i&gt;&lt;/div&gt;
-          |         &lt;div class="item-inner"&gt;
-          |           &lt;div class="item-title"&gt;Another item&lt;/div&gt;
-          |           &lt;div class="item-after"&gt;Another label&lt;/div&gt;
-          |         &lt;/div&gt;
-          |       &lt;/div&gt;
-          |       &lt;div class="swipeout-actions"&gt;
-          |         &lt;div class="swipeout-actions-inner"&gt;
-          |           &lt;a href="#" class="action1"&gt;Action 1&lt;/a&gt;
-          |           &lt;a href="#" class="action2"&gt;Action 2&lt;/a&gt;
-          |         &lt;/div&gt;
-          |       &lt;/div&gt;
-          |     &lt;/li&gt;
+          |     ...
           |   &lt;/ul&gt;
           | &lt;/div&gt;
+          | 
+          | &lt;!-- On left side --&gt;
+          | &lt;div class="list-block"&gt;
+          |   &lt;ul&gt;
+          |     &lt;li class="swipeout"&gt;
+          |       &lt;div class="swipeout-content item-content"&gt;
+          |         &lt;div class="item-media"&gt;...&lt;/div&gt;
+          |         &lt;div class="item-inner"&gt;...&lt;/div&gt;
+          |       &lt;/div&gt;
+          |       &lt;div class="swipeout-actions-left"&gt;
+          |         &lt;a href="#" class="action1"&gt;Action 1&lt;/a&gt;
+          |       &lt;/div&gt;
+          |     &lt;/li&gt;
+          |     &lt;li class="swipeout"&gt;
+          |       &lt;div class="swipeout-content item-content"&gt;
+          |         &lt;div class="item-media"&gt;...&lt;/div&gt;
+          |         &lt;div class="item-inner"&gt;...&lt;/div&gt;
+          |       &lt;/div&gt;
+          |       &lt;div class="swipeout-actions-left"&gt;
+          |         &lt;a href="#" class="action1 bg-orange"&gt;Action 1&lt;/a&gt;
+          |         &lt;a href="#" class="action2"&gt;Action 2&lt;/a&gt;
+          |       &lt;/div&gt;
+          |     &lt;/li&gt;
+          |     ...
+          |   &lt;/ul&gt;
+          | &lt;/div&gt;
+          | 
+          | &lt;!-- On both sides --&gt;
+          | &lt;div class="list-block"&gt;
+          |   &lt;ul&gt;
+          |     &lt;li class="swipeout"&gt;
+          |       &lt;div class="swipeout-content item-content"&gt;
+          |         &lt;div class="item-media"&gt;...&lt;/div&gt;
+          |         &lt;div class="item-inner"&gt;...&lt;/div&gt;
+          |       &lt;/div&gt;
+          |       &lt;div class="swipeout-actions-left"&gt;
+          |         &lt;a href="#" class="action1"&gt;Action L1&lt;/a&gt;
+          |       &lt;/div&gt;
+          |       &lt;div class="swipeout-actions-right"&gt;
+          |         &lt;a href="#" class="action1"&gt;Action R1&lt;/a&gt;
+          |       &lt;/div&gt;
+          |     &lt;/li&gt;
+          |     &lt;li class="swipeout"&gt;
+          |       &lt;div class="swipeout-content item-content"&gt;
+          |         &lt;div class="item-media"&gt;...&lt;/div&gt;
+          |         &lt;div class="item-inner"&gt;...&lt;/div&gt;
+          |       &lt;/div&gt;
+          |       &lt;div class="swipeout-actions-left"&gt;
+          |         &lt;a href="#" class="action1 bg-pink"&gt;Action L1&lt;/a&gt;
+          |         &lt;a href="#" class="action2 bg-lightblue"&gt;Action L2&lt;/a&gt;
+          |       &lt;/div&gt;
+          |       &lt;div class="swipeout-actions-right"&gt;
+          |         &lt;a href="#" class="action1 bg-orange"&gt;Action R1&lt;/a&gt;
+          |         &lt;a href="#" class="action2"&gt;Action R2&lt;/a&gt;
+          |       &lt;/div&gt;
+          |     &lt;/li&gt;
+          |     ...
+          |   &lt;/ul&gt;
+          | &lt;/div&gt;
+
       pre
         code
           | var myApp = new Framework7();
@@ -151,11 +188,9 @@ block content
           |     &lt;div class="item-media"&gt;...&lt;/div&gt;
           |     &lt;div class="item-inner"&gt;...&lt;/div&gt;
           |   &lt;/div&gt;
-          |   &lt;div class="swipeout-actions"&gt;
-          |     &lt;div class="swipeout-actions-inner"&gt;
-          |       &lt;!-- 加入这个按钮，列表项会自动删除 --&gt;
-          |       &lt;a href="#" class="swipeout-delete"&gt;Delete&lt;/a&gt;
-          |     &lt;/div&gt;
+          |   &lt;div class="swipeout-actions-right"&gt;
+          |     &lt;!-- Add this button and item will be deleted automatically --&gt;
+          |     &lt;a href="#" class="swipeout-delete"&gt;Delete&lt;/a&gt;
           |   &lt;/div&gt;
           | &lt;/li&gt;
       p 可以在点击删除按钮的时候调用确认询问模态窗口（Confirm modal），只有在确认后才会将需要删除的元素从列表中移除。使用确认功能只需要把“data-confirm”和“data-confirm-title”(可选)属性加到删除菜单链接（&lt;a class="swipeout-delete"&gt;）上：
@@ -166,15 +201,71 @@ block content
           |     &lt;div class="item-media"&gt;...&lt;/div&gt;
           |     &lt;div class="item-inner"&gt;...&lt;/div&gt;
           |   &lt;/div&gt;
-          |   &lt;div class="swipeout-actions"&gt;
-          |     &lt;div class="swipeout-actions-inner"&gt;
-          |       &lt;!-- 添加data-confirm和data-confirm-title属性 --&gt;
-          |       &lt;a href="#" class="swipeout-delete" data-confirm="Are you sure want to delete this item?" data-confirm-title="Delete?"&gt;Delete&lt;/a&gt;
+          |   &lt;div class="swipeout-actions-right"&gt;
+          |     &lt;!-- We add data-confirm and data-confirm-title attributes --&gt;
+          |     &lt;a href="#" class="swipeout-delete" data-confirm="Are you sure want to delete this item?" data-confirm-title="Delete?"&gt;Delete&lt;/a&gt;
           |     &lt;/div&gt;
           |   &lt;/div&gt;
           | &lt;/li&gt;
-      h2(data-device-preview="../docs-demos/swipeout-api.html") 滑动操作列表（Swipeout）JavaScript API
-      p 滑动操作列表提供丰富的JavaScript API来控制滑动列表元素。下面是提供的属性及方法：
+      h2(data-device-preview="../docs-demos/swipeout-overswipe.html") 滑动距离过长(swipeover)
+      p 当滑动距离过长的时候，可以通过 <code>swipeout-overswipe</code> 类来制定一个操作按钮。
+      pre
+        code
+          | &lt;li class="swipeout"&gt;
+          |   &lt;div class="swipeout-content item-content"&gt;
+          |     &lt;div class="item-media"&gt;...&lt;/div&gt;
+          |     &lt;div class="item-inner"&gt;...&lt;/div&gt;
+          |   &lt;/div&gt;
+          |   &lt;div class="swipeout-actions-right"&gt;
+          |     &lt;a href="#"&gt;More&lt;/a&gt;
+          |     &lt;a href="#" class="swipeout-delete swipeout-overswipe"&gt;Delete&lt;/a&gt;
+          |     &lt;/div&gt;
+          |   &lt;/div&gt;
+          | &lt;/li&gt;
+      .important-note
+        p <code>overswipe</code> 只能用在右滑的最后一个按钮或者左滑的第一个按钮。
+        p overswipe 的时候会自动在overswipe按钮上触发click事件，所以你需要在该按钮上绑定正确的事件监听。
+      pre
+        code
+          | &lt;li class="swipeout"&gt;
+          |   &lt;div class="swipeout-content"&gt;
+          |     &lt;a href="#" class="item-content item-link"&gt;
+          |       &lt;div class="item-inner"&gt;
+          |         &lt;div class="item-title-row"&gt;
+          |           &lt;div class="item-title"&gt;Facebook&lt;/div&gt;
+          |           &lt;div class="item-after"&gt;17:14&lt;/div&gt;
+          |         &lt;/div&gt;
+          |         &lt;div class="item-subtitle"&gt;New messages from John Doe&lt;/div&gt;
+          |         &lt;div class="item-text"&gt;Lorem ipsum ...&lt;/div&gt;
+          |       &lt;/div&gt;
+          |     &lt;/a&gt;
+          |   &lt;/div&gt;
+          |   &lt;div class="swipeout-actions-left"&gt;
+          |     &lt;a href="#" class="swipeout-overswipe bg-green reply"&gt;Reply&lt;/a&gt;
+          |     &lt;a href="#" class="bg-blue forward"&gt;Forward&lt;/a&gt;
+          |   &lt;/div&gt;
+          |   &lt;div class="swipeout-actions-right"&gt;
+          |     &lt;a href="#" class="mark bg-orange"&gt;Mark&lt;/a&gt;
+          |     &lt;a href="#" class="swipeout-delete swipeout-overswipe"&gt;Delete&lt;/a&gt;
+          |   &lt;/div&gt;
+          | &lt;/li&gt;
+      pre
+        code
+          | var myApp = new Framework7();
+          | 
+          | var $$ = Dom7;
+          | 
+          | $$('.mark').on('click', function () {
+          |   myApp.alert('Mark');
+          | });
+          | $$('.reply').on('click', function () {
+          |   myApp.alert('Reply');
+          | });
+          | $$('.forward').on('click', function () {
+          |   myApp.alert('Forward');
+          | });          
+      h2(data-device-preview="../docs-demos/swipeout-api.html") Swipeout JavaScript API
+      p Swipeouts 有丰富的JS API可以用来控制里面的元素：
       p
         span.method myApp.swipeoutOpen(<span>el</span>)</span> - 在指定的元素中显示滑动菜单
       ul.method-parameters

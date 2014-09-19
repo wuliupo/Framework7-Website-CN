@@ -121,9 +121,11 @@
             <li><a href="notifications.html">通知</a></li>
             <li class="title"><a href="color-themes.html">皮肤颜色</a></li>
             <li class="title">工具</li>
-            <li> <a href="device-api.html">设备API</a></li>
+            <li> <a href="active-state.html">激活状态</a></li>
+            <li><a href="device-api.html">设备API</a></li>
             <li> <a href="support-api.html">API</a></li>
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
+            <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
           </ul>
         </div>
@@ -211,10 +213,25 @@
                 <td>另一个View的CSS选择器，可以指定讲当前view中链接加载到另一个View中。</td>
               </tr>
               <tr>
+                <th colspan="4">Navigation</th>
+              </tr>
+              <tr>
+                <td>uniqueHistory</td>
+                <td>boolean</td>
+                <td></td>
+                <td>Set to true and App will keep View's navigation history unique, it will also remove duplicated pages. By default, equal to the same App's parameter. Allows to override global <a href="init-app.html">App parameter</a> for current View</td>
+              </tr>
+              <tr>
                 <td>animatePages</td>
                 <td>boolean</td>
                 <td></td>
-                <td>打开/关闭当前View中的页面切换动画。默认和 App中对应的参数值相同，可以用来在当前View中重置全局的<a href="init-app.html">App 参数</a>。</td>
+                <td>如果你想在页面切换时禁用动画，可以把这个值设置为false。默认和 App中对应的参数值相同，可以用来在当前View中重置全局的<a href="init-app.html">App 参数</a>。</td>
+              </tr>
+              <tr>
+                <td>preloadPreviousPage</td>
+                <td>boolean</td>
+                <td></td>
+                <td>打开/关闭预加载下一页。为了“返回上一步”能正常工作，最好打开这个选项。默认情况下和 App 中的设置相同。</td>
               </tr>
               <tr>
                 <th colspan="4">滑动返回上一步</th>
@@ -312,40 +329,12 @@ var anotherView = myApp.addView('.another-view');</code></pre>
                 <th colspan="2">方法</th>
               </tr>
               <tr>
-                <td rowspan="2" class="method">mainView.loadPage(<span>url</span>, <span>animatePages</span>)</td>
-                <td>
-                  <ul class="method-parameters">
-                    <li><span class="parameter">url</span> - <span class="parameter-type">string</span>. 需要加载的页面的URL</li>
-                    <li><span class="parameter">animatePages</span> - <span class="parameter-type">boolean</span>. 可选. 是否有页面切换动画</li>
-                  </ul>
-                </td>
+                <td class="method">mainView.loadPage(options)</td>
+                <td>* Look "View Navigation Methods" below</td>
               </tr>
               <tr>
-                <td>这个方法会把指定的页面加载到当前view‘中。就和你在当前页面中点击一个链接是一样的作用。</td>
-              </tr>
-              <tr>
-                <td rowspan="2" class="method">mainView.loadContent(<span>content</span>, <span>animatePages</span>)</td>
-                <td>
-                  <ul class="method-parameters">
-                    <li><span class="parameter">content</span> - <span class="parameter-type">字符串</span> 或者 <span class="parameter-type">HTMLElement</span> 或者 <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> 或者 <span class="parameter-type">[HTMLElement 数组]</span>. </li>
-                    <li><span class="parameter">animatePages</span> - <span class="parameter-type">boolean</span>. 可选. 是否有页面切换动画</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <td>可以加载一个动态生成的页面。</td>
-              </tr>
-              <tr>
-                <td rowspan="2" class="method">mainView.goBack(<span>url</span>, <span>animatePages</span>)</td>
-                <td>
-                  <ul class="method-parameters">
-                    <li><span class="parameter">url</span> - <span class="parameter-type">string</span>. 需要返回的页面的URL. 如果在浏览历史中有页面，则会忽略掉URL参数.</li>
-                    <li><span class="parameter">animatePages</span> - <span class="parameter-type">boolean</span>. 可选. 是否有页面切换动画</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <td>可以触发返回上一个页面，就和你点击 "后退" 按钮是一样的</td>
+                <td class="method">mainView.goBack(options)</td>
+                <td>* Look "View Navigation Methods" below</td>
               </tr>
               <tr>
                 <td>mainView.hideNavbar()</td>
@@ -369,11 +358,140 @@ var anotherView = myApp.addView('.another-view');</code></pre>
               </tr>
             </tbody>
           </table>
-          <h3>View 默认的链接</h3>
-          <p>如果你觉得Framework7由于某些原因探测出了错误的View链接（用在浏览历史中的），或者你想设置不同的View默认链接，你可以通过在View元素上设置 <code>data-url</code> 属性或者在初始化view时设置 <code>url</code> 参数。 </p>
+          <h3>视图浏览方法(view navigation method)</h3>
+          <div class="method-wrap">
+            <p><span class="method">mainView.loadPage(<span>options</span>) </span><span>- 把一个页面载入当前视图.</span></p>
+          </div>
+          <div class="method-wrap">
+            <p><span class="method">mainView.goBack(<span>options</span>) </span><span>- This method will trigger reverse animation to the previous page, in other words - going back in View history</span></p>
+          </div>
+          <p>Each of these methods accepts <code>options</code> object with the following properties:</p>
+          <table class="params-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>url</td>
+                <td>string</td>
+                <td></td>
+                <td>URL of the page to load</td>
+              </tr>
+              <tr>
+                <td>content</td>
+                <td>string or HTMLElement or [jQuery/Zepto/DOM7 collection] or [array of HTMLElement]</td>
+                <td></td>
+                <td>Content of the page to load</td>
+              </tr>
+              <tr>
+                <td>forceUrl</td>
+                <td>boolean</td>
+                <td></td>
+                <td>Optional. Only for <code>goBack</code> method. If set to <code>true</code> then it will ignore previos page in history and load specified one</td>
+              </tr>
+              <tr>
+                <td>ignoreCache</td>
+                <td>boolean</td>
+                <td></td>
+                <td>Optional. If set to <code>true</code> then it will ignore if such URL in cache and reload it using XHR again</td>
+              </tr>
+              <tr>
+                <td>animatePages</td>
+                <td>boolean</td>
+                <td></td>
+                <td>Optional. Allows to override the same View's parameter to enable/disable transition between pages for this case</td>
+              </tr>
+              <tr>
+                <td>reload</td>
+                <td>boolean</td>
+                <td></td>
+                <td>Optional. If set to <code>true</code> then it will not load page as new page, and just replace currently active View's page with specified one. It will also modify View's history by replacing last history item</td>
+              </tr>
+              <tr>
+                <td>reloadPrevious</td>
+                <td>boolean</td>
+                <td></td>
+                <td>Optional. Used in addition to <code>reload</code>. Will do the same as <code>reload</code> but for previous page.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="important-note">
+            <p>Note, that you may use only <code>url</code> or <code>content</code> property, not both at the same time</p>
+          </div>
+          <h3>View Navigation Shortcuts Methods</h3>
+          <h4>Methods to load new page:</h4>
+          <div class="method-wrap">
+            <p><span class="method">mainView.loadPage(<span>url</span>) </span><span>- load required page to view. In other word will do the same if you click on some link with this URL</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">url</span> - URL of the page to load</li>
+            </ul>
+          </div>
+          <div class="method-wrap">
+            <p><span class="method">mainView.loadContent(<span>content</span>) </span><span>- load dynamically generated content as a new usual page.</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - content to load as page</li>
+            </ul>
+          </div>
+          <h4>Methods to reload currently active page:</h4>
+          <div class="method-wrap">
+            <p><span class="method">mainView.reloadPage(<span>url</span>) </span><span>- reload required page to the currently active view's page. It will also modify View's history and replace last item in history with the specified url</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">url</span> - URL of the page to load</li>
+            </ul>
+          </div>
+          <div class="method-wrap">
+            <p><span class="method">mainView.reloadContent(<span>content</span>) </span><span>- reload required content to the currently active view's page. It will also modify View's history and replace last item in history with the specified content</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - content to load as page</li>
+            </ul>
+          </div>
+          <h4>Methods to reload previous View's page (if there are two pages in View's DOM):</h4>
+          <div class="method-wrap">
+            <p><span class="method">mainView.reloadPreviousPage(<span>url</span>) </span><span>- reload required page to the previous view's page. It will also modify View's history and replace related item in history with the specified url</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">url</span> - URL of the page to load</li>
+            </ul>
+          </div>
+          <div class="method-wrap">
+            <p><span class="method">mainView.reloadPreviousContent(<span>content</span>) </span><span>- reload required content to the previous view's page. It will also modify View's history and replace related item in history with the specified content</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - content to load as page</li>
+            </ul>
+          </div>
+          <h4>Methods to refresh page:</h4>
+          <div class="method-wrap">
+            <p><span class="method">mainView.refreshPage() </span><span>- refresh currently active view's page. In other words it is the same as .reloadPage with url parameter equal to currently active URL</span></p>
+          </div>
+          <div class="method-wrap">
+            <p><span class="method">mainView.refreshPreviousPage() </span><span>- refresh previous view's page. The same as .reloadPreviousPage with url parameter equal to previous View's URL</span></p>
+          </div>
+          <h2>View Events</h2>
+          <table class="events-table">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Target</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>swipebackmove</td>
+                <td>View Element<span>&lt;div class="view"&gt;</span></td>
+                <td>Event will be triggered during swipe back move</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Default View URL </h2>
+          <p>If you think that for some reason Framework7 detects wrong default View URL (which is used for navigation history), or if you want to have different default View URL, you can specify it using <code>data-url</code> attribute on View element or using <code>url</code> parameter when you initialze View:</p>
           <pre><code>&lt;div class="view" data-url="index2.html"&gt;</code></pre>
           <h3>通过其他方式来访问View实例</h3>
-          <p>Framework7 有一个属性存储了所有的view对应的DOM元素，我们可以随时通过JS来访问。</p>
+          <p>有时候你需要通过HTML元素来获取View实例。当我们初始化完成View之后，Framework7会在<code>&lt;div class="view"&gt;</code>元素上增加一个属性以便让我们可以通过JS来访问。</p>
           <pre><code>var viewsElement = $$('.view-main')[0];
 var viewInstance = viewsElement.f7View;</code></pre>
           <p>当然，所有的view实例也都存储在一个属性 <code>views</code> 中，比如我们可以这样找到 main view:</p>
@@ -385,21 +503,6 @@ var viewInstance = viewsElement.f7View;</code></pre>
           <p><a href="pages.html">Pages</a></p>
         </div>
       </div>
-    </div>
-    <div class="disqus-container">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
-        
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">

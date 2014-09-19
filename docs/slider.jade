@@ -168,6 +168,16 @@ block content
               td 
               td 当幻灯片结束滑动动画（向前或后均可）时执行。接受一个幻灯片实例对象作为参数
             tr
+              td onTransitionStart(slider)
+              td function
+              td 
+              td Callback function, will be executed in the beginning of transition. Receives slider instance as an argument.
+            tr
+              td onTransitionEnd(slider)
+              td function
+              td 
+              td Callback function, will be executed after transition. Receives slider instance as an argument.
+            tr
               td onTouchStart(slider, event)
               td function
               td 
@@ -296,8 +306,18 @@ block content
               td mySlider.updateSlides();
               td 该方法会重新计算幻灯片数量和他们的位置。当你通过JS动态添加/删除了一些幻灯片时会有用
             tr
+              td mySlider.updatePagination();
+              td 重新计算 slider and slides sizes. 当你通过JS修改了幻灯片之后，可以通过此方法来更新。
+            tr
               td mySlider.updateSize();
-              td 重新计算幻灯片大小，在你通过JS动态修改幻灯片大小后会有用
+              td Dynamically creates pagination bullets
+            tr
+              td mySlider.updateClasses();
+              td Updates active/prev/next classes on slides and bullets
+
+            tr
+              td mySlider.update();
+              td This method contains .updateSlides, .updatePagination, .updateSize, .updateClasses. Should be called after you add/remove slides dynamically
             tr
               td mySlider.detachEvents();
               td 解除所有的事件监听器

@@ -575,3 +575,28 @@ block content
               td closed
               td Modal Element<span>&lt;div class="modal"&gt;</span>
               td 当 Modal 完成结束动画后，事件将被触发。
+        h2 Modal 模板
+        p 如果你希望能自定义 modal 模板，你可在 初始化APP 的时候传入一个 <code>modalTemplate 参数</code>。这个参数的值是一个 <a href="template7.html">Template7</a> 模板，当编译该模板的时候会传入一个 <code>groups</code> 参数。
+        p 这个模板可能是这样的：
+        pre
+          code
+            | &lt;div class="modal {{#unless buttons}}modal-no-buttons{{/unless}}"&gt;
+            |   &lt;div class="modal-inner"&gt;
+            |     {{#if title}}
+            |       &lt;div class="modal-title"&gt;{{title}}&lt;/div&gt;
+            |     {{/if}}
+            |     {{#if text}}
+            |        &lt;div class="modal-text"&gt;{{text}}&lt;/div&gt;
+            |     {{/if}}
+            |     {{#if afterText}}
+            |       {{afterText}}
+            |     {{/if}}
+            |   &lt;/div&gt;
+            |   {{#if buttons}}
+            |     &lt;div class="modal-buttons"&gt;
+            |       {{#each buttons}}
+            |         &lt;span class="modal-button {{#if bold}}modal-button-bold{{/if}}"&gt;{{text}}&lt;/span&gt;
+            |       {{/each}}
+            |     &lt;/div&gt;
+            |   {{/if}}
+            | &lt;/div&gt;            

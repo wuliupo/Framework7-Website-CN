@@ -125,9 +125,11 @@
             <li><a href="notifications.html">通知</a></li>
             <li class="title"><a href="color-themes.html">皮肤颜色</a></li>
             <li class="title">工具</li>
-            <li> <a href="device-api.html">设备API</a></li>
+            <li> <a href="active-state.html">激活状态</a></li>
+            <li><a href="device-api.html">设备API</a></li>
             <li> <a href="support-api.html">API</a></li>
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
+            <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
           </ul>
         </div>
@@ -159,6 +161,7 @@
               </ul>
             </p>
             <h2>下拉刷新的行为顺序</h2>
+            <p>当用户开始下拉的时候， <b>pull-to-refresh-layer</b>会增加一个额外的 <b>pull-down</b> 类。</p>
             <p>当用户下拉使<b>pull-to-refresh-content</b>元素下降超过44px时(即<b>pull-to-refresh-layer</b>元素完全可视)，<b>pull-to-refresh-layer</b>元素将自动添加"<b>pull-up</b>"类，使箭头转向180度，以提醒用户界面将在他松开手指时刷新。</p>
             <p>当用户在“pull-up”状态释放下拉区块使页面刷新时，<b>pull-to-refresh-layer</b>区块将会添加一个"<b>refreshing</b>"类。在“refreshing”状态，箭头将会隐藏，同时会展现一个加载提示符。这个时候你通常需要进行Ajax异步请求并刷新页面内容。</p>
             <h2>下拉刷新事件</h2>
@@ -259,21 +262,6 @@ ptrContent.on('refresh', function (e) {
 });</code></pre>
         </div>
       </div>
-    </div>
-    <div class="disqus-container">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
-        
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">

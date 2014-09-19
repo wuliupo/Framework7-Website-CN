@@ -125,9 +125,11 @@
             <li><a href="notifications.html">通知</a></li>
             <li class="title"><a href="color-themes.html">皮肤颜色</a></li>
             <li class="title">工具</li>
-            <li> <a href="device-api.html">设备API</a></li>
+            <li> <a href="active-state.html">激活状态</a></li>
+            <li><a href="device-api.html">设备API</a></li>
             <li> <a href="support-api.html">API</a></li>
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
+            <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
           </ul>
         </div>
@@ -279,24 +281,69 @@
     &lt;/div&gt;
   &lt;/div&gt;
   ...
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;  </code></pre>
+          <div class="full-width stop-scroll-device">
+            <h2>JavaScript API</h2>
+            <p>手风琴组件有JavaScript API，你可以在JS中控制打开和关闭。方法说明如下：</p>
+            <p><span class="method">myApp.accordionOpen(<span>item</span>)</span> - 打开指定的条目</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">item</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (想要操作的条目的CSS选择器 (&lt;div class="accordion-item"&gt;). 必须。</li>
+            </ul>
+            <p><span class="method">myApp.accordionClose(<span>item</span>)</span> - 关闭指定条目</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">item</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (想要操作的条目的CSS选择器 (&lt;div class="accordion-item"&gt;). 必须</li>
+            </ul>
+            <p><span class="method">myApp.accordionToggle(<span>item</span>)</span> - toggle 指定条目</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">item</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (想要操作的条目的CSS选择器 (&lt;div class="accordion-item"&gt;). Required</li>
+            </ul>
+            <h2>事件</h2>
+            <p>手风琴有这些事件:</p>
+            <table class="events-table">
+              <thead>
+                <tr>
+                  <th>事件名称</th>
+                  <th>Target</th>
+                  <th>说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>open</td>
+                  <td>Accordion item<span>&lt;div class="accordion-item"&gt;</span></td>
+                  <td>某一条目开始执行打开动画的时候会触发</td>
+                </tr>
+                <tr>
+                  <td>opened</td>
+                  <td>Accordion item<span>&lt;div class="accordion-item"&gt;</span></td>
+                  <td>某一条目完成打开动画后触发</td>
+                </tr>
+                <tr>
+                  <td>close</td>
+                  <td>Accordion item<span>&lt;div class="accordion-item"&gt;</span></td>
+                  <td>某一条目开始执行关闭动画的时候会触发</td>
+                </tr>
+                <tr>
+                  <td>closed</td>
+                  <td>Accordion item<span>&lt;div class="accordion-item"&gt;</span></td>
+                  <td>某一条目完成关闭动画后触发</td>
+                </tr>
+              </tbody>
+            </table>
+            <pre><code>var myApp = new Framework7();
+ 
+var $$ = Dom7;
+ 
+$$('.accordion-item').on('opened', function () {
+  myApp.alert('Accordion item opened');
+}); 
+ 
+$$('.accordion-item').on('closed', function (e) {
+  myApp.alert('Accordion item closed');
+});                   </code></pre>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="disqus-container">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
-        
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">

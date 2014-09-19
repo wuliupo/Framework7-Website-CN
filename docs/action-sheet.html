@@ -125,9 +125,11 @@
             <li><a href="notifications.html">通知</a></li>
             <li class="title"><a href="color-themes.html">皮肤颜色</a></li>
             <li class="title">工具</li>
-            <li> <a href="device-api.html">设备API</a></li>
+            <li> <a href="active-state.html">激活状态</a></li>
+            <li><a href="device-api.html">设备API</a></li>
             <li> <a href="support-api.html">API</a></li>
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
+            <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
           </ul>
         </div>
@@ -337,6 +339,30 @@ $$('.ac-5').on('click', function () {
     myApp.actions(buttons);
 });   </code></pre>
           <div class="full-width stop-scroll-device">
+            <h2>把操作表转换成 Popover</h2>
+            <p>因为不建议在手机上使用Popover，不建议在平板上使用操作表，所以我们提供了方法你可以用操作表的拓展语法在平板上自动把操作表转换成Popover：</p>
+            <p><span class="method">myApp.actions(<span>target</span>, <span>groups</span>)</span> -  创建并打开一个包含指定多组按钮的操作表（在平板电脑上是Popover）</span><br>or <br><span class="method">myApp.actions(<span>target</span>, <span>buttons</span>)</span> - 创建并打开一个包含指定一组按钮的操作表（在平板电脑上是Popover）</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">target</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (CSS选择器)触发元素，用来对Popover进行定位. 必须</li>
+              <li><span class="parameter">groups</span> - <span class="parameter-type">array</span>. 多组按钮组，每个按钮组里面包含多个按钮。</li>
+              <li><span class="parameter">buttons</span> - <span class="parameter-type">array</span>. 一组按钮。</li>
+            </ul>
+            <pre><code>var myApp = new Framework7();
+ 
+var $$ = Dom7;
+ 
+$$('.something').on('click', function (e) {
+    var target = this;
+    var buttons = [
+        {
+            text: 'Button 1'
+        },
+        {
+            text: 'Button 2'
+        }
+    ];
+    myApp.actions(target, buttons);
+});</code></pre>
             <h2>关闭操作表</h2>
             <p>默认情况下，操作表会在以下情况下自动关闭：</p>
             <ul>
@@ -381,24 +407,28 @@ $$('.ac-5').on('click', function () {
                 </tr>
               </tbody>
             </table>
+            <h2>操作表模板</h2>
+            <p>如果你希望能自定义操作表的模板，你可以在<a href="init-app.html">初始化App</a>的时候传入一个 <code>modalActionsTemplate</code> 参数。这个参数值是一个 <a href="template7.html">Template7</a> 模板字符串，这个模板会被 Template7 编译，编译的时候会传入一个 <code>groups</code> 参数。</p>
+            <p>比如模板可能会是这样的：</p>
+            <pre><code>&lt;!-- This template equalt to default layout --&gt;
+&lt;div class="actions-modal"&gt;
+  &lt;!-- this is a single group --&gt;
+  {{#each this}}
+    &lt;div class="actions-modal-group"&gt;
+      &lt;!-- now this represents a single button --&gt;
+      {{#each this}}
+          {{#if label}}
+            &lt;span class="actions-modal-label"&gt;{{text}}&lt;/span&gt;
+          {{else}}
+            &lt;div class="actions-modal-button {{#if color}}color-{{color}}{{/if}} {{#if bold}}actions-modal-button-bold{{/if}}"&gt;{{text}}&lt;/div&gt;
+          {{/if}}
+      {{/each}}
+    &lt;/div&gt;
+  {{/each}}
+&lt;/div&gt;            </code></pre>
           </div>
         </div>
       </div>
-    </div>
-    <div class="disqus-container">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'framework7'; // required: replace example with your forum shortname
-        
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <div class="share-line">
       <div class="center">

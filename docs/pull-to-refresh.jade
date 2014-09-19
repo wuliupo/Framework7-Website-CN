@@ -39,6 +39,7 @@ block content
             li <code>page-content</code>需要额外添加<code>pull-to-refresh-content</code>类，它会开启下拉刷新。
             li <code>pull-to-refresh-layer</code> 平时隐藏的布局块，包含下拉刷新的可视元素：加载提示符和上/下箭头。
         h2 下拉刷新的行为顺序
+        p 当用户开始下拉的时候， <b>pull-to-refresh-layer</b>会增加一个额外的 <b>pull-down</b> 类。
         p 当用户下拉使<b>pull-to-refresh-content</b>元素下降超过44px时(即<b>pull-to-refresh-layer</b>元素完全可视)，<b>pull-to-refresh-layer</b>元素将自动添加"<b>pull-up</b>"类，使箭头转向180度，以提醒用户界面将在他松开手指时刷新。
         p 当用户在“pull-up”状态释放下拉区块使页面刷新时，<b>pull-to-refresh-layer</b>区块将会添加一个"<b>refreshing</b>"类。在“refreshing”状态，箭头将会隐藏，同时会展现一个加载提示符。这个时候你通常需要进行Ajax异步请求并刷新页面内容。
         h2 下拉刷新事件

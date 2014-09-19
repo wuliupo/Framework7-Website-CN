@@ -161,6 +161,67 @@ block content
           |     &lt;/div&gt;
           |   &lt;/div&gt;
           |   ...
-          | &lt;/div&gt;
+          | &lt;/div&gt;  
+      
+      .full-width.stop-scroll-device
+        h2 JavaScript API
+        p 手风琴组件有JavaScript API，你可以在JS中控制打开和关闭。方法说明如下：
+        p
+          span.method myApp.accordionOpen(<span>item</span>)</span> - 打开指定的条目
+        ul.method-parameters
+          li
+            span.parameter item
+            |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (想要操作的条目的CSS选择器 (&lt;div class="accordion-item"&gt;). 必须。
 
+        p
+          span.method myApp.accordionClose(<span>item</span>)</span> - 关闭指定条目
+        ul.method-parameters
+          li
+            span.parameter item
+            |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (想要操作的条目的CSS选择器 (&lt;div class="accordion-item"&gt;). 必须
 
+        p
+          span.method myApp.accordionToggle(<span>item</span>)</span> - toggle 指定条目
+        ul.method-parameters
+          li
+            span.parameter item
+            |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (想要操作的条目的CSS选择器 (&lt;div class="accordion-item"&gt;). Required
+
+        h2 事件
+        p 手风琴有这些事件:
+        table.events-table
+          thead
+            tr
+              th 事件名称
+              th Target
+              th 说明
+          tbody
+            tr
+              td open
+              td Accordion item<span>&lt;div class="accordion-item"&gt;</span>
+              td 某一条目开始执行打开动画的时候会触发
+            tr
+              td opened
+              td Accordion item<span>&lt;div class="accordion-item"&gt;</span>
+              td 某一条目完成打开动画后触发
+            tr
+              td close
+              td Accordion item<span>&lt;div class="accordion-item"&gt;</span>
+              td 某一条目开始执行关闭动画的时候会触发
+            tr
+              td closed
+              td Accordion item<span>&lt;div class="accordion-item"&gt;</span>
+              td 某一条目完成关闭动画后触发
+        pre
+          code
+            | var myApp = new Framework7();
+            | 
+            | var $$ = Dom7;
+            | 
+            | $$('.accordion-item').on('opened', function () {
+            |   myApp.alert('Accordion item opened');
+            | }); 
+            | 
+            | $$('.accordion-item').on('closed', function (e) {
+            |   myApp.alert('Accordion item closed');
+            | });                   

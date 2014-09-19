@@ -221,6 +221,43 @@ block content
           |     myApp.actions(buttons);
           | });   
       .full-width.stop-scroll-device 
+        h2 把操作表转换成 Popover
+        p 因为不建议在手机上使用Popover，不建议在平板上使用操作表，所以我们提供了方法你可以用操作表的拓展语法在平板上自动把操作表转换成Popover：
+        p
+          span.method myApp.actions(<span>target</span>, <span>groups</span>)</span> -  创建并打开一个包含指定多组按钮的操作表（在平板电脑上是Popover）
+          br
+          | or 
+          br
+          span.method myApp.actions(<span>target</span>, <span>buttons</span>)</span> - 创建并打开一个包含指定一组按钮的操作表（在平板电脑上是Popover）
+
+        ul.method-parameters
+          li
+            span.parameter target
+            |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (CSS选择器)触发元素，用来对Popover进行定位. 必须
+          li
+            span.parameter groups
+            |  - <span class="parameter-type">array</span>. 多组按钮组，每个按钮组里面包含多个按钮。
+          li
+            span.parameter buttons
+            |  - <span class="parameter-type">array</span>. 一组按钮。
+        pre
+          code
+            | var myApp = new Framework7();
+            | 
+            | var $$ = Dom7;
+            | 
+            | $$('.something').on('click', function (e) {
+            |     var target = this;
+            |     var buttons = [
+            |         {
+            |             text: 'Button 1'
+            |         },
+            |         {
+            |             text: 'Button 2'
+            |         }
+            |     ];
+            |     myApp.actions(target, buttons);
+            | });
         h2 关闭操作表
         p 默认情况下，操作表会在以下情况下自动关闭：
         ul
@@ -259,3 +296,25 @@ block content
               td closed
               td 操作表元素<span>&lt;div class="actions-modal"&gt;</span>
               td 当操作表完成结束动画的时候，事件触发    
+
+        h2 操作表模板
+        p 如果你希望能自定义操作表的模板，你可以在<a href="init-app.html">初始化App</a>的时候传入一个 <code>modalActionsTemplate</code> 参数。这个参数值是一个 <a href="template7.html">Template7</a> 模板字符串，这个模板会被 Template7 编译，编译的时候会传入一个 <code>groups</code> 参数。
+        p 比如模板可能会是这样的：
+        pre
+          code
+            | &lt;!-- This template equalt to default layout --&gt;
+            | &lt;div class="actions-modal"&gt;
+            |   &lt;!-- this is a single group --&gt;
+            |   {{#each this}}
+            |     &lt;div class="actions-modal-group"&gt;
+            |       &lt;!-- now this represents a single button --&gt;
+            |       {{#each this}}
+            |           {{#if label}}
+            |             &lt;span class="actions-modal-label"&gt;{{text}}&lt;/span&gt;
+            |           {{else}}
+            |             &lt;div class="actions-modal-button {{#if color}}color-{{color}}{{/if}} {{#if bold}}actions-modal-button-bold{{/if}}"&gt;{{text}}&lt;/div&gt;
+            |           {{/if}}
+            |       {{/each}}
+            |     &lt;/div&gt;
+            |   {{/each}}
+            | &lt;/div&gt;            
