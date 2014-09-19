@@ -10,11 +10,7 @@
  *
  * Licensed under MIT
  *
-<<<<<<< HEAD
- * Released on: August 28, 2014
-=======
  * Released on: September 13, 2014
->>>>>>> f7/master
 */
 (function () {
 
