@@ -1,20 +1,7 @@
 config.codekit
 forum
-<<<<<<< HEAD
-plugins/3dpanels
 node_modules/
 
 # tmp file
 *.swp
 .DS_Store
-=======
-apps/todo7
-apps/weather7
-apps/Framework7-Contacts7-MVC
-apps/Bug-Reporter7
-apps/Framework7-react-base
-examples/split-view
-examples/split-view-panel
-examples/tab-bar
-plugins/3dpanels
->>>>>>> f7/master

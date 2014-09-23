@@ -41,9 +41,7 @@
         <div class="pages">
           <div data-page="index" class="page">
             <div class="page-content">
-              <div class="list-block todo-items-list">
-                <ul></ul>
-              </div>
+              <div class="list-block todo-items-list theme-pink"></div>
             </div>
           </div>
         </div>
@@ -91,18 +89,20 @@
       </div>
     </div>
     <!-- Template-->
-    <script id="todo-item-template" type="template">
-      <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
-        <label class="label-checkbox item-content swipeout-content"><input type="checkbox" {{checked}}>
-          <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-          <div class="item-inner">
-            <div class="item-title">{{title}}</div>
+    <script id="todo-item-template" type="text/template">
+      <ul>{{#each this}}
+        <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
+          <div class="swipeout-content">
+            <label class="label-checkbox item-content"><input type="checkbox" {{checked}}>
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner">
+                <div class="item-title">{{title}}</div>
+              </div>
+            </label>
           </div>
-        </label>
-        <div class="swipeout-actions">
-          <div class="swipeout-actions-inner"><a href="#" class="swipeout-delete">Delete</a></div>
-        </div>
-      </li>
+          <div class="swipeout-actions-right"><a href="#" class="swipeout-delete">Delete</a></div>
+        </li>{{/each}}
+      </ul>
     </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="../../dist/js/framework7.min.js"></script>
