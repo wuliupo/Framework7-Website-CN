@@ -96,6 +96,11 @@ block content
             td boolean
             td 
             td Set to true and App will keep View's navigation history unique, it will also remove duplicated pages. By default, equal to the same App's parameter. Allows to override global <a href="init-app.html">App parameter</a> for current View
+          tr
+            td uniqueHistoryIgnoreGetParameters
+            td boolean
+            td false
+            td Use this parameter in addition to <code>uniqueHistory</code>. Set to true and App will ignore URL GET parameters when cheking its uniqueness. So the URLs like "page.html" and "page.html?id=3" will be treated as the same. By default, equal to the same App's parameter. Allows to override global <a href="init-app.html">App parameter</a> for current View
           tr 
             td animatePages
             td boolean
@@ -182,15 +187,17 @@ block content
             td mainView.main
             td 当前页面是否是 main view
           tr
-            th(colspan="2") 方法
+            td mainView.router
+            td router对象，有很多路由相关的方法
           tr
-            td.method mainView.loadPage(options)
-            td * Look "View Navigation Methods" below
+            th(colspan="2") Methods
+          tr
+            td.method mainView.router.load(options)
+            td Read more about it in <a href="router-api.html">Router API</a>
 
           tr
-            td.method mainView.goBack(options)
-            td * Look "View Navigation Methods" below
-          
+            td.method mainView.router.back(options)
+            td Read more about it in <a href="router-api.html">Router API</a>
           tr
             td mainView.hideNavbar()
             td 在当前View中隐藏导航栏
@@ -205,127 +212,9 @@ block content
             td 在当前View中显示工具栏
           tr
             td mainView.destroy()
-            td 销毁View，解除事件绑定，移除浏览历史。
-      h3 视图浏览方法(view navigation method)
-      .method-wrap
-        p
-          span.method mainView.loadPage(<span>options</span>) 
-          span - 把一个页面载入当前视图.
-      .method-wrap
-        p
-          span.method mainView.goBack(<span>options</span>) 
-          span - 以反向的动画回到上一页，也就是说 - 在浏览历史上返回上一步
-      p Each of these methods accepts <code>options</code> object with the following properties:
-      p 上面的方法都接受一个 <code>options</code> 对象，这个对象有如下属性可以设置：
-      table.params-table
-        thead
-          tr
-            th 参数名
-            th 类型
-            th 默认值
-            th 说明
-        tbody
-          tr
-            td url
-            td string
-            td 
-            td 需要加载的页面的Url
-          tr
-            td content
-            td string or HTMLElement or [jQuery/Zepto/DOM7 collection] or [array of HTMLElement]
-            td 
-            td 需要加载的页面的内容
-          tr
-            td forceUrl
-            td boolean
-            td 
-            td 可选。只有在 <code>goBack</code> 方法中才可以使用。如果这个参数被设置为 <code>true</code>，那么在返回上一页的时候会忽略掉历史记录而强制加载指定的Url。
-          tr
-            td ignoreCache
-            td boolean
-            td 
-            td 可选。如果设置为 <code>true</code>，那么会忽略当前URL的缓存而再次用XHR加载。
-          tr
-            td animatePages
-            td boolean
-            td 
-            td 可选。可以用来重载 View 中的同名参数，在这个方法内启用/禁用切换动画。
-          tr
-            td reload
-            td boolean
-            td 
-            td 可选。如果设置为 <code>true</code>，那么不会把新加载的页面当做新页面，而是直接替换当前页面。在浏览历史上也是直接替换最后一个历史。
-          tr
-            td reloadPrevious
-            td boolean
-            td 
-            td 可选. 和reload属性用法相同，但是是对前一个页面的设置.
-      .important-note
-        p 注意，你只能使用 <code>url</code> 或者 <code>content</code>两个属性之一，不能同时使用。
-
-      h3 视图浏览的快捷方法
-      h4 加载新页面的方法：
-      .method-wrap
-        p
-          span.method mainView.loadPage(<span>url</span>) 
-          span - 加载指定的页面到当前View，和你点击链接所做的是相同的事。
-        ul.method-parameters
-          li
-            span.parameter url
-            |  - 需要加载的页面的URL。
-      .method-wrap
-        p
-          span.method mainView.loadContent(<span>content</span>) 
-          span - 报一个动态生成的内容当做一个普通的页面加载进来。
-        ul.method-parameters
-          li
-            span.parameter content
-            |  - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - 需要加载的内容
-      h4 重新加载当前页面的方法:
-      .method-wrap
-        p
-          span.method mainView.reloadPage(<span>url</span>) 
-          span - 把指定的页面加载当前View中。这个方法会修改当前View的历史记录，并且替换掉最后一条历史。
-        ul.method-parameters
-          li
-            span.parameter url
-            |  - 需要加载的页面
-      .method-wrap
-        p
-          span.method mainView.reloadContent(<span>content</span>) 
-          span - 把指定的内容加载到当前页面。这个方法也会修改当前View的历史记录，并且替换掉最后一条历史。
-        ul.method-parameters
-          li
-            span.parameter content
-            |  - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - 需要加载的内容
-      h4 重新加载前一个页面的方法(如果在View中有两个页面)：
-      .method-wrap
-        p
-          span.method mainView.reloadPreviousPage(<span>url</span>) 
-          span - 把指定的url加载到前一个页面. 这个方法也会修改当前View的历史记录，并且替换掉对应的一条历史。
-        ul.method-parameters
-          li
-            span.parameter url
-            |  - 需要加载的页面的URL
-      .method-wrap
-        p
-          span.method mainView.reloadPreviousContent(<span>content</span>) 
-          span - 把指定的内容加载到前一个页面. 这个方法也会修改当前View的历史记录，并且替换掉对应的一条历史。
-        ul.method-parameters
-          li
-            span.parameter content
-            |  - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - 需要加载的内容 
-      h4 刷新页面的方法:
-      .method-wrap
-        p
-          span.method mainView.refreshPage() 
-          span - 刷新当前页面。这个和调用 <code>.reloadPage</code> 方法并传入当前url是一样的效果
-      .method-wrap
-        p
-          span.method mainView.refreshPreviousPage() 
-          span - 刷新前一个页面。 和你调用 .reloadPreviousPage 并传入当前页面的URL是一样的效果。
-
-      h2 视图事件
+            td 销毁初始化过的View，解除事件绑定，禁用浏览导航
+      
+      h2 View 事件
       table.events-table
         thead
           tr

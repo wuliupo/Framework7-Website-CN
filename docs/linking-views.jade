@@ -2,7 +2,7 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Linking between views in Framework7 | Framework7 Documentation';
+  - var title = 'Linking between views | Framework7 Documentation';
 
 block content
   .docs-wrap
@@ -12,7 +12,7 @@ block content
       h1 View 间链接和跳转
       p 让我们看一种更复杂一点的情况
       p 我们有两个已经初始化完成的View（left view 和 right view)。这种情况下，所有在left view 中的链接加载的页面都会放在 left view 中，所有在right view中的链接加载的页面都会放在 right view中。
-      p 但是我们现在需要一些在 left view 中的链接加载的页面放进 right view中。这叫 <strong>View间链接</strong>。我们已经知道可以通过JS来实现，通过 .loadPage 和 .goBack 方法。
+      p 但是我们现在需要一些在 left view 中的链接加载的页面放进 right view中。这叫 <strong>View间链接</strong>。我们已经知道可以通过JS来实现，通过 <code>.router.load()</code> 和 <code>.router.back()</code>方法。
       p Framework7 可以让我们不使用JS来实现，所有需要做的只是在连接上增加一个 <code>data-view</code> 属性，这个属性包含一个CSS选择器指向需要放入的那个View即可。
       pre
         code.

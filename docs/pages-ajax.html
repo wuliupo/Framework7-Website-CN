@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Navigation and linking between pages in Framework7 | Framework7 Documentation</title>
+    <title>Ajax Pages | Framework7 Documentation</title>
     <meta property="og:image" content="http://idangero.us/framework7/i/f7-banner.jpg">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -63,6 +63,7 @@
       <div class="docs-wrap">
         <div class="docs-nav">
           <ul>
+<<<<<<< HEAD:docs/linking-pages.html
             <li class="title">核心库</li>
             <li><a href="dom.html">DOM7</a></li>
             <li><a href="app-layout.html">APP 基本HTML结构</a></li>
@@ -81,6 +82,31 @@
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
+=======
+            <li class="title">Core</li>
+            <li><a href="dom.html">Custom DOM Library</a></li>
+            <li><a href="app-layout.html">App HTML Layout</a></li>
+            <li><a href="rtl-layout.html">RTL Layout</a></li>
+            <li><a href="init-app.html">Initialize App / App parameters</a></li>
+            <li><a href="views.html">Views</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="page-callbacks.html">Page Callbacks</a></li>
+            <li class="title">Navigation / Router</li>
+            <li><a href="router-api.html">API</a></li>
+            <li><a href="pages-ajax.html">Ajax Pages</a></li>
+            <li><a href="pages-dynamic.html">Dynamic Pages</a></li>
+            <li><a href="pages-inline.html">Inline Pages (DOM Cache)</a></li>
+            <li><a href="linking-views.html">Linking Between Views</a></li>
+            <li class="title">Components</li>
+            <li>Navbars & Toolbars
+              <ul>
+                <li><a href="navbar-toolbar-layouts.html">Layout types</a></li>
+                <li><a href="navbar.html">Navbar</a></li>
+                <li><a href="dynamic-navbar.html">Dynamic Navbar</a></li>
+                <li><a href="toolbar.html">Toolbar</a></li>
+                <li><a href="tabbar.html">Tab Bar</a></li>
+                <li><a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a></li>
+>>>>>>> f7/master:docs/pages-ajax.html
               </ul>
             </li>
             <li><a href="searchbar.html">搜索栏</a></li>
@@ -120,6 +146,7 @@
                 <li><a href="form-ajax-submit.html">Ajax异步提交</a></li>
               </ul>
             </li>
+<<<<<<< HEAD:docs/linking-pages.html
             <li><a href="tabs.html">标签页</a></li>
             <li><a href="slider.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
@@ -142,22 +169,62 @@
           <h1>页面间跳转和链接</h1>
           <p>我们有了一个有View和Page的应用结构，现在我们需要理解如何创建新的Page，以及Framework7是如何加载他们的。</p>
           <p>下面有两个重要的地方请注意：</p>
+=======
+            <li><a href="tabs.html">Tabs</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="photo-browser.html">Photo Browser</a></li>
+            <li><a href="pull-to-refresh.html">Pull to Refresh</a></li>
+            <li><a href="infinite-scroll.html">Infinite Scroll</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="messagebar.html">Message Bar</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="title"><a href="color-themes.html">Color Themes</a></li>
+            <li class="title">Template7</li>
+            <li><a href="template7.html">Getting Started</a></li>
+            <li><a href="template7-auto-compilation.html">Templates Auto Compilation</a></li>
+            <li><a href="template7-pages.html">Template7 Pages</a></li>
+            <li class="title">Utilities</li>
+            <li> <a href="active-state.html">Active State</a></li>
+            <li> <a href="device-api.html">Device API</a></li>
+            <li> <a href="support-api.html">Support API</a></li>
+            <li class="title"><a href="plugins-api.html">Plugins API</a></li>
+            <li class="title"><a href="custom-build.html">Custom Build  </a></li>
+          </ul>
+        </div>
+        <div class="docs-content">
+          <h1>Ajax Pages</h1>
+          <p>Now, when we have our App structure with Views and Pages we need to understand how we can create and load new pages using Ajax in Framework7.</p>
+          <p>Here is important rule that you should remember:</p>
+>>>>>>> f7/master:docs/pages-ajax.html
           <div class="important-note">
             p <b>默认情况下 Framework7 会使用 Ajax 加载所有的页面</b>，除了带有 <b>external</b> class的链接（<b>&lt;a href="somepage.html" class="external"></b>）和没有正确 <b>href</b> 值的链接（比如是空的或者是 <b>#</b>）。
             p 在 <a href="init-app.html">初始化</a> 时候传递不同的 <b>ajaxLinks</b> 参数可以改变这个行为。
           </div>
           <p>所以我们如果需要创建一个链接指向 <code>about.html</code>，我们只需要按照平时一样写 <code>&lt;a&gt;</code>标签就可以：</p>
           <pre><code>&lt;a href="about.html"&gt;Go to About page&lt;/a&gt;</code></pre>
+<<<<<<< HEAD:docs/linking-pages.html
           <p>当我们点击这个链接的时候，Framework7会通过Ajax获取 <code>about.html</code>，解析它的内容，然后把它插入到DOM中，并且做一个动画切换到这个新页面。</p>
           <h2>Page 内部的结构</h2>
           <p>因为Framework7有一个非常聪明的解析器，所以在内部页面中我们不需要完整的HTML结构（head,body,views,pages等)。比如 <code>about.html</code> 的内容：</p>
           <pre><code>&lt;-- That is all we have in about.html file --&gt;
+=======
+          <p>When we click on this link, Framework7 will send Ajax request to <code>about.html</code>, parse it, insert to DOM and run animated transition to this new page.</p>
+          <h2>Internal file structure with Page</h2>
+          <p>Because Framework7 has pretty smart parser we don't need full HTML layout (with HTML head, body, views, pages, etc.) in internal pages. Let's look on the structure of this internal <code>about.html</code> file:</p>
+          <pre><code>&lt;!-- That is all we have in about.html file --&gt;
+>>>>>>> f7/master:docs/pages-ajax.html
 &lt;div class="page" data-page="about"&gt;
 ... About page content goes here
 &lt;/div&gt;</code></pre>
+<<<<<<< HEAD:docs/linking-pages.html
           <p>重点是，Framework7 解析器会尝试在ajax加载的页面中寻找 <code>&lt;div class="page"&gt;</code>，所以我们不需要完整的HTML结构。当然这不是强制的，你可以写出完整的页面结构。</p>
           <h2>多个Page的结构</h2>
           <p>下面有一个复杂一点的情况。比如，我们有两个 <a href="views.html">初始化的View</a>。在我们的index文件中：</p>
+=======
+          <p>The point is that Framework7's parser will try to find only <code>&lt;div class="page"&gt;</code> element in Ajax loaded page, so we don't need here full HTML layout, just the page. This is not restriction and, of course, if you need here full HTML layout it will also work fine.</p>
+          <h2>Internal file structure with few Pages</h2>
+          <p>Here is a bit complex situation. For example, we have two (or more) <a href="views.html">initialized Views</a> with separate navigation. In our index file:</p>
+>>>>>>> f7/master:docs/pages-ajax.html
           <pre><code>&lt;body&gt;
   ...
   &lt;!-- Views --&gt;
@@ -207,7 +274,7 @@
           <h2>后退</h2>
           <p>只需要给链接加上一个 <b>back</b> class 就可以了。下面是 <code>about.html</code> 页面的结构，她有一个链接会回退到 <code>index.html</code> 页面。</p>
           <pre><code>&lt;div class="page" data-page="about"&gt;
-  &lt;-- Just add additional "back" class to link --&gt;
+  &lt;!-- Just add additional "back" class to link --&gt;
   &lt;a href="index.html" class="back"&gt; Go back to home page &lt;/a&gt;
 &lt;/div&gt;</code></pre>
           <p>关于后退链接几个需要注意的地方：</p>
@@ -245,19 +312,30 @@
   &lt;-- The same rule for back link --&gt;
   &lt;a href="index.html" class="back with-animation"&gt; Go back with animation &lt;/a&gt;
 &lt;/div&gt;</code></pre>
+<<<<<<< HEAD:docs/linking-pages.html
           <h2>通过 data 标签配置更多选项</h2>
           <p>And sometimes we may need to have more controls on navigation with links. We may use all available options from <a href="views.html#view-navigation-methods">View Navigation Methods</a> as <code>data-</code> attributes, for example:</p>
           <p>有时候我们希望在某些链接上有更多的配置，我们可以使用作为 <code>data-</code>属性来配置所有在<a href="views.html#view-navigation-methods"> 视图链接方法</a>中的参数，比如：</p>
+=======
+          <h2>Load pages using additional navigation options</h2>
+          <p>And sometimes we may need to have more controls on navigation with links. We may use all available options from <a href="router-api.html#view-navigation-methods">View Navigation Methods</a> as <code>data-</code> attributes, for example:</p>
+>>>>>>> f7/master:docs/pages-ajax.html
           <pre><code>&lt;!-- Refresh currently active page (reload from server) --&gt;
 &lt;a href="about.html" data-reload="true" data-ignoreCache="true"&gt;Refresh page&lt;/a&gt;
  
-&lt;!-- Go back but to another page, not to page which is in history. Such method also allow to jump back in history: --&gt;
-&lt;a href="about.html" class="back" data-forceUrl="true"&gt;Back to About&lt;/a&gt;
+&lt;!-- Go back but to another page, not to actual previous page in history. Such method also allows to jump back in history: --&gt;
+&lt;a href="about.html" class="back" data-force="true"&gt;Back to About&lt;/a&gt;
  
 &lt;!-- Load new page without animation --&gt;
+<<<<<<< HEAD:docs/linking-pages.html
 &lt;a href="about.html" data-animatePages="false"&gt;&lt;/a&gt;         </code></pre>
           <h2>通过JS加载页面</h2>
           <p>可以直接通过JS加载页面而不一定需要 <code>&lt;a&gt;</code> 标签。比如我们可以通过使用 <code>.loadPage(url)</code> 来加载：</p>
+=======
+&lt;a href="about.html" data-animatePages="false"&gt;&lt;/a&gt;          </code></pre>
+          <h2>Load pages using JavaScript</h2>
+          <p>It is possible to load page from HTML files using JavaScript API, not only using <code>&lt;a&gt;</code> tags. For this case we may use <code>.router.loadPage(url)</code> <a href="router-api.html#view-navigation-methods">View Navigation Methods</a>:</p>
+>>>>>>> f7/master:docs/pages-ajax.html
           <pre><code>// Initialize App  
 var myApp = new Framework7();
 
@@ -265,10 +343,17 @@ var myApp = new Framework7();
 var mainView = myApp.addView('.view-main')          
 
 // Load page from about.html file to main View:
+<<<<<<< HEAD:docs/linking-pages.html
 mainView.loadPage('about.html');</code></pre>
           <p>注意，必须先加载对应的 View 才可以。</p>
           <h2>通过JS后退</h2>
           <p>直接调用<a href="views.html">View's</a>中的 <code>.goBack(url)</code> 方法即可实现后退:</p>
+=======
+mainView.router.loadPage('about.html');</code></pre>
+          <p>Note, that it is only possible for Views that were initialized</p>
+          <h2>Going back using JavaScript</h2>
+          <p>You can also get the same as when you click "back" link but with JavaScript using <code>.router.back()</code> <a href="router-api.html#view-navigation-methods">View Navigation Methods</a>:</p>
+>>>>>>> f7/master:docs/pages-ajax.html
           <pre><code>// Initialize App  
 var myApp = new Framework7();
 
@@ -276,10 +361,17 @@ var myApp = new Framework7();
 var mainView = myApp.addView('.view-main')          
 
 // Go back on main View
+<<<<<<< HEAD:docs/linking-pages.html
 mainView.goBack();</code></pre>
           <p>这个方法也只对初始化之后的View才可用</p>
           <h2>结论</h2>
           <p>在Framework7中，页面切换和链接都很简单。但是还是有如下几点需要注意的：</p>
+=======
+mainView.router.back();</code></pre>
+          <p>It is also possible only for Views that were initialized</p>
+          <h2>Conclusion</h2>
+          <p>As you may see linking and navigation in Framework7 is pretty simple, all you should remember is that:</p>
+>>>>>>> f7/master:docs/pages-ajax.html
           <ul>
             <li>
               <p>你需要使用普通的 <code>&lt;a&gt;</code> 标签，她有一个href属性指向你需要加载的页面。</p>

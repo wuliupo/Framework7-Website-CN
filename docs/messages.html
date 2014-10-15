@@ -67,6 +67,7 @@
       <div class="docs-wrap">
         <div class="docs-nav">
           <ul>
+<<<<<<< HEAD
             <li class="title">核心库</li>
             <li><a href="dom.html">DOM7</a></li>
             <li><a href="app-layout.html">APP 基本HTML结构</a></li>
@@ -85,6 +86,31 @@
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
+=======
+            <li class="title">Core</li>
+            <li><a href="dom.html">Custom DOM Library</a></li>
+            <li><a href="app-layout.html">App HTML Layout</a></li>
+            <li><a href="rtl-layout.html">RTL Layout</a></li>
+            <li><a href="init-app.html">Initialize App / App parameters</a></li>
+            <li><a href="views.html">Views</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="page-callbacks.html">Page Callbacks</a></li>
+            <li class="title">Navigation / Router</li>
+            <li><a href="router-api.html">API</a></li>
+            <li><a href="pages-ajax.html">Ajax Pages</a></li>
+            <li><a href="pages-dynamic.html">Dynamic Pages</a></li>
+            <li><a href="pages-inline.html">Inline Pages (DOM Cache)</a></li>
+            <li><a href="linking-views.html">Linking Between Views</a></li>
+            <li class="title">Components</li>
+            <li>Navbars & Toolbars
+              <ul>
+                <li><a href="navbar-toolbar-layouts.html">Layout types</a></li>
+                <li><a href="navbar.html">Navbar</a></li>
+                <li><a href="dynamic-navbar.html">Dynamic Navbar</a></li>
+                <li><a href="toolbar.html">Toolbar</a></li>
+                <li><a href="tabbar.html">Tab Bar</a></li>
+                <li><a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a></li>
+>>>>>>> f7/master
               </ul>
             </li>
             <li><a href="searchbar.html">搜索栏</a></li>
@@ -124,6 +150,7 @@
                 <li><a href="form-ajax-submit.html">Ajax异步提交</a></li>
               </ul>
             </li>
+<<<<<<< HEAD
             <li><a href="tabs.html">标签页</a></li>
             <li><a href="slider.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
@@ -140,6 +167,27 @@
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
             <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
+=======
+            <li><a href="tabs.html">Tabs</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="photo-browser.html">Photo Browser</a></li>
+            <li><a href="pull-to-refresh.html">Pull to Refresh</a></li>
+            <li><a href="infinite-scroll.html">Infinite Scroll</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="messagebar.html">Message Bar</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="title"><a href="color-themes.html">Color Themes</a></li>
+            <li class="title">Template7</li>
+            <li><a href="template7.html">Getting Started</a></li>
+            <li><a href="template7-auto-compilation.html">Templates Auto Compilation</a></li>
+            <li><a href="template7-pages.html">Template7 Pages</a></li>
+            <li class="title">Utilities</li>
+            <li> <a href="active-state.html">Active State</a></li>
+            <li> <a href="device-api.html">Device API</a></li>
+            <li> <a href="support-api.html">Support API</a></li>
+            <li class="title"><a href="plugins-api.html">Plugins API</a></li>
+            <li class="title"><a href="custom-build.html">Custom Build  </a></li>
+>>>>>>> f7/master
           </ul>
         </div>
         <div class="docs-content with-device">
@@ -166,9 +214,15 @@
         &lt;div class="message-text"&gt;How are you?&lt;/div&gt;
       &lt;/div&gt;
  
+<<<<<<< HEAD
       &lt;!-- 接收的信息(默认为灰色背景，在左边) --&gt;
       &lt;div class="message message-received"&gt;
         &lt;!-- 发送者名称 --&gt;
+=======
+      &lt;!-- Received message (by default - grey on left side) --&gt;
+      &lt;div class="message message-with-avatar message-received"&gt;
+        &lt;!-- Sender name --&gt;
+>>>>>>> f7/master
         &lt;div class="message-name"&gt;Kate&lt;/div&gt;
  
         &lt;!-- 文本气泡 --&gt;
@@ -181,16 +235,28 @@
       &lt;!-- 另一个时间戳 --&gt;
       &lt;div class="messages-date"&gt;Sunday, Feb 3 &lt;span&gt;11:58&lt;/span&gt;&lt;/div&gt;
  
+<<<<<<< HEAD
       &lt;!-- 带有图片的发送的消息 --&gt;
       &lt;div class="message message-sent"&gt;
         &lt;!-- 图片气泡 --&gt;
+=======
+      &lt;!-- Sent message with image --&gt;
+      &lt;div class="message message-pic message-sent"&gt;
+        &lt;!-- Bubble with image --&gt;
+>>>>>>> f7/master
         &lt;div class="message-text"&gt;&lt;img src="http://lorempixel.com/300/300/"&gt;&lt;/div&gt;
+        &lt;!-- Message label --&gt;
+        &lt;div class="message-label"&gt;Delivered 2 days ago&lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;        
 ...   </code></pre>
+<<<<<<< HEAD
             <p>其中：</p>
+=======
+            <p><b>Messages page layout:</b></p>
+>>>>>>> f7/master
             <ul>
               <li>
                 <p><code>"messages-content"</code> - 消息容器，应该加到"page-content"类上</p>
@@ -204,6 +270,9 @@
               <li>
                 <p><code>"message"</code> - 单条消息</p>
               </li>
+            </ul>
+            <p><b>Single message inner parts:</b></p>
+            <ul>
               <li>
                 <p><code>"message-name"</code> - 发送者名称</p>
               </li>
@@ -214,12 +283,32 @@
                 <p><code>"message-avatar"</code> - 发送者头像</p>
               </li>
               <li>
+<<<<<<< HEAD
                 <p><code>"message-sent"</code> - 标识一条被用户发送过的消息，它会位于容器的右侧并且拥有绿色的背景</p>
+=======
+                <p><code>"message-label"</code> - text label below bubble</p>
+              </li>
+            </ul>
+            <p><b>Additional classes for single message container:</b></p>
+            <ul>
+              <li>
+                <p><code>"message-sent"</code> - additional class for single message which indicates that this message was sent by user. It stays on right side with green background color.</p>
+>>>>>>> f7/master
               </li>
               <li>
                 <p><code>"message-received"</code> - 标识一条被用户接收的消息，它会位于容器的左侧并且拥有灰色的背景</p>
               </li>
+              <li>
+                <p><code>"message-pic"</code> - additional class for single message (received or sent) with &lt;img&gt; Such message shouldn't contain anything except image.</p>
+              </li>
+              <li>
+                <p><code>"message-with-avatar"</code> - additional class for single message (received or sent) that contains avatar</p>
+              </li>
+              <li>
+                <p><code>"message-with-tail"</code> - additional class for single message (received or sent) to add bubble "tail"</p>
+              </li>
             </ul>
+<<<<<<< HEAD
             <p>JavaScript会自动添加其它样式</p>
             <ul>
               <li>
@@ -233,13 +322,68 @@
               </li>
               <li>
                 <p><code>"message-with-avatar"</code> - 一条包含头像的单条消息</p>
+=======
+            <p><b>Additional available classes for single message</b></p>
+            <ul>
+              <li>
+                <p><code>"message-hide-name"</code> - additional class for single message (received or sent) to hide message name</p>
+              </li>
+              <li>
+                <p><code>"message-hide-avatar"</code> - additional class for single message (received or sent) to hide message avatar</p>
+              </li>
+              <li>
+                <p><code>"message-hide-label"</code> - additional class for single message (received or sent) to hide message label</p>
+              </li>
+              <li>
+                <p><code>"message-last"</code> - additional class for single message (received or sent) to indicate last received or last sent message in current conversation by one sender. Such message' bubble will have "tail", avatar and larger bottom offset. </p>
+              </li>
+              <li>
+                <p><code>"message-first"</code> - additional class for single message (received or sent) to indicate first received or first sent message in current conversation by one sender. Such message' bubble will also have visible sender name and hidden avatar. </p>
+>>>>>>> f7/master
               </li>
             </ul>
             <div class="important-note">
               <p>默认的布局中，新消息会出现在页面底部，如果需要让它出现在页面的顶部，你可以把"new-messages-first"类加到&lt;div class="messages"&gt;</p>
             </div>
+<<<<<<< HEAD
             <h2>消息 JavaScript API</h2>
             <p>以下是我们可以使用的方法：</p>
+=======
+            <h2>Messages Auto Layout</h2>
+            <p>Framework7 may add all required additional classes (like "message-pic", "message-with-avatar", "message-with-tail", etc) to each message automatically. For this case we need to add <code>messages-auto-layout</code> class to <code>messages</code> container:</p>
+            <pre><code>...   
+  &lt;div class="page-content messages-content"&gt;
+    &lt;!-- Additional "messages-auto-layout" class--&gt;
+    &lt;div class="messages messages-auto-layout"&gt;
+      &lt;div class="messages-date"&gt;Sunday, Feb 9 &lt;span&gt;12:58&lt;/span&gt;&lt;/div&gt;
+ 
+      &lt;div class="message message-sent"&gt;
+        &lt;div class="message-text"&gt;Hello&lt;/div&gt;
+      &lt;/div&gt;
+ 
+      &lt;div class="message message-sent"&gt;
+        &lt;div class="message-text"&gt;How are you?&lt;/div&gt;
+      &lt;/div&gt;
+ 
+      &lt;div class="message message-received"&gt;
+        &lt;div class="message-name"&gt;Kate&lt;/div&gt;
+        &lt;div class="message-text"&gt;I am fine, thanks&lt;/div&gt;
+        &lt;div style="background-image:url(http://lorempixel.com/output/people-q-c-100-100-9.jpg)" class="message-avatar"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+ 
+      &lt;div class="messages-date"&gt;Sunday, Feb 3 &lt;span&gt;11:58&lt;/span&gt;&lt;/div&gt;
+ 
+      &lt;div class="message message-sent"&gt;
+        &lt;div class="message-text"&gt;&lt;img src="http://lorempixel.com/300/300/"&gt;&lt;/div&gt;
+        &lt;div class="message-label"&gt;Delivered 2 days ago&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+...   </code></pre>
+            <p>That is all, Framework7 will add all required classes to these messages. You just need to keep "message-sent", "message-received" classes</p>
+            <h2>Messages JavaScript API</h2>
+            <p>There are few App's methods that we can use with Messages:</p>
+>>>>>>> f7/master
             <div class="method-wrap">
               <p><span class="method">myApp.addMessage(<span>parameters</span>) </span><span>- 添加消息</span></p>
               <ul class="method-parameters">
@@ -247,7 +391,11 @@
               </ul>
             </div>
             <div class="method-wrap">
+<<<<<<< HEAD
               <p><span class="method">myApp.updateMessagesAngles(<span>messagesContainer</span>) </span><span>- 为需要的消息添加"message-last"类</span></p>
+=======
+              <p><span class="method">myApp.updateMessagesLayout(<span>messagesContainer</span>) </span><span>- does/updates "auto layout" which is set required classes to each message, like "message-last", "message-first", "message-with-tail", etc.</span></p>
+>>>>>>> f7/master
               <ul class="method-parameters">
                 <li><span class="parameter">messagesContainer</span> - 表示消息容器 (&lt;div class="messages"&gt;)的<span class="parameter-type">HTML元素</span>或<span class="parameter-type">CSS选择器</span>。必选</li>
               </ul>
@@ -311,7 +459,7 @@
           <h2 data-device-preview="../docs-demos/messages.html">实例</h2>
           <pre><code>&lt;div class="page toolbar-fixed"&gt;
   &lt;div class="page-content messages-content"&gt;
-    &lt;div class="messages"&gt;
+    &lt;div class="messages messages-auto-layout"&gt;
       &lt;div class="messages-date"&gt;Sunday, Feb 9 &lt;span&gt;12:58&lt;/span&gt;&lt;/div&gt;
       &lt;div class="message message-sent"&gt;
         &lt;div class="message-text"&gt;Hello&lt;/div&gt;
@@ -330,6 +478,7 @@
       &lt;/div&gt;
       &lt;div class="message message-sent message-pic"&gt;
         &lt;div class="message-text"&gt;&lt;img src="http://lorempixel.com/300/300/"&gt;&lt;/div&gt;
+        &lt;div class="message-label"&gt;Delivered&lt;/div&gt;
       &lt;/div&gt;
       &lt;div class="message message-received"&gt;
         &lt;div class="message-name"&gt;Kate&lt;/div&gt;

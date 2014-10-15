@@ -63,6 +63,7 @@
       <div class="docs-wrap">
         <div class="docs-nav">
           <ul>
+<<<<<<< HEAD
             <li class="title">核心库</li>
             <li><a href="dom.html">DOM7</a></li>
             <li><a href="app-layout.html">APP 基本HTML结构</a></li>
@@ -81,6 +82,31 @@
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
+=======
+            <li class="title">Core</li>
+            <li><a href="dom.html">Custom DOM Library</a></li>
+            <li><a href="app-layout.html">App HTML Layout</a></li>
+            <li><a href="rtl-layout.html">RTL Layout</a></li>
+            <li><a href="init-app.html">Initialize App / App parameters</a></li>
+            <li><a href="views.html">Views</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="page-callbacks.html">Page Callbacks</a></li>
+            <li class="title">Navigation / Router</li>
+            <li><a href="router-api.html">API</a></li>
+            <li><a href="pages-ajax.html">Ajax Pages</a></li>
+            <li><a href="pages-dynamic.html">Dynamic Pages</a></li>
+            <li><a href="pages-inline.html">Inline Pages (DOM Cache)</a></li>
+            <li><a href="linking-views.html">Linking Between Views</a></li>
+            <li class="title">Components</li>
+            <li>Navbars & Toolbars
+              <ul>
+                <li><a href="navbar-toolbar-layouts.html">Layout types</a></li>
+                <li><a href="navbar.html">Navbar</a></li>
+                <li><a href="dynamic-navbar.html">Dynamic Navbar</a></li>
+                <li><a href="toolbar.html">Toolbar</a></li>
+                <li><a href="tabbar.html">Tab Bar</a></li>
+                <li><a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a></li>
+>>>>>>> f7/master
               </ul>
             </li>
             <li><a href="searchbar.html">搜索栏</a></li>
@@ -120,6 +146,7 @@
                 <li><a href="form-ajax-submit.html">Ajax异步提交</a></li>
               </ul>
             </li>
+<<<<<<< HEAD
             <li><a href="tabs.html">标签页</a></li>
             <li><a href="slider.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
@@ -136,6 +163,27 @@
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
             <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
+=======
+            <li><a href="tabs.html">Tabs</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="photo-browser.html">Photo Browser</a></li>
+            <li><a href="pull-to-refresh.html">Pull to Refresh</a></li>
+            <li><a href="infinite-scroll.html">Infinite Scroll</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="messagebar.html">Message Bar</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="title"><a href="color-themes.html">Color Themes</a></li>
+            <li class="title">Template7</li>
+            <li><a href="template7.html">Getting Started</a></li>
+            <li><a href="template7-auto-compilation.html">Templates Auto Compilation</a></li>
+            <li><a href="template7-pages.html">Template7 Pages</a></li>
+            <li class="title">Utilities</li>
+            <li> <a href="active-state.html">Active State</a></li>
+            <li> <a href="device-api.html">Device API</a></li>
+            <li> <a href="support-api.html">Support API</a></li>
+            <li class="title"><a href="plugins-api.html">Plugins API</a></li>
+            <li class="title"><a href="custom-build.html">Custom Build  </a></li>
+>>>>>>> f7/master
           </ul>
         </div>
         <div class="docs-content">
@@ -203,7 +251,7 @@
           <h2>Compilation and Rendering</h2>
           <p>Template7 is a globally available Window function.</p>
           <p>First of all we need to deliver string template. For example, we can store in script tag:</p>
-          <pre><code class="html">&lt;script id="template" type="text/template"&gt;
+          <pre><code class="html">&lt;script id="template" type="text/template7"&gt;
     &lt;p&gt;Hello, my name is {{firstName}} {{lastName}}&lt;/p&gt;
 &lt;/script&gt;</code></pre>
           <p>Now we need to compile it in JavaScript. Template7 will convert our template string to plain JavaScript function:</p>
@@ -701,6 +749,14 @@ var html = compiledTemplate(context);</code></pre>
           </table><br>
           <div class="important-note">
             <p>Note, that all custom helpers should be registered before you compile templates with these helpers!</p>
+          </div>
+          <h2>Remove Custom Helpers</h2>
+          <p>Template7 allows to remove custom helpers with the following method:</p>
+          <div class="method-wrap">
+            <p><span class="method">Template7.unregisterHelper(<span>name</span>) </span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">name - </span><span class="parameter-type">string</span> - helper name</li>
+            </ul>
           </div>
           <h2>Performance Tips</h2>
           <p>Template7 is fast and you can make it works even faster in your apps. The slowest part (but still very fast in T7) in all this compilation/rendering process is the compilation from string to pure JS function when you do <code>Template7.compile()</code>. So don't compile the same templates multiple times, one time will be enough:</p>

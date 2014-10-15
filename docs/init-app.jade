@@ -76,7 +76,12 @@ block content
             td 'a, button, label, span'
             td 应该在这些元素上加 <code>activeState</code>
           tr
-            th(colspan="4") 页面浏览(Navigation)
+            th(colspan="4") 路由(Navigation/Router)
+          tr
+            td router
+            td boolean
+            td true
+            td 如果你有自己的路由实现，你可以禁用默认的路由
           tr
             td ajaxLinks
             td string
@@ -84,10 +89,20 @@ block content
             td 指定哪些链接需要用ajax加载，默认情况下（当为undefined时）Framework7 会使用ajax加载所有的链接。你可以通过设置一个CSS选择器来指定需要通过Ajax加载的链接，比如 <code>"a.ajax"</code> - 只有class 为 "ajax" 的链接。
           
           tr
+            td dynamicPageUrl
+            td string
+            td 'content-{{index}}'
+            td URL rule for dynamically loaded pages. Available replaceable expressions: '{{index}}' (page index number in navigation history) and '{{name}}' (value of page "data-page" attribute)
+          tr
             td uniqueHistory
             td boolean
             td false
             td Set to true and App will keep View's navigation history unique, it will also remove duplicated pages
+          tr
+            td uniqueHistoryIgnoreGetParameters
+            td boolean
+            td false
+            td Use this parameter in addition to <code>uniqueHistory</code>. Set to true and App will ignore URL GET parameters when cheking its uniqueness. So the URLs like "page.html" and "page.html?id=3" will be treated as the same.
           tr
             td externalLinks
             td array
@@ -272,15 +287,32 @@ block content
           tr
             th(colspan="4") Smart Select
           tr
+            td smartSelectInPopup
+            td boolean
+            td false
+            td Set to true and all Smart Selects, by default, will be opened as popup
+
+          tr
             td smartSelectBackTemplate
             td string
             td '&lt;div class="left sliding"&gt;&lt;a href="#" class="back link"&gt;&lt;i class="icon icon-back"&gt;&lt;/i&gt;&lt;span&gt;{{backText}}&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;'
-            td Smart select 页面导航栏中的返回按钮的HTML模板
+            td Smart select 页面模式中导航栏中的返回按钮的HTML模板
+
+          tr
+            td smartSelectPopupCloseTemplate
+            td string
+            td '&lt;div class="left"&gt;&lt;a href="#" class="link close-popup"&gt;&lt;i class="icon icon-back"&gt;&lt;/i&gt;&lt;span&gt;{{closeText}}&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;'
+            td Smart Select 弹层方式中关闭链接的 HTML template
           tr
             td smartSelectBackText
             td string
             td 'Back'
             td Smart select 页面导航栏中的返回按钮的文案
+          tr
+            td smartSelectPopupCloseText
+            td string
+            td 'Close'
+            td Default close link text for Smart Select's popup navbar
           tr
             td smartSelectSearchbar
             td boolean
@@ -291,6 +323,23 @@ block content
             td boolean
             td false
             td 在 smart select 页面选择任何条目之后立刻返回。
+          tr
+            th(colspan="4") 导航栏和工具栏(Navbars / Toolbars)
+          tr
+            td hideNavbarOnPageScroll
+            td boolean
+            td false
+            td 设置为true，那么当页面向下滚动的时候，导航栏会自动隐藏；向上滚动的时候会自动出现。
+          tr
+            td hideToolbarOnPageScroll
+            td boolean
+            td false
+            td 设置为true，那么当页面向下滚动的时候，工具栏会自动隐藏；向上滚动的时候会自动出现。
+          tr
+            td showBarsOnPageScrollEnd
+            td boolean
+            td true
+            td 设置为true，那么当页面滚动到底部的时候会自动显示出被隐藏的导航栏和工具栏。
           tr
             th(colspan="4") 搜索栏(Search Bar)
           tr
@@ -342,6 +391,28 @@ block content
             td boolean
             td undefined
             td With this option you can overwrite automatic <a href="status-bar.html">status bar detection</a>
+          tr
+            th(colspan="4") Template7
+          tr
+            td template7Pages
+            td boolean
+            td false
+            td 设置为true，则会自动使用 Template7 来渲染 ajax或者动态生成的页面。这里有更详细的说明 <a href="template7-pages.html">Template7 Pages</a>
+          tr
+            td templatesData
+            td object
+            td {}
+            td 用来存储Template7 渲染页面所需的数据。这里有更详细的说明：<a href="template7-pages.html">Template7 Pages</a>
+          tr
+            td precompileTemplates
+            td boolean
+            td false
+            td 是否自动编译所有的 Template7 模板。这里有更详细的说明：<a href="template7-auto-compilation.html">Templates Auto Compilation</a>
+          tr
+            td templates
+            td object
+            td {}
+            td 编译好的 Template7 模板。这里有更详细的说明：<a href="template7-auto-compilation.html">Templates Auto Compilation</a>
           tr
             th(colspan="4") 页面回调(Page Callbacks)
           tr

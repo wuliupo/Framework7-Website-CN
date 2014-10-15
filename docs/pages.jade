@@ -9,46 +9,45 @@ block content
     .docs-nav
       include ../jade/_docs-menu
     .docs-content
+      h1 Pages
       h1 页面(Pages)
       p <strong>Pages</strong> - 和你在网页中打开的页面是同样的意思.</p>
-      p Page 的页面结构如下:
       pre
-        code.
-          &lt;body&gt;
-            ...
-            &lt;!-- Views --&gt;
-            &lt;div class="views"&gt;
-              &lt;!-- Your main view --&gt;
-              &lt;div class="view view-main"&gt;
-                &lt;!-- Pages --&gt;
-                &lt;div class="pages"&gt;
-                  &lt;div class="page" data-page="home"&gt;
-                    &lt;div class="page-content"&gt;
-                      ... page content goes here ...
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;!-- Another view --&gt;
-              &lt;div class="view another-view"&gt;
-                &lt;!-- Pages --&gt;
-                &lt;div class="pages"&gt;
-                  &lt;div class="page" data-page="home-another"&gt;
-                    &lt;div class="page-content"&gt;
-                      ... page content goes here ...
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;          
-            &lt;/div&gt;
-            ...
-          &lt;/body&gt;
+        code
+          | &lt;body&gt;
+          |   ...
+          |   &lt;!-- Views --&gt;
+          |   &lt;div class="views"&gt;
+          |     &lt;!-- Your main view --&gt;
+          |     &lt;div class="view view-main"&gt;
+          |       &lt;!-- Pages --&gt;
+          |       &lt;div class="pages"&gt;
+          |         &lt;div class="page" data-page="home"&gt;
+          |           &lt;div class="page-content"&gt;
+          |             ... page content goes here ...
+          |           &lt;/div&gt;
+          |         &lt;/div&gt;
+          |       &lt;/div&gt;
+          |     &lt;/div&gt;
+          |     &lt;!-- Another view --&gt;
+          |     &lt;div class="view another-view"&gt;
+          |       &lt;!-- Pages --&gt;
+          |       &lt;div class="pages"&gt;
+          |         &lt;div class="page" data-page="home-another"&gt;
+          |           &lt;div class="page-content"&gt;
+          |             ... page content goes here ...
+          |           &lt;/div&gt;
+          |         &lt;/div&gt;
+          |       &lt;/div&gt;
+          |     &lt;/div&gt;          
+          |   &lt;/div&gt;
+          |   ...
+          | &lt;/body&gt;
       p <strong>Pages</strong> 是page在同一个View中的容器. Pages 是必须的，因为所有的页面切换都在这里。
       p 几个重要的提示
       ul
         li
           p 在 main layout(index.html) 中，每一个 <strong>Page</strong> 都应该放在 <strong>Pages</strong> 容器中(<code>&lt;div class="pages"&gt;</code>)，而 <strong>Pages</strong> 必须是 <strong>View</strong> 的子元素(<code>&lt;div class="view"&gt;</code>)。
-          p 在 main layout(index.html) 中，每一个 View 和 Pages 中只能有一个 <strong>Page</strong>
       h3 data-page
       p 你会发现每一个 page 都有一个 <code>data-page</code> 属性，存储了一个唯一的page名。这个属性不是必须的，但是强烈推荐使用。
       p 这个属性在 page 事件中或者在<a href="page-callbacks.html">page 回调函数</a>中会非常有用，可以用来帮助我们确定加载的是哪一个页面。
@@ -72,6 +71,10 @@ block content
             td Page Element<span>&lt;div class="page"&gt;</span>
             td 当Framework7初始化页面的组件的时候会触发
           tr
+            td pageReinit
+            td Page Element<span>&lt;div class="page"&gt;</span>
+            td This event will be triggered when cached page becomes visible. It is only applicaple for Inline Pages (DOM cached pages)
+          tr
             td pageBeforeAnimation
             td Page Element<span>&lt;div class="page"&gt;</span>
             td 当页面初始化完成并且可以做动画的时候触发
@@ -82,20 +85,29 @@ block content
           tr
             td pageBeforeRemove
             td Page Element<span>&lt;div class="page"&gt;</span>
-            td 当页面从DOM中删除的时候会触发。如果你希望在页面移除的时候删除一个事件绑定或者销毁一些插件，这个方法将会很有用。
-      p 有两种方式来使用Page事件:
+            td Page从DOM中移除之前就会触发这个事件。如果你希望做一些解除事件绑定或者销毁一些插件的时候，这个方法是很有用的。
+          tr
+            td pageBack
+            td Page Element<span>&lt;div class="page"&gt;</span>
+            td 在返回上一页动画执行之前就会触发这个事件。和 "pageBeforeAnimation" 的不同之处在于，这个事件在老页面上也会触发，也就是那个从中间滑动到右边的页面。
+          tr
+            td pageAfterBack
+            td Page Element<span>&lt;div class="page"&gt;</span>
+            td 返回上一页动画执行完成之后触发这个事件。同样，区别于"pageAfterAnimation"，他也会在老页面上触发。
+          
+      p 有两种方式可以使用这些事件：
       pre
-        code.
-          // Option 1. Using one 'pageInit' handler for all pages (recommended way):
-          $$(document).on('pageInit', function (e) {
-            // Do something here when page loaded and initialized
-
-          })
-
-          // Option 2. Using live 'pageInit' event handlers for each page (not recommended)
-          $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
-            // Do something here when page with data-page="about" attribute loaded and initialized
-          })
+        code
+          | // Option 1. Using one 'pageInit' handler for all pages (recommended way):
+          | $$(document).on('pageInit', function (e) {
+          |   // Do something here when page loaded and initialized
+          |   
+          | })
+          |  
+          | // Option 2. Using live 'pageInit' event handlers for each page (not recommended)
+          | $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
+          |   // Do something here when page with data-page="about" attribute loaded and initialized
+          | })          
       p 但是如果我们只用一个handler，如果确定我们加载到的页面到底是哪一个呢？为了解决这个问题，我们在事件中提供了一个详细的数据:
       h3 Page 数据
       p 在 Page 事件中，event实例中包含了关于当前Page非常详细的数据：
@@ -144,26 +156,26 @@ block content
             td <span class="parameter-type">boolean</span>。是否可以滑动返回。只有在 onPageBefore/AfterAnimation 回调函数/事件 中才可以访问。
       p 我们就可以在一个handler中处理不同的页面了:
       pre
-        code.
-          $$(document).on('pageInit', function (e) {
-              var page = e.detail.page;
-              // Code for About page
-              if (page.name === 'about') {
-                  // We need to get count GET parameter from URL (about.html?count=10)
-                  var count = page.query.count;
-                  // Now we can generate some dummy list
-                  var listHTML = '&lt;ul&gt;';
-                  for (var i = 0; i &lt; count; i++) {
-                      listHTML += '&lt;li&gt;' + i + '&lt;/li&gt;';
-                  }
-                  listHTML += '&lt;/ul&gt;';
-                  // And insert generated list to page content
-                  $$(page.container).find('.page-content').append(listHTML);
-              }
-              // Code for Services page
-              if (page.name === 'services') {
-                  myApp.alert('Here comes our services!');
-              }
-          });
+        code
+          | $$(document).on('pageInit', function (e) {
+          |     var page = e.detail.page;
+          |     // Code for About page
+          |     if (page.name === 'about') {
+          |         // We need to get count GET parameter from URL (about.html?count=10)
+          |         var count = page.query.count;
+          |         // Now we can generate some dummy list
+          |         var listHTML = '&lt;ul&gt;';
+          |         for (var i = 0; i &lt; count; i++) {
+          |             listHTML += '&lt;li&gt;' + i + '&lt;/li&gt;';
+          |         }
+          |         listHTML += '&lt;/ul&gt;';
+          |         // And insert generated list to page content
+          |         $$(page.container).find('.page-content').append(listHTML);
+          |     }
+          |     // Code for Services page
+          |     if (page.name === 'services') {
+          |         myApp.alert('Here comes our services!');
+          |     }
+          | });
       h2 下一步
-      p 下面我们必须理解 <a href="linking-pages.html">不同Page间链接</a> 和 <a href="linking-views.html">不同View间链接</a>。还可以看 <a href="page-callbacks.html">Page 回调函数</a> 来处理不同的页面而不用依赖Page事件。
+      p 现在我们必须要理解 <a href="router-api.html">页面之间的路由</a> 是如何工作的。另外，也需要看看 <a href="page-callbacks.html">Page 回调函数</a>，这样我们可以不用事件，而通过回调函数来做一些操作。

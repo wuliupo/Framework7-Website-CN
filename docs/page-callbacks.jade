@@ -41,6 +41,17 @@ block content
             |  - <span class="parameter-type">function</span> - 要执行的回调. 会传入一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数
       .method-wrap
         p
+          span.method myApp.onPageReinit(<span>pageName</span>, <span>callback(page)</span>) 
+          span - "callback" function will be executed for specified cached page <em>(with "pageName" data-page attribute)</em> that becomes visible. It is only applicaple for Inline Pages (DOM cached pages)
+        ul.method-parameters
+          li
+            span.parameter pageName
+            |  - <span class="parameter-type">string</span> - expected page's "data-page" attribute
+          li
+            span.parameter callback(page)
+            |  - <span class="parameter-type">function</span> - callback function that will be executed. As an argument it receives <a href="pages.html#page-data">Page Data</a> object
+      .method-wrap
+        p
           span.method myApp.onPageBeforeAnimation(<span>pageName</span>, <span>callback(page)</span>) 
           span - 当一个页面(有 data-page 属性)初始化完成并且可以开始做动画的时候触发
         ul.method-parameters
@@ -73,6 +84,28 @@ block content
           li
             span.parameter callback(page)
             |  - <span class="parameter-type">function</span> - 要执行的回调. 会传入一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数
+      .method-wrap
+        p
+          span.method myApp.onPageBack(<span>pageName</span>, <span>callback(page)</span>) 
+          span - 当页面开始执行返回动画之前调用。区别于 "onPageBeforeAnimation", 这个函数在老的页面上也会调用，也就是从中间向右滑动的那个页面。
+        ul.method-parameters
+          li
+            span.parameter pageName
+            |  - <span class="parameter-type">string</span> - 你要操作的page的 "data-page" 指定的名字
+          li
+            span.parameter callback(page)
+            |  - <span class="parameter-type">function</span> - 回调函数。这个函数会接收一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数。 
+      .method-wrap
+        p
+          span.method myApp.onPageAfterBack(<span>pageName</span>, <span>callback(page)</span>) 
+          span - 当页面开始执行返回动画完成之后调用。区别于 "onPageBeforeAnimation", 这个函数在老的页面上也会调用，也就是从中间向右滑动的那个页面。
+        ul.method-parameters
+          li
+            span.parameter pageName
+            |  - <span class="parameter-type">string</span> - 你要操作的page的 "data-page" 指定的名字
+          li
+            span.parameter callback(page)
+            |  - <span class="parameter-type">function</span> - 回调函数。这个函数会接收一个 <a href="pages.html#page-data">Page Data</a> 对象作为参数。 
       h2 回调对象
       p 上面的每一个方法都会返回一个回调对象，这个对象有两个方法，你可以用来手动触发或者移除这个回调。
       .method-wrap

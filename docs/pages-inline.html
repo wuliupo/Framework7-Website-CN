@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inline Pages | Framework7 Documentation</title>
+    <meta property="og:image" content="http://idangero.us/framework7/i/f7-banner.jpg">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="shortcut icon" href="../favicon.png">
+    <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
+  </head>
+  <body>
+    <header class="inner-header">
+      <div class="center"><a href="../" class="logo"></a>
+        <div class="langs"><span>Language: </span><a href="http://www.idangero.us/framework7/">EN</a><a href="http://framework7.taobao.org">CN</a></div>
+        <div class="title-links">
+          <div class="title">Framework7</div>
+          <div class="links-row">
+            <div class="links-label">Project:</div>
+            <div class="links"><a href="https://github.com/nolimits4web/Framework7" target="_blank">Download</a><a href="../plugins/">Plugins</a><a href="../contribute/">Contribute</a><a href="../donate/">Donate</a><a href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md" target="_blank">Changelog</a>
+            </div>
+          </div>
+          <div class="links-row">
+            <div class="links-label">Learn:</div>
+            <div class="links"><a href="../get-started/">Get Started  </a><a href="../docs/" class="active">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a>
+            </div>
+          </div>
+          <div class="links-row">
+            <div class="links-label">Apps:</div>
+            <div class="links"><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="share-line">
+      <div class="center">
+        <div class="share">
+          <!-- AddThis Button BEGIN -->
+          <div class="addthis_toolbox addthis_default_style ">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_button_twitter_follow_native" tw:screen_name="idangerous"></a>
+          <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+          </div>
+          <!-- AddThis Button END -->
+        </div>
+        <div class="github-buttons">
+          <div class="flattr-button"><a target="_blank" href="https://flattr.com/submit/auto?              user_id=nolimits4web&amp;url=http://www.idangero.us/framework7/&amp;title=Framework7&amp;              description=Full Featured HTML Framework For Building iOS Apps&amp;language=en_GB&amp;              tags=api,programming,mobile,framework&amp;category=software"><img src="https://api.flattr.com/button/flattr-badge-large.png"></a></div><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nolimits4web&repo=framework7&type=watch&count=true" width="100" height="20"></iframe>
+          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nolimits4web&repo=framework7&type=fork&count=true" width="100" height="20"></iframe>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="content center">
+      <div class="docs-wrap">
+        <div class="docs-nav">
+          <ul>
+            <li class="title">Core</li>
+            <li><a href="dom.html">Custom DOM Library</a></li>
+            <li><a href="app-layout.html">App HTML Layout</a></li>
+            <li><a href="rtl-layout.html">RTL Layout</a></li>
+            <li><a href="init-app.html">Initialize App / App parameters</a></li>
+            <li><a href="views.html">Views</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="page-callbacks.html">Page Callbacks</a></li>
+            <li class="title">Navigation / Router</li>
+            <li><a href="router-api.html">API</a></li>
+            <li><a href="pages-ajax.html">Ajax Pages</a></li>
+            <li><a href="pages-dynamic.html">Dynamic Pages</a></li>
+            <li><a href="pages-inline.html">Inline Pages (DOM Cache)</a></li>
+            <li><a href="linking-views.html">Linking Between Views</a></li>
+            <li class="title">Components</li>
+            <li>Navbars & Toolbars
+              <ul>
+                <li><a href="navbar-toolbar-layouts.html">Layout types</a></li>
+                <li><a href="navbar.html">Navbar</a></li>
+                <li><a href="dynamic-navbar.html">Dynamic Navbar</a></li>
+                <li><a href="toolbar.html">Toolbar</a></li>
+                <li><a href="tabbar.html">Tab Bar</a></li>
+                <li><a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a></li>
+              </ul>
+            </li>
+            <li><a href="searchbar.html">Search Bar</a></li>
+            <li><a href="status-bar.html">Status Bar overlay</a></li>
+            <li><a href="side-panels.html">Side Panels</a></li>
+            <li><a href="content-block.html">Content Block</a></li>
+            <li><a href="grid.html">Layout Grid</a></li>
+            <li>Overlays
+              <ul>
+                <li><a href="modal.html">Modal</a></li>
+                <li><a href="popup.html">Popup</a></li>
+                <li><a href="popover.html">Popover</a></li>
+                <li><a href="action-sheet.html">Action Sheet</a></li>
+                <li><a href="login-screen.html">Login Screen</a></li>
+              </ul>
+            </li>
+            <li><a href="preloader.html">Preloader Indicator</a></li>
+            <li>List View (Table View)
+              <ul>
+                <li><a href="list-view.html">List View</a></li>
+                <li><a href="contacts-list.html">Contacts List</a></li>
+                <li><a href="media-list-view.html">Media List View</a></li>
+                <li><a href="swipeout.html">Swipeout </a></li>
+                <li><a href="sortable-list.html">Sortable List</a></li>
+              </ul>
+            </li>
+            <li><a href="accordion.html">Accordion / Collapsible</a></li>
+            <li><a href="buttons.html">Buttons</a></li>
+            <li>Forms
+              <ul>
+                <li><a href="form-elements.html">Form Elements</a></li>
+                <li><a href="checkboxes-radios.html">Checkboxes and Radios</a></li>
+                <li><a href="smart-select.html">Smart Select</a></li>
+                <li><a href="disabled-elements.html">Disabled Elements</a></li>
+                <li><a href="form-data.html">Form Data</a></li>
+                <li><a href="form-storage.html">Form Storage</a></li>
+                <li><a href="form-ajax-submit.html">Ajax Form Submit</a></li>
+              </ul>
+            </li>
+            <li><a href="tabs.html">Tabs</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="photo-browser.html">Photo Browser</a></li>
+            <li><a href="pull-to-refresh.html">Pull to Refresh</a></li>
+            <li><a href="infinite-scroll.html">Infinite Scroll</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="messagebar.html">Message Bar</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="title"><a href="color-themes.html">Color Themes</a></li>
+            <li class="title">Template7</li>
+            <li><a href="template7.html">Getting Started</a></li>
+            <li><a href="template7-auto-compilation.html">Templates Auto Compilation</a></li>
+            <li><a href="template7-pages.html">Template7 Pages</a></li>
+            <li class="title">Utilities</li>
+            <li> <a href="active-state.html">Active State</a></li>
+            <li> <a href="device-api.html">Device API</a></li>
+            <li> <a href="support-api.html">Support API</a></li>
+            <li class="title"><a href="plugins-api.html">Plugins API</a></li>
+            <li class="title"><a href="custom-build.html">Custom Build  </a></li>
+          </ul>
+        </div>
+        <div class="docs-content">
+          <h1>Inline Pages (DOM Cache)</h1>
+          <p>With this feature you may put all of your pages in DOM on app load, so you don't need to load any pages using Ajax or create them dynamically</p>
+          <h2>Enable Inline Pages</h2>
+          <p>By default, inline pages behavior is disabled. To enable it, we need to pass View's <code>domCache: true</code> parameter:</p>
+          <pre><code>var mainView = myApp.addView('.view-main', {
+    domCache: true //enable inline pages
+});</code></pre>
+          <h2>Inline Pages Structure</h2>
+          <p>As we said above, all of your pages could be already in DOM in index file on app load. So let's look at pages structure in index file:</p>
+          <pre><code>&lt;html&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;
+    ...
+    &lt;!-- Views --&gt;
+    &lt;div class="views"&gt;
+      &lt;!-- View --&gt;
+      &lt;div class="view view-main"&gt;
+        &lt;!-- Pages --&gt;
+        &lt;div class="pages"&gt;
+          &lt;!-- Home page --&gt;
+          &lt;div class="page" data-page="index"&gt;
+            &lt;div class="page-content"&gt;
+              &lt;p&gt;Home page&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+ 
+          &lt;!-- About page --&gt;
+          &lt;div class="page cached" data-page="about"&gt;
+            &lt;div class="page-content"&gt;
+              &lt;p&gt;About page&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+ 
+          &lt;!-- Services page --&gt;
+          &lt;div class="page cached" data-page="services"&gt;
+            &lt;div class="page-content"&gt;
+              &lt;p&gt;Services page&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    ...
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <p>As you may see it is almost the same as in <a href="app-layout.html">usual app layout</a>, the only difference is that we already have all required pages and all additional pages have additional "cached" class</p>
+          <div class="important-note">
+            <p>All additional (not currently active) pages should have additional <b>cached</b> class</p>
+          </div>
+          <h2>Inline Pages Structure With Dynamic Navbar</h2>
+          <p>As you may see in <a href="navbar-toolbar-layouts.html">Nabvar & Toolbar layout</a> types dynamic navbar requires through-type layout. But in this layout type navbar is not inside of page. </p>
+          <p>So we also need put few navbar inners:</p>
+          <pre><code>&lt;html&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;
+    ...
+    &lt;!-- Views --&gt;
+    &lt;div class="views"&gt;
+      &lt;!-- View --&gt;
+      &lt;div class="view view-main"&gt;
+ 
+        &lt;!-- Navbar --&gt;
+        &lt;div class="navbar"&gt;
+          &lt;!-- Home page navbar --&gt;
+          &lt;div class="navbar-inner" data-page="index"&gt;
+            &lt;div class="center"&gt;Home&lt;/div&gt;
+          &lt;/div&gt;
+ 
+          &lt;!-- About page navbar --&gt;
+          &lt;div class="navbar-inner cached" data-page="about"&gt;
+            &lt;div class="center"&gt;About&lt;/div&gt;
+          &lt;/div&gt;
+ 
+          &lt;!-- Services page navbar --&gt;
+          &lt;div class="navbar-inner cached" data-page="services"&gt;
+            &lt;div class="center"&gt;Services&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+ 
+        &lt;!-- Pages --&gt;
+        &lt;div class="pages navbar-through"&gt;
+          &lt;!-- Home page --&gt;
+          &lt;div class="page" data-page="index"&gt;
+            &lt;div class="page-content"&gt;
+              &lt;p&gt;Home page&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+ 
+          &lt;!-- About page --&gt;
+          &lt;div class="page cached" data-page="about"&gt;
+            &lt;div class="page-content"&gt;
+              &lt;p&gt;About page&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+ 
+          &lt;!-- Services page --&gt;
+          &lt;div class="page cached" data-page="services"&gt;
+            &lt;div class="page-content"&gt;
+              &lt;p&gt;Services page&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    ...
+  &lt;/body&gt;
+&lt;/html&gt;          </code></pre>
+          <div class="important-note">
+            <ul>
+              <li>
+                <p>All additional (not currently active) navbar-inner should have additional <b>cached</b> class</p>
+              </li>
+              <li>
+                <p>When using Dynamic Navbar with Inline Pages, every related "navbar-inner" should have the same related <b>data-page</b> attribute</p>
+              </li>
+            </ul>
+          </div>
+          <h2>Inline Page URL</h2>
+          <p>Now, when we have our App structure with Views and Inline Pages we need to understand how we can create links to load such inline pages.</p>
+          <p>Inline Page URL follows this rule: <code>&#35;{{pageName}}</code>, where {{pageName}} will be equal to loaded page name (data-page attribute)</p>
+          <p>So, if we want to load "about" page we may use the following link:</p>
+          <pre><code>&lt;a href="#about"&gt;Go to About page&lt;/a&gt;</code></pre>
+          <h2>Go back in navigation</h2>
+          <p>There are absolutely the same rules as for usual <a href="pages-ajax.html">Ajax Pages</a>, the only difference is the page URL. All we need is to add "back" class to link:</p>
+          <pre><code>&lt;div class="page" data-page="about"&gt;
+  &lt;!-- Just add additional "back" class to link --&gt;
+  &lt;a href="#index" class="back"&gt; Go back to home page &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+          <h2>Load Inline Pages using JavaScript</h2>
+          <p>It is also possible to load inline page using JavaScript API, not only using <code>&lt;a&gt;</code> tags. For this case we may use <code>.router.load()</code> <a href="router-api.html#view-navigation-methods">View Navigation Methods</a>:</p>
+          <pre><code>// Initialize App  
+var myApp = new Framework7();
+        
+// Initialize View          
+var mainView = myApp.addView('.view-main')          
+        
+// Load about page:
+mainView.router.load({pageName: 'about'});</code></pre>
+          <p>Note, that it is only possible for Views that were initialized</p>
+          <h2>Going back using JavaScript</h2>
+          <p>You can also get the same as when you click "back" link but with JavaScript using <code>.router.back()</code> <a href="router-api.html#view-navigation-methods">View Navigation Methods</a>:</p>
+          <pre><code>// Initialize App  
+var myApp = new Framework7();
+        
+// Initialize View          
+var mainView = myApp.addView('.view-main')          
+        
+// Go back on main View
+mainView.router.back();</code></pre>
+          <p>It is also possible only for Views that were initialized</p>
+          <h2>Conclusion</h2>
+          <p>As you may see linking and navigation for inline pages is pretty simple, all you should remember is that:</p>
+          <ul>
+            <li>
+              <p>you may use usual <code>&lt;a&gt;</code> tags with plain "href" attribute that contains &#35;{{pageName}} of required page</p>
+            </li>
+            <li>
+              <p>just add "back" class to any link (<b>&lt;a href="#index" class="back"&gt;</b>) to make it work like "back" link</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="share-line">
+      <div class="center">
+        <div class="share">
+          <!-- AddThis Button BEGIN -->
+          <div class="addthis_toolbox addthis_default_style ">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_button_twitter_follow_native" tw:screen_name="idangerous"></a>
+          <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+          </div>
+          <!-- AddThis Button END -->
+        </div>
+        <div class="github-buttons">
+          <div class="flattr-button"><a target="_blank" href="https://flattr.com/submit/auto?              user_id=nolimits4web&amp;url=http://www.idangero.us/framework7/&amp;title=Framework7&amp;              description=Full Featured HTML Framework For Building iOS Apps&amp;language=en_GB&amp;              tags=api,programming,mobile,framework&amp;category=software"><img src="https://api.flattr.com/button/flattr-badge-large.png"></a></div><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nolimits4web&repo=framework7&type=watch&count=true" width="100" height="20"></iframe>
+          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nolimits4web&repo=framework7&type=fork&count=true" width="100" height="20"></iframe>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <footer>
+      <div class="center">
+        <div class="links"><a href="../">Framework7</a><a href="../contribute/">Contribute</a><a href="../get-started/">Get Started</a><a href="../docs/">Docs</a><a href="../tutorials/">Tutorials</a><a href="../forum/">Forum</a><a href="../examples/">Examples</a><a href="../apps/">Demo Apps</a><a href="../showcase/">Showcase</a></div>
+        <div class="copy">2014 © Framework7 by iDangero.us</div>
+      </div>
+    </footer>
+    <script src="../js/vendor/jquery-1.11.0.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+    <script>var addthis_config = {"data_track_addressbar":true};</script>
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52c9b0605d63191c"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-13289120-8', 'idangero.us');
+      ga('send', 'pageview');      
+    </script>
+  </body>
+</html>

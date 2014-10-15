@@ -67,6 +67,7 @@
       <div class="docs-wrap">
         <div class="docs-nav">
           <ul>
+<<<<<<< HEAD
             <li class="title">核心库</li>
             <li><a href="dom.html">DOM7</a></li>
             <li><a href="app-layout.html">APP 基本HTML结构</a></li>
@@ -85,6 +86,31 @@
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
+=======
+            <li class="title">Core</li>
+            <li><a href="dom.html">Custom DOM Library</a></li>
+            <li><a href="app-layout.html">App HTML Layout</a></li>
+            <li><a href="rtl-layout.html">RTL Layout</a></li>
+            <li><a href="init-app.html">Initialize App / App parameters</a></li>
+            <li><a href="views.html">Views</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="page-callbacks.html">Page Callbacks</a></li>
+            <li class="title">Navigation / Router</li>
+            <li><a href="router-api.html">API</a></li>
+            <li><a href="pages-ajax.html">Ajax Pages</a></li>
+            <li><a href="pages-dynamic.html">Dynamic Pages</a></li>
+            <li><a href="pages-inline.html">Inline Pages (DOM Cache)</a></li>
+            <li><a href="linking-views.html">Linking Between Views</a></li>
+            <li class="title">Components</li>
+            <li>Navbars & Toolbars
+              <ul>
+                <li><a href="navbar-toolbar-layouts.html">Layout types</a></li>
+                <li><a href="navbar.html">Navbar</a></li>
+                <li><a href="dynamic-navbar.html">Dynamic Navbar</a></li>
+                <li><a href="toolbar.html">Toolbar</a></li>
+                <li><a href="tabbar.html">Tab Bar</a></li>
+                <li><a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a></li>
+>>>>>>> f7/master
               </ul>
             </li>
             <li><a href="searchbar.html">搜索栏</a></li>
@@ -124,6 +150,7 @@
                 <li><a href="form-ajax-submit.html">Ajax异步提交</a></li>
               </ul>
             </li>
+<<<<<<< HEAD
             <li><a href="tabs.html">标签页</a></li>
             <li><a href="slider.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
@@ -140,6 +167,27 @@
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
             <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
+=======
+            <li><a href="tabs.html">Tabs</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="photo-browser.html">Photo Browser</a></li>
+            <li><a href="pull-to-refresh.html">Pull to Refresh</a></li>
+            <li><a href="infinite-scroll.html">Infinite Scroll</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="messagebar.html">Message Bar</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="title"><a href="color-themes.html">Color Themes</a></li>
+            <li class="title">Template7</li>
+            <li><a href="template7.html">Getting Started</a></li>
+            <li><a href="template7-auto-compilation.html">Templates Auto Compilation</a></li>
+            <li><a href="template7-pages.html">Template7 Pages</a></li>
+            <li class="title">Utilities</li>
+            <li> <a href="active-state.html">Active State</a></li>
+            <li> <a href="device-api.html">Device API</a></li>
+            <li> <a href="support-api.html">Support API</a></li>
+            <li class="title"><a href="plugins-api.html">Plugins API</a></li>
+            <li class="title"><a href="custom-build.html">Custom Build  </a></li>
+>>>>>>> f7/master
           </ul>
         </div>
         <div class="docs-content with-device">
@@ -221,7 +269,47 @@
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
+<<<<<<< HEAD
           <h2 data-device-preview="../docs-demos/smart-select-multiple.html">多选和分组</h2>
+=======
+          <h2 data-device-preview="../docs-demos/smart-select-popup.html">Open in Popup</h2>
+          <p>It is possible to open Smart select as <a href="popup.html">popup</a>, not as page. If you want to open all Smart selects in popup you may just enable it by passing <code>smartSelectInPopup:true</code> parameter on <a href="init-app.html">App initialization</a>.</p>
+          <p>Otherwise it can be configured via "data-open-in" attribute:</p>
+          <pre><code>&lt;div class="list-block"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;!-- Smart select, will be opened in Popup --&gt;
+      &lt;a href="#" class="item-link smart-select" data-open-in="popup"&gt;
+        ... same Smart select Fruits structure as in previous example ...
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;!-- Smart select, will be opened in Popup with custom "Close" text --&gt;
+      &lt;a href="#" class="item-link smart-select" data-open-in="popup" data-popup-close-text="Close Cars"&gt;
+        ... same Smart select Cars structure as in previous example ...
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+          <div class="important-note">
+            <p>Note, if you set all Smart select as popups using App <b>smartSelectInPopup:true</b>, you may still open it as page using <b>data-open-in="page"</b> attribute</p>
+          </div>
+          <h2 data-device-preview="../docs-demos/smart-select-images.html">Custom icons and images</h2>
+          <p>You can also specify Smart Select page' list view element custom icon or image. We need to use additional "data-option-icon" or "data-option-image" attributes on smart select <code>&lt;select&gt;</code> (to set default image for all options) or on <code>&lt;option&gt;</code> to set image or icon on single option</p>
+          <pre><code>&lt;a href="#" class="item-link smart-select"&gt;
+  &lt;select name="fruits"&gt;
+    &lt;option value="apple" selected data-option-image="http://lorempixel.com/29/29/"&gt;Apple&lt;/option&gt;
+    &lt;option value="pineapple" data-option-image="http://lorempixel.com/29/29/?2"&gt;Pineapple&lt;/option&gt;
+    ...
+  &lt;/select&gt;
+  &lt;div class="item-content"&gt;
+    &lt;div class="item-inner"&gt;
+      &lt;div class="item-title"&gt;Fruit&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;</code></pre>
+          <h2 data-device-preview="../docs-demos/smart-select-multiple.html">Multiple Select And optgroup</h2>
+>>>>>>> f7/master
           <pre><code>&lt;div class="list-block"&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href="#" class="item-link smart-select"&gt;

@@ -76,22 +76,62 @@ block content
       p 默认情况下，Smart Select 页面的标题总是和被点击条目的 "item-title" 文案一直，返回按钮的文案总是和 "smartSelectBackText" 中设置的文案一直。
       p 有时候你需要自定义文案，可以通过在 Smart Select 链接上使用 "data-page-title" 和 "data-back-text" 来设置
       pre
-        code.
-          &lt;div class="list-block"&gt;
-            &lt;ul&gt;
-              &lt;!-- Smart select item --&gt;
-              &lt;li&gt;
-                &lt;a href="#" class="item-link smart-select" data-page-title="Awesome Fruits" data-back-text="Go back"&gt;
-                  ... same Smart select Fruits structure as in previous example ...
-                &lt;/a&gt;
-              &lt;/li&gt;
-              &lt;li&gt;
-                &lt;a href="#" class="item-link smart-select" data-page-title="Super Cars" data-back-text="Go back"&gt;
-                  ... same Smart select Cars structure as in previous example ...
-                &lt;/a&gt;
-              &lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/div&gt;
+        code
+          | &lt;div class="list-block"&gt;
+          |   &lt;ul&gt;
+          |     &lt;!-- Smart select item --&gt;
+          |     &lt;li&gt;
+          |       &lt;a href="#" class="item-link smart-select" data-page-title="Awesome Fruits" data-back-text="Go back"&gt;
+          |         ... same Smart select Fruits structure as in previous example ...
+          |       &lt;/a&gt;
+          |     &lt;/li&gt;
+          |     &lt;li&gt;
+          |       &lt;a href="#" class="item-link smart-select" data-page-title="Super Cars" data-back-text="Go back"&gt;
+          |         ... same Smart select Cars structure as in previous example ...
+          |       &lt;/a&gt;
+          |     &lt;/li&gt;
+          |   &lt;/ul&gt;
+          | &lt;/div&gt;
+      h2(data-device-preview="../docs-demos/smart-select-popup.html") 在弹层中打开
+      p Smart select 可以在弹层中打开，而不是新页面。如果你希望所有的Smart select 都在弹层中打开，那么你可以在 <a href="init-app.html">App 初始化</a> 的时候设置<code>smartSelectInPopup:true</code>参数。
+      p 另外，他也可以通过 "data-open-in" 属性来配置：
+      pre
+        code
+          | &lt;div class="list-block"&gt;
+          |   &lt;ul&gt;
+          |     &lt;li&gt;
+          |       &lt;!-- Smart select, will be opened in Popup --&gt;
+          |       &lt;a href="#" class="item-link smart-select" data-open-in="popup"&gt;
+          |         ... same Smart select Fruits structure as in previous example ...
+          |       &lt;/a&gt;
+          |     &lt;/li&gt;
+          |     &lt;li&gt;
+          |       &lt;!-- Smart select, will be opened in Popup with custom "Close" text --&gt;
+          |       &lt;a href="#" class="item-link smart-select" data-open-in="popup" data-popup-close-text="Close Cars"&gt;
+          |         ... same Smart select Cars structure as in previous example ...
+          |       &lt;/a&gt;
+          |     &lt;/li&gt;
+          |   &lt;/ul&gt;
+          | &lt;/div&gt;
+      .important-note
+        p 注意，如果你通过设置<b>smartSelectInPopup:true</b>使所有的 Smart select 都以弹层的方式打开，你依然可通过设置 <b>data-open-in="page"</b> 属性来设置以页面方式打开。
+      h2(data-device-preview="../docs-demos/smart-select-images.html") 自定义图标和图片
+      p 你可以自定义Smart Select列表中的图标和图片。我们必须通过在smart select 的 <code>&lt;select&gt;</code>或者<code>&lt;option&gt;</code>上设置 "data-option-icon" 或者 "data-option-image"来实现自定义。如果是在<code>&lt;select&gt;</code>上设置的，则对所有的option都生效；如果是在<code>&lt;option&gt;</code>上设置的，则只对当前一条生效。
+      pre
+        code
+          | &lt;a href="#" class="item-link smart-select"&gt;
+          |   &lt;select name="fruits"&gt;
+          |     &lt;option value="apple" selected data-option-image="http://lorempixel.com/29/29/"&gt;Apple&lt;/option&gt;
+          |     &lt;option value="pineapple" data-option-image="http://lorempixel.com/29/29/?2"&gt;Pineapple&lt;/option&gt;
+          |     ...
+          |   &lt;/select&gt;
+          |   &lt;div class="item-content"&gt;
+          |     &lt;div class="item-inner"&gt;
+          |       &lt;div class="item-title"&gt;Fruit&lt;/div&gt;
+          |     &lt;/div&gt;
+          |   &lt;/div&gt;
+          | &lt;/a&gt;
+             
       h2(data-device-preview="../docs-demos/smart-select-multiple.html") 多选和分组
       pre
         code.
@@ -151,6 +191,6 @@ block content
       p 你可以在 <a href="init-app.html">初始化</a> 的时候设置 <b>smartSelectBackOnSelect</b> 来使所有的Smart Select 都能点击之后自动关闭。
       h2 使用JS打开Smart Select
       p 我们可以使用app相关的方法来打开Smart Select：
-      p <span class="method">myApp.smartSelectOpen(<span>smartSelect</span>) - open specified smart select</span>
+      p <span class="method">myApp.smartSelectOpen(<span>smartSelect</span>) - 打开一个指定的smart select</span>
       ul.method-parameters
         li <span class="parameter">smartSelect</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required ".smart-select". Required.

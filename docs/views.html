@@ -63,6 +63,7 @@
       <div class="docs-wrap">
         <div class="docs-nav">
           <ul>
+<<<<<<< HEAD
             <li class="title">核心库</li>
             <li><a href="dom.html">DOM7</a></li>
             <li><a href="app-layout.html">APP 基本HTML结构</a></li>
@@ -81,6 +82,31 @@
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
+=======
+            <li class="title">Core</li>
+            <li><a href="dom.html">Custom DOM Library</a></li>
+            <li><a href="app-layout.html">App HTML Layout</a></li>
+            <li><a href="rtl-layout.html">RTL Layout</a></li>
+            <li><a href="init-app.html">Initialize App / App parameters</a></li>
+            <li><a href="views.html">Views</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="page-callbacks.html">Page Callbacks</a></li>
+            <li class="title">Navigation / Router</li>
+            <li><a href="router-api.html">API</a></li>
+            <li><a href="pages-ajax.html">Ajax Pages</a></li>
+            <li><a href="pages-dynamic.html">Dynamic Pages</a></li>
+            <li><a href="pages-inline.html">Inline Pages (DOM Cache)</a></li>
+            <li><a href="linking-views.html">Linking Between Views</a></li>
+            <li class="title">Components</li>
+            <li>Navbars & Toolbars
+              <ul>
+                <li><a href="navbar-toolbar-layouts.html">Layout types</a></li>
+                <li><a href="navbar.html">Navbar</a></li>
+                <li><a href="dynamic-navbar.html">Dynamic Navbar</a></li>
+                <li><a href="toolbar.html">Toolbar</a></li>
+                <li><a href="tabbar.html">Tab Bar</a></li>
+                <li><a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a></li>
+>>>>>>> f7/master
               </ul>
             </li>
             <li><a href="searchbar.html">搜索栏</a></li>
@@ -120,6 +146,7 @@
                 <li><a href="form-ajax-submit.html">Ajax异步提交</a></li>
               </ul>
             </li>
+<<<<<<< HEAD
             <li><a href="tabs.html">标签页</a></li>
             <li><a href="slider.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
@@ -136,6 +163,27 @@
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
             <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
+=======
+            <li><a href="tabs.html">Tabs</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="photo-browser.html">Photo Browser</a></li>
+            <li><a href="pull-to-refresh.html">Pull to Refresh</a></li>
+            <li><a href="infinite-scroll.html">Infinite Scroll</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="messagebar.html">Message Bar</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="title"><a href="color-themes.html">Color Themes</a></li>
+            <li class="title">Template7</li>
+            <li><a href="template7.html">Getting Started</a></li>
+            <li><a href="template7-auto-compilation.html">Templates Auto Compilation</a></li>
+            <li><a href="template7-pages.html">Template7 Pages</a></li>
+            <li class="title">Utilities</li>
+            <li> <a href="active-state.html">Active State</a></li>
+            <li> <a href="device-api.html">Device API</a></li>
+            <li> <a href="support-api.html">Support API</a></li>
+            <li class="title"><a href="plugins-api.html">Plugins API</a></li>
+            <li class="title"><a href="custom-build.html">Custom Build  </a></li>
+>>>>>>> f7/master
           </ul>
         </div>
         <div class="docs-content">
@@ -213,7 +261,11 @@
                 <td>domCache</td>
                 <td>boolean</td>
                 <td>false</td>
+<<<<<<< HEAD
                 <td>如果设置为true，则所有上一步的页面都不会从DOM中被删除。有的时候这个设置会很有用，比如你有一个表单有5步操作，你想从第5步访问第一步的页面的时候。</td>
+=======
+                <td>If enabled then all previous pages in navigation chain will not be removed from DOM when you navigate deeper and deeper. It could be useful, for example, if you have some Form from 5 steps (5 pages) and when you are on last 5th page you need access to form that was on 1st page.</td>
+>>>>>>> f7/master
               </tr>
               <tr>
                 <td>linksView</td>
@@ -229,6 +281,12 @@
                 <td>boolean</td>
                 <td></td>
                 <td>Set to true and App will keep View's navigation history unique, it will also remove duplicated pages. By default, equal to the same App's parameter. Allows to override global <a href="init-app.html">App parameter</a> for current View</td>
+              </tr>
+              <tr>
+                <td>uniqueHistoryIgnoreGetParameters</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Use this parameter in addition to <code>uniqueHistory</code>. Set to true and App will ignore URL GET parameters when cheking its uniqueness. So the URLs like "page.html" and "page.html?id=3" will be treated as the same. By default, equal to the same App's parameter. Allows to override global <a href="init-app.html">App parameter</a> for current View</td>
               </tr>
               <tr>
                 <td>animatePages</td>
@@ -335,15 +393,23 @@ var anotherView = myApp.addView('.another-view');</code></pre>
                 <td>当前页面是否是 main view</td>
               </tr>
               <tr>
+<<<<<<< HEAD
                 <th colspan="2">方法</th>
+=======
+                <td>mainView.router</td>
+                <td>Object with router methods</td>
               </tr>
               <tr>
-                <td class="method">mainView.loadPage(options)</td>
-                <td>* Look "View Navigation Methods" below</td>
+                <th colspan="2">Methods</th>
+>>>>>>> f7/master
               </tr>
               <tr>
-                <td class="method">mainView.goBack(options)</td>
-                <td>* Look "View Navigation Methods" below</td>
+                <td class="method">mainView.router.load(options)</td>
+                <td>Read more about it in <a href="router-api.html">Router API</a></td>
+              </tr>
+              <tr>
+                <td class="method">mainView.router.back(options)</td>
+                <td>Read more about it in <a href="router-api.html">Router API</a></td>
               </tr>
               <tr>
                 <td>mainView.hideNavbar()</td>
@@ -367,6 +433,7 @@ var anotherView = myApp.addView('.another-view');</code></pre>
               </tr>
             </tbody>
           </table>
+<<<<<<< HEAD
           <h3>视图浏览方法(view navigation method)</h3>
           <div class="method-wrap">
             <p><span class="method">mainView.loadPage(<span>options</span>) </span><span>- 把一个页面载入当前视图.</span></p>
@@ -481,6 +548,9 @@ var anotherView = myApp.addView('.another-view');</code></pre>
             <p><span class="method">mainView.refreshPreviousPage() </span><span>- 刷新前一个页面。 和你调用 .reloadPreviousPage 并传入当前页面的URL是一样的效果。</span></p>
           </div>
           <h2>视图事件</h2>
+=======
+          <h2>View Events</h2>
+>>>>>>> f7/master
           <table class="events-table">
             <thead>
               <tr>

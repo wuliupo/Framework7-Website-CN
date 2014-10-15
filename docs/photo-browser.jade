@@ -108,6 +108,11 @@ block content
               td 'standalone'
               td 定义图片浏览器的打开方式，可选参数有'standalone'（打开时将有一个自定义过渡效果的遮罩层），'popup'（打开一个<a href="popup.html">popup</a>），’page‘（将被放置于View中，作为一个新页面加载）
             tr
+              td loop
+              td boolean
+              td false
+              td Set to "true" to enable continuous loop mode
+            tr
               td theme
               td string
               td 'light'
@@ -138,7 +143,25 @@ block content
               td 'of'
               td 图片的序号和总数之间的分割词，例如："3 of 5"
             tr
-              th(colspan="4") 模版
+              th(colspan="4") 懒加载
+            tr
+              td lazyLoading
+              td boolean
+              td false
+              td 设置为true启用懒加载
+            tr
+              td lazyLoadingInPrevNext
+              td boolean
+              td false
+              td 设置为 true，则会懒加载最近的图片（上一个和下一个）
+            tr
+              td lazyLoadingOnTransitionStart
+              td boolean
+              td false
+              td By default, Photo Browser will load lazy photos after transition to this photo, so you may enable this parameter if you need it to load new photo in the beginning of transition
+              td 默认情况下，图片浏览器在动画结束后开始懒加载。如果你希望在动画开始的时候就开始懒加载，你可以设置这个参数。
+            tr
+              th(colspan="4") 模板
             tr
               td template
               td string
@@ -159,6 +182,11 @@ block content
               td string
               td *见下面
               td 单独图片元素的HTML模版
+            tr
+              td photoLazyTemplate
+              td string
+              td *Look below
+              td Single lazy loading photo element HTML template
             tr
               td objectTemplate
               td string
@@ -192,7 +220,17 @@ block content
               td 
               td 回调函数，当图片浏览器通过上下滑动的形式关闭时执行
             tr
-              th(colspan="4") 幻灯片回调函数
+              td onImageLoad(photobrowser, slide, image)
+              td function
+              td 
+              td 回调函数，当图片浏览器开始一张图片的懒加载的时候会触发。
+            tr
+              td onImageLoaded(photobrowser, slide, image)
+              td function
+              td 
+              td 回调函数，当图片懒加载结束的时候会触发。
+            tr
+              th(colspan="4") 幻灯片回调
             tr
               td onSlideChangeStart(slider)
               td function
@@ -255,10 +293,10 @@ block content
               td myPhotoBrowser.toggleExposition();
               td 切换浏览模式
             tr
-              td myPhotoBrowser.expositionOn();
+              td myPhotoBrowser.enableExposition();
               td 启用浏览模式
             tr
-              td myPhotoBrowser.expositionOff();
+              td myPhotoBrowser.disableExposition();
               td 禁用浏览模式
         h2 图片数组
         p 当我们初始化图片浏览器的时候，需要传递一个数组，包括图片或者是视频的相关信息，让我们看看这个数组的各种变形：
@@ -523,6 +561,14 @@ block content
             | &lt;div class="photo-browser-slide slider-slide"&gt;
             |     &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
             | &lt;/div&gt;            
+        h3 懒加载模板
+        p 单个图片的懒加载模板，你可以通过  <code>photoLazyTemplate</code> 参数来设置。
+        pre
+          code
+            | &lt;div class="photo-browser-slide photo-browser-slide-lazy slider-slide"&gt;
+            |     &lt;div class="preloader"&gt;&lt;/div&gt;
+            |     &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
+            | &lt;/div&gt;            
         h3 对象元素模版
         p 这是一个对象元素的模版，你可以通过<code>objectTemplate</code>参数传递：
         pre
@@ -544,8 +590,3 @@ block content
             | &lt;div class="photo-browser-caption" data-caption-index="{{captionIndex}}"&gt;
             |     {{caption}}
             | &lt;/div&gt;
-
-          
-
-
-

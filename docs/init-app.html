@@ -63,6 +63,7 @@
       <div class="docs-wrap">
         <div class="docs-nav">
           <ul>
+<<<<<<< HEAD
             <li class="title">核心库</li>
             <li><a href="dom.html">DOM7</a></li>
             <li><a href="app-layout.html">APP 基本HTML结构</a></li>
@@ -81,6 +82,31 @@
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
+=======
+            <li class="title">Core</li>
+            <li><a href="dom.html">Custom DOM Library</a></li>
+            <li><a href="app-layout.html">App HTML Layout</a></li>
+            <li><a href="rtl-layout.html">RTL Layout</a></li>
+            <li><a href="init-app.html">Initialize App / App parameters</a></li>
+            <li><a href="views.html">Views</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="page-callbacks.html">Page Callbacks</a></li>
+            <li class="title">Navigation / Router</li>
+            <li><a href="router-api.html">API</a></li>
+            <li><a href="pages-ajax.html">Ajax Pages</a></li>
+            <li><a href="pages-dynamic.html">Dynamic Pages</a></li>
+            <li><a href="pages-inline.html">Inline Pages (DOM Cache)</a></li>
+            <li><a href="linking-views.html">Linking Between Views</a></li>
+            <li class="title">Components</li>
+            <li>Navbars & Toolbars
+              <ul>
+                <li><a href="navbar-toolbar-layouts.html">Layout types</a></li>
+                <li><a href="navbar.html">Navbar</a></li>
+                <li><a href="dynamic-navbar.html">Dynamic Navbar</a></li>
+                <li><a href="toolbar.html">Toolbar</a></li>
+                <li><a href="tabbar.html">Tab Bar</a></li>
+                <li><a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a></li>
+>>>>>>> f7/master
               </ul>
             </li>
             <li><a href="searchbar.html">搜索栏</a></li>
@@ -120,6 +146,7 @@
                 <li><a href="form-ajax-submit.html">Ajax异步提交</a></li>
               </ul>
             </li>
+<<<<<<< HEAD
             <li><a href="tabs.html">标签页</a></li>
             <li><a href="slider.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
@@ -136,6 +163,27 @@
             <li class="title"><a href="custom-build.html">自定义下载</a></li>
             <li class="title"><a href="template7.html">Template7</a></li>
             <li class="title"><a href="plugins-api.html">插件API</a></li>
+=======
+            <li><a href="tabs.html">Tabs</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="photo-browser.html">Photo Browser</a></li>
+            <li><a href="pull-to-refresh.html">Pull to Refresh</a></li>
+            <li><a href="infinite-scroll.html">Infinite Scroll</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="messagebar.html">Message Bar</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="title"><a href="color-themes.html">Color Themes</a></li>
+            <li class="title">Template7</li>
+            <li><a href="template7.html">Getting Started</a></li>
+            <li><a href="template7-auto-compilation.html">Templates Auto Compilation</a></li>
+            <li><a href="template7-pages.html">Template7 Pages</a></li>
+            <li class="title">Utilities</li>
+            <li> <a href="active-state.html">Active State</a></li>
+            <li> <a href="device-api.html">Device API</a></li>
+            <li> <a href="support-api.html">Support API</a></li>
+            <li class="title"><a href="plugins-api.html">Plugins API</a></li>
+            <li class="title"><a href="custom-build.html">Custom Build  </a></li>
+>>>>>>> f7/master
           </ul>
         </div>
         <div class="docs-content">
@@ -215,7 +263,17 @@
                 <td>应该在这些元素上加 <code>activeState</code></td>
               </tr>
               <tr>
+<<<<<<< HEAD
                 <th colspan="4">页面浏览(Navigation)</th>
+=======
+                <th colspan="4">Navigation / Router</th>
+              </tr>
+              <tr>
+                <td>router</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>With this option you may disable default navigation router if you want to implement yours own</td>
+>>>>>>> f7/master
               </tr>
               <tr>
                 <td>ajaxLinks</td>
@@ -224,10 +282,22 @@
                 <td>指定哪些链接需要用ajax加载，默认情况下（当为undefined时）Framework7 会使用ajax加载所有的链接。你可以通过设置一个CSS选择器来指定需要通过Ajax加载的链接，比如 <code>"a.ajax"</code> - 只有class 为 "ajax" 的链接。</td>
               </tr>
               <tr>
+                <td>dynamicPageUrl</td>
+                <td>string</td>
+                <td>'content-{{index}}'</td>
+                <td>URL rule for dynamically loaded pages. Available replaceable expressions: '{{index}}' (page index number in navigation history) and '{{name}}' (value of page "data-page" attribute)</td>
+              </tr>
+              <tr>
                 <td>uniqueHistory</td>
                 <td>boolean</td>
                 <td>false</td>
                 <td>Set to true and App will keep View's navigation history unique, it will also remove duplicated pages</td>
+              </tr>
+              <tr>
+                <td>uniqueHistoryIgnoreGetParameters</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Use this parameter in addition to <code>uniqueHistory</code>. Set to true and App will ignore URL GET parameters when cheking its uniqueness. So the URLs like "page.html" and "page.html?id=3" will be treated as the same.</td>
               </tr>
               <tr>
                 <td>externalLinks</td>
@@ -450,16 +520,38 @@
                 <th colspan="4">Smart Select</th>
               </tr>
               <tr>
+                <td>smartSelectInPopup</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Set to true and all Smart Selects, by default, will be opened as popup</td>
+              </tr>
+              <tr>
                 <td>smartSelectBackTemplate</td>
                 <td>string</td>
                 <td>'&lt;div class="left sliding"&gt;&lt;a href="#" class="back link"&gt;&lt;i class="icon icon-back"&gt;&lt;/i&gt;&lt;span&gt;{{backText}}&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;'</td>
+<<<<<<< HEAD
                 <td>Smart select 页面导航栏中的返回按钮的HTML模板</td>
+=======
+                <td>Smart Select page navbar back link HTML template</td>
+              </tr>
+              <tr>
+                <td>smartSelectPopupCloseTemplate</td>
+                <td>string</td>
+                <td>'&lt;div class="left"&gt;&lt;a href="#" class="link close-popup"&gt;&lt;i class="icon icon-back"&gt;&lt;/i&gt;&lt;span&gt;{{closeText}}&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;'</td>
+                <td>Smart Select popup close link HTML template</td>
+>>>>>>> f7/master
               </tr>
               <tr>
                 <td>smartSelectBackText</td>
                 <td>string</td>
                 <td>'Back'</td>
                 <td>Smart select 页面导航栏中的返回按钮的文案</td>
+              </tr>
+              <tr>
+                <td>smartSelectPopupCloseText</td>
+                <td>string</td>
+                <td>'Close'</td>
+                <td>Default close link text for Smart Select's popup navbar</td>
               </tr>
               <tr>
                 <td>smartSelectSearchbar</td>
@@ -474,7 +566,32 @@
                 <td>在 smart select 页面选择任何条目之后立刻返回。</td>
               </tr>
               <tr>
+<<<<<<< HEAD
                 <th colspan="4">搜索栏(Search Bar)</th>
+=======
+                <th colspan="4">Navbars / Toolbars</th>
+              </tr>
+              <tr>
+                <td>hideNavbarOnPageScroll</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Set to true and Navbar will be hidden automatically on page scroll down, and became visible on scroll up</td>
+              </tr>
+              <tr>
+                <td>hideToolbarOnPageScroll</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Set to true and Toolbar will be hidden automatically on page scroll down, and became visible on scroll up</td>
+              </tr>
+              <tr>
+                <td>showBarsOnPageScrollEnd</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Set to true to show hidden Navbar and Toolbar when scrolling reaches end of the page</td>
+              </tr>
+              <tr>
+                <th colspan="4">Search Bar</th>
+>>>>>>> f7/master
               </tr>
               <tr>
                 <td>searchbarHideDividers</td>
@@ -537,7 +654,38 @@
                 <td>With this option you can overwrite automatic <a href="status-bar.html">status bar detection</a></td>
               </tr>
               <tr>
+<<<<<<< HEAD
                 <th colspan="4">页面回调(Page Callbacks)</th>
+=======
+                <th colspan="4">Template7</th>
+              </tr>
+              <tr>
+                <td>template7Pages</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Set to true to enable Template7 rendering for Ajax and Dynamic pages. Learn more about it in <a href="template7-pages.html">Template7 Pages</a> section</td>
+              </tr>
+              <tr>
+                <td>templatesData</td>
+                <td>object</td>
+                <td>{}</td>
+                <td>Parameter to store templates/pages data for Template7 rendering. Learn more about it in <a href="template7-pages.html">Template7 Pages</a> section</td>
+              </tr>
+              <tr>
+                <td>precompileTemplates</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>With this option you may framework will compile all Template7 templates automatically. Learn more about <a href="template7-auto-compilation.html">Templates Auto Compilation</a> section</td>
+              </tr>
+              <tr>
+                <td>templates</td>
+                <td>object</td>
+                <td>{}</td>
+                <td>Object with compiled Template7 templates. Learn more about it in <a href="template7-auto-compilation.html">Templates Auto Compilation</a> section</td>
+              </tr>
+              <tr>
+                <th colspan="4">Page Callbacks</th>
+>>>>>>> f7/master
               </tr>
               <tr>
                 <td>onPageBeforeInit</td>
