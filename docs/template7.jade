@@ -10,10 +10,10 @@ block content
       include ../jade/_docs-menu
     .docs-content
       h1 Template7
-      p Template7 is a mobile-first JavaScript template engine with <a href="http://handlebarsjs.com/" target="_blank">Handlebars</a>-like syntax. 
-      p It is ultra lightweight (around 1KB minified and gzipped) and blazing fast (up to 3 times faster than Handlebars in mobile Safari!) and it is already included in Framework7. So you don't need to include any additional scripts.
-      h2 Templates
-      p Template7 templates looks like Handlebars templates, it is like regular HTML but with embedded handlebars expressions:
+      p Template7 是一个移动优先的 JS 模板引擎，它和 <a href="http://handlebarsjs.com/" target="_blank">Handlebars</a> 的语法很像。
+      p 它非常轻量（压缩并且gzip之后只有大概1KB大小），并且非常快速（在safari移动版中的速度是Handlebars的3倍），并且它现在已经内置在Framework7中了，你不需要额外引用任何JS文件。
+      h2 模板
+      p Template7 的模板看上去非常像 Handlerbars 的模板，它就是在普通的HTML中嵌入了handlebars的表达式：
       pre
         code
           | &lt;div class="list-block"&gt;
@@ -27,48 +27,48 @@ block content
           |     {{/each}}
           |   &lt;/ul&gt;
           | &lt;/div&gt; 
-      h2 Expressions syntax
-      p Template7 support expressions with the following syntax:
-      h3 Variables:
+      h2 表达式语法
+      p Template7 支持下面这些表达式语法：
+      h3 变量:
       ul
         li 
-          p <code>{{title}}</code> - plain variable. Outputs "title" variable in current context
+          p <code>{{title}}</code> - 普通变量。输出当前上下文中的 "title" 变量
         li 
-          p <code>{{../title}}</code> - plain variable. Outputs "title" variable in parent context
+          p <code>{{../title}}</code> - 普通变量。输出父级上下文中的 "title" 变量
         li 
-          p <code>{{../../title}}</code> - plain variable. Outputs "title" variable in parent context of parent context
+          p <code>{{../../title}}</code> - 普通变量。输出父级的父级上下文中的 "title" 变量
         li
-          p <code>{{this}}</code> - plain variable. Outputs variable equals to current context
+          p <code>{{this}}</code> - 普通变量。输出当前上下文。
         li
-          p <code>{{person.name}}</code> - plain variable. Outputs variable equals to "name" property of "person" variable in current context
+          p <code>{{person.name}}</code> - 普通变量。输出当前上下文中的person变量的 "name" 属性。
         li
-          p <code>{{../person.name}}</code> - plain variable. The same but for parent context
-      h3 Block expressions
+          p <code>{{../person.name}}</code> - 普通变量。和上面类似，不过是在父级上下文中
+      h3 块级表达式
       ul
         li
-          p <code>{{#each}}</code> - begin of block expression
+          p <code>{{#each}}</code> - 块级表达式开始
         li
-          p <code>{{else}}</code> - begin of block inverse expression (where supported)
+          p <code>{{else}}</code> - 块级表达式相反的开始（如果支持的话）
         li
-          p <code>{{/each}}</code> - end of block expression
+          p <code>{{/each}}</code> - 块级表达式结束
         li
-          p <code>{{#each reverse="true"}}</code> - begin of block expression with passed <code>reverse:true</code> hash arguments
+          p <code>{{#each reverse="true"}}</code> - 块级表达式开始，并且传入了一个 <code>reverse:true</code> 变量
 
-      h3 Helpers
-      p Helpers could be plain expressions and block expressions:
+      h3 辅助方法
+      p 辅助方法可以是普通表达式或者块级表达式:
       ul
         li
-          p <code>{{join myArray delimeter=", "}}</code> - execute "join" helper and pass there "myArray" variable of current context and <code>delimeter:', '</code> hash argument
+          p <code>{{join myArray delimeter=", "}}</code> - 执行 "join" 辅助方法，传递了两个参数，一个是当前上下文的 "myArray"，另一个是 <code>delimeter=","</code>，这是一个hash参数。
 
-      h2 Compilation and Rendering
-      p Template7 is a globally available Window function.
-      p First of all we need to deliver string template. For example, we can store in script tag:
+      h2 编译和渲染
+      p Temppate7 是一个全局变量
+      p 首先，我们需要传递一个字符串模板。比如，我们可以存储在script标签中：
       pre
         code.html
           | &lt;script id="template" type="text/template7"&gt;
           |     &lt;p&gt;Hello, my name is {{firstName}} {{lastName}}&lt;/p&gt;
           | &lt;/script&gt;
-      p Now we need to compile it in JavaScript. Template7 will convert our template string to plain JavaScript function:
+      p 现在我们需要用JS来编译它。Template7 会把我们的模板字符串转换成一个JS方法：
       pre
         code
           | var template = $$('#template').html();
@@ -82,14 +82,14 @@ block content
           |     lastName: 'Doe'
           | };
           | var html = compiledTemplate(context);
-      p Now, <code>html</code> variable will contain:
+      p 现在， <code>html</code> 变量应该是如下内容：
       pre
         code &lt;p&gt;Hello, my name is John Doe&lt;/p&gt;
       
-      h2 Built-In Helpers
-      p Helpers in Template7 are like predefined functions that do something with passed context.
+      h2 内建的辅助方法
+      p 辅助方法在Template7中就像一个预定义的函数，可以用来在传递给它的上下文中做一些操作。
       h3 {{#each}}...{{else}}...{{/each}}
-      p <code>{{#each}}</code> is a block expression, that iterates through items of passed Array or through properties of passed Object.
+      p <code>{{#each}}</code> 是一个块级表达式，可以用来遍历传入的参数，支持遍历数组的条目和对象的属性。
       table.template7-examples
         thead
           tr
@@ -97,7 +97,7 @@ block content
             th Context ->
             th Output
         tbody
-          td(colspan="3") Iterate through Array items
+          td(colspan="3") 遍历数组
           tr
             td
               pre
@@ -155,7 +155,7 @@ block content
                   |   &lt;li&gt;0. John Doe&lt;/li&gt;
                   |   &lt;li&gt;1. Mark Johnson&lt;/li&gt;
                   | &lt;/ul&gt;  
-          td(colspan="3") Iterate through Object properties
+          td(colspan="3") 遍历对象属性
           tr
             td
               pre
@@ -183,7 +183,7 @@ block content
                   |   &lt;li&gt;power: 150 hp&lt;/li&gt;
                   |   &lt;li&gt;speed: 200 kn/h&lt;/li&gt;
                   | &lt;/ul&gt;
-          td(colspan="3") {{else}} expression.
+          td(colspan="3") {{else}} 表达式.
           tr
             td
               pre
@@ -237,7 +237,7 @@ block content
                   |   &lt;li&gt;No properties&lt;/li&gt;
                   | &lt;/ul&gt;
       h3 {{#if}}...{{else}}...{{/if}}
-      p {{#if}} helper renders content if passed context is not "false" (or "undefined" or "null" or "" or "0") , otherwise it renders inverse content that optionally could be passed to {{else}} expression inside of helper:
+      p {{#if}} 辅助方法，在传入的上下文不是 "false"(或者 "undefined" 或者 "null" 或者 "" 或者 "0") 的情况下会渲染后面的内容，否则，如果你设置了 {{else}} 表达式，则会渲染它里面的内容：
       table.template7-examples
         thead
           tr
@@ -261,7 +261,7 @@ block content
               pre
                 code
                   | &lt;a href="#" class="active"&gt;Link&lt;/a&gt;
-          td(colspan="3") {{else}} expression.
+          td(colspan="3") {{else}} 表达式.
           tr
             td
               pre
