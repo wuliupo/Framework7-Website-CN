@@ -231,7 +231,6 @@ var html = compiledTemplate(context);</code></pre>
           <h2>内建的辅助方法</h2>
           <p>辅助方法在Template7中就像一个预定义的函数，可以用来在传递给它的上下文中做一些操作。</p>
           <h3>{{#each}}...{{else}}...{{/each}}</h3>
-          <p><code>{{#each}}</code> is a block expression, that iterates through items of passed Array or through properties of passed Object.</p>
           <p><code>{{#each}}</code> 是一个块级表达式，可以用来遍历传入的参数，支持遍历数组的条目和对象的属性。</p>
           <table class="template7-examples">
             <thead>
@@ -242,7 +241,7 @@ var html = compiledTemplate(context);</code></pre>
               </tr>
             </thead>
             <tbody>
-              <td colspan="3">Iterate through Array items</td>
+              <td colspan="3">遍历数组</td>
               <tr>
                 <td>
                   <pre><code>&lt;p&gt;Here are the list of people i know:&lt;/p&gt;
@@ -296,7 +295,7 @@ var html = compiledTemplate(context);</code></pre>
 &lt;/ul&gt;  </code></pre>
                 </td>
               </tr>
-              <td colspan="3">Iterate through Object properties</td>
+              <td colspan="3">遍历对象属性</td>
               <tr>
                 <td>
                   <pre><code>&lt;p&gt;Car properties:&lt;/p&gt;
@@ -322,7 +321,7 @@ var html = compiledTemplate(context);</code></pre>
 &lt;/ul&gt;</code></pre>
                 </td>
               </tr>
-              <td colspan="3">{{else}} expression.</td>
+              <td colspan="3">{{else}} 表达式.</td>
               <tr>
                 <td>
                   <pre><code>&lt;p&gt;Car properties:&lt;/p&gt;
@@ -374,7 +373,7 @@ var html = compiledTemplate(context);</code></pre>
             </tbody>
           </table>
           <h3>{{#if}}...{{else}}...{{/if}}</h3>
-          <p>{{#if}} helper renders content if passed context is not "false" (or "undefined" or "null" or "" or "0") , otherwise it renders inverse content that optionally could be passed to {{else}} expression inside of helper:</p>
+          <p>{{#if}} 辅助方法，在传入的上下文不是 "false"(或者 "undefined" 或者 "null" 或者 "" 或者 "0") 的情况下会渲染后面的内容，否则，如果你设置了 {{else}} 表达式，则会渲染它里面的内容：</p>
           <table class="template7-examples">
             <thead>
               <tr>
@@ -398,7 +397,7 @@ var html = compiledTemplate(context);</code></pre>
                   <pre><code>&lt;a href="#" class="active"&gt;Link&lt;/a&gt;</code></pre>
                 </td>
               </tr>
-              <td colspan="3">{{else}} expression.</td>
+              <td colspan="3">{{else}} 表达式.</td>
               <tr>
                 <td>
                   <pre><code>&lt;p&gt;Hello, my name is {{name}}.&lt;/p&gt;
