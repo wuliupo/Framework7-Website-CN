@@ -286,6 +286,7 @@ block content
                   | &lt;p&gt;I don't have hobby&lt;/p&gt;
       h3 {{#unless}}...{{else}}...{{/unless}}
       p {{#unless}} helper renders content if passed context is "false" (or "undefined" or "null" or "" or "0") , otherwise it renders inverse content that optionally could be passed to {{else}} expression inside of helper:
+      p 当传入的上下文是 "false" (或者 "undefined" 或者 "null" 或者 "" 或者 "0") 的时候，{{#unless}} 才会渲染内容，否则他会渲染可选的 {{else}} 表达式的内容
       table.template7-examples
         thead
           tr
