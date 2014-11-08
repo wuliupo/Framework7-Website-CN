@@ -421,7 +421,6 @@ var html = compiledTemplate(context);</code></pre>
             </tbody>
           </table>
           <h3>{{#unless}}...{{else}}...{{/unless}}</h3>
-          <p>{{#unless}} helper renders content if passed context is "false" (or "undefined" or "null" or "" or "0") , otherwise it renders inverse content that optionally could be passed to {{else}} expression inside of helper:</p>
           <p>当传入的上下文是 "false" (或者 "undefined" 或者 "null" 或者 "" 或者 "0") 的时候，{{#unless}} 才会渲染内容，否则他会渲染可选的 {{else}} 表达式的内容</p>
           <table class="template7-examples">
             <thead>
@@ -470,7 +469,7 @@ var html = compiledTemplate(context);</code></pre>
             </tbody>
           </table>
           <h3>{{#with}}...{{/with}}</h3>
-          <p>{{#with}} helper changes rendering context to the passed context:            </p>
+          <p>{{#with}} 辅助方法 把当前上下文改变为传入的上下文:</p>
           <table class="template7-examples">
             <thead>
               <tr>
@@ -501,7 +500,7 @@ var html = compiledTemplate(context);</code></pre>
             </tbody>
           </table>
           <h3>{{#variableName}}...{{/variableName}}</h3>
-          <p>If you pass a block expression with helper name that is in the expression context, then it will work like {{#each}} helper for this context if it is an Array, and will work like {{#with}} helper if it is an Object:</p>
+          <p>你如果你传入一个一个块级表达式，并且辅助方法的名字是一个表达式的上下文，那么如果这个上下文是数组，它会和 {{#each}}一样的作用，如果上下文是一个对象，它会和 {{#with}} 是一样的作用：</p>
           <table class="template7-examples">
             <thead>
               <tr>
@@ -561,7 +560,7 @@ var html = compiledTemplate(context);</code></pre>
             </tbody>
           </table>
           <h3>{{join delimeter=""}}</h3>
-          <p>This plain helper will join Array items to single string with passed delimeter</p>
+          <p>对数组执行Join方法</p>
           <table class="template7-examples">
             <thead>
               <tr>
@@ -592,17 +591,17 @@ var html = compiledTemplate(context);</code></pre>
               </tr>
             </tbody>
           </table>
-          <h2>Using Custom Helpers</h2>
-          <p>Template7 allows to register custom helpers with the following method:</p>
+          <h2>自定义辅助方法</h2>
+          <p>Template7 可以让你通过这个方法来注册自己的辅助方法：</p>
           <div class="method-wrap">
             <p><span class="method">Template7.registerHelper(<span>name</span>, <span>helper</span>) </span></p>
             <ul class="method-parameters">
-              <li><span class="parameter">name - </span><span class="parameter-type">string</span> - helper name</li>
-              <li><span class="parameter">helper - </span><span class="parameter-type">function</span> - helper function to handle passed context</li>
+              <li><span class="parameter">name - </span><span class="parameter-type">string</span> - 方法名</li>
+              <li><span class="parameter">helper - </span><span class="parameter-type">function</span> - 处理传入上下文的方法体</li>
             </ul>
           </div>
-          <p>Helper function could accepts as many arguments as required, arguments could be context, strings and hash data.</p>
-          <p>Let's look how to register helper on example of simple {{#if}} helper:</p>
+          <p>辅助方法可以接受任意多个参数，参数可以是上下文、字符串或者哈希字典。</p>
+          <p>我们看看应该如何注册一个辅助方法：</p>
           <pre><code>Template7.registerHelper('if', function (condition, options) {
   // "this" in function context is equal to the expression execution context
   // "condition" argument contains passed context/condition
@@ -640,7 +639,7 @@ var html = compiledTemplate(context);</code></pre>
   // And return joined array
   return arr.join(options.hash.delimeter);
 });          </code></pre>
-          <p>Or we can create helper to create F7's list-block link to work with this syntax:</p>
+          <p>或者我们创建一个辅助方法，可以创建 F7的 list-block 链接：</p>
           <pre><code>{{link url title target="_blank"}}</code></pre>
           <pre><code>Template7.registerHelper('link', function (url, title, options){
   var ret = '&lt;li&gt;' +
@@ -709,18 +708,18 @@ var html = compiledTemplate(context);</code></pre>
             </tbody>
           </table><br>
           <div class="important-note">
-            <p>Note, that all custom helpers should be registered before you compile templates with these helpers!</p>
+            <p>注意，所有这个自定义的辅助方法都应该在你编译模板之前注册</p>
           </div>
-          <h2>Remove Custom Helpers</h2>
-          <p>Template7 allows to remove custom helpers with the following method:</p>
+          <h2>删除自定义的辅助方法</h2>
+          <p>Template7 可以通过下面这个方法来删除自定义的辅助方法：</p>
           <div class="method-wrap">
             <p><span class="method">Template7.unregisterHelper(<span>name</span>) </span></p>
             <ul class="method-parameters">
               <li><span class="parameter">name - </span><span class="parameter-type">string</span> - helper name</li>
             </ul>
           </div>
-          <h2>Performance Tips</h2>
-          <p>Template7 is fast and you can make it works even faster in your apps. The slowest part (but still very fast in T7) in all this compilation/rendering process is the compilation from string to pure JS function when you do <code>Template7.compile()</code>. So don't compile the same templates multiple times, one time will be enough:</p>
+          <h2>性能问题</h2>
+          <p>Template7 非常快。其中在编译渲染过程中最慢的部分是通过 <code>Template7.compile()</code>方法把字符串模板编译成一个纯JS函数。所以不要重复编译同一个模板：</p>
           <pre><code>// Initialize app
 var myApp = new Framework7();
  
@@ -738,9 +737,9 @@ myApp.onPageInit('search', function (page) {
  
     // Do something with html...
 });        </code></pre>
-          <h2>Using Template7 Outside</h2>
-          <p>Template7 could be used as a standalone library without Framework7. You will need to download it at <a href="https://github.com/nolimits4web/Template7" target="_blank">Template7 GitHub repo</a></p>
-          <p>Or install it using Bower:</p>
+          <h2>在F7之外使用 Template7</h2>
+          <p>Template7 可以作为一个独立仓库使用。你需要在这里下载 <a href="https://github.com/nolimits4web/Template7" target="_blank">Template7 GitHub repo</a></p>
+          <p>或者通过 bower 安装:</p>
           <pre><code>bower install template7</code></pre>
         </div>
       </div>
