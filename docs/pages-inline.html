@@ -147,15 +147,15 @@
           </ul>
         </div>
         <div class="docs-content">
-          <h1>Inline Pages (DOM Cache)</h1>
-          <p>With this feature you may put all of your pages in DOM on app load, so you don't need to load any pages using Ajax or create them dynamically</p>
-          <h2>Enable Inline Pages</h2>
-          <p>By default, inline pages behavior is disabled. To enable it, we need to pass View's <code>domCache: true</code> parameter:</p>
+          <h1>内联页面 (DOM 缓存)</h1>
+          <p>通过这种方式，你可以把所有的页面都放到 DOM 中，不需要在通过Ajax或者动态创建来加载他们。</p>
+          <h2>启用内联页面</h2>
+          <p>默认情况下，内联页面功能是禁用的。如果你想启用，只需要给视图传入一个 <code>domCache: true</code> 参数即可：</p>
           <pre><code>var mainView = myApp.addView('.view-main', {
     domCache: true //enable inline pages
 });</code></pre>
-          <h2>Inline Pages Structure</h2>
-          <p>As we said above, all of your pages could be already in DOM in index file on app load. So let's look at pages structure in index file:</p>
+          <h2>内联新页面结构</h2>
+          <p>就像我们上面说的，当应用加载的时候你的所有页面都已经在index文件的DOM中了。下面是index文件的结构：</p>
           <pre><code>&lt;html&gt;
   &lt;head&gt;...&lt;/head&gt;
   &lt;body&gt;
@@ -192,13 +192,13 @@
     ...
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          <p>As you may see it is almost the same as in <a href="app-layout.html">usual app layout</a>, the only difference is that we already have all required pages and all additional pages have additional "cached" class</p>
+          <p>就像你看到的那样，它几乎和 <a href="app-layout.html">普通的App布局</a> 一样，唯一不同的是，我们已经有了所有的页面，并且那些附加的页面都有一个额外的 cached 类。</p>
           <div class="important-note">
-            <p>All additional (not currently active) pages should have additional <b>cached</b> class</p>
+            <p>所有的附加页面(非当前显示的页面)都应该有一个额外的 <code>cached</code> 类</p>
           </div>
-          <h2>Inline Pages Structure With Dynamic Navbar</h2>
-          <p>As you may see in <a href="navbar-toolbar-layouts.html">Nabvar & Toolbar layout</a> types dynamic navbar requires through-type layout. But in this layout type navbar is not inside of page. </p>
-          <p>So we also need put few navbar inners:</p>
+          <h2>有动态导航栏的内敛页面的结构</h2>
+          <p>在 <a href="navbar-toolbar-layouts.html">导航栏和工具栏布局</a> 中说到，动态导航栏需要穿透布局。但是在这里，导航栏不是在页面中的。</p>
+          <p>所以我们需要增加一些 navbar inners:</p>
           <pre><code>&lt;html&gt;
   &lt;head&gt;...&lt;/head&gt;
   &lt;body&gt;
@@ -257,26 +257,26 @@
           <div class="important-note">
             <ul>
               <li>
-                <p>All additional (not currently active) navbar-inner should have additional <b>cached</b> class</p>
+                <p>所有的附加（不是当前显示的） navbar-inner 都应该有一个 <code>cached</code> 类</p>
               </li>
               <li>
-                <p>When using Dynamic Navbar with Inline Pages, every related "navbar-inner" should have the same related <b>data-page</b> attribute</p>
+                <p>当时在内联页面中使用动态导航栏时，每一个相关的 "navbar-inner" 都应该有一个对应的 <code>data-page</code> 属性。</p>
               </li>
             </ul>
           </div>
-          <h2>Inline Page URL</h2>
-          <p>Now, when we have our App structure with Views and Inline Pages we need to understand how we can create links to load such inline pages.</p>
-          <p>Inline Page URL follows this rule: <code>&#35;{{pageName}}</code>, where {{pageName}} will be equal to loaded page name (data-page attribute)</p>
-          <p>So, if we want to load "about" page we may use the following link:</p>
+          <h2>内联页面的URL</h2>
+          <p>现在，当我们写好了页面结构和内联页面之后，我们需要创建链接来指向这些内联页面</p>
+          <p>内联页面的URL遵循这个规则： <code>&#35;{{pageName}}</code>，其中 {{pageName}} 是需要加载的页面的名称 (data-name 属性）</p>
+          <p>假设我们想加载 "about" 页面，我们需要这样写链接：</p>
           <pre><code>&lt;a href="#about"&gt;Go to About page&lt;/a&gt;</code></pre>
-          <h2>Go back in navigation</h2>
-          <p>There are absolutely the same rules as for usual <a href="pages-ajax.html">Ajax Pages</a>, the only difference is the page URL. All we need is to add "back" class to link:</p>
+          <h2>返回上一页</h2>
+          <p>这个和 <a href="pages-ajax.html">Ajax Pages</a> 完全一样，唯一不同的是页面的URL。我们所要做的仅仅是在链接上增加一个 back 类:</p>
           <pre><code>&lt;div class="page" data-page="about"&gt;
   &lt;!-- Just add additional "back" class to link --&gt;
   &lt;a href="#index" class="back"&gt; Go back to home page &lt;/a&gt;
 &lt;/div&gt;</code></pre>
-          <h2>Load Inline Pages using JavaScript</h2>
-          <p>It is also possible to load inline page using JavaScript API, not only using <code>&lt;a&gt;</code> tags. For this case we may use <code>.router.load()</code> <a href="router-api.html#view-navigation-methods">View Navigation Methods</a>:</p>
+          <h2>使用JS加载内联页面</h2>
+          <p>除了使用 <code>&lt;a&gt;</code> 标签，还可以通过JS加载内联页面。这种情况下，我们使用 <code>router.load()</code> 方法  <a href="router-api.html#view-navigation-methods">View Navigation Methods</a></p>
           <pre><code>// Initialize App  
 var myApp = new Framework7();
         
@@ -285,9 +285,9 @@ var mainView = myApp.addView('.view-main')
         
 // Load about page:
 mainView.router.load({pageName: 'about'});</code></pre>
-          <p>Note, that it is only possible for Views that were initialized</p>
-          <h2>Going back using JavaScript</h2>
-          <p>You can also get the same as when you click "back" link but with JavaScript using <code>.router.back()</code> <a href="router-api.html#view-navigation-methods">View Navigation Methods</a>:</p>
+          <p>注意，只有视图初始化之后才行哦。</p>
+          <h2>使用JS返回上一页</h2>
+          <p>通过JS调用 <code>.router.back()</code>(<a href="router-api.html#view-navigation-methods">View Navigation Methods</a>) 方法就可以返回上一页，和你点 "back" 链接是一样的效果</p>
           <pre><code>// Initialize App  
 var myApp = new Framework7();
         
@@ -296,15 +296,15 @@ var mainView = myApp.addView('.view-main')
         
 // Go back on main View
 mainView.router.back();</code></pre>
-          <p>It is also possible only for Views that were initialized</p>
-          <h2>Conclusion</h2>
-          <p>As you may see linking and navigation for inline pages is pretty simple, all you should remember is that:</p>
+          <p>当然，你也必须先初始化view</p>
+          <h2>总结</h2>
+          <p>就像你看到的这样，页面间的链接和跳转是很简单的。你只需要记住这些：</p>
           <ul>
             <li>
-              <p>you may use usual <code>&lt;a&gt;</code> tags with plain "href" attribute that contains &#35;{{pageName}} of required page</p>
+              <p>你可以使用 <code>&lt;a&gt;</code> 标签，只需要在 href 属性上写入需要加载的页面的 &#35;{{pageName}}</p>
             </li>
             <li>
-              <p>just add "back" class to any link (<b>&lt;a href="#index" class="back"&gt;</b>) to make it work like "back" link</p>
+              <p>可以直接给一个链接加上 "back" 类 (<b>&lt;a href="#index" class="back"&gt;</b>)，它就会变成一个返回上一个链接</p>
             </li>
           </ul>
         </div>
