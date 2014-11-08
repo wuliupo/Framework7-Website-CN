@@ -147,11 +147,11 @@
           </ul>
         </div>
         <div class="docs-content">
-          <h1>Dynamic Pages</h1>
-          <p>Framework7 also allows to create Dynamic pages and load them on the fly, without making any additional Ajax request.</p>
-          <p>This is only possible with using <a href="router-api.html">Router API</a>.</p>
-          <p>Everything that concerns loaded page structure, disabling swipe back for loaded page and going back in navigation, is the same as for usual <a href="pages-ajax.html">Ajax Pages</a>.</p>
-          <p>So to load Dynamic page we need to use View's <code>.router.loadContent</code> method where we need to pass HTML content of new page:</p>
+          <h1>动态页面</h1>
+          <p>Framework7 可以创建动态页面并直接加载，不需要额外的Ajax请求。</p>
+          <p>只有通过 <a href="router-api.html">路由器 API</a> 才可以实现。</p>
+          <p>加载页面的结构、禁用滑动返回上一页和返回上一页等，所有这些需要考虑的事情都和 <a href="pages-ajax.html">Ajax Pages</a> 是一样的。</p>
+          <p>我们只需要使用视图的 <code>.router.loadContent</code> 方法，并且传入我们新页面的HTML代码即可。</p>
           <pre><code>// Init app
 var myApp = new Framework7();
  
@@ -173,7 +173,7 @@ mainView.router.load({
   content: newPageContent,
   animatePages: false
 });</code></pre>
-          <p>It is not very convenient to write multiline JavaScript, so if we use it often we may store Dynamic pages in script templates in index.html file:</p>
+          <p>因为写多行JS代码很不方便，所以我们一般把模板直接存在在 index.html 中的script标签中：</p>
           <pre><code class="js">&lt;script type="text/template" id="myPage"&gt;
     &lt;div class="navbar"&gt;
         &lt;div class="navbar-inner"&gt;
@@ -186,10 +186,10 @@ mainView.router.load({
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/script&gt;  </code></pre>
-          <p>And in JavaScript:</p>
+          <p>在JS中只需要这样:</p>
           <pre><code class="js">mainView.router.loadContent($('#myPage').html());</code></pre>
-          <h2>Dynamic Pages URL</h2>
-          <p>By default, dynamic page url follows this rule: <code>#content-{{index}}</code>, where {{index}} will be replaced with page index number in navigation history. This rule can be changed by changin <code>dynamicPageUrl</code> parameter on <a href="init-app.html">App initialization</a></p>
+          <h2>动态页面的URL</h2>
+          <p>默认情况下，动态页面的url是这样的：<code>#content-{{index}}</code>,其中 {{index}} 是浏览历史中的序号。你可以在  <a href="init-app.html">初始化应用</a> 的时候传入一个 <code>dynamicPageUrl</code> 来改变。</p>
         </div>
       </div>
     </div>
