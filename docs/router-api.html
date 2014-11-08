@@ -147,156 +147,157 @@
           </ul>
         </div>
         <div class="docs-content">
-          <h1>Router JavaScript API</h1>
-          <p>Navigation in Framework7 is very flexible. It gives you a lot of different ways to handle pages:</p>
+          <h1>路由器 JS API</h1>
+          <p>Framework7 中的路由器使用非常灵活，他可以有多种方式来处理Page:</p>
           <ul>
             <li>
-              <p><a href="pages-ajax.html">Ajax Pages</a> - load pages from different files (default behavior)</p>
+              <p><a href="pages-ajax.html">Ajax Pages</a> - 从一个指定的URL加载页面，通常是另外一个页面的文件地址（默认行为）。</p>
             </li>
             <li>
-              <p>You may create and load <a href="pages-dynamic.html">Dynamic Pages</a> using JavaScript API</p>
+              <p>通过JS API 创建和加载 <a href="pages-dynamic.html">动态页面</a></p>
             </li>
             <li>
-              <p>You may use <a href="pages-inline.html">Inline Pages</a> where all your pages are already in DOM, and nothing additionaly loaded</p>
+              <p>如果你的页面已经写在DOM中了，那么你可以直接使用 <a href="pages-inline.html">内联页面</a>，而不用再去加载。</p>
             </li>
             <li>
-              <p>You may load <a href="template7-pages.html">pages from Template7 templates</a></p>
+              <p>你可以加载使用 <a href="template7-pages.html">Template7</a> 编写的模板</p>
             </li>
             <li>
-              <p>And the most awesome part is that you can mix all these ways to deliver content in your App</p>
+              <p>最重要的是，你可以在你的应用中混合使用所有上面的这些方法。</p>
             </li>
           </ul>
-          <p>As you may read in <a href="views.html">Views</a> section - <em>View is a separate visual part of app with its own settings, <b>navigation and history</b></em>. Navigation router in Framework7 is connected to and part of the initialized View. So don't forget to initialize View (with <code>myApp.addView()</code> method) if you need navigation in any part of your app (pages, popup, panel, etc.):</p>
+          <p>在 <a href="views.html">视图</a> 章节中说过， <em>视图是应用中的一个独立部分，她有自己的设置、页面切换和浏览历史</em>。路由器也是初始化之后的视图中的一部分，所以你使用路由器之前必须要记得先初始化视图（使用 <code>myApp.addView()</code> 方法）。</p>
           <pre><code>var mainView = myApp.addView('.view-main');</code></pre>
-          <h2>View Navigation Methods</h2>
+          <h2>视图中页面切换相关的方法</h2>
           <p>There are two main router methods in View:</p>
+          <p>在视图中主要有两个路由器方法:</p>
           <div class="method-wrap">
-            <p><span class="method">mainView.router.load(<span>options</span>) </span><span>- load required page to view</span></p>
+            <p><span class="method">mainView.router.load(<span>options</span>) </span><span>- 把一个页面加载到当前视图</span></p>
           </div>
           <div class="method-wrap">
-            <p><span class="method">mainView.router.back(<span>options</span>) </span><span>- This method will trigger reverse animation to the previous page, in other words - going back in View history</span></p>
+            <p><span class="method">mainView.router.back(<span>options</span>) </span><span>- 这个方法会触发一个反向的动画并回到上一个页面，也就是浏览历史上的回退</span></p>
           </div>
-          <p>Each of these methods accepts <code>options</code> object with the following properties:</p>
+          <p>上面这些方法都接受一个 <code>options</code> 对象作为参数，这个参数有如下属性:</p>
           <table class="params-table">
             <thead>
               <tr>
-                <th>Parameter</th>
-                <th>Type</th>
-                <th>Description</th>
+                <th>参数</th>
+                <th>类型</th>
+                <th>说明</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>url</td>
                 <td>string</td>
-                <td>URL of the page to load</td>
+                <td>需要加载的页面的URL</td>
               </tr>
               <tr>
                 <td>content</td>
                 <td>string or HTMLElement or [jQuery/Zepto/DOM7 collection] or [array of HTMLElement]</td>
-                <td>Content of the Dynamic page to load</td>
+                <td>需要加载的动态页面的内容</td>
               </tr>
               <tr>
                 <td>pageName</td>
                 <td>string</td>
-                <td>Page name (data-page) of page to load. Only for Inline Pages (DOM Cache)</td>
+                <td>需要加载的页面的名称(data-page)。只用在内联页面(DOM cached)。</td>
               </tr>
               <tr>
                 <td>template</td>
                 <td>function (<a href="template7.html">Template7</a> compiled template)</td>
-                <td>Template to be rendered and loaded as Dynamic page</td>
+                <td>需要加载并渲染的模板</td>
               </tr>
               <tr>
                 <td>context</td>
                 <td>object or array</td>
-                <td>Template7 context to be applied for page rendering. Learn more about it in <a href="template7-pages.html">Template7 Pages</a> section</td>
+                <td>渲染Template7 模板时需要的上下文。这里有更多说明<a href="template7-pages.html">Template7 Pages</a>。</td>
               </tr>
               <tr>
                 <td>contextName</td>
                 <td>string</td>
-                <td>Optional. Context name/path in <code>templatesData</code> to be applied for page rendering with Template7. Learn more about it in <a href="template7-pages.html">Template7 Pages</a> section</td>
+                <td>可选的。用来渲染 Template7 的 <code>templatesData</code> 的上下文名称/路径。这里查看更多说明 <a href="template7-pages.html">Template7 Pages</a></td>
               </tr>
               <tr>
                 <td>force</td>
                 <td>boolean</td>
-                <td>Optional. Only for <code>back</code> method. If set to <code>true</code> then it will ignore previos page in history and load specified one</td>
+                <td>可选的。只对 <code>back</code> 方法有效。如果设置为 <code>true</code>，那么会忽略浏览历史中的上一个页面，而是直接加载指定的页面。</td>
               </tr>
               <tr>
                 <td>ignoreCache</td>
                 <td>boolean</td>
-                <td>Optional. If set to <code>true</code> then it will ignore if such URL in cache and reload it using XHR again</td>
+                <td>可选的。如果设置为 <code>true</code> ，那么会忽略URL对应的缓存，并且再次通过XHR来加载。</td>
               </tr>
               <tr>
                 <td>animatePages</td>
                 <td>boolean</td>
-                <td>Optional. Allows to override the same View's parameter to enable/disable transition between pages for this case</td>
+                <td>可选的。可以覆盖在 View 中的相同参数，打开/关闭页面切换的动画。</td>
               </tr>
               <tr>
                 <td>reload</td>
                 <td>boolean</td>
-                <td>Optional. If set to <code>true</code> then it will not load page as new page, and just replace currently active View's page with specified one. It will also modify View's history by replacing last history item</td>
+                <td>可选的。如果设置为 <code>true</code>，那么不会当做新页面加载，而是直接替换当前视图的当前页面。并且在视图浏览历史中替换最后一条历史。</td>
               </tr>
               <tr>
                 <td>reloadPrevious</td>
                 <td>boolean</td>
-                <td>Optional. Used in addition to <code>reload</code>. Will do the same as <code>reload</code> but for previous page.</td>
+                <td>可选的。和 <code>reload</code> 一样，不过是对上一个页面。</td>
               </tr>
               <tr>
                 <td>pushState</td>
                 <td>boolean</td>
-                <td>Optional. Tell View to store loaded in page in browser's history state or not</td>
+                <td>可选的。是否把浏览历史存储在浏览器的浏览历史中。(这样可以使用浏览器的后退/前进按钮）</td>
               </tr>
             </tbody>
           </table><br>
           <div class="important-note">
-            <p>Note, that you may use only <code>url</code> or <code>content</code> or <code>pageName</code> or <code>template</code> property at the same time</p>
+            <p>注意， <code>url</code>, <code>content</code>, <code>pageName</code> 这三个参数，你只能同时使用一个。</p>
           </div>
-          <h2>View Navigation Shortcuts Methods</h2>
-          <h4>Methods to load new page:</h4>
+          <h2>视图中页面切换的快捷方式</h2>
+          <h4>加载新页面的方法:</h4>
           <div class="method-wrap">
-            <p><span class="method">mainView.router.loadPage(<span>url</span>) </span><span>- load required page to view. In other word will do the same if you click on some link with this URL</span></p>
+            <p><span class="method">mainView.router.loadPage(<span>url</span>) </span><span>- 加载指定的页面到视图中。其实和你在页面中点击一个链接是一样的效果。</span></p>
             <ul class="method-parameters">
-              <li><span class="parameter">url</span> - URL of the page to load</li>
+              <li><span class="parameter">url</span> - 需要加载的页面的URL</li>
             </ul>
           </div>
           <div class="method-wrap">
-            <p><span class="method">mainView..router.loadContent(<span>content</span>) </span><span>- load dynamically generated content as a new usual page.</span></p>
+            <p><span class="method">mainView..router.loadContent(<span>content</span>) </span><span>- 把动态生成的内容当做一个页面加载</span></p>
             <ul class="method-parameters">
-              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - content to load as page</li>
+              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - 需要加载的内容</li>
             </ul>
           </div>
-          <h4>Methods to reload currently active page:</h4>
+          <h4>重新加载当前页面的方法:</h4>
           <div class="method-wrap">
-            <p><span class="method">mainView.router.reloadPage(<span>url</span>) </span><span>- reload required page to the currently active view's page. It will also modify View's history and replace last item in history with the specified url</span></p>
+            <p><span class="method">mainView.router.reloadPage(<span>url</span>) </span><span>- 重新加载指定的页面到视图的当前页面。同时也会修改视图的浏览历史，把最后一条记录替换成指定的URL。</span></p>
             <ul class="method-parameters">
-              <li><span class="parameter">url</span> - URL of the page to load</li>
-            </ul>
-          </div>
-          <div class="method-wrap">
-            <p><span class="method">mainView.router.reloadContent(<span>content</span>) </span><span>- reload required content to the currently active view's page. It will also modify View's history and replace last item in history with the specified content</span></p>
-            <ul class="method-parameters">
-              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - content to load as page</li>
-            </ul>
-          </div>
-          <h4>Methods to reload previous View's page (if there are two pages in View's DOM):</h4>
-          <div class="method-wrap">
-            <p><span class="method">mainView.router.reloadPreviousPage(<span>url</span>) </span><span>- reload required page to the previous view's page. It will also modify View's history and replace related item in history with the specified url</span></p>
-            <ul class="method-parameters">
-              <li><span class="parameter">url</span> - URL of the page to load</li>
+              <li><span class="parameter">url</span> - 需要加载页面的URL</li>
             </ul>
           </div>
           <div class="method-wrap">
-            <p><span class="method">mainView.router.reloadPreviousContent(<span>content</span>) </span><span>- reload required content to the previous view's page. It will also modify View's history and replace related item in history with the specified content</span></p>
+            <p><span class="method">mainView.router.reloadContent(<span>content</span>) </span><span>- 重新加载指定的内容到视图的当前页面。同时也会修改视图的浏览历史，把最后一条记录替换成指定的URL。</span></p>
             <ul class="method-parameters">
-              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - content to load as page</li>
+              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - 需要加载的内容</li>
             </ul>
           </div>
-          <h4>Methods to refresh page:</h4>
+          <h4>重新加载上一个页面的方法（如果视图的DOM中有两个页面）：</h4>
           <div class="method-wrap">
-            <p><span class="method">mainView.router.refreshPage() </span><span>- refresh currently active view's page. In other words it is the same as .reloadPage with url parameter equal to currently active URL</span></p>
+            <p><span class="method">mainView.router.reloadPreviousPage(<span>url</span>) </span><span>- 重新加载指定的页面到视图的上一个页面。同时也会修改视图的浏览历史，把最后一条记录替换成指定的URL。</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">url</span> - 需要加载页面的URL</li>
+            </ul>
           </div>
           <div class="method-wrap">
-            <p><span class="method">mainView.router.refreshPreviousPage() </span><span>- refresh previous view's page. The same as .reloadPreviousPage with url parameter equal to previous View's URL</span></p>
+            <p><span class="method">mainView.router.reloadPreviousContent(<span>content</span>) </span><span>- 重新加载指定的内容到视图的上一个页面。同时也会修改视图的浏览历史，把最后一条记录替换成指定的URL。</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">content</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">[jQuery/Zepto/DOM7 collection]</span> or <span class="parameter-type">[array of HTMLElement]</span> - 需要加载内容</li>
+            </ul>
+          </div>
+          <h4>刷新页面的方法:</h4>
+          <div class="method-wrap">
+            <p><span class="method">mainView.router.refreshPage() </span><span>- 刷新视图的当前页面。和你调用 <code>.reloadPage</code> 方法并且传入当前页面的URL是一样的效果</span></p>
+          </div>
+          <div class="method-wrap">
+            <p><span class="method">mainView.router.refreshPreviousPage() </span><span>- refresh previous view's page. The same as .reloadPreviousPage with url parameter equal to previous View's URL</span><span>- 刷新视图的上一个页面。和你调用 <code>.reloadPreviousPage</code> 方法并且传入上一个页面的URL是一样的效果</span></p>
           </div>
         </div>
       </div>
