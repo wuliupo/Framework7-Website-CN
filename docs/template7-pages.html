@@ -147,15 +147,15 @@
           </ul>
         </div>
         <div class="docs-content">
-          <h1>Template7 Pages</h1>
-          <p>Framework7 allows you to render your Ajax and Dynamic pages as Template7 templates with specified context and provides a lot of different ways to do that.</p>
-          <p>To make it work, first of all, we need to enable it by passing the following parameter on <a href="init-app.html">App initialization</a>:</p>
+          <h1>Template7 页面</h1>
+          <p>Framework7 可以让你使用 Template7 用特定的上下文来渲染你的ajax页面或者动态页面，并且提供了很多不同的方法来实现.</p>
+          <p>首先，我们需要在 <a href="init-app.html">应用初始化</a> 的时候传入一个参数来开启这个功能：</p>
           <pre><code>var myApp = new Framework7({
     template7Pages: true // enable Template7 rendering for Ajax and Dynamic pages
 });</code></pre>
-          <p>That is all, now all of your Ajax and Dynamic pages will be rendered as Template7 templates where you may use <a href="template7.html">Template7 syntax</a></p>
-          <h2>Templates/Pages Data</h2>
-          <p>Now we need to learn how to pass required data/context for specific pages. For that we may specify all pages data in additional <code>templatesData</code> parameter passed on App initialization. Let's look on its syntax:</p>
+          <p>这就是所有你需要做的，现在所有的Ajax和动态页面都会当做 Template7 模板来渲染，所以你可以在其中使用 <a href="template7.html">Template7 语法</a></p>
+          <h2>模板/页面 数据</h2>
+          <p>现在我们需要学习的是，如何把特定的上下文传递给指定的页面。我们可以在应用初始化的时候，传入一个附加的 <code>templateData</code> 参数：</p>
           <pre><code class="js">var myApp = new Framework7({
     template7Pages: true, //enable Template7 rendering for pages
  
@@ -204,21 +204,21 @@
 // Add and init View
 var mainView = myApp.addView('.view-main');
  </code></pre>
-          <h3>Access And Modify Templates/Pages Data      </h3>
-          <p>We may access and modify specified <code>templatesData</code> in any moment. It is accessible in global <code>Templates.data</code> object, or in its alias <code>myApp.templatesData</code></p>
-          <h3>Page & URL Rules</h3>
-          <p>It is everything simple here: </p>
+          <h3>访问和修改 模板/页面 数据</h3>
+          <p>我们可以在任何时候访问和修改 <code>templateData</code>。你可以通过全局的 <code>Templates.data</code> 属性，也可通过他的别名 <code>myApp.templatesData</code> 来访问</p>
+          <h3>页面和URL 规则</h3>
+          <p>这个很简单：</p>
           <ul>
             <li>
-              <p>If you specify property name that starts from <code>url:</code> then this context will be applied for the page with specified URL</p>
+              <p>如果你的属性名是以 <code>url:</code> 开头的，那么这个上下文会被应用在这个特定的URL对应的页面上</p>
             </li>
             <li>
-              <p>If you specify property name that starts from <code>page:</code> then this context will be applied for the page with specified page name which is in <code>data-page</code> attribute</p>
+              <p>如果你的属性名是以 <code>page:</code> 开头的，那么这个上下文会被用在有相同的 <code>data-page</code> 的页面上</p>
             </li>
           </ul>
-          <p>It is recommended to use <code>url:</code> where possible because it provides more accurate detection. </p>
-          <p>But sometimes it could be impossible to use <code>url:</code>, for example in pages with URLs with different GET parameters (like about.html?id=1 and about.html?id=2) or for Dynamic pages. In this case we may use <code>page:</code> rule</p>
-          <p>So for the specified above templates data, we may use the following formatting in pages:</p>
+          <p>推荐使用 <code>url:</code> 的方式来指定，因为这样检测的更准确一些。</p>
+          <p>但是，有些时候可能不能用 <code>url:</code>，比如你的页面有不同的GET参数(比如 about.html?id=1 和 about.html?id=2)，或者是动态页面，这种情况下我们要使用 <code>page:</code> 规则：</p>
+          <p>对于上面定义的模板数据，我们在页面中可以这样使用：</p>
           <p><b>about.html:</b></p>
           <pre><code>&lt;div class="page" data-page="about"&gt;
     &lt;div class="page-content"&gt;
@@ -234,9 +234,9 @@ var mainView = myApp.addView('.view-main');
         &lt;p&gt;By email: {{email}}&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-          <h3>Plain Data Objects</h3>
-          <p>Plain data objects in templates data provide more complex and more customizable way of pages data handling. Such objects allow us to pass custom context to loaded page using usual links and special <code>data-contextName</code> attribute on them.</p>
-          <p>Let's look at the following example where we have index page with links to page with languages list that contains link to another detail language page:</p>
+          <h3>普通数据</h3>
+          <p>在模板数据中定义普通数据，可能会更灵活，更容易处理。我们可以通过在链接上使用 <code>data-contextName</code> 属性来加和使用这些数据.</p>
+          <p>让我们看看下面这个例子，我们有一个首页，首页中有一个链接会跳转到语言列表页面，语言列表页面会有一个链接跳转到语言详情页面：</p>
           <p><b>index.html:</b></p>
           <pre><code>&lt;div class="list-block"&gt;
   &lt;ul&gt;
@@ -295,19 +295,19 @@ var mainView = myApp.addView('.view-main');
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-          <p>So, using <code>data-contextName</code> link attribute we may pass required context from <code>templatesData</code>. As you note, it also supports context paths (usign <code>.</code> separator) that allow us to pass child properties. </p>
-          <p>For example, using context path we may create link to CSS language details page:</p>
+          <p>在链接上使用 <code>data-contextName</code> 属性可以传入 <code>templatesData</code> 中定义的上下文。他也支持通过上下文路径(通过使用 <code>.</code> 号)来访问子属性.</p>
+          <p>比如，我们可以创建一个使用上下文路径的链接指向详情页：</p>
           <pre><code>&lt;a href="language-details.html" data-contextName="languages.frontend.1"&gt;CSS&lt;/a&gt;</code></pre>
-          <p>In JavaScript, we may also do the same using View's Router <code>.load()</code> method and <code>contextName</code> property:</p>
+          <p>在JS中，我们也可以使用视图的路由器的 <code>.load()</code> 方法和 <code>contextName</code> 属性：</p>
           <pre><code class="js">mainView.router.load({
     url: 'language-details.html',
     contextName: 'languages.frontend.0'
 })</code></pre>
-          <h2>Pass Custom Context</h2>
-          <p>Framework7 allows to pass custom context to any laoded Ajax or Dynamic page.</p>
-          <p>We may pass custom context for any page using <code>data-context</code> attribute on link, where we need to put valid stringified JSON:</p>
+          <h2>传入自定义的上下文</h2>
+          <p>Framework7 可以让我们在任何Ajax或者动态页面中传入自定义的上下文。</p>
+          <p>我们可以通过链接上的 <code>data-context</code> 属性来给任何页面传递上下文，这个属性值是一个合法的序列化的JSON字符串：</p>
           <pre><code>&lt;a href='contacts.html' data-context='{"tel": "(999)-111-22-33", "email": "contact@john.doe"}'&gt;Contacts&lt;/a&gt;</code></pre>
-          <p>Or, in JavaScript, we may pass custom context using View's Router <code>.load()</code> method and <code>context</code> property:</p>
+          <p>或者，在JS中，我们可以使用视图的路由器的 <code>.load()</code> 方法传入一个 <code>context</code> 属性：</p>
           <pre><code class="js">mainView.router.load({
     url: 'contacts.html',
     context: {
@@ -315,14 +315,14 @@ var mainView = myApp.addView('.view-main');
       email: 'contact@john.doe'
     }
 })</code></pre>
-          <p>Or by specifying one of required plain data from <code>templatesData</code>:</p>
+          <p>或者，我们可以指定一个 <code>templatesData</code> 中的普通数据:</p>
           <pre><code class="js">mainView.router.load({
     url: 'language-details.html',
     context: Template7.data.languages.frontend[1] // CSS
 })      </code></pre>
-          <h2>Load Templates Directly</h2>
-          <p>If you use <a href="template7-auto-compilation.html">templates auto compilation</a> you may render and load them on the fly as a Dynamic pages.</p>
-          <p>Let's look on another example where we just have the following page templates in index file:</p>
+          <h2>直接加载模板</h2>
+          <p>如果你使用 <a href="template7-auto-compilation.html">自动编译模板</a>，你可以直接把他们当做动态页面渲染和加载</p>
+          <p>我们看看另一个模板，在index文件中已经定义了下面这些页面的模板：</p>
           <pre><code class="js">&lt;script id="contactsTemplate" type="text/template7"&gt;
   &lt;div class="page" data-page="contacts"&gt;
     &lt;div class="page-content"&gt;
@@ -340,7 +340,7 @@ var mainView = myApp.addView('.view-main');
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/script&gt;</code></pre>
-          <p>In our JavaScript:</p>
+          <p>在我们的JS中:</p>
           <pre><code class="js">var myApp = new Framework7({
     precompileTemplates: true, //
     template7Pages: true, //enable Template7 rendering for pages
@@ -352,13 +352,13 @@ var mainView = myApp.addView('.view-main');
         }
     }
 })</code></pre>
-          <p>Now we need to load specified templates as pages. </p>
-          <p>For "contacts" page we already have required data in <code>templatesData</code>. So to specify required template we need to use <code>data-template</code> attribute were we need to specify template id:</p>
+          <p>现在，我们需要加载这些页面。</p>
+          <p>对于 "contacts" 页面，我们在 <code>templatesData</code> 中已经有需要的数据。所以我们使用 <code>data-template</code> 属性指定模板id就行了：</p>
           <pre><code>&lt;!-- We need to specify template id in data-template attribute --&gt;
 &lt;a href="#" data-template="contactsTemplate"&gt;Contacts&lt;/a&gt;</code></pre>
-          <p>For about page, we don't have any specified data, so we can do that by passing custom context:</p>
+          <p>对于about页面，我们没有指定任何数据，所以我们可以传入自定义的上下文：</p>
           <pre><code>&lt;a href="#" data-template="aboutTemplate" data-context='{"name": "John Doe", "age": "35"}'&gt;About Me&lt;/a&gt;</code></pre>
-          <p>And of course, we can do the same in JavaScript using View's <code>.load()</code> method and <code>template</code> property:</p>
+          <p>当然，我们也可以通过JS来做，直接使用视图的 <code>.load()</code> 方法并传入一个 <code>template</code> 属性：</p>
           <pre><code>//To load contacts page from template:
 mainView.router.load({
     template: Template7.templates.contactsTemplate // template already compiled and available as a property of Template7.templates
@@ -372,8 +372,8 @@ mainView.router.load({
         age: 35
     }
 })</code></pre>
-          <h2>URL Query</h2>
-          <p>When using Template7 rendering for Ajax pages, its context will be always extended with special <code>url_query</code> property that contains URL GET parameters:</p>
+          <h2>URL 参数</h2>
+          <p>当我们用 template7 渲染Ajax 页面的时候，他的上下文总是会被拓展到一个包含了URL GET参数的  <code>url_query</code> 属性上去：</p>
           <pre><code>&lt;a href="person.html?firstname=John&lastname=Doe&age=33"&gt;John Doe&lt;/a&gt;
 &lt;a href="person.html?firstname=Mike&lastname=Doe&age=26"&gt;Mike Doe&lt;/a&gt;</code></pre>
           <p><b>person.html</b></p>
