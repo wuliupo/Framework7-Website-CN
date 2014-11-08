@@ -9,20 +9,20 @@ block content
     .docs-nav
       include ../jade/_docs-menu
     .docs-content
-      h1 Templates Auto Compilation
-      p Framework7 may automatically compile all of your Template7 templates if they are specified in <code>&lt;script&gt;</code> tag with special attributes:
+      h1 自动编译模板
+      p 如果你在 <code>&lt;script&gt;</code> 标签中编写模板，并且设置了特定的属性，那么 Framework7 会自动帮你编译所有的模板：
       pre
         code
           | &lt;script type="text/template7" id="myTemplate"&gt;
           |     &lt;p&gt;Hello, my name is {{name}} and i am {{age}} years old&lt;/p&gt;
           | &lt;/script&gt;  
-      p Where
+      p 其中：
       ul
         li
-          p <code>type="text/template7"</code> required script type that tell Framework7 that this is a Template7 template that could be compiled automatically
+          p <code>type="text/template7"</code> 指定了这个script的内容会被 Framework7 当做一个 Template7 模板自动编译
         li
-          p <code>id="myTemplate"</code> required template id. It makes template accessible later by this id
-      p To enable automatic compilation you also need to enable it on <a href="init-app.html">App initialization</a> by passing the following parameter:
+          p <code>id="myTemplate"</code> 是模板的id，后面可以通过这个id来方法这个模板
+      p 你需要在 <a href="init-app.html">初始化应用</a> 的时候传入一个参数来启用自动编译模板功能：
       pre
         code
           | var myApp = new Framework7({
@@ -30,8 +30,8 @@ block content
           |     precompileTemplates: true,
           | });
       h2 Template7.templates / myApp.templates
-      p After app initialization all automatically compiled templates will be accessible as properties of <code>Template7.templates</code> object and its alias <code>myApp.templates</code> where "myApp" is an initialized app instance. Name of required template/propery will be the same as "id" attribute of <code>&lt;script&gt;</code> with this template.
-      p So if we have the fllowing templates in our <code>index.html</code> file:
+      p 应用初始化完成之后，所有的编译好的模板都可以通过 <code>Template7.templates</code> 对象来访问，他还有一个别名是 <code>myApp.templates</code>。模板的名字就是 <code>&lt;script&gt;</code> 标签上的 id 属性
+      p 所以，如果我们有下面这些模板:
       pre
         code
           | &lt;script type="text/template7" id="personTemplate"&gt;
@@ -43,7 +43,7 @@ block content
           |     &lt;p&gt;I have a great car, it is {{vendor}} {{model}}, made in {{year}} year.&lt;/p&gt;
           |     &lt;p&gt;It has {{power}} hp engine with {{speed}} km/h maximum speed.&lt;/p&gt;
           | &lt;/script&gt; 
-      p We can access them in our JavaScript <b>after</b> App initialization:
+      p 当应用初始化完成之后，我们可以在JS中这样访问：
       pre
         code
           | var myApp = new Framework7({
@@ -67,4 +67,4 @@ block content
           |     speed: 280
           | });
       .important-note
-        p If you use custom Template7 helpers and templates auto compilation, make sure that you have registered them <b>before</b> you initialize App!
+        p 如果你使用了自定义的辅助方法和模板自动编译，请确保你初始化应用之前注册他们。
