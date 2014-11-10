@@ -153,7 +153,12 @@ block content
             td navbar-inner" 对应的 <span class="parameter-type">HTMLElement</span>，只有动态导航栏才有。
           tr
             td page.swipeBack
-            td <span class="parameter-type">boolean</span>。是否可以滑动返回。只有在 onPageBefore/AfterAnimation 回调函数/事件 中才可以访问。
+            td <span class="parameter-type">boolean</span>。当前页面是否是滑动返回的。只有在 onPageBefore/AfterAnimation 回调函数/事件 中才可以访问。
+          tr
+            td page.context
+            td <span class="parameter-type">object</span>. 这个页面的 Template7 上下文
+          
+          
       p 我们就可以在一个handler中处理不同的页面了:
       pre
         code

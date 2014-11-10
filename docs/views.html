@@ -108,8 +108,14 @@
                 <li><a href="list-view.html">列表</a></li>
                 <li><a href="contacts-list.html">联系人列表</a></li>
                 <li><a href="media-list-view.html">Media List View</a></li>
+<<<<<<< HEAD
                 <li><a href="swipeout.html">滑动操作</a></li>
                 <li><a href="sortable-list.html">可排序列表</a></li>
+=======
+                <li><a href="swipeout.html">Swipeout </a></li>
+                <li><a href="sortable-list.html">Sortable List</a></li>
+                <li><a href="virtual-list.html">Virtual List</a></li>
+>>>>>>> f7/master
               </ul>
             </li>
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
@@ -225,9 +231,13 @@
               </tr>
               <tr>
                 <td>linksView</td>
-                <td>string / HTMLElement</td>
+                <td>string / View instance</td>
                 <td>undefined</td>
+<<<<<<< HEAD
                 <td>另一个View的CSS选择器，可以指定讲当前view中链接加载到另一个View中。</td>
+=======
+                <td>CSS Selector of another view or initialized View instance. By defaul all links in initialized (only) view will load pages in this view. You can change this logic on the fly by changing this paremeter. This tell links to load pages in other view.</td>
+>>>>>>> f7/master
               </tr>
               <tr>
                 <th colspan="4">Navigation</th>
@@ -257,7 +267,17 @@
                 <td>打开/关闭预加载下一页。为了“返回上一步”能正常工作，最好打开这个选项。默认情况下和 App 中的设置相同。</td>
               </tr>
               <tr>
+<<<<<<< HEAD
                 <th colspan="4">滑动返回上一步</th>
+=======
+                <td>reloadPages</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>When enabled, View will always reload currently active page without loading new one</td>
+              </tr>
+              <tr>
+                <th colspan="4">Swipe back</th>
+>>>>>>> f7/master
               </tr>
               <tr>
                 <td>swipeBackPage</td>
@@ -278,7 +298,13 @@
                 <td>默认和app中对应的参数相同。可以在当前View中重置<a href="init-app.html">App参数</a></td>
               </tr>
               <tr>
-                <td>swipeBackPageBoxShadow</td>
+                <td>swipeBackPageAnimateShadow</td>
+                <td>boolean</td>
+                <td></td>
+                <td>By default, equal to the same App's parameter. Allows to override global <a href="init-app.html">App parameter</a> for current View</td>
+              </tr>
+              <tr>
+                <td>swipeBackPageAnimateOpacity</td>
                 <td>boolean</td>
                 <td></td>
                 <td>默认和app中对应的参数相同。可以在当前View中重置<a href="init-app.html">App参数</a></td>

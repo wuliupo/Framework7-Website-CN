@@ -110,6 +110,7 @@
                 <li><a href="media-list-view.html">Media List View</a></li>
                 <li><a href="swipeout.html">滑动操作</a></li>
                 <li><a href="sortable-list.html">可排序列表</a></li>
+                <li><a href="virtual-list.html">虚拟列表</a></li>
               </ul>
             </li>
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
@@ -257,9 +258,9 @@
               </tr>
               <tr>
                 <td>externalLinks</td>
-                <td>array</td>
-                <td>['external']</td>
-                <td>外部链接，Framework7不会管理这些链接（当然也不会用Ajax加载内容）。 当 class 或者 rel 为当前设定的值的时候，就会被当做外部链接。比如 ['external'] 会匹配到 &lt;a href="somepage.html" class="external"&gt; 和 &lt;a href="somepage.html" rel="external"&gt;</td>
+                <td>string</td>
+                <td>'.external'</td>
+                <td>不应该被 Framework7 管理的链接的CSS选择器。比如 ".external" 会匹配到这样的链接 &lt;a href="somepage.html" class="external"&gt; (因为它有 "external" 类)</td>
               </tr>
               <tr>
                 <td>animateNavBackIcon</td>
@@ -328,10 +329,16 @@
                 <td>Value in px. Width of invisible left edge of the screen that triggers swipe back action</td>
               </tr>
               <tr>
-                <td>swipeBackPageBoxShadow</td>
+                <td>swipeBackPageAnimateShadow</td>
                 <td>boolean</td>
                 <td>true</td>
                 <td>打开/关闭 滑动返回时候的 box-shadow 动画。关闭这个功能可以提高性能。</td>
+              </tr>
+              <tr>
+                <td>swipeBackPageAnimateOpacity</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>打开/关闭 滑动返回时候的半透明效果。关闭这个功能可以提高性能。</td>
               </tr>
               <tr>
                 <th colspan="4">可排序列表(Sortable Lists)</th>
@@ -518,6 +525,18 @@
                 <td>在 smart select 页面选择任何条目之后立刻返回。</td>
               </tr>
               <tr>
+                <td>smartSelectFormTheme</td>
+                <td>string</td>
+                <td>undefined</td>
+                <td>smart select 页面/弹层中 使用的主题，是十个默认的<a href="color-themes.html">颜色主题</a>中的一个。</td>
+              </tr>
+              <tr>
+                <td>smartSelectNavbarTheme</td>
+                <td>string</td>
+                <td>undefined</td>
+                <td>smart select 页面/弹层中的导航栏主题，是十个默认的<a href="color-themes.html">颜色主题</a>中的一个。</td>
+              </tr>
+              <tr>
                 <th colspan="4">导航栏和工具栏(Navbars / Toolbars)</th>
               </tr>
               <tr>
@@ -611,7 +630,7 @@
                 <td>设置为true，则会自动使用 Template7 来渲染 ajax或者动态生成的页面。这里有更详细的说明 <a href="template7-pages.html">Template7 Pages</a></td>
               </tr>
               <tr>
-                <td>templatesData</td>
+                <td>template7Data</td>
                 <td>object</td>
                 <td>{}</td>
                 <td>用来存储Template7 渲染页面所需的数据。这里有更详细的说明：<a href="template7-pages.html">Template7 Pages</a></td>

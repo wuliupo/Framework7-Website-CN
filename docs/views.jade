@@ -86,9 +86,9 @@ block content
             td 如果设置为true，则所有上一步的页面都不会从DOM中被删除。有的时候这个设置会很有用，比如你有一个表单有5步操作，你想从第5步访问第一步的页面的时候。
           tr
             td linksView
-            td string / HTMLElement
+            td string / View instance
             td undefined
-            td 另一个View的CSS选择器，可以指定讲当前view中链接加载到另一个View中。
+            td 另一个View的CSS选择器，默认情况下，所有的链接都会被加载到当前的页面。可以指定讲当前view中链接加载到另一个View中。
           tr
             th(colspan="4") Navigation
           tr
@@ -112,6 +112,12 @@ block content
             td 
             td 打开/关闭预加载下一页。为了“返回上一步”能正常工作，最好打开这个选项。默认情况下和 App 中的设置相同。
           tr
+            td reloadPages
+            td boolean
+            td false
+            td 启用这个功能之后，所有的页面都会直接在View中reload，而不是加载一个新的页面。
+          
+          tr
             th(colspan="4") 滑动返回上一步
           tr
             td swipeBackPage
@@ -129,7 +135,12 @@ block content
             td 
             td 默认和app中对应的参数相同。可以在当前View中重置<a href="init-app.html">App参数</a>
           tr
-            td swipeBackPageBoxShadow
+            td swipeBackPageAnimateShadow
+            td boolean
+            td 
+            td By default, equal to the same App's parameter. Allows to override global <a href="init-app.html">App parameter</a> for current View
+          tr
+            td swipeBackPageAnimateOpacity
             td boolean
             td 
             td 默认和app中对应的参数相同。可以在当前View中重置<a href="init-app.html">App参数</a>

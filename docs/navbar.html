@@ -114,6 +114,7 @@
                 <li><a href="media-list-view.html">Media List View</a></li>
                 <li><a href="swipeout.html">滑动操作</a></li>
                 <li><a href="sortable-list.html">可排序列表</a></li>
+                <li><a href="virtual-list.html">虚拟列表</a></li>
               </ul>
             </li>
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
@@ -249,6 +250,14 @@
           <table class="methods-table">
             <tbody>
               <tr>
+                <td>myApp.hideNavbar(<span>navbar</span>)</td>
+                <td>Hide specified toolbar.<br><code>navbar</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required navbar. Required.</td>
+              </tr>
+              <tr>
+                <td>myApp.showNavbar(<span>navbar</span>)</td>
+                <td>Show specified toolbar.<br><code>navbar</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required navbar. Required.</td>
+              </tr>
+              <tr>
                 <td>view.hideNavbar()</td>
                 <td>隐藏该视图中的导航栏</td>
               </tr>
@@ -256,9 +265,17 @@
                 <td>view.showNavbar()</td>
                 <td>显示该视图中的导航栏</td>
               </tr>
+              <tr>
+                <td>myApp.sizeNavbars(<span>viewContainer</span>)</td>
+                <td>
+                  <p><code>viewContainer</code> - CSS Selector <span class="parameter-type">string</span> or <span class="parameter-type">HTMLEelement</span>. URL of page to load</p>
+                  <p>调用这个方法会重新计算指定的View的导航栏的位置，比如:<b>myApp.sizeNavbars('.view-main')</b></p>
+                  <p>如果你动态地改变了导航栏元素，你可能需要调用这个方法</p>
+                </td>
+              </tr>
             </tbody>
           </table>
-          <p>下面是示例：</p>
+          <p>下面是示例:</p>
           <pre><code>var myApp = new Framework7();
  
 var $ = Framework7.$;
@@ -290,27 +307,7 @@ $('.show-navbar').on('click', function () {
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-          <div class="full-width stop-scroll-device">
-            <h2>相关的App方法</h2>
-            <table class="methods-table">
-              <tbody>
-                <tr>
-                  <td rowspan="2" class="method">myApp.sizeNavbars(<span>viewContainer</span>)</td>
-                  <td>
-                    <ul class="method-parameters">
-                      <li><span class="parameter">viewContainer</span> - CSS选择器<span class="parameter-type">字符串</span>或<span class="parameter-type">HTML元素</span>。要载入的页面地址</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>调用这个方法来重新计算选中的视图的位置类型。例如：<code>myApp.sizeNavbars('.view-main')</code></p>
-                    <p>在你动态改变导航栏元素后，它会有用处。</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <div style="height:100px" class="device-spacer"></div>
         </div>
       </div>
     </div>

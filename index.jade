@@ -17,9 +17,9 @@ html
           .title Framework7
           .slogan 特色的HTML框架<br/>可以创建精美的iOS应用
           .buttons
-            a(href="https://github.com/nolimits4web/Framework7/archive/v0.9.7.zip") 下载
+            a(href="https://github.com/nolimits4web/Framework7/archive/v0.9.8.zip") 下载
             a(href="./get-started/") 开始使用
-          .release-info MIT Licensed, v0.9.7 released on October 7, 2014 | 
+          .release-info MIT 协议, v0.9.8 (2014-11-04 更新) | 
             a(href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md", target="_blank") 更新日志
           .links
             a(href="./docs/") 文档
@@ -34,8 +34,8 @@ html
             include jade/_github-buttons
         .phone
           iframe(src="kitchen-sink/", frameborder="0", scrolling="no")
-          .ios8-ready iOS 8 Ready
           a(href="kitchen-sink/", target="_blank").fullscreen 全屏
+          .statusbar
     .share-line
       .center 
         .share
@@ -48,127 +48,125 @@ html
             img(src="https://api.flattr.com/button/flattr-badge-large.png")
         .clearfix
     .content.center
-      h1 Framework7
-      .row
-        .col-80
-          p Framework7 是一个开源免费的框架可以用来开发混合移动应用（原生和HTML混合）或者开发iOS7风格的WEB APP。也可以用来作为原型开发工具，可以迅速创建一个应用的原型。
-          p Framework7 最主要的功能是可以使用HTML、CSS和JS来开发iOS7应用。Framework7 是完全免费开源的。
-          p Framework7 并不能兼容所有的设备。她只专注于为iOS7 提供最好的体验。
-          p 如果你想开发iOS7混合应用（Phonegap）或者你想开发iOS7风格的WEB APP，那么Framework7将会是你的首选。
-        .col-20
+      .home-block.home-intro
+        h1 Framework7
+        p Framework7 是一个开源免费的框架可以用来开发混合移动应用（原生和HTML混合）或者开发iOS7风格的WEB APP。也可以用来作为原型开发工具，可以迅速创建一个应用的原型。
+        p Framework7 最主要的功能是可以使用HTML、CSS和JS来开发iOS7应用。Framework7 是完全免费开源的。
+        p Framework7 并不能兼容所有的设备。她只专注于为iOS7 提供最好的体验。
+        p <strong>如果你想开发iOS7混合应用（Phonegap）或者你想开发iOS7风格的WEB APP，那么Framework7将会是你的首选。</strong>
           
 
-      h2 特色
-
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left.no-border
-              img(src="i/feats/html.jpg", alt="", height="310")
-          .feat-text
-            h3 简单易用
-            p 使用Framework7创建iOS7应用就和搭建一个网站一样简单。你只需要一个基本的HTML布局，并且把Framework7的CSS和JS文件引入即可！Framework7不会强制你写任何自定义的标签，也不会通过JS来生成任何额外的内容。你不需要通过JS或者JSON来写页面，只需要普通的HTML就可以。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left.no-border
-              img(src="i/feats/ios.jpg", alt="", width="320")
-          .feat-text
-            h3 专注iOS7
-            p Framework7 是一个针对iOS7的框架。从一开始，她就考虑到如何最方便快捷地实现iOS7上各种惊艳的UI组件，以及复杂的动画和灵活的触摸交互。所以Framework7是你实现像素级精度的iOS7应用的最佳选择。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left
-              img(data-src="i/feats/ui.jpg", alt="", width="480", height="420").lazy
-          .feat-text
-            h3 UI 组件
-            p Framework7 有大量可以直接使用的UI组件和工具，比如modals,popup,action sheet, popover, list views, media lists, tabs, side panels, layout grid, preloader, form elements 等。大部分的组件你都完全不需要写任何JS代码。
-        .col-40
-      .row.feat-row
-        .col-50
-          h3 依赖
-          p Framework7 不依赖于任何第三方框架。所以她非常轻量级，高性能并且灵活易用。
-      
-        .col-50
-          h3 简洁的JS API
-          p 使用Framework7不需要学习任何新的知识，她的JS接口非常简洁易用并且功能强大。比如，当你需要弹出一个alert的时候你只需要 <code>app.alert("Hello World!")</code>。
-      .row.feat-row
-        .col-50
-          h3 高性能的动画
-          p Framework7 使用硬件加速的CSS动画以达到最好的性能。
-        .col-50
-          h3 页面动画
-          p Framework7最主要的一个目的就是让你的应用和iOS7本地应用有相同的外观和交互体验。并且Framework7是唯一一个提供了1:1精确平滑的页面切换动画的框架。
+      .home-block.home-easy-to-use
+        .pic
+            img(src="i/feats/html.jpg", alt="", height="310")
+        .text
+          h2 简单易用.<br>像写网页一样简单
+          p 使用Framework7创建iOS7应用就和搭建一个网站一样简单。你只需要一个基本的HTML布局，并且把Framework7的CSS和JS文件引入即可！Framework7不会强制你写任何自定义的标签，也不会通过JS来生成任何额外的内容。你不需要通过JS或者JSON来写页面，只需要普通的HTML就可以。
+        .clearfix
+      .home-block.home-ios
         
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left
-            img(data-src="i/feats/swipe-back.gif", alt="", width="320", height="524").lazy
-          .feat-text
-            h3 滑动返回
-            p Framework7的一个最大特色就是提供了的滑动返回功能，当你从屏幕左侧向右滑动的时候可以返回到上一个页面。并且，这不是一个 A-B 动画，她完全跟随你的手指触摸而移动。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left
-            img(data-src="i/feats/navbar.gif", alt="", width="320", height="310").lazy
-          .feat-text
-            h3 动态导航栏
-            p 就像上面说过的，Framework7让一切都有iOS7的体验。其中一个重要的特点就是动态导航栏。当你切换页面的时候可以清楚地看到导航栏的元素是如何滑动并渐变的。
-      .row.feat-row
-        .col-100
-          h3 原生滚动条
-          p Framework7最大的特点之一就是使用了原生的滚动条。所以你的滚动条会有原生滚动条一样的加速度和回弹，没有任何bug和性能问题。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left
-            img(data-src="i/feats/ptr.gif", alt="", width="320", height="310").lazy
-          .feat-text
-            h3 下拉刷新
-            p Framework7 可能是第一个并且是唯一一个使用原生滚动条实现下拉刷新功能的框架。这就是为什么下拉刷新组件和原生的iOS7应用一样完美的原因。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left
-            img(data-src="i/feats/swipe-delete.gif", alt="", width="320", height="310").lazy
-          .feat-text
-            h3 滑动删除
-            p 你是不是你的应用能像在邮件中一样向左滑动一条消息就可以删除？Framework7 在列表元素中有相同的功能，并且你可以定义滑动之后点击的操作。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left
-            img(data-src="i/feats/messages.gif", alt="", width="320", height="568").lazy
-          .feat-text
-            h3 信息
-            p Framework7 有一个很强大的 message 组件，你可以定制并且集成到你的应用中。通过实时同步的数据服务比如
-              a(href="http://framework.realtime.co/", target="_blank") Realtime Framework
-              或者
-              a(href="http://firebase.com/", target="_blank") Firebase
-              | 就可以实现多个用户间的信息收发。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left
-              img(data-src="i/feats/split-view.jpg", alt="", height="320", width="568").lazy
-          .feat-text
+        .text
+          h2 专注iOS
+          p Framework7 是一个针对iOS7的框架。从一开始，她就考虑到如何最方便快捷地实现iOS7上各种惊艳的UI组件，以及复杂的动画和灵活的触摸交互。所以Framework7是你实现像素级精度的iOS7应用的最佳选择。
+        .pic
+            img(src="i/feats/ios.jpg", alt="")
+        .clearfix
+      .home-block.home-ui
+        .text
+          h2 UI 组件
+          p Framework7 有大量可以直接使用的UI组件和工具，比如modals,popup,action sheet, popover, list views, media lists, tabs, side panels, layout grid, preloader, form elements 等。大部分的组件你都完全不需要写任何JS代码。
+        .pic
+          img(data-src="i/feats/ui.jpg", alt="").lazy
+        .clearfix
+      .home-block.home-killer
+        h2 杀手锏
+        .tab-links
+          a(href="#").active 滑动返回
+          a(href="#") 滑动操作
+          a(href="#") 动态导航栏
+          a(href="#") 下拉刷新
+          a(href="#") 信息
+        .tabs
+          .tab.active
+            .pic
+              video(src="i/feats/swipeback.mp4", loop, autoplay)
+            .text
+              h3 滑动返回
+              p Framework7的一个最大特色就是提供了的滑动返回功能，当你从屏幕左侧向右滑动的时候可以返回到上一个页面。并且，这不是一个 A-B 动画，她完全跟随你的手指触摸而移动。3 滑动返回
+          .tab
+            .pic
+              video(src="i/feats/swipeout.mp4", loop)
+            .text
+              h3 滑动操作
+              p 你是不是你的应用能像在邮件中一样向左滑动一条消息就可以删除？Framework7 在列表元素中有相同的功能，并且有同样平滑的动画和触摸交互。
+          .tab
+            .pic
+              video(src="i/feats/navbar.mp4", loop)
+            .text
+              h3 动态导航栏
+              p 就像上面说过的，Framework7让一切都有iOS7的体验。其中一个重要的特点就是动态导航栏。当你切换页面的时候可以清楚地看到导航栏的元素是如何滑动并渐变的。
+          .tab
+            .pic
+              video(src="i/feats/ptr.mp4", loop)
+            .text
+              h3 下拉刷新
+              p framework7 可能是第一个并且是唯一一个使用原生滚动条实现下拉刷新功能的框架。这就是为什么下拉刷新组件和原生的ios7应用一样完美的原因。
+          .tab
+            .pic
+              video(src="i/feats/messages.mp4", loop)
+            .text
+              h3 信息
+              p Framework7 有一个很强大的 message 组件，你可以定制并且集成到你的应用中。通过实时同步的数据服务比如
+                a(href="http://framework.realtime.co/", target="_blank") Realtime Framework
+                或者
+                a(href="http://firebase.com/", target="_blank") Firebase
+                | 就可以实现多个用户间的信息收发。
+      .home-block.home-styles
+        .text
+          h2 自定义
+          p Framework7 的所有样式文件都被分类放在了一个个小的 <code>less</code> 文件中，所以你可以只选择自己需要的部分文件。
+          p 这里有很多使用Framework7并且上架App Store的应用 <a href="showcase/">Showcase</a>:
+        .pic
+          img(src="i/showcase/delights1.jpeg")
+          img(src="i/showcase/series72.png")
+          img(src="i/showcase/zebra1.jpeg")
+          img(src="i/showcase/aquasella1.jpeg")
+      .home-block.home-more
+        .text
+          h2 更多的特色...
+        .feats
+          .feat
+            h3 原生滚动条
+              p Framework7最大的特点之一就是使用了原生的滚动条。所以你的滚动条会有原生滚动条一样的加速度和回弹，没有任何bug和性能问题。
+          .feat
             h3 多个视图
             p Framework7支持多个独立的视图(view)。并且你可以不用写任何JS，只需要在链接上加一个 data-view 就可以控制每一个视图。
-      
-      .row.feat-row
-        .col-100
-          h3 XHR + Caching + History + Preloading
-          p 这几个功能的组合可以让你的应用的路由功能变得非常强大。Framework7 通过Ajax来加载新页面，并且可以通过缓存配置让页面的加载速度变得非常快。她会在一定的时间内缓存Ajax请求的结果（默认是10分钟），在缓存有效期内不会发送新的请求而是直接从缓存中取出结果。
-          p 当你浏览的层级越来越深时，你可能很难按顺序返回。Framework7 通过自己的浏览历史记录来解决这个问题。并且通过不同的方式点击到同一个页面也不会存在问题。你只需要在你的链接上面增加一个 back class即可，剩下的事情Framework7全部帮你搞定。
-          p 当情况允许的时候，Framework7会自动预加载上一个页面，所以当你滑动返回的时候不会有任何延迟。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left.no-border
-            img(data-src="i/feats/colors.jpg", width="450", height="394").lazy
-          .feat-text
-            h3 自定义
-            p Framework7 的所有样式文件都被分类放在了一个个小的 <code>less</code> 文件中，所以你可以只选择自己需要的部分文件。
-      .row.feat-row
-        .col-100
-          .feat-pic.feat-pic-left.feat-pic-small.no-border
-              img(data-src="i/feats/dom.jpg", alt="", height="155", width="320").lazy
-          .feat-text
+          .feat
+            h3 不依赖第三方框架
+            p Framework7 不依赖任何第三方框架。所以它很轻量、高性能和灵活。
+          .feat
+            h3 简洁的JS API
+            p 使用Framework7不需要学习任何新的知识，她的JS接口非常简洁易用并且功能强大。比如，当你需要弹出一个alert的时候你只需要 <code>app.alert("Hello World!")</code>。
+          .feat
+            h3 高性能的动画
+            p Framework7 使用硬件加速的CSS动画以达到最好的性能。
+          .feat
+            h3 页面动画
+            p Framework7最主要的一个目的就是让你的应用和iOS7本地应用有相同的外观和交互体验。并且Framework7是唯一一个提供了1:1精确平滑的页面切换动画的框架。
+          .feat
+            h3 XHR + Caching + History + Preloading
+            p 这几个功能的组合可以让你的应用的路由功能变得非常强大。Framework7 通过Ajax来加载新页面，并且可以通过缓存配置让页面的加载速度变得非常快。她会在一定的时间内缓存Ajax请求的结果（默认是10分钟），在缓存有效期内不会发送新的请求而是直接从缓存中取出结果。
+          .feat
             h3 DOM7
             p Framework7不依赖任何第三方框架，包括dom操作，包括jquery。她有一个自带的高性能dom库 - DOM7。并且，你不需要因为DOM7而学习任何新的知识，因为DOM7的接口和大名鼎鼎的jQuery几乎是一样的。
+      .home-block.home-free
+        .text
+          h2 并且它是完全免费的
+          p Framework7 是完全免费开源的（MIT 协议）
+          p
+            a(href="https://github.com/nolimits4web/Framework7/archive/v0.9.8.zip") 下载
+            a(href="./get-started/") 开始使用
+            a(href="./docs/") 文档
     .share-line
       .center 
         .share

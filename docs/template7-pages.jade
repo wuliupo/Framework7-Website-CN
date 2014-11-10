@@ -26,7 +26,7 @@ block content
           |     template7Pages: true, //enable Template7 rendering for pages
           | 
           |     //Specify templates/pages data
-          |     templatesData: {
+          |     template7Data: {
           |         // This context will applied for page/template with "about.html" URL
           |         'url:about.html': {
           |             name: 'John Doe',
@@ -133,7 +133,7 @@ block content
           |         &lt;!-- Iterate through frontend languages --&gt;
           |         {{#each this.frontend}}
           |         &lt;li&gt;
-          |           &lt;!-- As a context name for this link we pass context path from templatesData root --&gt;
+          |           &lt;!-- As a context name for this link we pass context path from template7Data root --&gt;
           |           &lt;a href="language-details.html" class="item-link item-content" data-contextName="languages.frontend.{{@index}}"&gt;
           |               &lt;div class="item-inner"&gt;
           |                 &lt;div class="item-title"&gt;{{this.name}}&lt;/div&gt;
@@ -149,7 +149,7 @@ block content
           |         &lt;!-- Iterate through backend languages --&gt;
           |         {{#each this.backend}}
           |         &lt;li&gt;
-          |           &lt;!-- As a context name for this link we pass context path from templatesData root --&gt;
+          |           &lt;!-- As a context name for this link we pass context path from template7Data root --&gt;
           |           &lt;a href="language-details.html" class="item-link item-content" data-contextName="languages.backend.{{@index}}"&gt;
           |               &lt;div class="item-inner"&gt;
           |                 &lt;div class="item-title"&gt;{{this.name}}&lt;/div&gt;
@@ -239,7 +239,7 @@ block content
           | var myApp = new Framework7({
           |     precompileTemplates: true, //
           |     template7Pages: true, //enable Template7 rendering for pages
-          |     templatesData: {
+          |     template7Data: {
           |         // Data for contacts page
           |         'page:contacts': {
           |               tel: '(999)-111-22-33',

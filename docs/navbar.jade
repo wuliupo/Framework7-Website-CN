@@ -115,12 +115,26 @@ block content
       table.methods-table
         tbody
           tr
+            td myApp.hideNavbar(<span>navbar</span>)
+            td Hide specified toolbar.<br><code>navbar</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required navbar. Required.
+          tr
+            td myApp.showNavbar(<span>navbar</span>)
+            td Show specified toolbar.<br><code>navbar</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required navbar. Required.
+          tr
             td view.hideNavbar()
             td 隐藏该视图中的导航栏
           tr
             td view.showNavbar()
             td 显示该视图中的导航栏
-      p 下面是示例：
+          tr
+            td myApp.sizeNavbars(<span>viewContainer</span>)
+            td 
+              p 
+                code viewContainer
+                |  - CSS Selector <span class="parameter-type">string</span> or <span class="parameter-type">HTMLEelement</span>. URL of page to load
+              p 调用这个方法会重新计算指定的View的导航栏的位置，比如:<b>myApp.sizeNavbars('.view-main')</b>
+              p 如果你动态地改变了导航栏元素，你可能需要调用这个方法
+      p 下面是示例:
       pre
         code
           | var myApp = new Framework7();
@@ -156,19 +170,4 @@ block content
           |     &lt;/div&gt;
           |   &lt;/div&gt;
           | &lt;/div&gt;
-
-      .full-width.stop-scroll-device
-        h2 相关的App方法
-        table.methods-table
-          tbody
-            tr
-              td(rowspan="2").method myApp.sizeNavbars(<span>viewContainer</span>)
-              td 
-                ul.method-parameters
-                  li
-                    span.parameter viewContainer
-                    |  - CSS选择器<span class="parameter-type">字符串</span>或<span class="parameter-type">HTML元素</span>。要载入的页面地址
-            tr
-              td 
-                p 调用这个方法来重新计算选中的视图的位置类型。例如：<code>myApp.sizeNavbars('.view-main')</code>
-                p 在你动态改变导航栏元素后，它会有用处。
+      .device-spacer(style="height:100px")

@@ -105,9 +105,9 @@ block content
             td Use this parameter in addition to <code>uniqueHistory</code>. Set to true and App will ignore URL GET parameters when cheking its uniqueness. So the URLs like "page.html" and "page.html?id=3" will be treated as the same.
           tr
             td externalLinks
-            td array
-            td ['external']
-            td 外部链接，Framework7不会管理这些链接（当然也不会用Ajax加载内容）。 当 class 或者 rel 为当前设定的值的时候，就会被当做外部链接。比如 ['external'] 会匹配到 &lt;a href="somepage.html" class="external"&gt; 和 &lt;a href="somepage.html" rel="external"&gt;
+            td string
+            td '.external'
+            td 不应该被 Framework7 管理的链接的CSS选择器。比如 ".external" 会匹配到这样的链接 &lt;a href="somepage.html" class="external"&gt; (因为它有 "external" 类)
           tr
             td animateNavBackIcon
             td boolean
@@ -164,10 +164,15 @@ block content
             td 30
             td Value in px. Width of invisible left edge of the screen that triggers swipe back action
           tr
-            td swipeBackPageBoxShadow
+            td swipeBackPageAnimateShadow
             td boolean
             td true
             td 打开/关闭 滑动返回时候的 box-shadow 动画。关闭这个功能可以提高性能。
+          tr
+            td swipeBackPageAnimateOpacity
+            td boolean
+            td true
+            td 打开/关闭 滑动返回时候的半透明效果。关闭这个功能可以提高性能。
           tr
             th(colspan="4") 可排序列表(Sortable Lists)
           tr
@@ -324,6 +329,17 @@ block content
             td false
             td 在 smart select 页面选择任何条目之后立刻返回。
           tr
+            td smartSelectFormTheme
+            td string
+            td undefined
+            td smart select 页面/弹层中 使用的主题，是十个默认的<a href="color-themes.html">颜色主题</a>中的一个。
+          tr
+            td smartSelectNavbarTheme
+            td string
+            td undefined
+            td smart select 页面/弹层中的导航栏主题，是十个默认的<a href="color-themes.html">颜色主题</a>中的一个。
+          
+          tr
             th(colspan="4") 导航栏和工具栏(Navbars / Toolbars)
           tr
             td hideNavbarOnPageScroll
@@ -335,6 +351,7 @@ block content
             td boolean
             td false
             td 设置为true，那么当页面向下滚动的时候，工具栏会自动隐藏；向上滚动的时候会自动出现。
+          
           tr
             td showBarsOnPageScrollEnd
             td boolean
@@ -399,7 +416,7 @@ block content
             td false
             td 设置为true，则会自动使用 Template7 来渲染 ajax或者动态生成的页面。这里有更详细的说明 <a href="template7-pages.html">Template7 Pages</a>
           tr
-            td templatesData
+            td template7Data
             td object
             td {}
             td 用来存储Template7 渲染页面所需的数据。这里有更详细的说明：<a href="template7-pages.html">Template7 Pages</a>

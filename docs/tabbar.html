@@ -112,8 +112,14 @@
                 <li><a href="list-view.html">列表</a></li>
                 <li><a href="contacts-list.html">联系人列表</a></li>
                 <li><a href="media-list-view.html">Media List View</a></li>
+<<<<<<< HEAD
                 <li><a href="swipeout.html">滑动操作</a></li>
                 <li><a href="sortable-list.html">可排序列表</a></li>
+=======
+                <li><a href="swipeout.html">Swipeout </a></li>
+                <li><a href="sortable-list.html">Sortable List</a></li>
+                <li><a href="virtual-list.html">Virtual List</a></li>
+>>>>>>> f7/master
               </ul>
             </li>
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
@@ -193,7 +199,7 @@
         &lt;/a&gt;
         &lt;a href="#tab2" class="tab-link"&gt;
             &lt;i class="icon demo-icon-2"&gt;
-                &lt;span class="badge badge-red"&gt;5&lt;/span&gt;
+                &lt;span class="badge bg-red"&gt;5&lt;/span&gt;
             &lt;/i&gt;
         &lt;/a&gt;
         &lt;a href="#tab3" class="tab-link"&gt;
@@ -201,7 +207,7 @@
         &lt;/a&gt;
         &lt;a href="#tab4" class="tab-link"&gt;
             &lt;i class="icon demo-icon-4"&gt;
-                &lt;span class="badge badge-green"&gt;15&lt;/span&gt;
+                &lt;span class="badge bg-green"&gt;15&lt;/span&gt;
             &lt;/i&gt;
         &lt;/a&gt;
     &lt;/div&gt;
@@ -216,7 +222,7 @@
         &lt;/a&gt;
         &lt;a href="#tab2" class="tab-link"&gt;
             &lt;i class="icon demo-icon-2"&gt;
-                &lt;span class="badge badge-red"&gt;5&lt;/span&gt;
+                &lt;span class="badge bg-red"&gt;5&lt;/span&gt;
             &lt;/i&gt;
             &lt;span class="tabbar-label"&gt;Label 2&lt;/span&gt;
         &lt;/a&gt;
@@ -233,6 +239,21 @@
           <div class="important-note">
             <p>注意，带有文案的标签栏在不同设备上会有更大的高度：在iPhone上是50px，在iPad上市55px</p>
             <p>因为这些高度的改变，你需要在 <a href="navbar-toolbar-layouts.html">固定和穿透布局</a> 中使用 "tabbar-labels-fixed" 或者 "tabbar-labels-through"。</p>
+          </div>
+          <div class="full-width">
+            <h2 class="stop-scroll-device">Related App Methods</h2>
+            <table class="methods-table">
+              <tbody>
+                <tr>
+                  <td>myApp.hideToolbar(<span>toolbar</span>)</td>
+                  <td>Hide specified tab bar.<br><code>toolbar</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required tab bar. Required.</td>
+                </tr>
+                <tr>
+                  <td>myApp.showToolbar(<span>toolbar</span>)</td>
+                  <td>Show specified tab bar.<br><code>toolbar</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required tab bar. Required.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
