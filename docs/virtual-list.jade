@@ -2,231 +2,231 @@ extends ../jade/_internal-template
 
 block vars
   - var activeLink = 'docs';
-  - var title = 'Virtual List | Framework7 Documentation';
+  - var title = '虚拟列表 | Framework7 Documentation';
 
 block content
   .docs-wrap
     .docs-nav
       include ../jade/_docs-menu
     .docs-content
-      h1 Virtual List
-      p Virtual List allows to render lists with huge amount of elements without loss of performance. And it is fully compatible with all Framework7 components which work with lists such as Search Bar, Infinite Scroll, Pull To Refresh, Swipeouts (swipe-to-delete) and Sortable.
-      h2 Virtual List HTML Layout
-      p Virtual List HTML layout is pretty simple, it is almost the same as for usual <a href="list-view.html">List View</a> or <a href="media-list-view.html">Media List View</a> with only difference, you need to leave it empty:
+      h1 虚拟列表
+      p 虚拟列表可以用来渲染有大量数据的列表，并且不有有任何的性能问题。并且，它和所有的Framework7组件都是兼容的，包括搜索栏、无限滚动、下拉刷新、滑动删除和可排序列表。
+      h2 虚拟列表的HTML结构
+      p 虚拟列表打HTML结构非常简单，他和常见的 <a href="list-view.html">列表</a> 或者 <a href="media-list-view.html">多媒体列表</a>只有一个区别，你必须把它的内容设置为空的。
       pre
         code
           | &lt;!-- Virtual List --&gt;
           | &lt;div class="list-block virtual-list"&gt;
-          |   &lt;!-- keep it empty --&gt;
+          |   &lt;!-- 内容置空 --&gt;
           | &lt;/div&gt;
-      p Where:
+      p 其中:
       ul
         li
-          p <code>virtual-list</code> - required additional class on any list-block that uses Virtual List
+          p <code>virtual-list</code> - 在使用虚拟列表的容器上增加这个类
           
                   
 
 
-      h2 Initialize Virtual List
-      p Now, when we have list's HTML, we need to initialize it. We need to use required App method:
+      h2 初始化虚拟列表
+      p 现在，当我们有了列表的HTML，我们下一步是初始化它。我们需要用到这些App方法：
       .method-wrap
         p
           span.method myApp.virtualList(<span>listBlockContainer</span>, <span>parameters</span>) 
-          span - initialize virtual list with parameters
+          span - 使用parameters参数初始化虚拟列表
         ul.method-parameters
           li
             span.parameter listBlockContainer
-            |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of "list-block" HTML element. Required.
+            |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) 虚拟列表的容器. 必填.
           li
             span.parameter parameters
-            |  - <span class="parameter-type">object</span> - object with virtual list parameters. Required.
+            |  - <span class="parameter-type">object</span> - 初始化参数，必填.
           
-          li.method-returns <strong>Method returns initialized Virtual List instance</strong>
-      p For example:
+          li.method-returns <strong>这个方法会返回一个虚拟列表的实例</strong>
+      p 比如:
       pre
         code
           | var myList = app.virtualList('.list-block', {
           |     items: [1,2,3,4],
           |     height: 44
           | });   
-      .important-note Note that Virtual List container (listBlockContainer) should be in DOM on a moment of initialization. So if you use virtual list not on home page, you need to initialize it within <a href="pages.html#page-events">pageInit</a> (or pageBeforeInit) event
-      h2 Virtual List Parameters
-      p Let's look on list of all available parameters:
+      .important-note 注意，在初始化的时候虚拟列表的容器必须已经在DOM中。所以，如果你的虚拟列表不是用在首页，那么你必须在 <a href="pages.html#page-events">pageInit</a> (或者 pageBeforeInit) 事件中初始化。
+      h2 虚拟列表的初始化参数
+      p 下面是所有的初始化参数：
       table.params-table
         thead
           tr
-            th Parameter
-            th Type
-            th Default
-            th Description
+            th 参数
+            th 类型
+            th 默认值
+            th 说明
         tbody
           
           tr
             td items
             td array
             td 
-            td Array with list items
+            td 包含列表条目的数组
           tr
             td rowsBefore
             td number
             td 
-            td Amount of rows (items) to be rendered before current screen scroll position. By default it is equal to double amount of rows (items) that fit to screen
+            td 在当前屏幕滚动位置之前需要渲染的条目数。默认是两倍当前屏幕大小需要的数量。（译者注：也就是说，假设你的屏幕是320px高，每一个条目是40px，那么当前屏幕上方会有（320/40*2) == 16条），加上当前屏幕中的8条和屏幕下方的8条，总共在DOM中存在32个条目）。
           tr
             td rowsAfter
             td number
             td 
-            td Amount of rows (items) to be rendered after current screen scroll position. By default it is equal to the amount of rows (items) that fit to screen
+            td 在当前屏幕滚动位置之后需要渲染的条目数。默认是当前屏幕大小需要的数量。（译者注：参加上面的说明）。
           tr
             td cols
             td number
             td 1
-            td Number of items per row. Doesn't compatible when using Virtual List with dynamic height
+            td 每一行需要的条目数。如果你用了动态的高度，这个参数是不兼容的。
           tr
             td height
             td number or function(item)
             td 44
-            td If <b>number</b> - item height in px. If <b>function</b> then function should return item height
+            td 如果是 <b>数字</b>，那么它是每一个条目的px高度。如果是 <b>函数</b>，那么它应该返回条目的高度。
           tr
             td template
             td string or function
             td 
-            td Template7 string template or Template7 compiled template that used to render single item. Template should contain full HTML layout for single item, including wrapping <code>&lt;li&gt;&lt;/li&gt;</code> tags
+            td Template7 字符串模板，或者是Template7 编译后的模板，用来渲染单个条目。这个模板应该有一个条目的完整HTML结构，包括外面的 <code>&lt;li&gt;&lt;/li&gt;</code> 容器。
           tr
             td renderItem
             td function(index, item)
             td 
-            td This optional function allows to use custom function to render item HTML. It could be used instead of <b>template</b> parameter
+            td 这个可选方法用来自定义渲染条目的HTML。它是用来代替 <b>tamplate</b> 参数的。
           tr
             td cache
             td boolean
             td true
-            td Disable or enable DOM cache for already rendered list items. In this case each item will be rendered only once and all futher manipulations will be with DOM element. It is useful if your list items have some user interaction elements (like form elements or swipe outs) or could be modified
+            td 启用/禁用已经渲染的条目的DOM缓存。启用的情况下，每一个条目都只会被渲染一次，后续都是对DOM的操作。如果你的条目中需要保存一些用户的操作（比如表单或者滑动删除）或者修改，那么这个参数是很有用的。
           tr
             td updatableScroll
             td boolean
             td 
-            td Is the current device updates and handles scroll events during scroll. By default (if not specified) it is "false" for all iOS devices with iOS version less than 8. 
+            td 当前是否在滚动的时候会更新滚动条并触发滚动事件。默认情况下对所有iOS 8 以下的设备都是false。
           tr
-            th(colspan="4") Search
+            th(colspan="4") 搜索 
           tr
             td searchByItem
             td function(query, index, item)
             td 
-            td Search function that will be used by Search Bar, it receives search query, item index and item itself. If item matches to search query you need to return <code>true</code>, otherwise this function should return <code>false</code>
+            td 搜索栏用的搜索方法，它接收三个参数：搜索词，条目的序号和条目自身。如果一个条目符合结果，你应该返回 <code>true</code>，否则返回false。
           tr
             td searchAll
             td function(query, items)
             td 
-            td Search function that will be used by Search Bar, it receives search query and array with all items. You need to loop through items and return array with indexes of matched items
+            td 搜索栏用到的搜索方法，它接受两个参数：搜索词，和包含所有条目的数组。你需要自己遍历并返回匹配的条目。
           tr
-            th(colspan="4") Callbacks
+            th(colspan="4") 回调
           tr
             td onItemBeforeInsert 
             td function(list, item)
             td 
-            td Callback function, will be executed before item will be added to virtual document fragment
+            td 回调函数，当条目被插入到虚拟列表的 document fragment 之前执行。
           tr
             td onBeforeClear
             td function(list, fragment)
             td 
-            td Callback function, will be executed before current DOM list will be removed and replaced with new document fragment
+            td 回调函数，当前列表的DOM元素被删除并替换成新的 document fragment 之前执行。
           tr
             td onItemsBeforeInsert
             td function(list, fragment)
             td 
-            td Callback function, will be executed after current DOM list will be removed and before new document will be inserted
+            td 回调函数，当前列表的DOM元素被删除之后，准备替换成新的 document fragment 之前执行。
           tr
             td onItemsAfterInsert
             td function(list, fragment)
             td 
-            td Callback function, will be executed after new document fragment with items inserted
-      h2 Virtual List Methods & Properties
-      p After we initialize Virtual List we have its initialized instance in variable (like <code>myList</code> variable in example above) with helpful methods and properties:
+            td 回调函数，新的 document fragment 插入之后执行。
+      h2 虚拟列表方法和属性
+      p 当我们初始化完成之后，我们就有一个存储了虚拟列表实例的变量(比如上面例子中的 <code>myList</code>变量)，这个实例有很有有用的方法和属性：
       table.methods-table
         tbody
           tr
-            th(colspan="2") Properties
+            th(colspan="2") 属性
           tr
             td myList.items
-            td Array with items
+            td 包含所有条目的数组
           tr
             td myList.filteredItems
-            td Array with filtered items (after using ".filterItems" method)
+            td 所有过滤之后的条目（在执行了 ".filterItems" 方法之后）
           tr
             td myList.domCache
-            td Object with cached dom items
+            td 条目的DOM缓存
           tr
             td myList.params
-            td Parameters passed on list initialization
+            td 初始化时传递的参数
           tr
             td myList.listBlock
-            td Dom7 instance of virtual list "list-block" container
+            td 虚拟列表的容器的 Dom7 实例
           tr
             td myList.pageContent
-            td Dom7 instance of parent "page-content" container 
+            td 当前页面的 "page-content" 容器的 Dom7 实例
           tr
             td myList.currentFromIndex
-            td Index number of currently first rendered item
+            td 当前被渲染的第一个条目的序号
           tr
             td myList.currentToIndex
-            td Index number of currently last rendered item
+            td 当前被渲染的最后一个条目的序号
           tr
             td myList.reachEnd
-            td Boolean property. Equals <code>true</code> if the currently last rendered item is the last item of all specified items
+            td 布尔属性，如果当前的最后条目是否是所有条目中的最后一个。
           tr
-            th(colspan="2") Methods
+            th(colspan="2") 方法
           tr
             td myList.filterItems(indexes);
-            td Filter virtual list by passing array with indexes of items to show
+            td 过滤当前列表，只显示传入的序号指定的条目。
           tr
             td myList.resetFilter();
-            td Disable filter and display all items again
+            td 关闭过滤，并再次显示所有的条目
           
           tr
             td myList.appendItem(item);
-            td Append item to virtual list
+            td 增加条目
           tr
             td myList.appendItems(items);
-            td Append array with items to virtual list
+            td 增加多个条目（数组）
           tr
             td myList.prependItem(item);
-            td Prepend item to virtual list
+            td 在前面增加条目
           tr
             td myList.prependItems(items);
-            td Prepend array with items to virtual list
+            td 在前面增加多个条目（数组）
           tr
             td myList.replaceItem(index, items);
-            td Replace item at specified index with the new one
+            td 把指定序号的条目换成一个新的条目
           tr
             td myList.replaceAllItems(items);
-            td Replace all items with arrays of new items
+            td 把所有的条目都换成新的
           tr
             td myList.moveItem(oldIndex, newIndex);
-            td Move virtual item from oldIndex to newIndex
+            td 把一个条目从 oldIndex 换到 newIndex
           tr
             td myList.insertItemBefore(index, item);
-            td Insert new item before item with specified index
+            td 在指定的序号前插入一个条目
           tr
             td myList.deleteItem(index);
-            td Delete item at specified index
+            td 删除指定序号的条目
           tr
             td myList.deleteItems(indexes);
-            td Delete items at specified array of indexes
+            td 删除指定的序号数组的条目
           tr
             td myList.deleteAllItems();
-            td Delete all items
+            td 删除所有条目
           tr
             td myList.clearCache();
-            td Clear virtual list cached DOM elements
+            td 删除DOM缓存
           tr
             td myList.destroy();
-            td Destory initialized virtual list and detach all events
+            td 销毁实例，解除所有事件绑定
           tr
             td myList.update();
-            td Update virtual list, including recalculation of list sizes and re-rendering of virtual list
-      h2 Examples
-      h3 Plain Items
-      p In the most simple case when we don't need to use templating for items (without <code>template</code> and <code>renderItem</code> parameters) and when we don't need much logic here, we may just pass items HTML layout in <code>items</code> parameter:
+            td 更新列表。会重新计算列表的大小，并重新渲染
+      h2 示例
+      h3 简单的条目
+      p 最简单的一种情况，我们不需要用模板来渲染条目（没有 <code>template</code> 和 <code>renderItem</code> 参数)，并且我们也不需要复杂的逻辑，我们直接在 <code>items</code> 参数中传入了HTML字符串:
       pre
         code.js
           | var myList = myApp.virtualList('.list-block.virtual-list', {
@@ -239,9 +239,9 @@ block content
           |         '&lt;li class="item-content"&gt;&lt;div clas="item-inner"&gt;&lt;div class="item-title"&gt;Item 1000&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;'
           |     ]
           | });
-      h3 Templating
-      p But in most cases we may need some logic that we can use for filtering and templating, or if we load items from some JSON data. In this case we may pass array with data objects in <code>items</code> parameter and use Template7 <code>template</code> parameter or custom render function using <code>renderItem</code> parameter:
-      p With Template7 template:
+      h3 使用模板
+      p 但是大部分情况下，我们需要有一些过滤和渲染的逻辑，或者我们会从一个JSON字符串中加载数据。这种情况下，我们在 <code>items</code> 参数中传入数据，然后使用 Template7 <code>template</code> 参数或者使用 <code>renderItem</code> 自定义一个渲染函数。
+      p 使用Template7模板:
       pre
         code.js
           | var myList = myApp.virtualList('.list-block.virtual-list', {
@@ -269,7 +269,7 @@ block content
           |                   '&lt;/div&gt;' +
           |                '&lt;/li&gt;'
           | });            
-      p With custom render function:
+      p 使用自定义的渲染函数:
       pre
         code.js
           | var myList = myApp.virtualList('.list-block.virtual-list', {
@@ -299,8 +299,8 @@ block content
           |                '&lt;/li&gt;';
           |     }
           | });            
-      h3 Using With Search Bar
-      p If we use Virtual List with search bar we need to provide search function in parameters using <code>searchAll</code> or <code>searchByItem</code> parameters:
+      h3 使用搜索栏
+      p 如果我们想使用搜索栏，我们必须在初始化的事后传入一个 <code>searchAll</code> 或者 <code>searchByItem</code> 参数：
       pre
         code
           | var myList = myApp.virtualList('.list-block.virtual-list', {
@@ -331,7 +331,7 @@ block content
           |         return foundItems; 
           |     }
           | });  
-      p The same but with <code>searchByItem</code> parameter:
+      p 和上面功能相同，但是使用 <code>searchByItem</code> 参数:
       pre
         code
           | var myList = myApp.virtualList('.list-block.virtual-list', {
@@ -362,8 +362,8 @@ block content
           |         }
           |     }
           | }); 
-      h3 Dynamic Height
-      p If not all of our items should be the same height we use dynamic height by specifying function in <code>height</code> parameter instead of number:
+      h3 动态高度
+      p 如果我们的条目并不是都一样高的，那么我们可以通过 <code>height</code> 参数传入一个函数而不是数字来制定高度：
       pre
         code
           | var myList = myApp.virtualList('.list-block.virtual-list', {
@@ -395,10 +395,10 @@ block content
           |     }
           | });     
       .important-note
-        p Note that script will not actually set height on your items, so make sure that your items are really have specified height. You may also need to set it in CSS or using "style" attribute in <code>template</code> or <code>renderItem</code> parameters
-        p Also note that dynamic height currently is not compatible with <code>cols</code> parameter
-      h3 API Methods
-      p If we need to add, remove, replace or move items in list we need to use Virtual List methods:
+        p 注意，JS并不是直接设定了你的条目的高度，所以请确保你的条目确实有指定的高度。你可能依然需要在CSS中设置，或者在 <code>template</code> 或者 <code>renderItem</code> 参数中通过 设置"style"属性来设置高度。
+        p 注意动态高度和 <code>cols</code> 参数是不兼容的！
+      h3 API 方法
+      p 如果我们需要增加、删除、替换或者移动条目，我们需要使用虚拟列表的相关方法：
       pre
         code
           | // Initialize List
@@ -463,4 +463,4 @@ block content
           |     title: 'Item 1.5'
           | });    
       .important-note
-        p Note that when you use methods to manipulate virtual list items you need to pass each item in the same format as you specify them in <b>items</b> parameter
+        p 注意，如果你使用上面这些方法来操作虚拟列表，你传入的每一个条目的格式必须和你在 <b>items</b> 参数中指定的是一样的。
