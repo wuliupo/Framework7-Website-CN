@@ -13,21 +13,21 @@ block content
       include ../jade/_docs-menu
     .docs-content.with-device
       .full-width
-        h1 Hide Bars (Navbar and Toolbar) On Scroll
-        p Framework7 allows you to enable this feature when Navbar and/or Toolbar can be automatically hidden while you scrolling page down.
-        p To enable it globally for all pages you may use <code>hideNavbarOnPageScroll</code>, <code>hideToolbarOnPageScroll</code>, <code>hideTabbarOnPageScroll</code> and <code>showBarsOnPageScrollEnd</code> <a href="init-app.html">App initialization</a> parameters
-        p If you want to enable it on some specific page by using additional classes on <code>&lt;div class="page-content"&gt;</code>:
+        h1 滚动时自动隐藏导航栏和工具栏
+        p 当想下滚动页面的时候，Framework7可以让导航栏和工具栏自动隐藏。
+        p 如果你想全局启用这个功能，你只需要在 <a href="init-app.html">应用初始化</a> 时候设置这几个参数：<code>hideNavbarOnPageScroll</code>, <code>hideToolbarOnPageScroll</code>, <code>hideTabbarOnPageScroll</code> 和 <code>showBarsOnPageScrollEnd</code>:
+        p 如果你只想在某些特定页面打开自动隐藏的功能，你可以通过添加额外的 <code>&lt;div class="page-content"&gt;</code> 类来实现：
         ul
           li
-            p <code>hide-bars-on-scroll</code> - to hide both Navbar and Toolbar on page scroll
+            p <code>hide-bars-on-scroll</code> - 页面滚动时自动隐藏工具栏和导航栏
           li
-            p <code>hide-navbar-on-scroll</code> - to hide Navbar on page scroll
+            p <code>hide-navbar-on-scroll</code> - 页面滚动时自动隐藏导航栏
           li
-            p <code>hide-toolbar-on-scroll</code> - to hide Toolbar on page scroll
+            p <code>hide-toolbar-on-scroll</code> - 页面滚动时，自动隐藏工具栏
           li
-            p <code>hide-tabbar-on-scroll</code> - to hide Tab bar on page scroll (only for Tab Bar app layout)
+            p <code>hide-tabbar-on-scroll</code> - 页面滚动时，自动隐藏带图标的工具栏（tabbar)
       .device-spacer(style="height:100px")
-      h3(data-device-preview="../docs-demos/hide-bars.html") Demo
+      h3(data-device-preview="../docs-demos/hide-bars.html") 示例
       pre
         code
           | ...
@@ -58,5 +58,4 @@ block content
       .device-spacer(style="height:30px").stop-scroll-device
       .full-width
         .important-note
-          p If you don't want your Navbar/Toolbar became visible when scroll reaches end of the page, then you need to disable <b>showBarsOnPageScrollEnd</b> parameter on <a href="init-app.html">App initialization</a>
-      
+          p 默认情况下页面滚动到底部时，工具栏和导航栏会自动显示，如果此时你不希望他们显示，你可以在 <a href="init-app.html">初始化应用</a> 的时候，设置 <b>showBarsOnPageScrollEnd</b> 参数。
