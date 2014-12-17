@@ -166,28 +166,28 @@ var $$ = Dom7;</code></pre>
               </tr>
               <tr>
                 <td>.addClass(<span>className</span>) </td>
-                <td>Add class to elements
+                <td>给元素增加class
                   <pre><code class="js">//Add "intro" class to all paragraphs
 $$('p').addClass('intro');</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.removeClass(<span>className</span>) </td>
-                <td>Remove specified class
+                <td>删除指定的class
                   <pre><code class="js">//Add "big" class from all links with "big" class
 $$('a.big').removeClass('big');</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.hasClass(<span>className</span>) </td>
-                <td>Determine whether any of the matched elements are assigned the given class:
+                <td>元素上是否有指定的class:
                   <pre><code class="html">&lt;p class="intro"&gt;Lorem ipsum...&lt;/p&gt;</code></pre>
                   <pre><code class="js">$$('p').hasClass('intro'); //-> true</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.toggleClass(<span>className</span>) </td>
-                <td>Remove (if class is present) or add (if not) one or more classes from each element in the set of matched elements:
+                <td>有则删除，无则添加:
                   <pre><code class="html">&lt;!-- Before --&gt;
 &lt;h1 class="small"&gt;This is first title&lt;/h1&gt;
 &lt;h2&gt;This is subtitle&lt;/h2&gt;                </code></pre>
@@ -198,24 +198,24 @@ $$('a.big').removeClass('big');</code></pre>
                 </td>
               </tr>
               <tr>
-                <th colspan="2">Attributes and properties</th>
+                <th colspan="2">属性</th>
               </tr>
               <tr>
                 <td>.prop(<span>propName</span>) </td>
-                <td>Get property value:
+                <td>获取一个属性值:
                   <pre><code>var isChecked = $$('input').prop('checked');</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.prop(<span>propName</span>, <span>propValue</span>) </td>
-                <td>Set single property value:
+                <td>设置一个属性值:
                   <pre><code>//Make all checkboxes checked
 $$('input[type="checkbox"]').prop('checked', true);</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.prop(<span>propertiesObject</span>) </td>
-                <td>Set multiple properties:
+                <td>设置多个属性值:
                   <pre><code class="js">$$('input').prop({
   checked: false,
   disabled: true
@@ -224,21 +224,21 @@ $$('input[type="checkbox"]').prop('checked', true);</code></pre>
               </tr>
               <tr>
                 <td>.attr(<span>attrName</span>) </td>
-                <td>Get attribute value:
+                <td>获取一个属性值:
                   <pre><code>&lt;a href="http://google.com"&gt;Google&lt;/a&gt;</code></pre>
                   <pre><code class="js">var link = $$('a').attr('href'); //-&gt; http://google.com</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.attr(<span>attrName</span>, <span>attrValue</span>) </td>
-                <td>Set single attribute value:
+                <td>设置一个属性值:
                   <pre><code>//Set all links to google
 $$('a').attr('href', 'http://google.com');</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.attr(<span>attributesObject</span>) </td>
-                <td>Set multiple attributes:
+                <td>设置多个属性值:
                   <pre><code class="js">$$('a').attr({
   id: 'new-id',
   title: 'Link to Google',
@@ -248,30 +248,30 @@ $$('a').attr('href', 'http://google.com');</code></pre>
               </tr>
               <tr>
                 <td>.removeAttr(<span>attrName</span>) </td>
-                <td>Remove specified attribute:
+                <td>删除属性值:
                   <pre><code class="js">//Remove "src" attribute from all images
 $$('img').removeAttr('src');</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.val() </td>
-                <td>Get the current value of the first element in the set of matched elements
+                <td>获取选中的元素中的第一个元素的当前值
                   <pre><code class="html">&lt;input id="myInput" type="text" value="Lorem ipsum"/&gt;</code></pre>
                   <pre><code class="js">var inputVal = $$('#myInput').val(); //-> 'Lorem ipsum'</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.val(<span>newValue</span>) </td>
-                <td>Set the value of every matched element
+                <td>给选中的元素的每一个都设置指定的值
                   <pre><code>$$('input#myInput').val('New value here');</code></pre>
                 </td>
               </tr>
               <tr>
-                <th colspan="2">Data storage</th>
+                <th colspan="2">数据存储</th>
               </tr>
               <tr>
                 <td>.data(<span>key</span>, <span>value</span>) </td>
-                <td>Store arbitrary data associated with the matched elements
+                <td>在选中的元素上存储任意数据
                   <pre><code class="js">$$('a').data('user', {
     id: '123',
     name: 'John',
@@ -281,7 +281,7 @@ $$('img').removeAttr('src');</code></pre>
               </tr>
               <tr>
                 <td>.data(<span>key</span>) </td>
-                <td>Return the value at the named data store for the first element in the collection, as set by data(key, value) or by an HTML5 data-* attribute
+                <td>如果只有一个参数，则读取指定的值，如果有两个参数 <code>data(key, value)</code> 则是设置值，也可以通过 HTML5 <code>data-*</code> 属性来设置。
                   <pre><code class="js">var user = $$('a').data('user'); 
 //-> {id: '123', name: 'John', email: 'john@doe.com'}</code></pre>
                   <p>or</p>
@@ -290,26 +290,26 @@ $$('img').removeAttr('src');</code></pre>
                 </td>
               </tr>
               <tr>
-                <th colspan="2">CSS transform, transitions</th>
+                <th colspan="2">CSS 动画 - transform 和 transition</th>
               </tr>
               <tr>
                 <td>.transform(<span>CSSTransformString</span>) </td>
-                <td>Adds prefixed CSS transform property: 
+                <td>添加带前缀的transform 样式: 
                   <pre><code class="js">$$('a').transform('rotate(90deg)')</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.transition(<span>transitionDuration</span>) </td>
-                <td>Set CSS transition-duration property to collection: 
+                <td>设置css transition-duration 属性
                   <pre><code class="js">$$('p').transition(300)</code></pre>
                 </td>
               </tr>
               <tr>
-                <th colspan="2">Events</th>
+                <th colspan="2">事件</th>
               </tr>
               <tr>
                 <td>.on(<span>eventName</span>, <span>handler</span>, <span>useCapture</span>) </td>
-                <td>Add event handler function to one or more events to the selected elements.
+                <td>在选中的元素上绑定事件
                   <pre><code class="js">$$('a').on('click', function (e) { 
   console.log('clicked'); 
 });</code></pre>
@@ -320,7 +320,7 @@ $$('img').removeAttr('src');</code></pre>
               </tr>
               <tr>
                 <td>.on(<span>eventName</span>, <span>delegatedTarget</span>, <span>handler</span>, <span>useCapture</span>) </td>
-                <td>Live/delegated event handler
+                <td>通过代理绑定事件
                   <pre><code class="js">$$(document).on('click', 'a', function (e) { 
   console.log('link clicked'); 
 });</code></pre>
@@ -328,7 +328,7 @@ $$('img').removeAttr('src');</code></pre>
               </tr>
               <tr>
                 <td>.off(<span>eventName</span>, <span>handler</span>, <span>useCapture</span>) </td>
-                <td>Remove event handler
+                <td>删除事件绑定
                   <pre><code class="js">function clickHandler(){
     console.log('clicked');
 }
@@ -340,7 +340,7 @@ $('a').off('click', clickHandler);                  </code></pre>
               </tr>
               <tr>
                 <td>.off(<span>eventName</span>, <span>delegatedTarget</span>, <span>handler</span>, <span>useCapture</span>) </td>
-                <td>Remove live/delegated event handler
+                <td>删除通过代理绑定的事件
                   <pre><code class="js">function clickHandler(){
     console.log('clicked');
 }
@@ -352,18 +352,18 @@ $(document).off('click', 'a', clickHandler);</code></pre>
               </tr>
               <tr>
                 <td>.trigger(<span>eventName</span>, <span>eventData</span>) </td>
-                <td>Execute all handlers added to the matched elements for the specified event</td>
+                <td>触发选中元素上的事件，指定所有的事件回调函数</td>
                 <pre><code class="js">$$(window).trigger('resize');</code></pre>
               </tr>
               <tr>
                 <td>.transitionEnd(<span>callback</span>, <span>permanent</span>) </td>
-                <td>Adds prefixed transitionEnd event handler to collection:
+                <td>在选中的元素上增加 transitionEnd 事件回调
                   <pre><code class="js">$$('a').transitionEnd(function(){ /* do something */ })</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.animationEnd(<span>callback</span>) </td>
-                <td>Adds prefixed animationEnd event handler to collection:
+                <td>在选中的元素上增加 animationEnd 事件回调
                   <pre><code class="js">$$('a').animationEnd(function(){ /* do something */ })</code></pre>
                 </td>
               </tr>
@@ -372,31 +372,31 @@ $(document).off('click', 'a', clickHandler);</code></pre>
               </tr>
               <tr>
                 <td>.width() </td>
-                <td>Get the current computed width for the first element in the set of matched elements
+                <td>获取当前选中元素中的第一个元素的当前计算出来的宽度
                   <pre><code class="js">var boxWidth = $$('div#box').width();</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.outerWidth(<span>[includeMargin]</span>) </td>
-                <td>Get the current computed width for the first element in the set of matched elements, including padding and border, and margin (if includeMargin is <b>true</b>)
+                <td>获取当前选中元素中的第一个元素的当前计算出来的宽度，包括 padding ，border 和 margin(如果 includeMargin 设置为 <b>true</b>)
                   <pre><code class="js">var outerWidth = $$('div#box').outerWidth(true);</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.height() </td>
-                <td>Get the current computed height for the first element in the set of matched elements
+                <td>获取当前选中玄素中的第一个元素的当前计算出来的高度
                   <pre><code class="js">var boxHeight = $$('div#box').height();</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.outerHeight(<span>[includeMargin]</span>)</td>
-                <td>Get the current computed height for the first element in the set of matched elements, including padding and border, and margin (if includeMargin is <b>true</b>)
+                <td>获取当前选中元素中的第一个元素的当前计算出来的高度，包括 padding ，border 和 margin(如果 includeMargin 设置为 <b>true</b>)
                   <pre><code class="js">var outerHeight = $$('div#box').outerHeight(true);</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.offset() </td>
-                <td>Get the current coordinates of the first element relative to the document
+                <td>获取当前选中元素的第一个元素相对 document 的位置偏移
                   <pre><code class="js">var coords = $$('.content').offset(); //-> {top: 100, left: 200}
 var top = coords.top; //-> 100
 var left = coords.left; //-> 200</code></pre>
@@ -404,33 +404,33 @@ var left = coords.left; //-> 200</code></pre>
               </tr>
               <tr>
                 <td>.hide() </td>
-                <td>Set "display:none" to the matched elements
+                <td>对选中的元素设置 "display: none"
                   <pre><code class="js">//hide all paragraphs
 $$('p').hide();</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.show() </td>
-                <td>Set "display:block" to the matched elements
+                <td>对选中的元素设置 "display: block"
                   <pre><code class="js">//show all paragraphs
 $$('p').show();</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.css(<span>property</span>) </td>
-                <td>Get value of specified CSS property for the first element:
+                <td>获取选中元素中第一个元素的CSS属性值
                   <pre><code>$$('.content').css('left'); //-> 200px</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.css(<span>property</span>, <span>value</span>) </td>
-                <td>Set specified CSS property to the matched elements:
+                <td>设置全部选中元素中的CSS属性值
                   <pre><code>$$('.content').css('left', '100px');</code></pre>
                 </td>
               </tr>
               <tr>
                 <td>.css(<span>propertiesObject</span>) </td>
-                <td>Set multiple CSS properties to the matched elements:
+                <td>设置全部选中元素中的多个CSS属性值
                   <pre><code>$('a').css({
     left: '100px',
     top: '200px',
@@ -446,125 +446,125 @@ $$('p').show();</code></pre>
               </tr>
               <tr>
                 <td>.scrollTop() </td>
-                <td>Get scrollTop position of element</td>
+                <td>获取选中元素的 scrollTop 值</td>
               </tr>
               <tr>
                 <td>.scrollTop(position, duration) </td>
-                <td>Set scrollTop "position" with animation during "duration" (in ms). Scroll top position will be set immediately if duration is not specified</td>
+                <td>在指定时间（duration）内滚动到指定位置（position）。如果时间（duration没有定义），则立刻滚动到指定位置。</td>
               </tr>
               <tr>
                 <td>.scrollLeft() </td>
-                <td>Get scrollLeft position of element</td>
+                <td>获取选中元素的 scrollLeft 值 </td>
               </tr>
               <tr>
                 <td>.scrollLeft(position, duration) </td>
-                <td>Set scrollLeft "position" with animation during "duration" (in ms). Scroll left postion will be set immediately if duration is not specified</td>
+                <td>在指定的时间（duration 毫秒)内滚动到指定的位置(scrollLeft)。如果没有指定时间则立刻滚动到指定位置。</td>
               </tr>
               <tr>
                 <td>.scrollTo(left, top, duration) </td>
-                <td>Set scroll left and scroll top with animation during "duration" (in ms). Scroll postion will be set immediately if duration is not specified</td>
+                <td>在指定的时间（duration 毫秒)内滚动到指定的位置(scrollLeft, scrollTop)。如果没有指定时间则立刻滚动到指定位置。</td>
               </tr>
               <tr>
-                <th colspan="2">Dom Manipulation</th>
+                <th colspan="2">Dom 操作</th>
               </tr>
               <tr>
                 <td>.each(<span>callback</span>) </td>
-                <td>Iterate over collection, executing a callback function for each matched element</td>
+                <td>遍历集合，对其中每一个元素执行回调。</td>
               </tr>
               <tr>
                 <td>.html() </td>
-                <td>Get the HTML contents of the first element in the set of matched elements</td>
+                <td>获得选中的第一个元素的HTML内容</td>
               </tr>
               <tr>
                 <td>.html(<span>newInnerHTML</span>) </td>
-                <td>Set the HTML contents of every matched element</td>
+                <td>给全部选中元素设置HTML内容</td>
               </tr>
               <tr>
                 <td>.text() </td>
-                <td>Get the text contents of the first element in the set of matched elements</td>
+                <td>获得选中的第一个元素的文本内容</td>
               </tr>
               <tr>
                 <td>.text(<span>newTextContent</span>) </td>
-                <td>Set the text contents of every matched element</td>
+                <td>给全部选中元素设置文本内容</td>
               </tr>
               <tr>
                 <td>.is(<span>CSSSelector</span>) </td>
-                <td>Check the current matched set of elements against CSS selector</td>
+                <td>选中的元素是否符合指定的CSS选择器</td>
               </tr>
               <tr>
                 <td>.is(<span>HTMLElement</span>) </td>
-                <td>Check the current matched set of elements against HTML element or Dom7 collection</td>
+                <td>选中的元素是否是给定的 DOM 元素或者 Dom7 集合</td>
               </tr>
               <tr>
                 <td>.index() </td>
-                <td>Return the position of the first element within the Dom7 collection relative to its sibling elements</td>
+                <td>当前选中的第一个元素在他的所有兄弟节点中的排序</td>
               </tr>
               <tr>
                 <td>.eq(<span>index</span>) </td>
-                <td>Reduce the set of matched elements to the one at the specified index</td>
+                <td>返回当前选中的元素中的指定序号的元素</td>
               </tr>
               <tr>
                 <td>.append(<span>HTMLString</span>) </td>
-                <td>Insert content, specified by the parameter, to the end of each element in the set of matched elements</td>
+                <td>在当前选中元素的每一个后面插入指定内容</td>
               </tr>
               <tr>
                 <td>.append(<span>HTMLElement</span>) </td>
-                <td>Insert specified HTML element to the end of element in the set of matched elements</td>
+                <td>在当前选中元素的每一个后面插入指定元素</td>
               </tr>
               <tr>
                 <td>.prepend(<span>newHTML</span>) </td>
-                <td>Insert content, specified by the parameter, to the beginning of each element in the set of matched elements</td>
+                <td>在当前选中元素的每一个前面插入指定内容</td>
               </tr>
               <tr>
                 <td>.prepend(<span>HTMLElement</span>) </td>
-                <td>Insert specified HTML element to the beginning of element in the set of matched elements</td>
+                <td>在当前选中元素的每一个前面插入指定元素</td>
               </tr>
               <tr>
                 <td>.insertBefore(<span>target</span>) </td>
-                <td>Insert every element in the set of matched elements before the target. Target could be specified as CSS selector or HTML element or Dom7 collection</td>
+                <td>把当前选中的每一个元素插入到指定的目标之前。目标（target）应该是一个 CSS 选择器或者 HTML 元素 或者 Dom7集合</td>
               </tr>
               <tr>
                 <td>.insertAfter(<span>target</span>) </td>
-                <td>Insert every element in the set of matched elements after the target. Target could be specified as CSS selector or HTML element or Dom7 collection</td>
+                <td>把当前选中的每一个元素插入到指定的目标之后。目标（target）应该是一个 CSS 选择器或者 HTML 元素 或者 Dom7集合</td>
               </tr>
               <tr>
                 <td>.next(<span>[selector]</span>) </td>
-                <td>Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector</td>
+                <td>获得当前选中的每一个元素的下一个直接兄弟元素。如果提供了一个选择器（selector），那么会用这个选择器来过滤这些兄弟元素。</td>
               </tr>
               <tr>
                 <td>.nextAll(<span>[selector]</span>) </td>
-                <td>Get all following siblings of each element in the set of matched elements, optionally filtered by a selector</td>
+                <td>获得当前选中的每一个元素之后的全部兄弟元素。如果提供了一个选择器（selector），那么会用这个选择器来过滤这些兄弟元素。</td>
               </tr>
               <tr>
                 <td>.prev(<span>[selector]</span>) </td>
-                <td>Get the immediately preceding sibling of each element in the set of matched elements, optionally filtered by a selector</td>
+                <td>获得当前选中的每一个元素的上一个直接兄弟元素。如果提供了一个选择器（selector），那么会用这个选择器来过滤这些兄弟元素。</td>
               </tr>
               <tr>
                 <td>.prevAll(<span>[selector]</span>) </td>
-                <td>Get all preceding siblings of each element in the set of matched elements, optionally filtered by a selector</td>
+                <td>获得当前选中的每一个元素之前的全部兄弟元素。如果提供了一个选择器（selector），那么会用这个选择器来过滤这些兄弟元素。</td>
               </tr>
               <tr>
                 <td>.parent(<span>[selector]</span>) </td>
-                <td>Get the first parent of each element in the current set of matched elements, optionally filtered by a selector</td>
+                <td>获取选中的每一个元素的父元素。如果提供了一个选择器（selector），那么会用这个选择器来过滤这些父元素。</td>
               </tr>
               <tr>
                 <td>.parents(<span>[selector]</span>) </td>
-                <td>Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector</td>
+                <td>获取选中的每一个元素的祖先元素。如果提供了一个选择器（selector），那么会用这个选择器来过滤这些祖先元素。</td>
               </tr>
               <tr>
                 <td>.find(<span>selector</span>) </td>
-                <td>Get the descendants of each element in the current set of matched elements, filtered by a selector</td>
+                <td>在选中的每一个元素的后代中查找指定的元素。</td>
               </tr>
               <tr>
                 <td>.children(<span>selector</span>) </td>
-                <td>Get the children of each element in the set of matched elements, optionally filtered by a selector</td>
+                <td>在选中的每一个元素的直接孩子中查找指定的元素。</td>
               </tr>
               <tr>
                 <td>.remove() </td>
-                <td>Remove/detach matched elements from the Dom</td>
+                <td>从DOM中删除选中的元素</td>
               </tr>
               <tr>
-                <th colspan="2">Shortcuts</th>
+                <th colspan="2">快捷方式</th>
               </tr>
               <tr>
                 <td>.click()</td>
