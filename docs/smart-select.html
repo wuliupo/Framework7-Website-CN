@@ -320,26 +320,73 @@
   &lt;/ul&gt;
 &lt;/div&gt; </code></pre>
             <p>你可以在 <a href="init-app.html">初始化</a> 的时候设置 <b>smartSelectBackOnSelect</b> 来使所有的Smart Select 都能点击之后自动关闭。</p>
-            <h2>Smart Select 颜色主题</h2>
-            <p>你可以通过 <code>data-form-theme</code> 和 <code>data-navbar-theme</code> 表单和导航栏的颜色主题</p>
+            <h2>Smart Select 结合 虚拟列表</h2>
+            <p>如果你的 smart select 有大量的数据（成百上千），你可以对其启用虚拟列表。这种情况下，我们只需要添加在smart select 上 <code>data-virtual-list</code> 属性即可：</p>
             <pre><code>&lt;div class="list-block"&gt;
-  &lt;ul&gt;
-    &lt;!-- data-navbar-theme="red" to set red color theme for navbar --&gt;
-    &lt;!-- data-form-theme="green" to set green color theme for form --&gt;
-    &lt;li&gt;&lt;a href="#" class="item-link smart-select" data-navbar-theme="red" data-form-theme="green"&gt;
-        &lt;select name="car" multiple&gt;
-          ...
-        &lt;/select&gt;
-        &lt;div class="item-content"&gt;
-          &lt;div class="item-inner"&gt;
-            &lt;div class="item-title"&gt;Car&lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt; </code></pre>
-            <h2>使用JS打开Smart Select</h2>
-            <p>我们可以使用app相关的方法来打开Smart Select：</p>
-            <p><span class="method">myApp.smartSelectOpen(<span>smartSelect</span>) - open specified smart select</span></p>
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;!-- data-virtual-list="true" attribute to enable virtual list  --&gt;
+            &lt;a href="#" class="item-link smart-select" data-virtual-list="true"&gt;
+                &lt;select name="numbers"&gt;
+                    &lt;option value="1"&gt;1&lt;/option&gt;
+                    &lt;option value="2"&gt;2&lt;/option&gt;
+                    ...
+                    &lt;option value="100000"&gt;100000&lt;/option&gt;
+                &lt;/select&gt;
+                &lt;div class="item-content"&gt;
+                    &lt;div class="item-inner"&gt;
+                        &lt;div class="item-title"&gt;Numbers&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            <p>如果你需要指定虚拟列表中条目的高度，你可以直接添加一个 <code>data-virtual-list-height</code> 属性：</p>
+            <pre><code>&lt;div class="list-block"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;!-- data-virtual-list-height="55" attribute to set virtual list single item height to 55px --&gt;
+            &lt;a href="#" class="item-link smart-select" data-virtual-list="true" data-virtual-list-height="55"&gt;
+                &lt;select name="numbers"&gt;
+                    &lt;option value="1"&gt;1&lt;/option&gt;
+                    &lt;option value="2"&gt;2&lt;/option&gt;
+                    ...
+                    &lt;option value="100000"&gt;100000&lt;/option&gt;
+                &lt;/select&gt;
+                &lt;div class="item-content"&gt;
+                    &lt;div class="item-inner"&gt;
+                        &lt;div class="item-title"&gt;Numbers&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            <h2>Smart Select 颜色主题</h2>
+            <p>You can also specify form and navbar color themes on smart select page or in smart select popup using <code>data-form-theme</code> and <code>data-navbar-theme</code> attributes:</p>
+            <p>你可以通过 <code>data-form-theme</code> 和 <code>data-navbar-theme</code> 属性来设置 smart select 页面或者弹层中表单和导航栏的主题。</p>
+            <pre><code>&lt;div class="list-block"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;!-- data-navbar-theme="red" to set red color theme for navbar --&gt;
+            &lt;!-- data-form-theme="green" to set green color theme for form --&gt;
+            &lt;a href="#" class="item-link smart-select" data-navbar-theme="red" data-form-theme="green"&gt;
+                &lt;select name="car"&gt;
+                    ...
+                &lt;/select&gt;
+                &lt;div class="item-content"&gt;
+                    &lt;div class="item-inner"&gt;
+                        &lt;div class="item-title"&gt;Car&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            <h2>通过 JavaScript 打开 smart select</h2>
+            <p>也可以通过 JavaScript 来打开 smart select。我们需要使用这些相关的App方法：</p>
+            <p><span class="method">myApp.smartSelectOpen(<span>smartSelect</span>) - 打开指定的 smart select</span></p>
             <ul class="method-parameters">
               <li><span class="parameter">smartSelect</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required ".smart-select". Required.</li>
             </ul>

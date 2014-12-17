@@ -3,5 +3,6 @@ forum
 node_modules/
 
 # tmp file
-*.swp
 .DS_Store
+*.swp
+*.log

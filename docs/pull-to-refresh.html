@@ -278,6 +278,24 @@ ptrContent.on('refresh', function (e) {
         myApp.pullToRefreshDone();
     }, 2000);
 });</code></pre>
+          <div class="full-width stop-scroll-device">
+            <h2>销毁/禁用下拉刷新</h2>
+            <h2>有的时候你可能需要禁用下拉刷新。我们可以通过这个方法来做到：</h2>
+            <div class="method-wrap">
+              <p><span class="method">myApp.destroyPullToRefresh(<span>ptrContent</span>) </span><span>- 销毁/禁用 下拉刷新</span></p>
+              <ul class="method-parameters">
+                <li><span class="parameter">ptrContent</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (CSS 选择器) 我们需要销毁/禁用的下拉刷新</li>
+              </ul>
+            </div>
+            <p>And if we need to initialize/enable it again:</p>
+            <p>然后我们可以再次初始化/启用它：</p>
+            <div class="method-wrap">
+              <p><span class="method">myApp.initPullToRefresh(<span>ptrContent</span>) </span><span>- 初始化/启用下拉刷新</span></p>
+              <ul class="method-parameters">
+                <li><span class="parameter">ptrContent</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) 需要启用的下拉刷新</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

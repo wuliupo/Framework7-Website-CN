@@ -41,6 +41,9 @@
         -ms-transform: none;
         -o-transform: none;
         transform: none;
+        -webkit-transition: 0ms;
+        -o-transition: 0ms;
+        transition: 0ms;
     }
 }
 .page[data-page="tabbar-labels"] {
@@ -172,7 +175,7 @@ i.ks-tabbar-icon-4 {
     }
 }
 // Virtual List
-.virtual-list li {
+.page[data-page="virtual-list"] .virtual-list li {
     height: 63px;
 }
 // Custom Accordion

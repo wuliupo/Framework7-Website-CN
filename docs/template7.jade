@@ -43,6 +43,8 @@ block content
           p <code>{{person.name}}</code> - 普通变量。输出当前上下文中的person变量的 "name" 属性。
         li
           p <code>{{../person.name}}</code> - 普通变量。和上面类似，不过是在父级上下文中
+        li
+          p <code>{{@index}}</code> - 以 <code>@</code> 开头的都是 Template7 添加的附加数据，比如你在遍历数组的时候会有 {{@index}}，在访问全局上下文时会有 {{@global}}。
       h3 块级表达式
       ul
         li
@@ -54,7 +56,7 @@ block content
         li
           p <code>{{#each reverse="true"}}</code> - 块级表达式开始，并且传入了一个 <code>reverse:true</code> 变量
 
-      h3 辅助方法
+      h4 辅助方法
       p 辅助方法可以是普通表达式或者块级表达式:
       ul
         li
@@ -88,7 +90,7 @@ block content
       
       h2 内建的辅助方法
       p 辅助方法在Template7中就像一个预定义的函数，可以用来在传递给它的上下文中做一些操作。
-      h3 {{#each}}...{{else}}...{{/each}}
+      h4 {{#each}}...{{else}}...{{/each}}
       p <code>{{#each}}</code> 是一个块级表达式，可以用来遍历传入的参数，支持遍历数组的条目和对象的属性。
       table.template7-examples
         thead
@@ -236,7 +238,7 @@ block content
                   | &lt;ul&gt;
                   |   &lt;li&gt;No properties&lt;/li&gt;
                   | &lt;/ul&gt;
-      h3 {{#if}}...{{else}}...{{/if}}
+      h4 {{#if}}...{{else}}...{{/if}}
       p {{#if}} 辅助方法，在传入的上下文不是 "false"(或者 "undefined" 或者 "null" 或者 "" 或者 "0") 的情况下会渲染后面的内容，否则，如果你设置了 {{else}} 表达式，则会渲染它里面的内容：
       table.template7-examples
         thead
@@ -284,7 +286,7 @@ block content
                 code
                   | &lt;p&gt;Hello, my name is John Doe.&lt;/p&gt;
                   | &lt;p&gt;I don't have hobby&lt;/p&gt;
-      h3 {{#unless}}...{{else}}...{{/unless}}
+      h4 {{#unless}}...{{else}}...{{/unless}}
       p 当传入的上下文是 "false" (或者 "undefined" 或者 "null" 或者 "" 或者 "0") 的时候，{{#unless}} 才会渲染内容，否则他会渲染可选的 {{else}} 表达式的内容
       table.template7-examples
         thead
@@ -332,7 +334,7 @@ block content
                 code
                   | &lt;p&gt;Hello, my name is John Doe.&lt;/p&gt;
                   | &lt;p&gt;I have hobby&lt;/p&gt;
-      h3 {{#with}}...{{/with}}
+      h4 {{#with}}...{{/with}}
       p {{#with}} 辅助方法 把当前上下文改变为传入的上下文:
       table.template7-examples
         thead
@@ -361,7 +363,7 @@ block content
               pre
                 code
                   | &lt;p&gt;Car has 150 hp power and 200 km/h maximum speed&lt;/p&gt;
-      h3 {{#variableName}}...{{/variableName}}
+      h4 {{#variableName}}...{{/variableName}}
       p 你如果你传入一个一个块级表达式，并且辅助方法的名字是一个表达式的上下文，那么如果这个上下文是数组，它会和 {{#each}}一样的作用，如果上下文是一个对象，它会和 {{#with}} 是一样的作用：
       table.template7-examples
         thead
@@ -421,7 +423,7 @@ block content
               pre
                 code
                   | &lt;p&gt;Car has 150 hp power and 200 km/h maximum speed&lt;/p&gt;
-      h3 {{join delimeter=""}}
+      h4 {{join delimeter=""}}
       p 对数组执行Join方法
       table.template7-examples
         thead
@@ -588,6 +590,21 @@ block content
           li
             span.parameter name - 
             | <span class="parameter-type">string</span> - helper name
+      h2 全局上下文
+      p Template7 可以支持设置一个全局上下文，这个全局上下文可以在任何地方访问。
+      p 可以通过 <code>Template7.global</code> 属性来设置：
+      pre
+        code
+          | Template7.global = {
+          |     os: 'iOS',
+          |     browser: 'Chrome',
+          |     username: 'johndoe',
+          |     email: 'john@doe.com'
+          | };
+      p 在模板中可以通过 <code>{{@global}}</code> 变量来访问。
+      pre
+        code.html
+          | &lt;p&gt;Hello, {{@global.username}}. Your email is {{@global.email}}&lt;/p&gt;
       h2 性能问题
       p Template7 非常快。其中在编译渲染过程中最慢的部分是通过 <code>Template7.compile()</code>方法把字符串模板编译成一个纯JS函数。所以不要重复编译同一个模板：
       pre

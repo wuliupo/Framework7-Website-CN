@@ -468,6 +468,12 @@ $$('.open-preloader-title').on('click', function () {
                   <td>可选. 按钮数组. 每个按钮应该被表示为带按钮参数的对象 (看下面)</td>
                 </tr>
                 <tr>
+                  <td>verticalButtons</td>
+                  <td>boolean</td>
+                  <td>false</td>
+                  <td>Optional. Set to <code>true</code> to enable vertical buttons layout</td>
+                </tr>
+                <tr>
                   <td>onClick</td>
                   <td>函数</td>
                   <td></td>
@@ -523,6 +529,7 @@ $$('.open-preloader-title').on('click', function () {
       &lt;p&gt;&lt;a href="#" class="open-3-modal"&gt;Modal With 3 Buttons&lt;/a&gt;&lt;/p&gt;
       &lt;p&gt;&lt;a href="#" class="open-slider-modal"&gt;Modal With Slider&lt;/a&gt;&lt;/p&gt;
       &lt;p&gt;&lt;a href="#" class="open-tabs-modal"&gt;Modal With Tabs&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" class="open-vertical-modal"&gt;Modal With Vertical Buttons&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   ...
@@ -598,10 +605,45 @@ $$('.open-tabs-modal').on('click', function () {
       },
     ]
   })
+<<<<<<< HEAD
 });</code></pre>
             <h2>用 JavaScript 关闭 Modals </h2>
             <p>任何 Modal 可以用 JavaScript 来关闭，不仅仅是通过点击按钮。因此我们需要看看相关App方法：</p>
             <p><span class="method">myApp.closeModal(<span>modal</span>)</span> - 关闭任意 modal</span></p>
+=======
+});
+ 
+$$('.open-vertical-modal').on('click', function () {
+  myApp.modal({
+    title:  'Vertical Buttons Layout',
+    text: 'Vivamus feugiat diam velit. Maecenas aliquet egestas lacus, eget pretium massa mattis non. Donec volutpat euismod nisl in posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae',
+    verticalButtons: true,
+    buttons: [
+      {
+        text: 'Button 1',
+        onClick: function() {
+          myApp.alert('You clicked first button!')
+        }
+      },
+      {
+        text: 'Button 2',
+        onClick: function() {
+          myApp.alert('You clicked second button!')
+        }
+      },
+      {
+        text: 'Button 3',
+        onClick: function() {
+          myApp.alert('You clicked third button!')
+        }
+      },
+    ]
+  })
+});            </code></pre>
+            <h2>Close Modals With JavaScript</h2>
+            <p>Any Modal can be closed with JavaScript, not only by clicking on its buttons. For this we need to look at relate App method:</p>
+            <p><span class="method">myApp.closeModal(<span>modal</span>)</span> - close any modal</span></p>
+>>>>>>> f7/master
             <ul class="method-parameters">
               <li><span class="parameter">modal</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> ( CSS 选择器). 可选. 除了指定的，任何被打开modal都将被关闭。</li>
             </ul>
