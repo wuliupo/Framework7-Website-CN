@@ -83,6 +83,7 @@
                 <li><a href="navbar-toolbar-layouts.html">布局类型</a></li>
                 <li><a href="navbar.html">导航栏</a></li>
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
+                <li><a href="sub-navbar.html">二级导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
                 <li><a href="hide-bars-on-scroll.html">自动隐藏工具栏</a></li>
@@ -100,6 +101,7 @@
                 <li><a href="popover.html">Popover</a></li>
                 <li><a href="action-sheet.html">Action Sheet</a></li>
                 <li><a href="login-screen.html">Login Screen</a></li>
+                <li><a href="picker-modal.html">Picker Modal</a></li>
               </ul>
             </li>
             <li><a href="preloader.html">Preloader Indicator</a></li>
@@ -114,6 +116,7 @@
               </ul>
             </li>
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
+            <li><a href="cards.html">卡片</a></li>
             <li><a href="buttons.html">按钮</a></li>
             <li>表单
               <ul>
@@ -127,14 +130,19 @@
               </ul>
             </li>
             <li><a href="tabs.html">标签页</a></li>
-            <li><a href="slider.html">幻灯片</a></li>
+            <li><a href="swiper.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
+            <li><a href="picker.html">picker</a></li>
+            <li><a href="calendar.html">日历</a></li>
             <li><a href="pull-to-refresh.html">下拉刷新</a></li>
             <li><a href="infinite-scroll.html">无限滚动</a></li>
             <li><a href="messages.html">消息</a></li>
             <li><a href="messagebar.html">消息栏</a></li>
             <li><a href="notifications.html">通知</a></li>
-            <li class="title"><a href="color-themes.html">皮肤颜色</a></li>
+            <li><a href="lazy-load.html">懒加载</a></li>
+            <li class="title">样式</li>
+            <li><a href="color-themes.html">皮肤颜色</a></li>
+            <li><a href="hairlines.html">边框</a></li>
             <li class="title">Template7</li>
             <li><a href="template7.html">入门</a></li>
             <li><a href="template7-auto-compilation.html">自动编译模板</a></li>
@@ -148,8 +156,8 @@
           </ul>
         </div>
         <div class="docs-content">
-          <h1>Framework7定制</h1>
-          <p>自从0.9.4版本以来，Framework7就使用Grunt构建工具，你可以使用它来定制版本，只包含需要的组件/模块。步骤如下：</p>
+          <h1>Framework7 Custom Build</h1>
+          <p>Since version 1.0.0 Framework7 comes with Gulp builder that allows to build custom library version where you may include only required components/modules. We need the following:</p>
           <ol>
             <li>
               <p>下载<a href="https://github.com/nolimits4web/Framework7" target="_blank">Framework7 GitHub repository</a>，解压到本地目录</p>
@@ -158,16 +166,16 @@
               <p>安装<a href="http://nodejs.org/" target="_blank">Node.js</a> （如果没有安装的话）</p>
             </li>
             <li>
-              <p>安装Grunt（如果没有安装的话），在终端中执行如下命令：</p>
-              <pre><code>$ npm install -g grunt-cli</code></pre>
+              <p>Install Gulp (if not installed) by executing the following command in terminal:</p>
+              <pre><code>$ npm install --global gulp</code></pre>
             </li>
             <li>
               <p>然后，我们需要安装需要的依赖，进入Framework7 repository解压的路径，在终端中执行如下命令：</p>
               <pre><code>$ npm install</code></pre>
             </li>
             <li>
-              <p>现在，我们做好了构建定制版本Framework7的准备工作。我们需要执行<code>grunt custom</code>命令，传递我们想要添加的组件/模块作为参数。例如，如果我们只想要手风琴（Accordion ）和标签页（Tabs）的话：
-                <pre><code>$ grunt custom:accordion,tabs</code></pre>
+              <p>现在，我们做好了构建定制版本Framework7的准备工作。我们需要执行<code>gulp custom</code>命令，传递我们想要添加的组件/模块作为参数。例如，如果我们只想要手风琴（Accordion ）和标签页（Tabs）的话：
+                <pre><code>$ gulp custom -accordion,tabs</code></pre>
                 <div class="important-note">注意，在逗号和组件名之间不应有空格</div>
               </p>
             </li>
@@ -203,8 +211,16 @@
               <td><a href="sortable-list.html">可排序列表</a>组件</td>
             </tr>
             <tr>
+              <td class="nowrap">cards</td>
+              <td><a href="cards.html">Cards</a> component</td>
+            </tr>
+            <tr>
               <td class="nowrap">smart-select</td>
               <td><a href="smart-select.html">智能选择</a>组件</td>
+            </tr>
+            <tr>
+              <td class="nowrap">virtual-list</td>
+              <td><a href="virtual-list.html">Virtual List</a> component</td>
             </tr>
             <tr>
               <td class="nowrap">pull-to-refresh</td>
@@ -215,8 +231,12 @@
               <td><a href="infinite-scroll.html">无限滚动</a>组件</td>
             </tr>
             <tr>
-              <td>tabs</td>
-              <td><a href="tabs.html">标签页</a>组件</td>
+              <td class="nowrap">scroll-toolbars</td>
+              <td><a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a> component</td>
+            </tr>
+            <tr>
+              <td class="nowrap">tabs</td>
+              <td><a href="tabs.html">Tabs</a> component</td>
             </tr>
             <tr>
               <td class="nowrap">fast-clicks</td>
@@ -231,8 +251,8 @@
               <td>添加浏览历史</td>
             </tr>
             <tr>
-              <td class="nowrap">slider</td>
-              <td><a href="slider.html">幻灯片</a>组件</td>
+              <td class="nowrap">swiper</td>
+              <td><a href="swiper.html">幻灯片</a> component</td>
             </tr>
             <tr>
               <td class="nowrap">photo-browser</td>
@@ -242,10 +262,18 @@
               <td class="nowrap">notifications</td>
               <td><a href="notifications.html">通知</a>组件</td>
             </tr>
+            <tr>
+              <td class="nowrap">picker</td>
+              <td><a href="picker.html">Picker</a> component</td>
+            </tr>
+            <tr>
+              <td class="nowrap">calendar</td>
+              <td><a href="calendar.html">Calendar / Datepicker</a> component</td>
+            </tr>
           </table>
           <h2>只有内核</h2>
-          <p>如果你不添加任何组件，只需要执行“grunt custom”，而不添加任何参数：</p>
-          <pre><code>$ grunt custom</code></pre>
+          <p>如果你不添加任何组件，只需要执行 "gulp custom"，而不添加任何参数：</p>
+          <pre><code>$ gulp custom</code></pre>
         </div>
       </div>
     </div>
@@ -268,8 +296,8 @@
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
-        <div class="copy">2014 © Framework7 by iDangero.us</div>
+        <div class="links"><a href="./">Framework7</a><a href="../plugins/">插件</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
+        <div class="copy">2015 © Framework7 by iDangero.us</div>
         <div class="copy">翻译 by SDC-ALIBABA <a href='mailto:hongxun.lhx@alibaba-inc.com'>联系我们</a></div>
       </div>
     </footer>
@@ -278,14 +306,5 @@
     <script src="../js/main.js"></script>
     <script>var addthis_config = {"data_track_addressbar":true};</script>
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52c9b0605d63191c"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-13289120-8', 'idangero.us');
-      ga('send', 'pageview');      
-    </script>
   </body>
 </html>

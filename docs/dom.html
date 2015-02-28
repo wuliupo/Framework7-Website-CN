@@ -83,6 +83,7 @@
                 <li><a href="navbar-toolbar-layouts.html">布局类型</a></li>
                 <li><a href="navbar.html">导航栏</a></li>
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
+                <li><a href="sub-navbar.html">二级导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
                 <li><a href="hide-bars-on-scroll.html">自动隐藏工具栏</a></li>
@@ -100,6 +101,7 @@
                 <li><a href="popover.html">Popover</a></li>
                 <li><a href="action-sheet.html">Action Sheet</a></li>
                 <li><a href="login-screen.html">Login Screen</a></li>
+                <li><a href="picker-modal.html">Picker Modal</a></li>
               </ul>
             </li>
             <li><a href="preloader.html">Preloader Indicator</a></li>
@@ -114,6 +116,7 @@
               </ul>
             </li>
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
+            <li><a href="cards.html">卡片</a></li>
             <li><a href="buttons.html">按钮</a></li>
             <li>表单
               <ul>
@@ -127,14 +130,19 @@
               </ul>
             </li>
             <li><a href="tabs.html">标签页</a></li>
-            <li><a href="slider.html">幻灯片</a></li>
+            <li><a href="swiper.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
+            <li><a href="picker.html">picker</a></li>
+            <li><a href="calendar.html">日历</a></li>
             <li><a href="pull-to-refresh.html">下拉刷新</a></li>
             <li><a href="infinite-scroll.html">无限滚动</a></li>
             <li><a href="messages.html">消息</a></li>
             <li><a href="messagebar.html">消息栏</a></li>
             <li><a href="notifications.html">通知</a></li>
-            <li class="title"><a href="color-themes.html">皮肤颜色</a></li>
+            <li><a href="lazy-load.html">懒加载</a></li>
+            <li class="title">样式</li>
+            <li><a href="color-themes.html">皮肤颜色</a></li>
+            <li><a href="hairlines.html">边框</a></li>
             <li class="title">Template7</li>
             <li><a href="template7.html">入门</a></li>
             <li><a href="template7-auto-compilation.html">自动编译模板</a></li>
@@ -468,6 +476,15 @@ $$('p').show();</code></pre>
                 <th colspan="2">Dom 操作</th>
               </tr>
               <tr>
+                <td>.add(elements) </td>
+                <td>Create a new Dom7 collection with elements added to the set of matched elements:
+                  <pre><code class="js">var links = $('a');
+var divs = $('div');
+links.add('p').addClass('blue');
+links.add(divs).addClass('red');</code></pre>
+                </td>
+              </tr>
+              <tr>
                 <td>.each(<span>callback</span>) </td>
                 <td>遍历集合，对其中每一个元素执行回调。</td>
               </tr>
@@ -736,6 +753,291 @@ $$('p').show();</code></pre>
               </tr>
             </tbody>
           </table>
+          <h2>Utilities</h2>
+          <h4>Dom7.parseUrlQuery</h4>
+          <div class="method-wrap">
+            <p><span class="method">Dom7.parseUrlQuery(<span>url</span>) </span><span>- parse url query get parameters</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">url</span> - <span class="parameter-type">string</span> - url with GET parameters. Required.</li>
+            </ul>
+            <p class="method-returns">Method returns object with query parameters</p>
+          </div>
+          <pre><code class="js">var query = $$.parseUrlQuery('http://google.com/?id=5&foo=bar');
+console.log(query); //-> {id: 5, foo: 'bar'}</code></pre>
+          <h4>Dom7.isArray</h4>
+          <div class="method-wrap">
+            <p><span class="method">Dom7.isArray(<span>obj</span>) </span><span>- Determine whether the argument is an array</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">obj</span> - <span class="parameter-type">object</span> - Object to test whether or not it is an array</li>
+            </ul>
+            <p class="method-returns">returns a Boolean indicating whether the object is a JavaScript array</p>
+          </div>
+          <pre><code class="js">var fruits = ['Apple', 'Orange'];
+console.log($$.isArray(fruits)); //-> true</code></pre>
+          <h4>Dom7.unique</h4>
+          <div class="method-wrap">
+            <p><span class="method">Dom7.unique(<span>array</span>) </span><span>- Remove duplicates in passed array</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">obj</span> - <span class="parameter-type">array</span> - Array to remove duplicates</li>
+            </ul>
+            <p class="method-returns">returns a new unique array</p>
+          </div>
+          <pre><code class="js">var fruits = ['Apple', 'Orange', 'Apple'];
+console.log($$.unique(fruits)); //-> ['Apple', 'Orange'];</code></pre>
+          <h4>Dom7.serializeObject</h4>
+          <div class="method-wrap">
+            <p><span class="method">Dom7.serializeObject(<span>object</span>) </span><span>- Create a serialized representation of a plain object suitable for use in a URL query string</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">object</span> - <span class="parameter-type">object</span> - Object to serialize</li>
+            </ul>
+            <p class="method-returns">returns a new unique array</p>
+          </div>
+          <pre><code class="js">var params = {foo: 'bar', id: 5};
+console.log($$.serializeObject(params)); //-> 'foo=bar&id=5'</code></pre>
+          <h4>Dom7.requestAnimationFrame</h4>
+          <div class="method-wrap">
+            <p><span class="method">Dom7.requestAnimationFrame(<span>callback</span>) </span><span>- Cross-browser implementation on requestAnimationFrame</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">callback</span> - <span class="parameter-type">function</span> - A parameter specifying a function to call when it's time to update your animation for the next repaint</li>
+            </ul>
+            <p class="method-returns">returns animation request id, that uniquely identifies the entry in the callback list</p>
+          </div>
+          <pre><code class="js">var animId;
+function anim() {
+  var left = parseInt($$('#anim').css('left'), 10) + 1;
+  $$('#anim').css({left: left + 'px'})
+  animId = $.requestAnimationFrame(anim);
+}
+animId = $.requestAnimationFrame(anim);</code></pre>
+          <h4>Dom7.cancelAnimationFrame</h4>
+          <div class="method-wrap">
+            <p><span class="method">Dom7.cancelAnimationFrame(<span>requestID</span>) </span><span>- Cancels an animation frame request</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">requestID</span> - <span class="parameter-type">number</span> - The ID value returned by the call to $$.requestAnimationFrame() that requested the callback</li>
+            </ul>
+          </div>
+          <pre><code class="js">$.cancelAnimationFrame(animId);</code></pre>
+          <h2>Ajax</h2>
+          <div class="method-wrap">
+            <p><span class="method">$$.ajax(parameters) </span><span>- Load data from the server</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">parameters</span> - <span class="parameter-type">object</span> - Request parameters</li>
+            </ul>
+            <p class="method-returns">returns plain XHR object</p>
+          </div>
+          <p>Let's look at the list of available parameters</p>
+          <table class="params-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>async</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If you need synchronous requests, set this option to <code>false</code></td>
+              </tr>
+              <tr>
+                <td>method</td>
+                <td>string</td>
+                <td>'GET'</td>
+                <td>Request method (e.g. "POST", "GET", "PUT")</td>
+              </tr>
+              <tr>
+                <td>cache</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If set to false, it will force requested pages not to be cached by the browser. Setting cache to false will only work correctly with HEAD and GET requests. It works by appending "_nocache={timestamp}" to the GET parameters</td>
+              </tr>
+              <tr>
+                <td>contentType</td>
+                <td>string</td>
+                <td>'application/x-www-form-urlencoded'</td>
+                <td>Content type. Also could be 'multipart/form-data' and 'text/plain'. For cross-domain requests, setting the content type to anything other than application/x-www-form-urlencoded, multipart/form-data, or text/plain will trigger the browser to send a preflight OPTIONS request to the server</td>
+              </tr>
+              <tr>
+                <td>crossDomain</td>
+                <td>boolean</td>
+                <td>undefined</td>
+                <td>If you wish to force a crossDomain request (such as JSONP) on the same domain, set the value of crossDomain to true. When <code>true</code> additional "X-Requested-With: XMLHttpRequest" header will be added to request</td>
+              </tr>
+              <tr>
+                <td>data</td>
+                <td>Object or String or Array</td>
+                <td></td>
+                <td>Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing. For POST requests could be <code>FormData</code> type</td>
+              </tr>
+              <tr>
+                <td>processData</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>By default, data passed in to the data option as an object (technically, anything other than a string) will be processed and transformed into a query string, fitting to the default content-type "application/x-www-form-urlencoded". If you want to send a DOMDocument, or other non-processed data, set this option to <code>false</code></td>
+              </tr>
+              <tr>
+                <td>dataType</td>
+                <td>string</td>
+                <td>'text'</td>
+                <td>The type of data that you're expecting back from the server. Could be 'text' or 'json'</td>
+              </tr>
+              <tr>
+                <td>headers</td>
+                <td>object</td>
+                <td></td>
+                <td>An object of additional header key/value pairs to send along with requests using the XMLHttpRequest transport</td>
+              </tr>
+              <tr>
+                <td>xhrFields</td>
+                <td>object</td>
+                <td></td>
+                <td>An object of fieldName-fieldValue pairs to set on the native XHR object</td>
+              </tr>
+              <tr>
+                <td>username</td>
+                <td>string</td>
+                <td></td>
+                <td>A username to be used with XMLHttpRequest in response to an HTTP access authentication request</td>
+              </tr>
+              <tr>
+                <td>password</td>
+                <td>string</td>
+                <td></td>
+                <td>A password to be used with XMLHttpRequest in response to an HTTP access authentication request</td>
+              </tr>
+              <tr>
+                <td>timeout</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Set a timeout (in milliseconds) for the request</td>
+              </tr>
+              <tr>
+                <th colspan="4">Callbacks</th>
+              </tr>
+              <tr>
+                <td>beforeSend</td>
+                <td>function (xhr)</td>
+                <td></td>
+                <td>A pre-request callback function that can be used to modify the XHR object before it is sent. Use this to set custom headers, etc</td>
+              </tr>
+              <tr>
+                <td>error</td>
+                <td>function (xhr, status)</td>
+                <td></td>
+                <td>A function to be called if the request fails</td>
+              </tr>
+              <tr>
+                <td>success</td>
+                <td>function (data, status, xhr)</td>
+                <td></td>
+                <td>A function to be called if the request succeeds</td>
+              </tr>
+              <tr>
+                <td>complete</td>
+                <td>function (xhr, status)</td>
+                <td></td>
+                <td>A function to be called when the request finishes (after success and error callbacks are executed)</td>
+              </tr>
+              <tr>
+                <td>statusCode</td>
+                <td>object</td>
+                <td></td>
+                <td>An object of numeric HTTP codes and functions to be called when the response has the corresponding code. For example, the following will alert when the response status is a 404:
+                  <pre><code>$$.ajax({
+  url: 'somepage.html',
+  statusCode: {
+    404: function (xhr) {
+      alert('page not found');
+    }
+  }
+})                  </code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Ajax Events</h3>
+          <p>Each Ajax request produces global Ajax events on document, so you can always intercept and handle them:</p>
+          <table class="events-table">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Target</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ajaxStart</td>
+                <td><code>document</code></td>
+                <td>A pre-request event that can be used to modify the XHR object before it is sent. Use this to set custom headers</td>
+              </tr>
+              <tr>
+                <td>ajaxError</td>
+                <td><code>document</code></td>
+                <td>Event to be triggered if the request fails</td>
+              </tr>
+              <tr>
+                <td>ajaxSuccess</td>
+                <td><code>document</code></td>
+                <td>Event to be triggered if the request succeeds</td>
+              </tr>
+              <tr>
+                <td>ajaxComplete</td>
+                <td><code>document</code></td>
+                <td>Event to be triggered when the request finishes (after success and error events are executed)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>For example:</p>
+          <pre><code>$$(document).on('ajaxComplete', function (e) {
+  var xhr = e.detail.xhr;
+  console.log('request performed');
+});</code></pre>
+          <h3>Shorthand Methods</h3>
+          <h4>Dom7.get</h4>
+          <div class="method-wrap">
+            <p><span class="method">$$.get(<span>url</span>, <span>data</span>, <span>success</span>) </span><span>- Load data from the server using a HTTP GET request</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">url</span> - <span class="parameter-type">string</span> - Request url</li>
+              <li><span class="parameter">data</span> - <span class="parameter-type">object</span> - A plain object or string that is sent to the server with the request. <em>Optional</em></li>
+              <li><span class="parameter">success</span> - <span class="parameter-type">function (data, status, xhr)</span> - A callback function that is executed if the request succeeds. <em>Optional</em></li>
+            </ul>
+            <p class="method-returns">returns plain XHR object</p>
+          </div>
+          <pre><code class="js">$$.get('blog-post.php', {foo:'bar', id:5}, function (data) {
+  $$('.articles').html(data);
+  console.log('Load was performed');
+});</code></pre>
+          <h4>Dom7.post</h4>
+          <div class="method-wrap">
+            <p><span class="method">$$.post(<span>url</span>, <span>data</span>, <span>success</span>) </span><span>- Load data from the server using a HTTP POST request</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">url</span> - <span class="parameter-type">string</span> - Request url</li>
+              <li><span class="parameter">data</span> - <span class="parameter-type">object</span> - A plain object or <em>FormData</em> or string that is sent to the server with the request. <em>Optional</em></li>
+              <li><span class="parameter">success</span> - <span class="parameter-type">function (data, status, xhr)</span> - A callback function that is executed if the request succeeds. <em>Optional</em></li>
+            </ul>
+            <p class="method-returns">returns plain XHR object</p>
+          </div>
+          <pre><code class="js">$$.post('auth.php', {username:'foo', password: 'bar'}, function (data) {
+  $$('.login').html(data);
+  console.log('Load was performed');
+});</code></pre>
+          <h4>Dom7.getJSON</h4>
+          <div class="method-wrap">
+            <p><span class="method">$$.getJSON(<span>url</span>, <span>data</span>, <span>success</span>) </span><span>- Load JSON-encoded data from the server using a GET HTTP request</span></p>
+            <ul class="method-parameters">
+              <li><span class="parameter">url</span> - <span class="parameter-type">string</span> - Request url</li>
+              <li><span class="parameter">data</span> - <span class="parameter-type">object</span> - A plain object or <em>FormData</em> or string that is sent to the server with the request. <em>Optional</em></li>
+              <li><span class="parameter">success</span> - <span class="parameter-type">function (data, status, xhr)</span> - A callback function that is executed if the request succeeds. <em>Optional</em></li>
+            </ul>
+            <p class="method-returns">returns plain XHR object</p>
+          </div>
+          <pre><code class="js">$$.getJSON('items.json', function (json) {
+  console.log(json);
+});</code></pre>
         </div>
       </div>
     </div>
@@ -758,8 +1060,8 @@ $$('p').show();</code></pre>
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
-        <div class="copy">2014 © Framework7 by iDangero.us</div>
+        <div class="links"><a href="./">Framework7</a><a href="../plugins/">插件</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
+        <div class="copy">2015 © Framework7 by iDangero.us</div>
         <div class="copy">翻译 by SDC-ALIBABA <a href='mailto:hongxun.lhx@alibaba-inc.com'>联系我们</a></div>
       </div>
     </footer>
@@ -768,14 +1070,5 @@ $$('p').show();</code></pre>
     <script src="../js/main.js"></script>
     <script>var addthis_config = {"data_track_addressbar":true};</script>
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52c9b0605d63191c"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-13289120-8', 'idangero.us');
-      ga('send', 'pageview');      
-    </script>
   </body>
 </html>

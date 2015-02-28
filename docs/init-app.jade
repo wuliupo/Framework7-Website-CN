@@ -61,6 +61,11 @@ block content
             td true
             td Fast clicks 是一个内置库，当你点击链接或者提交表单的时候，她会移除300毫秒的延迟。如果你有其他的 fast click 库，你可以禁用这个功能。
           tr
+            td fastClicksDelayBetweenClicks
+            td number
+            td 50
+            td Minimal allowed delay (in ms) between miltiple clicks
+          tr
             td fastClicksDistanceThreshold
             td number
             td 0
@@ -298,6 +303,11 @@ block content
             td string
             td 'Password'
             td 在 Login 和 Password Modals 中密码输入框的占位符
+          tr
+            td modalStack
+            td boolean
+            td true
+            td This feature doesn't allow to open multiple modals at the same time, and will automatically open next modal when you close the current one. Such behavior is similar to browser native alerts
           
           tr
             th(colspan="4") Smart Select
@@ -361,12 +371,21 @@ block content
             td boolean
             td false
             td 设置为true，那么当页面向下滚动的时候，工具栏会自动隐藏；向上滚动的时候会自动出现。
-          
+          tr
+            td hideTabbarOnPageScroll
+            td boolean
+            td false
+            td Set to true and Tab bar will be hidden automatically on page scroll down, and became visible on scroll up. Note that this is only for Tab Bar app layout, otherwise use <code>hideToolbarOnPageScroll</code>
           tr
             td showBarsOnPageScrollEnd
             td boolean
             td true
             td 设置为true，那么当页面滚动到底部的时候会自动显示出被隐藏的导航栏和工具栏。
+          tr
+            td scrollTopOnNavbarClick
+            td boolean
+            td false
+            td Set to true and each click on Navbar's "center" element will scroll currently active page to top
           tr
             th(colspan="4") 搜索栏(Search Bar)
           tr
@@ -379,6 +398,23 @@ block content
             td boolean
             td true
             td 如果设置为 true，当搜索的时候，如果搜索结果中的分组里面没有内容，则会自动隐藏她们
+          tr
+            th(colspan="4") Images Lazy Load
+          tr
+            td imagesLazyLoadThreshold
+            td number
+            td 0
+            td By default images are loaded when they appear on the screen. Use this parameter if you want to load images earlier. Setting it to 50 will load image when it 50 pixels before it appears on viewport
+          tr
+            td imagesLazyLoadSequential
+            td boolean
+            td true
+            td If enabled, then lazy images will be loaded one by one when they appear in viewport
+          tr
+            td imagesLazyLoadPlaceholder
+            td string
+            td 
+            td Lazy load image placeholder source to show while image is not yet loaded. By default it is 1x1 px image
           tr
             th(colspan="4") Notifications
           tr
@@ -418,6 +454,11 @@ block content
             td boolean
             td undefined
             td With this option you can overwrite automatic <a href="status-bar.html">status bar detection</a>
+          tr
+            td scrollTopOnStatusbarClick
+            td boolean
+            td false
+            td Set to true and each click on Status bar ("status-bar-overlay") will scroll currently active page to top
           tr
             th(colspan="4") Template7
           tr

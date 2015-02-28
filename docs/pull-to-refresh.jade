@@ -21,7 +21,7 @@ block content
           code
             | &lt;div class="page"&gt;
             |   &lt;!-- Page content应该拥有"pull-to-refresh-content"类 --&gt;
-            |   &lt;div class="page-content pull-to-refresh-content"&gt;
+            |   &lt;div class="page-content pull-to-refresh-content" data-ptr-distance="55"&gt;
             |     &lt;!-- 默认的下拉刷新层 --&gt;
             |     &lt;div class="pull-to-refresh-layer"&gt;
             |       &lt;div class="preloader"&gt;&lt;/div&gt;
@@ -38,6 +38,7 @@ block content
           ul
             li <code>page-content</code>需要额外添加<code>pull-to-refresh-content</code>类，它会开启下拉刷新。
             li <code>pull-to-refresh-layer</code> 平时隐藏的布局块，包含下拉刷新的可视元素：加载提示符和上/下箭头。
+            li <code>data-ptr-distance="55"</code> 可以配置下拉刷新的下拉距离. 默认是 44px.
         h2 下拉刷新的行为顺序
         p 当用户开始下拉的时候， <b>pull-to-refresh-layer</b>会增加一个额外的 <b>pull-down</b> 类。
         p 当用户下拉使<b>pull-to-refresh-content</b>元素下降超过44px时(即<b>pull-to-refresh-layer</b>元素完全可视)，<b>pull-to-refresh-layer</b>元素将自动添加"<b>pull-up</b>"类，使箭头转向180度，以提醒用户界面将在他松开手指时刷新。

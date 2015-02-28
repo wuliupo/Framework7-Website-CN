@@ -97,6 +97,11 @@ block content
             td 
             td 这个可选方法用来自定义渲染条目的HTML。它是用来代替 <b>tamplate</b> 参数的。
           tr
+            td dynamicHeightBufferSize
+            td number
+            td 1
+            td This parameter allows to control buffer size on Virtual Lists with dynamic height (when <code>height</code> parameter is function) as a buffer size multiplier
+          tr
             td cache
             td boolean
             td true
@@ -224,6 +229,9 @@ block content
           tr
             td myList.update();
             td 更新列表。会重新计算列表的大小，并重新渲染
+          tr
+            td myList.scrollToItem(index);
+            td 滚动到指定位置
       h2 示例
       h3 简单的条目
       p 最简单的一种情况，我们不需要用模板来渲染条目（没有 <code>template</code> 和 <code>renderItem</code> 参数)，并且我们也不需要复杂的逻辑，我们直接在 <code>items</code> 参数中传入了HTML字符串:

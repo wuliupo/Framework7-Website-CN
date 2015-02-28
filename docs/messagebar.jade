@@ -15,14 +15,15 @@ block content
       p 消息栏的结构是很简单的：
       pre
         code
-          | &lt;div class="toolbar messagebar" data-max-height="200"&gt;
+          | &lt;div class="toolbar messagebar" data-max-height="200" data-keyboard-height="200"&gt;
           |   &lt;div class="toolbar-inner"&gt;
           |     &lt;textarea placeholder="Message"&gt;&lt;/textarea&gt;&lt;a href="#" class="link"&gt;Send&lt;/a&gt;
           |   &lt;/div&gt;
           | &lt;/div&gt;   
       p 其中：
         ul
-          li <code>data-max-height</code> - 限制Message Bar的最大高度
+          li <code>data-max-height</code> - 限制Message Bar的最大高度，可选
+          li <code>data-keyboard-height</code> - set additional padding on page content when using it with custom keyboards in Cordova app. Optional
       p 请注意它的位置，应该在“page”里面并且在“messages-content”前面：
       pre
         code

@@ -106,3 +106,19 @@ block content
             tr
               td myApp.showToolbar(<span>toolbar</span>)
               td Show specified tab bar.<br><code>toolbar</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required tab bar. Required.
+      h2 自动隐藏工具栏/导航栏
+      p Framework7 允许你在ajax加载的页面自动隐藏工具栏/导航栏。只有在穿透布局的时候才可以使用。
+      p 你唯一需要做的就是在需要加载的页面上加一个类 <strong>"no-tabbar"</strong>(<code>&lt;div class="page no-tabbar"&gt;</code>):
+      pre
+        code
+          | &lt;!-- Page has additional "no-tabbar" class --&gt;
+          | &lt;div data-page="about" class="page no-tabbar"&gt;
+          |   &lt;div class="page-content"&gt;
+          |     &lt;div class="content-block"&gt;
+          |       &lt;p&gt;&lt;a href="#" class="back button"&gt;Go Back&lt;/a&gt;&lt;/p&gt;
+          |       ...
+          |     &lt;/div&gt;
+          |   &lt;/div&gt;
+          | &lt;/div&gt;
+
+      .device-spacer

@@ -31,6 +31,16 @@ block content
             p <code>div class="page-content infinite-scroll"</code>是我们无限滚动的容器
           li
             p <code>data-distance</code>属性用来配置页面滚动到离底部多远时触发无限滚动事件，默认是<b>50</b> (px)
+            p <code>data-distance</code> attribute allows to configure distance from the bottom of page (in px) to trigger infinite scroll event. By default, if note specified, it is <b>50</b> (px)
+        h2 Infinite Scroll On Top
+        p If you need to use infinite scroll on top the page (when it scrolled to top), you need to add additional "infinite-scroll-top" class to "page-content":
+        pre
+          code
+            | &lt;div class="page"&gt;
+            |     &lt;div class="page-content infinite-scroll infinite-scroll-top"&gt;
+            |         ... 
+            |     &lt;/div&gt;
+            | &lt;/div&gt;
         h2 无限滚动事件
         table.events-table
           thead

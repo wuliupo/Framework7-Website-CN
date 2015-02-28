@@ -47,17 +47,22 @@ block content
       p 所以，如果你用iOS 7.1的设备打开应用，你会拥有以下类：
       pre
         code
-          | &lt;html class="ios ios-7 ios-7-1 ios-gt-6"&gt;
+          | &lt;html class="ios ios-7 ios-7-1 ios-gt-6 pixel-ratio-1"&gt;
           | ...
       p 如果你用具有retina屏的iOS 7.1设备来打开应用，并且运行在全屏模式下（myApp.device.statusBar = true）：
       pre
         code
-          | &lt;html class="ios ios-7 ios-7-1 ios-gt-6 retina with-statusbar-overlay"&gt;
+          | &lt;html class="ios ios-7 ios-7-1 ios-gt-6 retina pixel-ratio-2 with-statusbar-overlay"&gt;
           | ...
       p 如果你用iOS 8.0设备来打开应用，并且运行在全屏模式下（myApp.device.statusBar = true）：
       pre
         code
           | &lt;html class="ios ios-8 ios-8-0 ios-gt-6 ios-gt-7 with-statusbar-overlay"&gt;
+          | ...
+      p If you open app on iPhone6 Plus and your app running in full screen mode (myApp.device.statusBar = true):
+      pre
+        code
+          | &lt;html class="ios ios-8 ios-8-0 ios-gt-6 ios-gt-7 retina pixel-ratio-3 with-statusbar-overlay"&gt;
           | ...
       p 如果你用Android 4.4设备来打开应用，你会拥有以下类：
       pre
@@ -67,7 +72,7 @@ block content
       p 换句话说，类基于以下规则计算：
       pre
         code
-          | &lt;html class="[os] [os major version] [os full version] [retina] [with-statusbar-overlay]"&gt;
+          | &lt;html class="[os] [os major version] [os full version] [retina] pixel-ratio-[devicePixelRatio] [with-statusbar-overlay]"&gt;
           | ...
       .important-note
         p 注意，“greater than”（ios-gt-6: 对于所有高于iOS 6的iOS）类只对iOS有效

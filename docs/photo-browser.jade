@@ -15,7 +15,7 @@ block content
       .full-width
         h1 图片浏览器（Photo Browser）
         p 图片浏览器是一个像iOS图片浏览器一样用来展示图片的组件。图片可以被缩放或者平移 (可选)。
-        p 图片浏览器使用<a href="slider.html">幻灯片</a>组件来展现图片。
+        p 图片浏览器使用 <a href="swiper.html">幻灯片</a>组件来展现图片。
 
         h2 创建一个图片浏览器实例
         p 图片浏览器只需通过javaScript就可以被创建和初始化。我们需要使用App封装好的方法：
@@ -231,27 +231,26 @@ block content
             tr
               th(colspan="4") 幻灯片回调
             tr
-              td onSlideChangeStart(slider)
+              td onSlideChangeStart(swiper)
               td function
               td 
               td 回调函数，当图片浏览器向前或者向后切换图片开始的时候执行，接受幻灯片的实例作为参数
             tr
-              td onSlideChangeEnd(slider)
+              td onSlideChangeEnd(swiper)
               td function
               td 
-              td 回调函数，当图片浏览器向前或者向后切换图片结束的时候执行，接受幻灯片的实例作为参数
             tr
-              td onClick(slider, event)
+              td onClick(swiper, event)
               td function
               td 
               td 回调函数，当图片浏览器被点击/触碰的时候延迟300ms执行，接受幻灯片的实例和touchend事件两个对象作为参数
             tr
-              td onTap(slider, event)
+              td onTap(swiper, event)
               td function
               td 
               td 回调函数，当图片浏览器被点击/触碰的时候执行，接受幻灯片的实例和touchend事件两个对象作为参数
             tr
-              td onDoubleTap(slider, event)
+              td onDoubleTap(swiper, event)
               td function
               td 
               td 回调函数，当图片浏览器被连续两次触碰的时候执行，接受幻灯片的实例和touchend事件两个对象作为参数
@@ -263,8 +262,8 @@ block content
             tr
               th(colspan="2") 属性
             tr
-              td myPhotoBrowser.slider
-              td 包含初始化<a href="slider.html">Slider</a>的实例和所有可用的Slider<a href="slider.html#幻灯片方法和属性">方法和属性</a>
+              td myPhotoBrowser.swiper
+              td 包含一个<a href="slider.html">Swiper</a> 实例，这个实例上有所有可用的Swiper <a href="slider.html#swiper-methods-properties">方法和属性</a>
             tr
               td myPhotoBrowser.container
               td <a href="dom.html">Dom7</a>形式的图片浏览器HTML容器
@@ -494,8 +493,8 @@ block content
             |     &lt;div class="view navbar-fixed toolbar-fixed"&gt;
             |         {{navbar}}
             |         &lt;div data-page="photo-browser-slides" class="page no-toolbar toolbar-fixed navbar-fixed"&gt;
-            |             &lt;div class="photo-browser-slider-container slider-container"&gt;
-            |                 &lt;div class="photo-browser-slider-wrapper slider-wrapper"&gt;
+            |             &lt;div class="photo-browser-swiper-container swiper-container"&gt;
+            |                 &lt;div class="photo-browser-swiper-wrapper swiper-wrapper"&gt;
             |                     {{photos}}
             |                 &lt;/div&gt;
             |             &lt;/div&gt;
@@ -557,14 +556,14 @@ block content
         p 这是一张幻灯片的模版，你可以通过<code>photoTemplate</code>参数传递；
         pre
           code
-            | &lt;div class="photo-browser-slide slider-slide"&gt;
+            | &lt;div class="photo-browser-slide swiper-slide"&gt;
             |     &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
             | &lt;/div&gt;            
         h3 懒加载模板
         p 单个图片的懒加载模板，你可以通过  <code>photoLazyTemplate</code> 参数来设置。
         pre
           code
-            | &lt;div class="photo-browser-slide photo-browser-slide-lazy slider-slide"&gt;
+            | &lt;div class="photo-browser-slide photo-browser-slide-lazy swiper-slide"&gt;
             |     &lt;div class="preloader"&gt;&lt;/div&gt;
             |     &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
             | &lt;/div&gt;            
@@ -572,7 +571,7 @@ block content
         p 这是一个对象元素的模版，你可以通过<code>objectTemplate</code>参数传递：
         pre
           code
-            | &lt;div class="photo-browser-slide photo-browser-object-slide slider-slide"&gt;
+            | &lt;div class="photo-browser-slide photo-browser-object-slide swiper-slide"&gt;
             |     {{html}}
             | &lt;/div&gt;
         h3 标题模版

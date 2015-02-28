@@ -83,6 +83,7 @@
                 <li><a href="navbar-toolbar-layouts.html">布局类型</a></li>
                 <li><a href="navbar.html">导航栏</a></li>
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
+                <li><a href="sub-navbar.html">二级导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
                 <li><a href="hide-bars-on-scroll.html">自动隐藏工具栏</a></li>
@@ -100,6 +101,7 @@
                 <li><a href="popover.html">Popover</a></li>
                 <li><a href="action-sheet.html">Action Sheet</a></li>
                 <li><a href="login-screen.html">Login Screen</a></li>
+                <li><a href="picker-modal.html">Picker Modal</a></li>
               </ul>
             </li>
             <li><a href="preloader.html">Preloader Indicator</a></li>
@@ -114,6 +116,7 @@
               </ul>
             </li>
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
+            <li><a href="cards.html">卡片</a></li>
             <li><a href="buttons.html">按钮</a></li>
             <li>表单
               <ul>
@@ -127,14 +130,19 @@
               </ul>
             </li>
             <li><a href="tabs.html">标签页</a></li>
-            <li><a href="slider.html">幻灯片</a></li>
+            <li><a href="swiper.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
+            <li><a href="picker.html">picker</a></li>
+            <li><a href="calendar.html">日历</a></li>
             <li><a href="pull-to-refresh.html">下拉刷新</a></li>
             <li><a href="infinite-scroll.html">无限滚动</a></li>
             <li><a href="messages.html">消息</a></li>
             <li><a href="messagebar.html">消息栏</a></li>
             <li><a href="notifications.html">通知</a></li>
-            <li class="title"><a href="color-themes.html">皮肤颜色</a></li>
+            <li><a href="lazy-load.html">懒加载</a></li>
+            <li class="title">样式</li>
+            <li><a href="color-themes.html">皮肤颜色</a></li>
+            <li><a href="hairlines.html">边框</a></li>
             <li class="title">Template7</li>
             <li><a href="template7.html">入门</a></li>
             <li><a href="template7-auto-compilation.html">自动编译模板</a></li>
@@ -204,6 +212,12 @@
                 <td>boolean</td>
                 <td>true</td>
                 <td>Fast clicks 是一个内置库，当你点击链接或者提交表单的时候，她会移除300毫秒的延迟。如果你有其他的 fast click 库，你可以禁用这个功能。</td>
+              </tr>
+              <tr>
+                <td>fastClicksDelayBetweenClicks</td>
+                <td>number</td>
+                <td>50</td>
+                <td>Minimal allowed delay (in ms) between miltiple clicks</td>
               </tr>
               <tr>
                 <td>fastClicksDistanceThreshold</td>
@@ -492,6 +506,12 @@
                 <td>在 Login 和 Password Modals 中密码输入框的占位符</td>
               </tr>
               <tr>
+                <td>modalStack</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>This feature doesn't allow to open multiple modals at the same time, and will automatically open next modal when you close the current one. Such behavior is similar to browser native alerts</td>
+              </tr>
+              <tr>
                 <th colspan="4">Smart Select</th>
               </tr>
               <tr>
@@ -564,10 +584,22 @@
                 <td>设置为true，那么当页面向下滚动的时候，工具栏会自动隐藏；向上滚动的时候会自动出现。</td>
               </tr>
               <tr>
+                <td>hideTabbarOnPageScroll</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Set to true and Tab bar will be hidden automatically on page scroll down, and became visible on scroll up. Note that this is only for Tab Bar app layout, otherwise use <code>hideToolbarOnPageScroll</code></td>
+              </tr>
+              <tr>
                 <td>showBarsOnPageScrollEnd</td>
                 <td>boolean</td>
                 <td>true</td>
                 <td>设置为true，那么当页面滚动到底部的时候会自动显示出被隐藏的导航栏和工具栏。</td>
+              </tr>
+              <tr>
+                <td>scrollTopOnNavbarClick</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Set to true and each click on Navbar's "center" element will scroll currently active page to top</td>
               </tr>
               <tr>
                 <th colspan="4">搜索栏(Search Bar)</th>
@@ -583,6 +615,27 @@
                 <td>boolean</td>
                 <td>true</td>
                 <td>如果设置为 true，当搜索的时候，如果搜索结果中的分组里面没有内容，则会自动隐藏她们</td>
+              </tr>
+              <tr>
+                <th colspan="4">Images Lazy Load</th>
+              </tr>
+              <tr>
+                <td>imagesLazyLoadThreshold</td>
+                <td>number</td>
+                <td>0</td>
+                <td>By default images are loaded when they appear on the screen. Use this parameter if you want to load images earlier. Setting it to 50 will load image when it 50 pixels before it appears on viewport</td>
+              </tr>
+              <tr>
+                <td>imagesLazyLoadSequential</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If enabled, then lazy images will be loaded one by one when they appear in viewport</td>
+              </tr>
+              <tr>
+                <td>imagesLazyLoadPlaceholder</td>
+                <td>string</td>
+                <td></td>
+                <td>Lazy load image placeholder source to show while image is not yet loaded. By default it is 1x1 px image</td>
               </tr>
               <tr>
                 <th colspan="4">Notifications</th>
@@ -631,6 +684,12 @@
                 <td>boolean</td>
                 <td>undefined</td>
                 <td>With this option you can overwrite automatic <a href="status-bar.html">status bar detection</a></td>
+              </tr>
+              <tr>
+                <td>scrollTopOnStatusbarClick</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Set to true and each click on Status bar ("status-bar-overlay") will scroll currently active page to top</td>
               </tr>
               <tr>
                 <th colspan="4">Template7</th>
@@ -838,8 +897,8 @@
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
-        <div class="copy">2014 © Framework7 by iDangero.us</div>
+        <div class="links"><a href="./">Framework7</a><a href="../plugins/">插件</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
+        <div class="copy">2015 © Framework7 by iDangero.us</div>
         <div class="copy">翻译 by SDC-ALIBABA <a href='mailto:hongxun.lhx@alibaba-inc.com'>联系我们</a></div>
       </div>
     </footer>
@@ -848,14 +907,5 @@
     <script src="../js/main.js"></script>
     <script>var addthis_config = {"data_track_addressbar":true};</script>
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52c9b0605d63191c"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-13289120-8', 'idangero.us');
-      ga('send', 'pageview');      
-    </script>
   </body>
 </html>

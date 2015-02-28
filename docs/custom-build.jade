@@ -9,25 +9,25 @@ block content
     .docs-nav
       include ../jade/_docs-menu
     .docs-content
-      h1 Framework7定制
-      p 自从0.9.4版本以来，Framework7就使用Grunt构建工具，你可以使用它来定制版本，只包含需要的组件/模块。步骤如下：
+      h1 Framework7 Custom Build
+      p Since version 1.0.0 Framework7 comes with Gulp builder that allows to build custom library version where you may include only required components/modules. We need the following:
       ol
         li 
           p 下载<a href="https://github.com/nolimits4web/Framework7" target="_blank">Framework7 GitHub repository</a>，解压到本地目录
         li
           p 安装<a href="http://nodejs.org/" target="_blank">Node.js</a> （如果没有安装的话）
         li
-          p 安装Grunt（如果没有安装的话），在终端中执行如下命令：
+          p Install Gulp (if not installed) by executing the following command in terminal:
           pre
-            code $ npm install -g grunt-cli
+            code $ npm install --global gulp
         li
           p 然后，我们需要安装需要的依赖，进入Framework7 repository解压的路径，在终端中执行如下命令：
           pre
             code $ npm install
         li 
-          p 现在，我们做好了构建定制版本Framework7的准备工作。我们需要执行<code>grunt custom</code>命令，传递我们想要添加的组件/模块作为参数。例如，如果我们只想要手风琴（Accordion ）和标签页（Tabs）的话：
+          p 现在，我们做好了构建定制版本Framework7的准备工作。我们需要执行<code>gulp custom</code>命令，传递我们想要添加的组件/模块作为参数。例如，如果我们只想要手风琴（Accordion ）和标签页（Tabs）的话：
             pre
-              code $ grunt custom:accordion,tabs
+              code $ gulp custom -accordion,tabs
             .important-note 注意，在逗号和组件名之间不应有空格
         li
           p 以上即为全部操作。现在，你应该可以看到<code>custom/</code>文件夹，它包含定制的JS和CSS文件，以及相应的压缩版本
@@ -53,8 +53,14 @@ block content
           td.nowrap sortable
           td <a href="sortable-list.html">可排序列表</a>组件
         tr
+          td.nowrap cards
+          td <a href="cards.html">Cards</a> component
+        tr
           td.nowrap smart-select
           td <a href="smart-select.html">智能选择</a>组件
+        tr
+          td.nowrap virtual-list
+          td <a href="virtual-list.html">Virtual List</a> component
         tr
           td.nowrap pull-to-refresh
           td <a href="pull-to-refresh.html">下拉刷新</a>组件
@@ -62,8 +68,11 @@ block content
           td.nowrap infinite-scroll
           td <a href="infinite-scroll.html">无限滚动</a>组件
         tr
-          td tabs
-          td <a href="tabs.html">标签页</a>组件
+          td.nowrap scroll-toolbars
+          td <a href="hide-bars-on-scroll.html">Hide Bars On Scroll</a> component
+        tr
+          td.nowrap tabs
+          td <a href="tabs.html">Tabs</a> component
         tr
           td.nowrap fast-clicks
           td 这个库用来去除在移动端浏览器中300ms的点击延时。如果你想要使用第三方的快速点击库，你无需添加它
@@ -74,18 +83,21 @@ block content
           td.nowrap push-state
           td 添加浏览历史
         tr
-          td.nowrap slider
-          td <a href="slider.html">幻灯片</a>组件
+          td.nowrap swiper
+          td <a href="swiper.html">幻灯片</a> component
         tr
           td.nowrap photo-browser
           td <a href="photo-browser.html">图片浏览器</a>组件。幻灯片也会被安装，因为图片浏览器需要它
         tr
           td.nowrap notifications
           td <a href="notifications.html">通知</a>组件
+        tr
+          td.nowrap picker
+          td <a href="picker.html">Picker</a> component
+        tr
+          td.nowrap calendar
+          td <a href="calendar.html">Calendar / Datepicker</a> component
       h2 只有内核
-      p 如果你不添加任何组件，只需要执行“grunt custom”，而不添加任何参数：
+      p 如果你不添加任何组件，只需要执行 "gulp custom"，而不添加任何参数：
       pre
-        code $ grunt custom
-
-
-      
+        code $ gulp custom

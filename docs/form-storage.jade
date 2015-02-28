@@ -82,33 +82,50 @@ block content
             &lt;p&gt;&lt;a href="#" class="button save-storage-data"&gt;Save Data&lt;/a&gt;&lt;/p&gt;
           &lt;/div&gt;
       pre
-        code.
-          var myApp = new Framework7();  
-
-          var $$ = Framework7.$;
-
-          $$('.get-storage-data').on('click', function() {
-            var storedData = myApp.formGetData('my-form2');
-            if(storedData) {
-              alert(JSON.stringify(storedData));
-            }
-            else {
-              alert('There is no stored data for this form yet. Try to change any field')
-            }
-          });
-
-          $$('.delete-storage-data').on('click', function() {
-            var storedData = myApp.formDeleteData('my-form2');
-            alert('Form data deleted')
-          });
-
-          $$('.save-storage-data').on('click', function() {
-            var storedData = myApp.formStoreData('my-form2', {
-              'name': 'John',
-              'email': 'john@doe.com',
-              'gender': 'female',
-              'switch': ['yes'],
-              'slider': 10
-            });
-            alert('Form data replaced, refresh browser to see changes')
-          });
+        code
+          | var myApp = new Framework7();  
+          | 
+          | var $$ = Dom7;
+          | 
+          | $$('.get-storage-data').on('click', function() {
+          |   var storedData = myApp.formGetData('my-form2');
+          |   if(storedData) {
+          |     alert(JSON.stringify(storedData));
+          |   }
+          |   else {
+          |     alert('There is no stored data for this form yet. Try to change any field')
+          |   }
+          | });
+          | 
+          | $$('.delete-storage-data').on('click', function() {
+          |   var storedData = myApp.formDeleteData('my-form2');
+          |   alert('Form data deleted')
+          | });
+          | 
+          | $$('.save-storage-data').on('click', function() {
+          |   var storedData = myApp.formStoreData('my-form2', {
+          |     'name': 'John',
+          |     'email': 'john@doe.com',
+          |     'gender': 'female',
+          |     'switch': ['yes'],
+          |     'slider': 10
+          |   });
+          |   alert('Form data replaced, refresh browser to see changes')
+          | });
+      .full-width.stop-scroll-device
+        h2 Form storage JavaScript Events
+        table.events-table
+          thead
+            tr
+              th Event
+              th Target
+              th Description
+          tbody
+            tr
+              td formFromJSON
+              td Form element
+              td Event will be triggered after <code>formFromJSON</code> method called on form to fill form fields
+            tr
+              td formToJSON
+              td Form element
+              td Event will be triggered after <code>formToJSON</code> method called on form to convert form fields to JSON

@@ -87,6 +87,7 @@
                 <li><a href="navbar-toolbar-layouts.html">布局类型</a></li>
                 <li><a href="navbar.html">导航栏</a></li>
                 <li><a href="dynamic-navbar.html">动态导航栏</a></li>
+                <li><a href="sub-navbar.html">二级导航栏</a></li>
                 <li><a href="toolbar.html">工具栏</a></li>
                 <li><a href="tabbar.html">带图标工具栏</a></li>
                 <li><a href="hide-bars-on-scroll.html">自动隐藏工具栏</a></li>
@@ -104,6 +105,7 @@
                 <li><a href="popover.html">Popover</a></li>
                 <li><a href="action-sheet.html">Action Sheet</a></li>
                 <li><a href="login-screen.html">Login Screen</a></li>
+                <li><a href="picker-modal.html">Picker Modal</a></li>
               </ul>
             </li>
             <li><a href="preloader.html">Preloader Indicator</a></li>
@@ -118,6 +120,7 @@
               </ul>
             </li>
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
+            <li><a href="cards.html">卡片</a></li>
             <li><a href="buttons.html">按钮</a></li>
             <li>表单
               <ul>
@@ -131,14 +134,19 @@
               </ul>
             </li>
             <li><a href="tabs.html">标签页</a></li>
-            <li><a href="slider.html">幻灯片</a></li>
+            <li><a href="swiper.html">幻灯片</a></li>
             <li><a href="photo-browser.html">图片浏览器</a></li>
+            <li><a href="picker.html">picker</a></li>
+            <li><a href="calendar.html">日历</a></li>
             <li><a href="pull-to-refresh.html">下拉刷新</a></li>
             <li><a href="infinite-scroll.html">无限滚动</a></li>
             <li><a href="messages.html">消息</a></li>
             <li><a href="messagebar.html">消息栏</a></li>
             <li><a href="notifications.html">通知</a></li>
-            <li class="title"><a href="color-themes.html">皮肤颜色</a></li>
+            <li><a href="lazy-load.html">懒加载</a></li>
+            <li class="title">样式</li>
+            <li><a href="color-themes.html">皮肤颜色</a></li>
+            <li><a href="hairlines.html">边框</a></li>
             <li class="title">Template7</li>
             <li><a href="template7.html">入门</a></li>
             <li><a href="template7-auto-compilation.html">自动编译模板</a></li>
@@ -155,7 +163,7 @@
           <div class="full-width">
             <h1>图片浏览器（Photo Browser）</h1>
             <p>图片浏览器是一个像iOS图片浏览器一样用来展示图片的组件。图片可以被缩放或者平移 (可选)。</p>
-            <p>图片浏览器使用<a href="slider.html">幻灯片</a>组件来展现图片。</p>
+            <p>图片浏览器使用 <a href="swiper.html">幻灯片</a>组件来展现图片。</p>
             <h2>创建一个图片浏览器实例</h2>
             <p>图片浏览器只需通过javaScript就可以被创建和初始化。我们需要使用App封装好的方法：</p>
             <div class="method-wrap">
@@ -406,31 +414,30 @@ myPhotoBrowser.open(); // 打开图片浏览器</code></pre>
                   <th colspan="4">幻灯片回调</th>
                 </tr>
                 <tr>
-                  <td>onSlideChangeStart(slider)</td>
+                  <td>onSlideChangeStart(swiper)</td>
                   <td>function</td>
                   <td></td>
                   <td>回调函数，当图片浏览器向前或者向后切换图片开始的时候执行，接受幻灯片的实例作为参数</td>
                 </tr>
                 <tr>
-                  <td>onSlideChangeEnd(slider)</td>
+                  <td>onSlideChangeEnd(swiper)</td>
                   <td>function</td>
                   <td></td>
-                  <td>回调函数，当图片浏览器向前或者向后切换图片结束的时候执行，接受幻灯片的实例作为参数</td>
                 </tr>
                 <tr>
-                  <td>onClick(slider, event)</td>
+                  <td>onClick(swiper, event)</td>
                   <td>function</td>
                   <td></td>
                   <td>回调函数，当图片浏览器被点击/触碰的时候延迟300ms执行，接受幻灯片的实例和touchend事件两个对象作为参数</td>
                 </tr>
                 <tr>
-                  <td>onTap(slider, event)</td>
+                  <td>onTap(swiper, event)</td>
                   <td>function</td>
                   <td></td>
                   <td>回调函数，当图片浏览器被点击/触碰的时候执行，接受幻灯片的实例和touchend事件两个对象作为参数</td>
                 </tr>
                 <tr>
-                  <td>onDoubleTap(slider, event)</td>
+                  <td>onDoubleTap(swiper, event)</td>
                   <td>function</td>
                   <td></td>
                   <td>回调函数，当图片浏览器被连续两次触碰的时候执行，接受幻灯片的实例和touchend事件两个对象作为参数</td>
@@ -445,8 +452,8 @@ myPhotoBrowser.open(); // 打开图片浏览器</code></pre>
                   <th colspan="2">属性</th>
                 </tr>
                 <tr>
-                  <td>myPhotoBrowser.slider</td>
-                  <td>包含初始化<a href="slider.html">Slider</a>的实例和所有可用的Slider<a href="slider.html#幻灯片方法和属性">方法和属性</a></td>
+                  <td>myPhotoBrowser.swiper</td>
+                  <td>包含一个<a href="slider.html">Swiper</a> 实例，这个实例上有所有可用的Swiper <a href="slider.html#swiper-methods-properties">方法和属性</a></td>
                 </tr>
                 <tr>
                   <td>myPhotoBrowser.container</td>
@@ -683,8 +690,8 @@ $$('.pb-standalone-video').on('click', function () {
     &lt;div class="view navbar-fixed toolbar-fixed"&gt;
         {{navbar}}
         &lt;div data-page="photo-browser-slides" class="page no-toolbar toolbar-fixed navbar-fixed"&gt;
-            &lt;div class="photo-browser-slider-container slider-container"&gt;
-                &lt;div class="photo-browser-slider-wrapper slider-wrapper"&gt;
+            &lt;div class="photo-browser-swiper-container swiper-container"&gt;
+                &lt;div class="photo-browser-swiper-wrapper swiper-wrapper"&gt;
                     {{photos}}
                 &lt;/div&gt;
             &lt;/div&gt;
@@ -751,18 +758,18 @@ $$('.pb-standalone-video').on('click', function () {
             </ul>
             <h3>图片元素模版</h3>
             <p>这是一张幻灯片的模版，你可以通过<code>photoTemplate</code>参数传递；</p>
-            <pre><code>&lt;div class="photo-browser-slide slider-slide"&gt;
+            <pre><code>&lt;div class="photo-browser-slide swiper-slide"&gt;
     &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
 &lt;/div&gt;            </code></pre>
             <h3>懒加载模板</h3>
             <p>单个图片的懒加载模板，你可以通过  <code>photoLazyTemplate</code> 参数来设置。</p>
-            <pre><code>&lt;div class="photo-browser-slide photo-browser-slide-lazy slider-slide"&gt;
+            <pre><code>&lt;div class="photo-browser-slide photo-browser-slide-lazy swiper-slide"&gt;
     &lt;div class="preloader"&gt;&lt;/div&gt;
     &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
 &lt;/div&gt;            </code></pre>
             <h3>对象元素模版</h3>
             <p>这是一个对象元素的模版，你可以通过<code>objectTemplate</code>参数传递：</p>
-            <pre><code>&lt;div class="photo-browser-slide photo-browser-object-slide slider-slide"&gt;
+            <pre><code>&lt;div class="photo-browser-slide photo-browser-object-slide swiper-slide"&gt;
     {{html}}
 &lt;/div&gt;</code></pre>
             <h3>标题模版</h3>
@@ -798,8 +805,8 @@ $$('.pb-standalone-video').on('click', function () {
     </div>
     <footer>
       <div class="center">
-        <div class="links"><a href="./">Framework7</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
-        <div class="copy">2014 © Framework7 by iDangero.us</div>
+        <div class="links"><a href="./">Framework7</a><a href="../plugins/">插件</a><a href="./contribute/">贡献</a><a href="./get-started/">开始使用</a><a href="./docs/">文档</a><a href="./tutorials/">教程</a><a href="./forum/">论坛</a><a href="./examples/">案例</a><a href="./apps/">示例</a><a href="./showcase/">应用</a></div>
+        <div class="copy">2015 © Framework7 by iDangero.us</div>
         <div class="copy">翻译 by SDC-ALIBABA <a href='mailto:hongxun.lhx@alibaba-inc.com'>联系我们</a></div>
       </div>
     </footer>
@@ -808,14 +815,5 @@ $$('.pb-standalone-video').on('click', function () {
     <script src="../js/main.js"></script>
     <script>var addthis_config = {"data_track_addressbar":true};</script>
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52c9b0605d63191c"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-13289120-8', 'idangero.us');
-      ga('send', 'pageview');      
-    </script>
   </body>
 </html>

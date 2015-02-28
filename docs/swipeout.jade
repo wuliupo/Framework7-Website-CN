@@ -40,7 +40,7 @@ block content
             |       &lt;div class="swipeout-actions-right"&gt;
             |         &lt;!-- Swipeout actions links/buttons --&gt;
             |         &lt;a href="#"&gt;Action 1&lt;/a&gt;
-            |         &lt;a href="#"&gt;Action 2&lt;/a&gt;
+            |         &lt;a class="swipeout-close" href="#"&gt;Action 2&lt;/a&gt;
             |       &lt;/div&gt;
             |     &lt;/li&gt;
             |     ...
@@ -51,6 +51,7 @@ block content
           li <code>swipeout-content</code> - 列表元素的容器，它会随着滑动操作移动
           li <code>swipeout-actions-left</code> - 向左滑动的按钮和链接的容器
           li <code>swipeout-actions-right</code> - 向左滑动的按钮和链接的容器
+          li <code>swipeout-close</code> - 一个可选的链接，点击之后会关闭
         .important-note
           p 注意，<strong>swipeout-content</strong>和<strong>swipeout-actions-left/right</strong>应该是<strong>&lt;li&gt;</strong>的直接子元素
         p 如果只含有“item-content”类的子元素，可以将“item-content”类加到“swipeout-content”元素上，以简化结构：
@@ -272,18 +273,30 @@ block content
         li
           span.parameter el
           |  - 带有“swipeout”类的列表元素（&lt;li&gt;）的<span class="parameter-type">DOM节点</span>或<span class="parameter-type">CSS选择器</span>。必选的
+        li
+          span.parameter direction
+          |  - 滑动方向，<span class="parameter-type">字符串</span> (可以是 "left" 或者 "right"). 如果一个条目同时有左滑和右滑操作，那么你必须指定这个参数. 可选
+        li
+          span.parameter callback
+          |  - <span class="parameter-type">function</span> - 回调函数，打开动画完成之后执行。
       p
         span.method myApp.swipeoutClose(<span>el</span>)</span> - 在指定的元素中隐藏滑动菜单
       ul.method-parameters
         li
           span.parameter el
           |  - 带有“swipeout”类的列表元素（&lt;li&gt;）的<span class="parameter-type">DOM节点</span>或<span class="parameter-type">CSS选择器</span>。必选的
+        li
+          span.parameter callback
+          |  - <span class="parameter-type">function</span> - 回调函数，关闭动画完成之后执行。
       p
         span.method myApp.swipeoutDelete(<span>el</span>)</span> - 删除指定的滑动列表中的元素
       ul.method-parameters
         li
           span.parameter el
           |  - 带有“swipeout”类的列表元素（&lt;li&gt;）的<span class="parameter-type">DOM节点</span>或<span class="parameter-type">CSS选择器</span>。必选的
+        li
+          span.parameter callback
+          |  - <span class="parameter-type">function</span> - 回调函数，完成动画后删除DOM前执行。
       p
         span.method myApp.swipeoutOpenedEl</span> - 属性（property）。包含已打开的滑动列表元素。当没有滑动列表中的元素被打开，返回undefined
 

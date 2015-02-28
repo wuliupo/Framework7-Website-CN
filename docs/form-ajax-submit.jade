@@ -32,8 +32,37 @@ block content
             p request method 通过表单的 <b>"method"</b> 属性来指定
           li
             p Content-Type 通过表单的 <b>enctype</b> 属性来指定，默认值是 <b>application/x-www-form-urlencoded</b>
+
       h2 当表单数据改变时提交数据
       p 很多时候我们在表单中没有使用 "submit" 按钮，这种情况下我们需要当表单有任何数据改变的时候就提交数据。这种情况我们需要使用 "ajax-submit-onchange" class:
+      pre      
+        code
+          | &lt;form action="send-here.html" method="GET" class="ajax-submit-onchange"&gt;
+          |     ...
+          | &lt;/form&gt; 
+      p And when user will change any form filed, form data automatically will be sended using Ajax with the same rules as in previous case.
+
+      h2 Ajax submit event
+      p Sometimes we need to get actual XHR repsonse from the file/url where we send form data with Ajax. We can use special event for that:
+      table.events-table
+        thead
+          tr
+            th Event
+            th Target
+            th Description
+        tbody
+          tr
+            td submitted
+            td Form Element<span>&lt;form class="ajax-submit"&gt;</span>
+            td Event will be triggered after successful Ajax request 
+          tr
+            td beforeSubmit
+            td Form Element<span>&lt;form class="ajax-submit"&gt;</span>
+            td Event will be triggered right before Ajax request 
+          tr
+            td submitError
+            td Form Element<span>&lt;form class="ajax-submit"&gt;</span>
+            td Event will be triggered on Ajax request error 
       pre
         code.
           &lt;form action="send-here.html" method="GET" class="ajax-submit-onchange"&gt;

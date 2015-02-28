@@ -43,7 +43,7 @@ block content
           |   &lt;/div&gt;
           |   ...
           | &lt;/body&gt;
-      p <strong>Pages</strong> 是page在同一个View中的容器. Pages 是必须的，因为所有的页面切换都在这里。
+      p <code>&lt;div class="pages"&gt;</code> 是page在同一个View中的容器. Pages 是必须的，因为所有的页面切换都在这里。
       p 几个重要的提示
       ul
         li
@@ -157,6 +157,9 @@ block content
           tr
             td page.context
             td <span class="parameter-type">object</span>. 这个页面的 Template7 上下文
+          tr
+            td page.fromPage
+            td <span class="parameter-type">object</span>. 上一个页面的pageData
           
           
       p 我们就可以在一个handler中处理不同的页面了:
