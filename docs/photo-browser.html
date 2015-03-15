@@ -402,19 +402,7 @@ myPhotoBrowser.open(); // 打开图片浏览器</code></pre>
                   <td>回调函数，当图片浏览器通过上下滑动的形式关闭时执行</td>
                 </tr>
                 <tr>
-                  <td>onImageLoad(photobrowser, slide, image)</td>
-                  <td>function</td>
-                  <td></td>
-                  <td>回调函数，当图片浏览器开始一张图片的懒加载的时候会触发。</td>
-                </tr>
-                <tr>
-                  <td>onImageLoaded(photobrowser, slide, image)</td>
-                  <td>function</td>
-                  <td></td>
-                  <td>回调函数，当图片懒加载结束的时候会触发。</td>
-                </tr>
-                <tr>
-                  <th colspan="4">幻灯片回调</th>
+                  <th colspan="4">Swiper Callbacks</th>
                 </tr>
                 <tr>
                   <td>onSlideChangeStart(swiper)</td>
@@ -444,6 +432,18 @@ myPhotoBrowser.open(); // 打开图片浏览器</code></pre>
                   <td>function</td>
                   <td></td>
                   <td>回调函数，当图片浏览器被连续两次触碰的时候执行，接受幻灯片的实例和touchend事件两个对象作为参数</td>
+                </tr>
+                <tr>
+                  <td>onLazyImageLoad(swiper, slide, image)</td>
+                  <td>function</td>
+                  <td></td>
+                  <td>Callback function, will be executed when Photo Browser begins to load lazy loading photo</td>
+                </tr>
+                <tr>
+                  <td>onLazyImageReady(swiper, slide, image)</td>
+                  <td>function</td>
+                  <td></td>
+                  <td>Callback function, will be executed after lazy loading photo will be loaded</td>
                 </tr>
               </tbody>
             </table>
@@ -768,7 +768,7 @@ $$('.pb-standalone-video').on('click', function () {
             <p>单个图片的懒加载模板，你可以通过  <code>photoLazyTemplate</code> 参数来设置。</p>
             <pre><code>&lt;div class="photo-browser-slide photo-browser-slide-lazy swiper-slide"&gt;
     &lt;div class="preloader"&gt;&lt;/div&gt;
-    &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
+    &lt;span class="photo-browser-zoom-container"&gt;&lt;img class="swiper-lazy" src="{{url}}"&gt;&lt;/span&gt;
 &lt;/div&gt;            </code></pre>
             <h3>对象元素模版</h3>
             <p>这是一个对象元素的模版，你可以通过<code>objectTemplate</code>参数传递：</p>

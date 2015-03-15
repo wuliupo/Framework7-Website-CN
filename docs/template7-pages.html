@@ -247,13 +247,13 @@ var mainView = myApp.addView('.view-main');
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
           <h3>普通数据</h3>
-          <p>在模板数据中定义普通数据，可能会更灵活，更容易处理。我们可以通过在链接上使用 <code>data-contextName</code> 属性来加和使用这些数据.</p>
+          <p>在模板数据中定义普通数据，可能会更灵活，更容易处理。我们可以通过在链接上使用 <code>data-context-name</code> 属性来加和使用这些数据.</p>
           <p>让我们看看下面这个例子，我们有一个首页，首页中有一个链接会跳转到语言列表页面，语言列表页面会有一个链接跳转到语言详情页面：</p>
           <p><b>index.html:</b></p>
           <pre><code>&lt;div class="list-block"&gt;
   &lt;ul&gt;
     &lt;li&gt;
-      &lt;a href="languages.html" class="item-link item-content" data-contextName="languages"&gt;
+      &lt;a href="languages.html" class="item-link item-content" data-context-name="languages"&gt;
           &lt;div class="item-inner"&gt;
             &lt;div class="item-title"&gt;Languages&lt;/div&gt;
           &lt;/div&gt;
@@ -271,7 +271,7 @@ var mainView = myApp.addView('.view-main');
         {{#each this.frontend}}
         &lt;li&gt;
           &lt;!-- As a context name for this link we pass context path from template7Data root --&gt;
-          &lt;a href="language-details.html" class="item-link item-content" data-contextName="languages.frontend.{{@index}}"&gt;
+          &lt;a href="language-details.html" class="item-link item-content" data-context-name="languages.frontend.{{@index}}"&gt;
               &lt;div class="item-inner"&gt;
                 &lt;div class="item-title"&gt;{{this.name}}&lt;/div&gt;
               &lt;/div&gt;
@@ -287,7 +287,7 @@ var mainView = myApp.addView('.view-main');
         {{#each this.backend}}
         &lt;li&gt;
           &lt;!-- As a context name for this link we pass context path from template7Data root --&gt;
-          &lt;a href="language-details.html" class="item-link item-content" data-contextName="languages.backend.{{@index}}"&gt;
+          &lt;a href="language-details.html" class="item-link item-content" data-context-name="languages.backend.{{@index}}"&gt;
               &lt;div class="item-inner"&gt;
                 &lt;div class="item-title"&gt;{{this.name}}&lt;/div&gt;
               &lt;/div&gt;
@@ -307,9 +307,9 @@ var mainView = myApp.addView('.view-main');
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-          <p>在链接上使用 <code>data-contextName</code> 属性可以传入 <code>templatesData</code> 中定义的上下文。他也支持通过上下文路径(通过使用 <code>.</code> 号)来访问子属性.</p>
+          <p>在链接上使用 <code>data-context-name</code> 属性可以传入 <code>templatesData</code> 中定义的上下文。他也支持通过上下文路径(通过使用 <code>.</code> 号)来访问子属性.</p>
           <p>比如，我们可以创建一个使用上下文路径的链接指向详情页：</p>
-          <pre><code>&lt;a href="language-details.html" data-contextName="languages.frontend.1"&gt;CSS&lt;/a&gt;</code></pre>
+          <pre><code>&lt;a href="language-details.html" data-context-name="languages.frontend.1"&gt;CSS&lt;/a&gt;</code></pre>
           <p>在JS中，我们也可以使用视图的路由器的 <code>.load()</code> 方法和 <code>contextName</code> 属性：</p>
           <pre><code class="js">mainView.router.load({
     url: 'language-details.html',

@@ -219,17 +219,7 @@ block content
               td 
               td 回调函数，当图片浏览器通过上下滑动的形式关闭时执行
             tr
-              td onImageLoad(photobrowser, slide, image)
-              td function
-              td 
-              td 回调函数，当图片浏览器开始一张图片的懒加载的时候会触发。
-            tr
-              td onImageLoaded(photobrowser, slide, image)
-              td function
-              td 
-              td 回调函数，当图片懒加载结束的时候会触发。
-            tr
-              th(colspan="4") 幻灯片回调
+              th(colspan="4") Swiper Callbacks
             tr
               td onSlideChangeStart(swiper)
               td function
@@ -254,6 +244,16 @@ block content
               td function
               td 
               td 回调函数，当图片浏览器被连续两次触碰的时候执行，接受幻灯片的实例和touchend事件两个对象作为参数
+            tr
+              td onLazyImageLoad(swiper, slide, image)
+              td function
+              td 
+              td Callback function, will be executed when Photo Browser begins to load lazy loading photo
+            tr
+              td onLazyImageReady(swiper, slide, image)
+              td function
+              td 
+              td Callback function, will be executed after lazy loading photo will be loaded
             
         h2 图片浏览器方法及属性
         p 当我们初始化图片浏览器之后，我们将会得到它的实例引用（比如<code>myPhotoBrowser</code>）， 并且包括很多有用的方法和属性：
@@ -565,7 +565,7 @@ block content
           code
             | &lt;div class="photo-browser-slide photo-browser-slide-lazy swiper-slide"&gt;
             |     &lt;div class="preloader"&gt;&lt;/div&gt;
-            |     &lt;span class="photo-browser-zoom-container"&gt;&lt;img src="{{url}}"&gt;&lt;/span&gt;
+            |     &lt;span class="photo-browser-zoom-container"&gt;&lt;img class="swiper-lazy" src="{{url}}"&gt;&lt;/span&gt;
             | &lt;/div&gt;            
         h3 对象元素模版
         p 这是一个对象元素的模版，你可以通过<code>objectTemplate</code>参数传递：

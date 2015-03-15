@@ -117,12 +117,14 @@ block content
         p 注意，如果你通过设置<b>smartSelectInPopup:true</b>使所有的 Smart select 都以弹层的方式打开，你依然可通过设置 <b>data-open-in="page"</b> 属性来设置以页面方式打开。
       h2(data-device-preview="../docs-demos/smart-select-images.html") 自定义图标和图片
       p 你可以自定义Smart Select列表中的图标和图片。我们必须通过在smart select 的 <code>&lt;select&gt;</code>或者<code>&lt;option&gt;</code>上设置 "data-option-icon" 或者 "data-option-image"来实现自定义。如果是在<code>&lt;select&gt;</code>上设置的，则对所有的option都生效；如果是在<code>&lt;option&gt;</code>上设置的，则只对当前一条生效。
+      p For single option we may also use <b>data-option-color</b> and <b>data-option-class</b> attributes to add specific option color or css class for additional styling
       pre
         code
           | &lt;a href="#" class="item-link smart-select"&gt;
           |   &lt;select name="fruits"&gt;
           |     &lt;option value="apple" selected data-option-image="http://lorempixel.com/29/29/"&gt;Apple&lt;/option&gt;
           |     &lt;option value="pineapple" data-option-image="http://lorempixel.com/29/29/?2"&gt;Pineapple&lt;/option&gt;
+          |     &lt;option value="pear" data-option-color="orange" data-option-image="http://lorempixel.com/29/29/?3"&gt;Pear&lt;/option&gt;
           |     ...
           |   &lt;/select&gt;
           |   &lt;div class="item-content"&gt;
@@ -172,13 +174,13 @@ block content
       p 我们可以通过 &lt;optgroup&gt; 来使用分组，可以通过在 select 上设置 "multiple" 属性来使用多选（页面会自动换成checkbox)。
       .full-width.stop-scroll-device
         h2 用户选择之后自动关闭
-        p 可以设置用户选择之后自动关闭页面。只需要设置 <b>data-back-onselect</b> 属性即可：
+        p 可以设置用户选择之后自动关闭页面。只需要设置 <b>data-back-on-select</b> 属性即可：
         pre
           code
             | &lt;div class="list-block"&gt;
             |   &lt;ul&gt;
-            |     &lt;!-- data-back-onselect="true" to close page automatically --&gt;
-            |     &lt;li&gt;&lt;a href="#" class="item-link smart-select" data-back-onselect="true"&gt;
+            |     &lt;!-- data-back-on-select="true" to close page automatically --&gt;
+            |     &lt;li&gt;&lt;a href="#" class="item-link smart-select" data-back-on-select="true"&gt;
             |         &lt;select name="car" multiple&gt;
             |           ...
             |         &lt;/select&gt;
@@ -261,7 +263,7 @@ block content
             |     &lt;/ul&gt;
             | &lt;/div&gt;
         h2 通过可选的文案来设置值
-        p It is possible to set smart select (and its select) value depending on selected option value. For this case we need to add additional <code>"smart-select-value"</code> class to "item-after":
+        p It is possible to set smart select (and its select) value depending on selected option value. For this case we need to add additional <b>"smart-select-value"</b> class to "item-after":
         pre
           code
             | &lt;div class="list-block"&gt;
@@ -294,3 +296,28 @@ block content
           li
             span.parameter smartSelect
             |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of required ".smart-select". Required.
+        h2 Add options dynamically
+        p It is possible to add Smart Select options later dynamically, if it is even already opened. We need to use appropriate App method:
+        p
+          span.method myApp.smartSelectAddOption(<span>select</span>, <span>optionHTML</span>, index) - add option to select at specified index
+        ul.method-parameters
+          li
+            span.parameter select
+            |  - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of Smart Select's <code>&lt;select&gt;</code> or <code>&lt;optgroup&gt;</code>. Required.
+          li
+            span.parameter optionHTML
+            |  - <span class="parameter-type">string</span> with HTML of option to add. Required.
+          li
+            span.parameter index
+            |  - <span class="parameter-type">number</span> index number for new option. If not specified, then option will be added to the end
+        p For example:
+        pre
+          code.js
+            | // Append option
+            | myApp.smartSelectAddOption('.smart-select select', '&lt;option value="apple"&gt;Apple&lt;/option&gt;');
+            | 
+            | // Add new option as first selected option
+            | myApp.smartSelectAddOption('.smart-select select', '&lt;option value="apple" selected&gt;Apple&lt;/option&gt;', 0);
+            | 
+            | // Append new option to second &lt;optgroup&gt;
+            | myApp.smartSelectAddOption($$('.smart-select select optigroup').eq(1), '&lt;option value="apple"&gt;Apple&lt;/option&gt;', 0);            

@@ -170,7 +170,7 @@
             <p>搜索栏应该放到“.page”内，“.page-content”前：</p>
             <pre><code>&lt;div class="page"&gt;
     &lt;!-- Search bar --&gt;
-    &lt;form class="searchbar" data-search-list=".list-block-search" data-search-in=".item-title" data-searchbar-found=".searchbar-found" data-searchbar-not-found=".searchbar-not-found"&gt;
+    &lt;form class="searchbar"&gt;
         &lt;div class="searchbar-input"&gt;
             &lt;input type="search" placeholder="Search"&gt;
             &lt;a href="#" class="searchbar-clear"&gt;&lt;/a&gt;
@@ -200,26 +200,177 @@
                 <ul>
                   <li><code>div class="searchbar-input"</code> - 搜索区域和取消按钮的容器
                     <ul>
-                      <li><code>input type="search"</code> - 搜索区域</li>
-                      <li><code>a class="searchbar-clear"</code> - 清空和重置搜索结果的按钮。可选元素。</li>
+                      <li><code>input type="search"</code> - search field</li>
+                      <li><code>a class="searchbar-clear"</code> - button to clear field value and reset search results. Optional element</li>
                     </ul>
                   </li>
-                  <li><code>a class="searchbar-cancel"</code> - 搜索栏取消按钮，它会关闭搜索栏，重置搜索结果和清空搜索区域。可选元素。</li>
+                  <li><code>a class="searchbar-cancel"</code> - searchbar Cancel button that will deactivate searchbar, reset search results and clear search field. Optional element</li>
                 </ul>
               </li>
-              <li><code>data-search-list</code> </li>该属性包含搜索列表块的CSS选择器，如果没有指定，搜索栏不会搜索任何东西。
-              <li><code>data-search-in</code> 该属性包含我们想要搜索的列表元素CSS选择器，通常我们搜索元素的标题。可选属性。如果没有指定，搜索栏不会搜索任何东西。</li>
-              <li><code>data-searchbar-found</code> 该属性包含搜索到的元素的CSS选择器。可选属性。如果没有指定，搜索栏会在相同页面内寻找这个元素。如果同时拥有几个搜索栏，这个属性会起作用。</li>
-              <li><code>data-searchbar-not-found</code> 该属性包含未搜索到的元素的CSS选择器。可选属性。如果没有指定，搜索栏会在相同页面内寻找这个元素。如果同时拥有几个搜索栏，这个属性会起作用。</li>
-              <li><code>div class="searchbar-overlay"</code> - 紧挨着搜索栏之后添加这个元素，当搜索栏起作用时，它对页面添加暗色遮罩。可选元素。</li>
-              <li><code>"searchbar-found"</code> - 如果搜索栏发现了匹配的元素，含有这个类的元素会显示出来。默认是可见的。可选元素。</li>
-              <li><code>"searchbar-not-found"</code> - 如果搜索栏没有发现匹配的元素，含有这个类的元素会显示出来。默认是隐藏的。可选元素。</li>
+              <li><code>div class="searchbar-overlay"</code> - Add this element right after search bar to enable dark overlay over page content when search bar is active. Optional element.</li>
+              <li><code>"list-block-search"</code> - list block where we are going to search elements.</li>
+              <li><code>"searchbar-found"</code> - element with this class will be displayed if searchbar find elements that match to search query. Visible by default. Optional element.</li>
+              <li><code>"searchbar-not-found"</code> - element with this class will be displayed if searchbar doesn't find elements that match to search query. Hidden by default. Optional element.</li>
             </ul>
+            <h2>Initialize Searchbar with JavaScript</h2>
+            <p>Now, when we have Searchbar' HTML, we need to initialize it. We need to use related App's method:</p>
+            <div class="method-wrap">
+              <p><span class="method">myApp.searchbar(<span>searchbarContainer</span>, <span>parameters</span>) </span><span>- initialize searchbar with options</span></p>
+              <ul class="method-parameters">
+                <li><span class="parameter">searchbarContainer</span> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of Searchbar container HTML element. Required.</li>
+                <li><span class="parameter">parameters</span> - <span class="parameter-type">object</span> - object with Searchbar parameters. Optional.</li>
+                <li class="method-returns"><strong>Method returns initialized Searchbar instance</strong></li>
+              </ul>
+            </div>
+            <p>For example:</p>
+            <pre><code>var mySearchbar = app.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+});   </code></pre>
+            <div class="important-note">Note that Searchbar container should be in DOM on a moment of initialization. So if you use it not on home page, you need to initialize it within <b>pageInit</b> <a href="pages.html#page-events">event</a> or <a href="page-callbacks.html">callback</a></div>
+            <h2>Searchbar Parameters</h2>
+            <p>Let's look on list of all available parameters:</p>
+            <table class="params-table">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>searchList</td>
+                  <td>string or HTMLElement</td>
+                  <td></td>
+                  <td>CSS selector or HTML element of list block to search</td>
+                </tr>
+                <tr>
+                  <td>searchIn</td>
+                  <td>string</td>
+                  <td>'.item-title'</td>
+                  <td>CSS selector of List View element's field where we need to search. Usually we search through element titles ('.item-title')</td>
+                </tr>
+                <tr>
+                  <td>found</td>
+                  <td>string or HTMLElement</td>
+                  <td></td>
+                  <td>CSS selector or HTMLElement of searchbar "found" element. If not specified, searchbar will look for <code>.searchbar-found</code> element on page</td>
+                </tr>
+                <tr>
+                  <td>notFoud</td>
+                  <td>string or HTMLElement</td>
+                  <td></td>
+                  <td>CSS selector or HTMLElement of searchbar "not-found" element. If not specified, searchbar will look for <code>.searchbar-not-found</code> element on page</td>
+                </tr>
+                <tr>
+                  <td>overlay</td>
+                  <td>string or HTMLElement</td>
+                  <td></td>
+                  <td>CSS selector or HTMLElement of searchbar overlay. If not specified, searchbar will look for <code>.searchbar-overlay</code> element on page</td>
+                </tr>
+                <tr>
+                  <td>ignore</td>
+                  <td>string</td>
+                  <td>'.searhbar-ignore'</td>
+                  <td>CSS selector for items to be ignored by searchbar and always present in search results</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2>Searchbar Methods & Properties</h2>
+            <p>After we initialize Searchbar we have its initialized instance in variable (like <code>mySearchbar</code> variable in example above) with helpful methods and properties:</p>
+            <table class="methods-table">
+              <tbody>
+                <tr>
+                  <th colspan="2">Properties</th>
+                </tr>
+                <tr>
+                  <td>mySearchbar.params</td>
+                  <td>Object with passed initialization parameters </td>
+                </tr>
+                <tr>
+                  <td>mySearchbar.searchList</td>
+                  <td>Dom7 element with search list block.</td>
+                </tr>
+                <tr>
+                  <td>mySearchbar.container</td>
+                  <td>Dom7 element with searchbar container HTML element.</td>
+                </tr>
+                <tr>
+                  <td>mySearchbar.input</td>
+                  <td>Dom7 element with searchbar input HTML element</td>
+                </tr>
+                <tr>
+                  <td>mySearchbar.active</td>
+                  <td>Boolean value that represents is searchbar enabled or disabled</td>
+                </tr>
+                <tr>
+                  <th colspan="2">Methods</th>
+                </tr>
+                <tr>
+                  <td>mySearchbar.search(<span>query</span>);</td>
+                  <td>Force searchbar to search passed query</td>
+                </tr>
+                <tr>
+                  <td>mySearchbar.enable();</td>
+                  <td>Enable/activate searchbar</td>
+                </tr>
+                <tr>
+                  <td>mySearchbar.disable();</td>
+                  <td>Disable/deactivate searchbar</td>
+                </tr>
+                <tr>
+                  <td>mySearchbar.clear();</td>
+                  <td>Clear search query and update results</td>
+                </tr>
+                <tr>
+                  <td>mySearchbar.destroy();</td>
+                  <td>Destroy searchbar instance</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2>Initialize Searchbar with HTML</h2>
+            <p>If you don't need to use Searchbar methods and properties you can initialize it using HTML without JavaScript. You can do that just by adding additional "searchbar-init" class to <code>.searchbar</code>. In this case we may pass required parameters using <b>data-</b> attributes. </p>
+            <pre><code>&lt;div class="page"&gt;
+    &lt;!-- Search bar with "searchbar-init" class for auto initialization --&gt;
+    &lt;form class="searchbar searchbar-init" data-search-list=".list-block-search" data-search-in=".item-title" data-found=".searchbar-found" data-not-found=".searchbar-not-found"&gt;
+        &lt;div class="searchbar-input"&gt;
+            &lt;input type="search" placeholder="Search"&gt;
+            &lt;a href="#" class="searchbar-clear"&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;a href="#" class="searchbar-cancel"&gt;Cancel&lt;/a&gt;
+    &lt;/form&gt;
+    
+    &lt;div class="searchbar-overlay"&gt;&lt;/div&gt;
+    
+    &lt;div class="page-content"&gt;
+        &lt;div class="content-block searchbar-not-found"&gt;
+                Nothing found
+        &lt;/div&gt;
+ 
+        &lt;div class="list-block list-block-search searchbar-found"&gt;
+            &lt;ul&gt;
+                ... list view items ...
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt; </code></pre>
+            <div class="important-note">
+              <p>Parameters that used in camelCase, for example <b>searchList</b>, in data- attributes should be used as hypens-case as <b>data-search-list</b></p>
+            </div>
+            <p><b>Access to Searchbar's Instance</b></p>
+            <p>If you initialize Searchbar using HTML it is still possible to access to Searchbar's instance. It is "f7Searchbar" property of searchbar's container HTML element:</p>
+            <pre><code>var mySearchbar = $$('.searchbar')[0].f7Searchbar;
+ 
+// Now you can use it
+mySearchbar.search('Hello world');</code></pre>
           </div>
-          <h2 data-device-preview="../docs-demos/searchbar.html">搜索栏示例</h2>
+          <h2 data-device-preview="../docs-demos/searchbar.html">Search Bar Example</h2>
+          <p>In this example we use searchbar with auto initialization</p>
           <pre><code>&lt;div data-page="home" class="page"&gt;
   &lt;!-- Search bar --&gt;
-  &lt;form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar"&gt;
+  &lt;form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init"&gt;
     &lt;div class="searchbar-input"&gt;
       &lt;input type="search" placeholder="Search"&gt;&lt;a href="#" class="searchbar-clear"&gt;&lt;/a&gt;
     &lt;/div&gt;&lt;a href="#" class="searchbar-cancel"&gt;Cancel&lt;/a&gt;
@@ -285,19 +436,6 @@
                 </tr>
               </tbody>
             </table>
-            <h2>相关App方法</h2>
-            <div class="method-wrap">
-              <p><span class="method">myApp.destroySearchbar(<span>container</span>) </span><span>- 解绑所有的搜索栏事件和行为</span></p>
-              <ul class="method-parameters">
-                <li><span class="parameter">container</span> - <span class="parameter-type">HTML元素</span>或（含有CSS选择器的）<span class="parameter-type">字符串</span> - 该元素是搜索栏或包含搜索栏的页面</li>
-              </ul>
-            </div>
-            <div class="method-wrap">
-              <p><span class="method">myApp.initSearchbar(<span>container</span>) </span><span>- 在销毁搜索栏之后，再次绑定所有的搜索栏事件和行为</span></p>
-              <ul class="method-parameters">
-                <li><span class="parameter">container</span> - <span class="parameter-type">HTML元素</span>或（含有CSS选择器的）<span class="parameter-type">字符串</span> - 该元素是搜索栏或包含搜索栏的页面</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
