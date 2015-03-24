@@ -134,6 +134,20 @@ block content
             td true
             td 预加载上一页，为了能让"滑动返回上一页"功能正常工作，这个值应该设置为 true。
           tr
+            td preroute
+            td function(view, options)
+            td -
+            td 
+              p This callback allows to prevent default router load/back actions and to load another page or do another required actions
+              p Look for example below
+          tr
+            td preprocess
+            td function(content, url, next)
+            td -
+            td 
+              p This callback function allows you to modify loaded router (mostly Ajax) content right before it will be injected to DOM. Callback receives "content" and "url" of the loaded page and the "next" callback function. After you modify content within this function you should return it with: <code>return content</code>
+              p Look for example below
+          tr
             th(colspan="4") Push State
           tr
             td pushState
@@ -521,11 +535,6 @@ block content
             td -
             td Ajax 请求结束的时候调用。会传递一个xhr对象作为参数。
           tr
-            td preprocess
-            td function(content, url, next)
-            td -
-            td 这个回调函数可以让你在Ajax的内容插入DOM之前修改内容。这个函数会传递三个参数："content", Page对应的"url"和下一个回调函数"next"。如果你希望用一些客户端HTML模板，比如 "Handlebars", "Mustache" 等，那么这个方法将会非常有用。在你修改完内容之后，你应该返回修改过的内容: <code>return content</code>
-          tr
             th(colspan="4") 命名空间
               p
                 strong 注意！如果你改变了命名空间，记得也要改CSS中对应的class！
@@ -554,40 +563,40 @@ block content
             td 默认情况下，当你调用  <code>new Framework7()</code> 的时候Framework7会自动初始化。如果你希望自己手动控制，那么你可以禁用这个选项，然后自己调用 <code>myApp.init()</code>来初始化。
       p 最终你写在 <code>my-app.js</code> 中的代码可能会是这样的：
       pre
-        code.
-          var myApp = new Framework7({
-              // Default title for modals
-              modalTitle: 'My App',
-
-              // If it is webapp, we can enable hash navigation:
-              pushState: true,
-
-              // Hide and show indicator during ajax requests
-              onAjaxStart: function (xhr) {
-                  myApp.showIndicator();
-              },
-              onAjaxComplete: function (xhr) {
-                  myApp.hideIndicator();
-              }
-          });
+        code
+          | var myApp = new Framework7({
+          |     // Default title for modals
+          |     modalTitle: 'My App',
+          | 
+          |     // If it is webapp, we can enable hash navigation:
+          |     pushState: true,
+          | 
+          |     // Hide and show indicator during ajax requests
+          |     onAjaxStart: function (xhr) {
+          |         myApp.showIndicator();
+          |     },
+          |     onAjaxComplete: function (xhr) {
+          |         myApp.hideIndicator();
+          |     }
+          | });   
       h2 预处理内容
-      p Framework 可以让你用自己喜欢的客户端模板引擎，比如Handlebars 或者 mustache 等。
-      p 下面看看如何在初始化应用的时候就使用 Handlebars 作为我们的客户端模板引擎。（你需要先在页面中引入 Handlerbars）
+      p Framework 可以让你用自己喜欢的客户端模板引擎，或者在内容加载之后再做任意修改。
+      p 让我们看看如何在初始化应用的时候把 Template7 当做我们自己的客户端模板引擎。
       pre
-        code.
-          var myApp = new Framework7({
-              preprocess: function (content, url, next) {
-                  if (url === 'people.html') {
-                      var template = Handlebars.compile(content);
-                      var resultContent = template({
-                          title: 'People',
-                          people: ['John', 'Ivan', 'Mary']
-                      })
-                      return resultContent;
-                  }
-              }
-          });
-      p <code>people.html</code> 内容如下:
+        code
+          | var myApp = new Framework7({
+          |     preprocess: function (content, url, next) {
+          |         if (url === 'people.html') {
+          |             var template = Template7.compile(content);
+          |             var resultContent = template({
+          |                 title: 'People',
+          |                 people: ['John', 'Ivan', 'Mary']
+          |             })
+          |             return resultContent;
+          |         }
+          |     }
+          | });
+      p And the <code>people.html</code> page:
       pre
         code.
           &lt;div class="navbar"&gt;
@@ -608,24 +617,37 @@ block content
           &lt;/div&gt;
       p 有时候你会在预处理方法中有一些异步的逻辑，比如你用ajax来加载页面。这种情况下，我们提供了 "next" 回调函数，用来传入我们编译或者修改后的内容：
       pre
-        code.
-          var myApp = new Framework7({
-              preprocess: function (content, url, next) {
-                  if (url === 'people.html') {
-                      // For example, we will retreive template JSON data using Ajax and only after that we will continue page loading process
-                      $$.get('sometemplate.html', function(data) {
-                          // Template
-                          var template = Handlebars.compile(content);
-
-                          // Compile content template with received JSON data
-                          var resultContent = template(data);
-
-                          // Now we call "next" callback function with result content
-                          next(resultContent);
-                      });
-                      // Now we shouldn't return anything
-                  }
-              }
-          });
+        code
+          | var myApp = new Framework7({
+          |     preprocess: function (content, url, next) {
+          |         if (url === 'people.html') {
+          |             // For example, we will retreive template JSON data using Ajax and only after that we will continue page loading process
+          |             $$.get('sometemplate.html', function(data) {
+          |                 // Template
+          |                 var template = Template7.compile(content);
+          | 
+          |                 // Compile content template with received JSON data
+          |                 var resultContent = template(data);
+          | 
+          |                 // Now we call "next" callback function with result content
+          |                 next(resultContent);
+          |             });
+          |             // Now we shouldn't return anything
+          |         }
+          |     }
+          | });          
+      h2 "prerouter" 示例
+      p 这个回调函数可以用来阻止路由器默认的 加载/返回 行为，你可以自己去加载其他页面，重定向，或者做任意你需要的操作。
+      p 比如我们在用户访问某些页面的时候可以去检查他是否登录，如果未登录就跳转到登录页面
+      pre
+        code
+          | var myApp = new Framework7({
+          |     preroute: function (view, options) {
+          |         if (!userLoggedIn) {
+          |             view.router.loadPage('auth.html'); //load another page with auth form
+          |             return false; //required to prevent default router action
+          |         }
+          |     }
+          | });
       h2 下一步
-      p 完成应用初始化之后，我们下一步需要做的是完成视图（Views）的初始化。
+      p 在初始化应用之后，我们需要添加并初始化 <a href="views.html">视图</a> 

@@ -50,16 +50,23 @@ block content
       p <strong>注意不是所有的view都需要初始化，只有你需要浏览的那些view才需要。</strong>其他的view（比如 popup）不需要初始化，我们仅仅用来正确的布局navbar，pages和toolbars。
       p 在之前的文章中我们把应用初始化的实例存放在 <b>myApp</b> 变量中。
       pre
-        code.
-          var myApp = new Framework7({
-          // ...
-          });
-
+        code
+          | var myApp = new Framework7({
+          |   // ...
+          | });   
       p 这个实例有很多方法可以操作我们的应用，其中一个方法就可以用来初始化View。
-      ul.method-parameters.
-        <li><span class="parameter">container</span> - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span>. If string - CSS selector of View element</li>
-        <li><span class="parameter">parameters</span> - <span class="parameter-type">object</span>. Object with View parameters</li>
-        <li class="method-returns">This method returns object with View instance.</li>
+      .method-wrap
+        p
+          span.method myApp.addView(<span>selector, parameters</span>)</span>
+          |  - initialize View.
+        ul.method-parameters
+          li
+            span.parameter container
+            |  - <span class="parameter-type">string</span> or <span class="parameter-type">HTMLElement</span>. If string - CSS selector of View element
+          li
+            span.parameter parameters
+            |  - <span class="parameter-type">object</span>. Object with View parameters
+          li.method-returns This method returns object with just created View instance.
       h3 View initialization parameters
       table.params-table
         thead
@@ -121,7 +128,22 @@ block content
             td boolean
             td false
             td 启用这个功能之后，所有的页面都会直接在View中reload，而不是加载一个新的页面。
-          
+          tr
+            td preroute
+            td function(view, options)
+            td -
+            td 
+              p This callback allows to prevent default router load/back actions and to load another page or do another required actions. 
+              p Allows to override the same <a href="init-app.html">App callback</a> but for the current View
+              p <a href="init-app.html#example-with-preprocess-content">Example</a>
+          tr
+            td preprocess
+            td function(content, url, next)
+            td -
+            td 
+              p This callback function allows you to modify loaded by router (mostly Ajax) content right before it will be injected to DOM. Callback receives "content" and "url" of the loaded page and the "next" callback function.
+              p Allows to override the same <a href="init-app.html">App callback</a> but for the current View
+              p <a href="init-app.html#example-with-preroute">Example</a>
           tr
             th(colspan="4") 滑动返回上一步
           tr
@@ -143,7 +165,7 @@ block content
             td swipeBackPageAnimateShadow
             td boolean
             td 
-            td By default, equal to the same App's parameter. Allows to override global <a href="init-app.html">App parameter</a> for current View
+            td By default, equal to the same App's parameter. Allows to override the same <a href="init-app.html">App parameter</a> but for the current View
           tr
             td swipeBackPageAnimateOpacity
             td boolean
@@ -247,6 +269,19 @@ block content
       pre
         code.
           &lt;div class="view" data-url="index2.html"&gt;
+      h2 Get Current View
+      p There could be situation when we need to get currently active View, because instead of main app view we may also have view in opened popup, popover, opened panel, tabs, etc. This method allows to get the View instance of currently active/visible/"most-top" view. 
+      p For example, if you have initilized View in panel, and panel is currently opened, then this method will return panel's view. Or, if you use app with tab bar layout, where each tab is view, then this method will return currently active/visible tab-view
+      .method-wrap
+          p
+            span.method myApp.getCurrentView(<span>index</span>) 
+            span - get currently active/visible View instance
+          ul.method-parameters
+            li
+              span.parameter index
+              |  - <span class="parameter-type">number</span> - If there are few currently active views (as in Split View layout), then you need to specify index number of View. Optional
+            
+            li.method-returns Method returns initialized View instance or array with View instances if there are few currently active views
       h3 通过其他方式来访问View实例
       p 有时候你需要通过HTML元素来获取View实例。当我们初始化完成View之后，Framework7会在<code>&lt;div class="view"&gt;</code>元素上增加一个属性以便让我们可以通过JS来访问。
       pre

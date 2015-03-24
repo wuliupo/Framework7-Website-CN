@@ -338,17 +338,17 @@ block content
             td .scrollTop() 
             td 获取选中元素的 scrollTop 值
           tr
-            td .scrollTop(position, duration) 
-            td 在指定时间（duration）内滚动到指定位置（position）。如果时间（duration没有定义），则立刻滚动到指定位置。
+            td .scrollTop(position, duration, callback) 
+            td 在指定时间（duration）内滚动到指定位置（position）。如果时间（duration没有定义），则立刻滚动到指定位置。如果你指定了回调函数，那么他会在滚动完成后执行。
           tr
             td .scrollLeft() 
             td 获取选中元素的 scrollLeft 值 
           tr
-            td .scrollLeft(position, duration) 
-            td 在指定的时间（duration 毫秒)内滚动到指定的位置(scrollLeft)。如果没有指定时间则立刻滚动到指定位置。
+            td .scrollLeft(position, duration, callback) 
+            td 在指定的时间（duration 毫秒)内滚动到指定的位置(scrollLeft)。如果没有指定时间则立刻滚动到指定位置。如果你指定了回调函数，那么他会在动画完成后执行。
           tr
-            td .scrollTo(left, top, duration) 
-            td 在指定的时间（duration 毫秒)内滚动到指定的位置(scrollLeft, scrollTop)。如果没有指定时间则立刻滚动到指定位置。
+            td .scrollTo(left, top, duration, callback) 
+            td 在指定的时间（duration 毫秒)内滚动到指定的位置(scrollLeft, scrollTop)。如果没有指定时间则立刻滚动到指定位置。如果你指定了回调函数，那么他会在动画完成后执行。
           tr
             th(colspan="2") Dom 操作
           tr
@@ -578,6 +578,46 @@ block content
             td .scroll(<span>handler</span>) 
             td Add "scroll" event handler to collection
       h2 Utilities
+      h4 Dom7.each
+      p A generic iterator function, which can be used to seamlessly iterate over both objects and arrays. Arrays and array-like objects with a length property (such as a function's arguments object) are iterated by numeric index, from 0 to length-1. Other objects are iterated via their named properties
+      .method-wrap
+        p
+          span.method Dom7.each(<span>object/array</span>, <span>callback</span>) 
+          span - iterate through object or array
+        ul.method-parameters
+          li
+            span.parameter object/array
+            |  - <span class="parameter-type">object</span> or <span class="parameter-type">array</span> - to iterate over. Required.
+          li
+            span.parameter callback
+            |  - <span class="parameter-type">function</span> - callback function that will be executed on every object property, or on every array element. Required.
+      pre
+        code
+          | var fruits = ['Apple', 'Orange', 'Pineapple', 'Bannana'];
+          | $$.each(fruits, function (index, value) {
+          |     alert(index + ': ' + element); 
+          | });          
+          | 
+          | //This produces 4 alerts:
+          | 0: Apple
+          | 1: Orange
+          | 2: Pineapple
+          | 3: Bannana
+      pre
+        code
+          | var person = {
+          |     firstName: 'John',
+          |     lastName: 'Doe',
+          |     age: 25,
+          | };
+          | $$.each(person, function (key, value) {
+          |     alert(key + ': ' + value);
+          | });
+          | 
+          | //This produces 3 alerts:
+          | firstName: John
+          | lastName: Doe
+          | age: 25          
       h4 Dom7.parseUrlQuery
       .method-wrap
         p
