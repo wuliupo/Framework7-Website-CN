@@ -168,5 +168,5 @@ module.exports = function (grunt) {
         },
       }
     });
-    this.registerTask('default', ['jade']);
+    this.registerTask('default', ['jade', "less"]);
 }
