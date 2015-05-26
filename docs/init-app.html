@@ -36,7 +36,7 @@
           </div>
           <div class="links-row">
             <div class="links-label">应用:</div>
-            <div class="links"><a href="../examples/">案例</a><a href="../apps/">示例</a><a href="../showcase/">应用</a>
+            <div class="links"><a href="../examples/">案例</a><a href="../plugins/">插件</a><a href="../apps/">示例</a><a href="../showcase/">应用</a>
             </div>
           </div>
           <div class="links-row">
@@ -371,6 +371,12 @@
                 <td>如果设置为 false，那么会继承当前 View 的 animatePages 参数。如果设置为 true，那么页面切换的时候将没有动画效果。</td>
               </tr>
               <tr>
+                <td>pushStatePreventOnLoad</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If enabled, the first pop state event on app load will be ignored, as it can casue issues that load unnecessary. But useful to disable when you init app using async loaders like Require.js</td>
+              </tr>
+              <tr>
                 <th colspan="4">滑动返回上一页(Swipe back)</th>
               </tr>
               <tr>
@@ -635,13 +641,19 @@
                 <td>hideTabbarOnPageScroll</td>
                 <td>boolean</td>
                 <td>false</td>
-                <td>Set to true and Tab bar will be hidden automatically on page scroll down, and became visible on scroll up. Note that this is only for Tab Bar app layout, otherwise use <code>hideToolbarOnPageScroll</code></td>
+                <td>Set to true and Tab bar will be hidden automatically on page scroll down, and become visible on scroll up. Note that this is only for Tab Bar app layout, otherwise use <code>hideToolbarOnPageScroll</code></td>
               </tr>
               <tr>
                 <td>showBarsOnPageScrollEnd</td>
                 <td>boolean</td>
                 <td>true</td>
                 <td>设置为true，那么当页面滚动到底部的时候会自动显示出被隐藏的导航栏和工具栏。</td>
+              </tr>
+              <tr>
+                <td>showBarsOnPageScrollTop</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Set to false and bars will not become visible when you scroll page to top everytime. They will become visible only on the most top scroll position, in the beginning of the page</td>
               </tr>
               <tr>
                 <td>scrollTopOnNavbarClick</td>
@@ -798,6 +810,18 @@
                 <td>function(app, page)</td>
                 <td>-</td>
                 <td>回调函数，当页面从DOM中移除的时候调用。和 <a href="pages.html#page-events">page event</a> 中的 "pageBeforeRemove" 是相同的作用</td>
+              </tr>
+              <tr>
+                <td>onPageBack</td>
+                <td>function(app, page)</td>
+                <td>-</td>
+                <td>Callback function that will be executed right before "back" transition. Difference with "onPageBeforeAnimation" is that this callback will be executed for the "old" page - page that slides from center to right. Does the same as "pageBack" <a href="pages.html#page-events">page event</a></td>
+              </tr>
+              <tr>
+                <td>onPageAfterBack</td>
+                <td>function(app, page)</td>
+                <td>-</td>
+                <td>Callback function that will be executed right after "back" transition. Difference with "onPageAfterAnimation" is that this callback will be executed for the "old" page - page that slides from center to right. Does the same as "pageAfterBack" <a href="pages.html#page-events">page event</a></td>
               </tr>
               <tr>
                 <th colspan="4">Ajax回调函数(Ajax Callbacks)</th>

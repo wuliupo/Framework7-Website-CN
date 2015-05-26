@@ -68,4 +68,6 @@ block content
       .device-spacer(style="height:30px").stop-scroll-device
       .full-width
         .important-note
-          p 默认情况下页面滚动到底部时，工具栏和导航栏会自动显示，如果此时你不希望他们显示，你可以在 <a href="init-app.html">初始化应用</a> 的时候，设置 <b>showBarsOnPageScrollEnd</b> 参数。
+          p If you don't want your Navbar/Toolbar become visible when scroll reaches end of the page, then you need to disable <b>showBarsOnPageScrollEnd</b> parameter on <a href="init-app.html">App initialization</a>
+        .important-note
+          p If you don't want your Navbar/Toolbar become visible when you scroll to top, then you need to disable <b>showBarsOnPageScrollTop</b> parameter on <a href="init-app.html">App initialization</a>. In this case they will become visible only on the most top scroll position, in the beginning of the page

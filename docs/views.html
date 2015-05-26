@@ -36,7 +36,7 @@
           </div>
           <div class="links-row">
             <div class="links-label">应用:</div>
-            <div class="links"><a href="../examples/">案例</a><a href="../apps/">示例</a><a href="../showcase/">应用</a>
+            <div class="links"><a href="../examples/">案例</a><a href="../plugins/">插件</a><a href="../apps/">示例</a><a href="../showcase/">应用</a>
             </div>
           </div>
           <div class="links-row">
@@ -356,9 +356,33 @@
                   </ul>
                 </td>
               </tr>
+              <tr>
+                <td>onSwipeBackBeforeChange(callbackData)</td>
+                <td>function</td>
+                <td></td>
+                <td>Callback function that will be executed right before swipe back animation to previous page when you release it. </td>
+              </tr>
+              <tr>
+                <td>onSwipeBackAfterChange(callbackData)</td>
+                <td>function</td>
+                <td></td>
+                <td>Callback function that will be executed after swipe back animation to previous page when you release it. </td>
+              </tr>
+              <tr>
+                <td>onSwipeBackBeforeReset(callbackData)</td>
+                <td>function</td>
+                <td></td>
+                <td>Callback function that will be executed right before swipe back animation to current page when you release it. </td>
+              </tr>
+              <tr>
+                <td>onSwipeBackAfterReset(callbackData)</td>
+                <td>function</td>
+                <td></td>
+                <td>Callback function that will be executed after swipe back animation to current page when you release it. </td>
+              </tr>
             </tbody>
           </table>
-          <p>上面列出了我们所有可以用来初始化view的方法。</p>
+          <p>Now when we know all required parameters we can initialize our views according to HTML example above:</p>
           <pre><code>var myApp = new Framework7({
   // ...
 });   
@@ -452,14 +476,34 @@ var anotherView = myApp.addView('.another-view');</code></pre>
             </thead>
             <tbody>
               <tr>
-                <td>swipebackmove</td>
+                <td>swipeBackMove</td>
                 <td>View Element<span>&lt;div class="view"&gt;</span></td>
                 <td>滑动返回上一页的时候触发此事件</td>
               </tr>
+              <tr>
+                <td>swipeBackBeforeChange</td>
+                <td>View Element<span>&lt;div class="view"&gt;</span></td>
+                <td>Event will be triggered right before swipe back animation to previous page when you release it</td>
+              </tr>
+              <tr>
+                <td>swipeBackAfterChange</td>
+                <td>View Element<span>&lt;div class="view"&gt;</span></td>
+                <td>Event will be triggered after swipe back animation to previous page when you release it</td>
+              </tr>
+              <tr>
+                <td>swipeBackBeforeReset</td>
+                <td>View Element<span>&lt;div class="view"&gt;</span></td>
+                <td>Event will be triggered right before swipe back animation to current page when you release it</td>
+              </tr>
+              <tr>
+                <td>swipeBackAfterReset</td>
+                <td>View Element<span>&lt;div class="view"&gt;</span></td>
+                <td>Event will be triggered after swipe back animation to current page when you release it</td>
+              </tr>
             </tbody>
           </table>
-          <h2>视图的默认URL</h2>
-          <p>如果你觉得 Framework7 检测了错误的URL或者你想用不同的URL，你可以通过在 View 元素上加上 <code>data-url</code> 属性或者在初始化的时候传入 <code>url</code>参数来指定：</p>
+          <h2>Default View URL </h2>
+          <p>If you think that for some reason Framework7 detects wrong default View URL (which is used for navigation history), or if you want to have different default View URL, you can specify it using <code>data-url</code> attribute on View element or using <code>url</code> parameter when you initialze View:</p>
           <pre><code>&lt;div class="view" data-url="index2.html"&gt;</code></pre>
           <h2>Get Current View</h2>
           <p>There could be situation when we need to get currently active View, because instead of main app view we may also have view in opened popup, popover, opened panel, tabs, etc. This method allows to get the View instance of currently active/visible/"most-top" view. </p>

@@ -184,7 +184,27 @@ block content
                 li <code>previousPage</code> - 上一个（左边）页面的HTML元素
                 li <code>activeNavbar</code> - 当前页面导航栏的HTML元素（只有动态导航栏时候才有）
                 li <code>previousNavbar</code> - 上一个页面（左边）导航栏的HTML元素（只有动态导航栏时候才有）
-      p 上面列出了我们所有可以用来初始化view的方法。
+          tr
+            td onSwipeBackBeforeChange(callbackData)
+            td function
+            td 
+            td Callback function that will be executed right before swipe back animation to previous page when you release it. 
+          tr
+            td onSwipeBackAfterChange(callbackData)
+            td function
+            td 
+            td Callback function that will be executed after swipe back animation to previous page when you release it. 
+          tr
+            td onSwipeBackBeforeReset(callbackData)
+            td function
+            td 
+            td Callback function that will be executed right before swipe back animation to current page when you release it. 
+          tr
+            td onSwipeBackAfterReset(callbackData)
+            td function
+            td 
+            td Callback function that will be executed after swipe back animation to current page when you release it. 
+      p Now when we know all required parameters we can initialize our views according to HTML example above:
       pre
         code.
           var myApp = new Framework7({
@@ -261,11 +281,27 @@ block content
             th Description
         tbody
           tr
-            td swipebackmove
+            td swipeBackMove
             td View Element<span>&lt;div class="view"&gt;</span>
             td 滑动返回上一页的时候触发此事件
-      h2 视图的默认URL
-      p 如果你觉得 Framework7 检测了错误的URL或者你想用不同的URL，你可以通过在 View 元素上加上 <code>data-url</code> 属性或者在初始化的时候传入 <code>url</code>参数来指定：
+          tr
+            td swipeBackBeforeChange
+            td View Element<span>&lt;div class="view"&gt;</span>
+            td Event will be triggered right before swipe back animation to previous page when you release it
+          tr
+            td swipeBackAfterChange
+            td View Element<span>&lt;div class="view"&gt;</span>
+            td Event will be triggered after swipe back animation to previous page when you release it
+          tr
+            td swipeBackBeforeReset
+            td View Element<span>&lt;div class="view"&gt;</span>
+            td Event will be triggered right before swipe back animation to current page when you release it
+          tr
+            td swipeBackAfterReset
+            td View Element<span>&lt;div class="view"&gt;</span>
+            td Event will be triggered after swipe back animation to current page when you release it
+      h2 Default View URL 
+      p If you think that for some reason Framework7 detects wrong default View URL (which is used for navigation history), or if you want to have different default View URL, you can specify it using <code>data-url</code> attribute on View element or using <code>url</code> parameter when you initialze View:
       pre
         code.
           &lt;div class="view" data-url="index2.html"&gt;

@@ -64,6 +64,11 @@ html
                 a(href="../examples/").active 案例
               - else
                 a(href="../examples/") 案例
+                
+              - if (activeLink == 'plugins')
+                a(href="../plugins/").active 插件 
+              - else
+                a(href="../plugins/") 插件
 
               - if (activeLink == 'apps')
                 a(href="../apps/").active 示例
