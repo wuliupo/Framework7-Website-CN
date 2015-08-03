@@ -96,12 +96,21 @@ module.exports = function (grunt) {
             ext: '.html'
           }]
         },
-        kitchenSink: {
+        kitchenSinkIOS: {
           files: [{
             expand: true,
-            cwd: 'kitchen-sink/jade',
+            cwd: 'kitchen-sink-ios/jade',
             src: ['*.jade'],
-            dest: 'kitchen-sink/',
+            dest: 'kitchen-sink-ios/',
+            ext: '.html'
+          }]
+        },
+        kitchenSinkMaterial: {
+          files: [{
+            expand: true,
+            cwd: 'kitchen-sink-material/jade',
+            src: ['*.jade'],
+            dest: 'kitchen-sink-material/',
             ext: '.html'
           }]
         },
@@ -158,9 +167,13 @@ module.exports = function (grunt) {
           files: ['donate/*.jade'],
           tasks: ['newer:jade:donate']
         },
-        kitchenSinkJade: {
-          files: ['kitchen-sink/jade/*.jade'],
-          tasks: ['newer:jade:kitchenSink']
+        kitchenSinkIOS: {
+          files: ['kitchen-sink-ios/jade/*.jade'],
+          tasks: ['newer:jade:kitchenSinkIOS']
+        },
+        kitchenSinkMaterial: {
+          files: ['kitchen-sink-material/jade/*.jade'],
+          tasks: ['newer:jade:kitchenSinkMaterial']
         },
         less: {
           files: ['css/*.less'],

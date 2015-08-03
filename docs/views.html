@@ -124,6 +124,7 @@
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
             <li><a href="cards.html">卡片</a></li>
             <li><a href="buttons.html">按钮</a></li>
+            <li><a href="floating-action-button.html">浮动操作按钮</a></li>
             <li>表单
               <ul>
                 <li><a href="form-elements.html">表单布局</a></li>
@@ -156,12 +157,13 @@
             <li class="title">Fast Clicks</li>
             <li> <a href="active-state.html">激活状态</a></li>
             <li> <a href="tap-hold.html">长按事件</a></li>
+            <li> <a href="touch-ripple.html">点击水波效果(Material)</a></li>
             <li class="title">工具</li>
             <li> <a href="device-api.html">设备 API</a></li>
             <li> <a href="support-api.html">API</a></li>
             <li class="title"><a href="plugins-api.html">插件 API</a></li>
             <li class="title"><a href="custom-build.html">自定义下载</a><a href="custom-build.html">Custom Build  </a></li>
-          </ul>
+          </ul><a href="#" class="toggle-docs-nav"><span></span></a>
         </div>
         <div class="docs-content">
           <h1>视图(views)</h1>
@@ -228,7 +230,7 @@
                 <td>dynamicNavbar</td>
                 <td>boolean</td>
                 <td>false</td>
-                <td>在当前View中是否使用动态导航栏</td>
+                <td>在当前View中是否使用动态导航栏<span class="ios-only">iOS theme only</span></td>
               </tr>
               <tr>
                 <td>url</td>
@@ -308,7 +310,7 @@
                 </td>
               </tr>
               <tr>
-                <th colspan="4">滑动返回上一步</th>
+                <th colspan="4">滑动返回上一步(iOS theme only)</th>
               </tr>
               <tr>
                 <td>swipeBackPage</td>
@@ -341,7 +343,7 @@
                 <td>默认和app中对应的参数相同。可以在当前View中重置<a href="init-app.html">App参数</a></td>
               </tr>
               <tr>
-                <th colspan="4">回调函数(Callbacks)</th>
+                <th colspan="4">回调函数(Callbacks)(iOS theme only)</th>
               </tr>
               <tr>
                 <td>onSwipeBackMove(callbackData)</td>
@@ -467,6 +469,7 @@ var anotherView = myApp.addView('.another-view');</code></pre>
             </tbody>
           </table>
           <h2>View 事件</h2>
+          <p class="ios-only">这些事件只有在 iOS 主题中才有</p>
           <table class="events-table">
             <thead>
               <tr>

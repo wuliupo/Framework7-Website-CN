@@ -2,7 +2,7 @@ doctype
 html
   head
     meta(charset="utf-8")
-    title Framework7 - Full Featured Mobile HTML Framework For Building iOS Apps
+    title Framework7 - Full Featured Mobile HTML Framework For Building iOS & Android Apps
     meta(property="og:image", content="http://idangero.us/framework7/i/f7-banner.jpg")
     link(rel="stylesheet", href="css/normalize.css")
     link(rel="stylesheet", href="css/main.css")
@@ -17,9 +17,9 @@ html
           .title Framework7
           .slogan 特色的HTML框架<br/>可以创建精美的iOS应用
           .buttons
-            a(href="https://github.com/nolimits4web/Framework7/archive/v1.0.7.zip") 下载
+            a(href="https://github.com/nolimits4web/Framework7/archive/v1.2.0.zip") 下载
             a(href="./get-started/") 开始使用
-          .release-info MIT Licensed, v1.0.7 released on June 20, 2015 | 
+          .release-info MIT Licensed, v1.2.0 released on July 18, 2015 | 
             a(href="https://github.com/nolimits4web/Framework7/blob/master/CHANGELOG.md", target="_blank") 更新日志
           .links
             a(href="./docs/") 文档
@@ -38,9 +38,24 @@ html
           .github-buttons
             include jade/_github-buttons
         .phone
-          iframe(src="kitchen-sink/", frameborder="0", scrolling="no")
-          a(href="kitchen-sink/", target="_blank").fullscreen 全屏
+          iframe(src="kitchen-sink-ios/", frameborder="0", scrolling="no")
           .statusbar
+          .theme-switch
+            a(href="kitchen-sink-ios/", target="_blank").active
+              .theme-icon
+                .logo-apple
+                span iOS 
+              .fullscreen
+                i
+                span Fullscreen<br>Preview
+            a(href="kitchen-sink-material/", target="_blank")
+              .theme-icon
+                .logo-android
+                span Material
+              .fullscreen
+                i
+                span Fullscreen<br>Preview
+
     .share-line
       .center 
         .share
@@ -55,10 +70,10 @@ html
     .content.center
       .home-block.home-intro
         h1 Framework7
-        p Framework7 是一个开源免费的框架可以用来开发混合移动应用（原生和HTML混合）或者开发iOS7风格的WEB APP。也可以用来作为原型开发工具，可以迅速创建一个应用的原型。
+        p Framework7 是一个开源免费的框架可以用来开发混合移动应用（原生和HTML混合）或者开发 iOS & Android 风格的WEB APP。也可以用来作为原型开发工具，可以迅速创建一个应用的原型。
         p Framework7 最主要的功能是可以使用HTML、CSS和JS来开发iOS7应用。Framework7 是完全免费开源的。
-        p Framework7 并不能兼容所有的设备。她只专注于为iOS7 提供最好的体验。
-        p <strong>如果你想开发iOS7混合应用（Phonegap）或者你想开发iOS7风格的WEB APP，那么Framework7将会是你的首选。</strong>
+        p Framework7 并不能兼容所有的设备。她只专注于为 iOS 和 Google Material 设计提供最好的体验。
+        p <strong>如果你想开发 iOS 或者 Android 混合应用（Phonegap）或者你想开发 iOS 和 Google Material 风格的WEB APP，那么Framework7将会是你的首选。</strong>
 
       .home-block.home-easy-to-use
         .pic
@@ -68,12 +83,18 @@ html
           p 使用Framework7创建iOS7应用就和搭建一个网站一样简单。你只需要一个基本的HTML布局，并且把Framework7的CSS和JS文件引入即可！Framework7不会强制你写任何自定义的标签，也不会通过JS来生成任何额外的内容。你不需要通过JS或者JSON来写页面，只需要普通的HTML就可以。
         .clearfix
       .home-block.home-ios
-        
         .text
           h2 专注iOS
           p Framework7 是一个针对iOS7的框架。从一开始，她就考虑到如何最方便快捷地实现iOS7上各种惊艳的UI组件，以及复杂的动画和灵活的触摸交互。所以Framework7是你实现像素级精度的iOS7应用的最佳选择。
         .pic
             img(src="i/feats/ios.jpg", alt="")
+        .clearfix
+      .home-block.home-ios
+        .text
+          h2 Material Theme
+          p Framework7 Material theme was designed according to the official Google Material design specification to bring pixel-perfect Material features - from visual design and colors to interactions and effects. And now, Framework7 will be a great solution to create Android apps with native Material look and feel.
+        .pic
+            img(src="i/feats/material.jpg", alt="")
         .clearfix
       .home-block.home-ui
         .text
@@ -125,7 +146,7 @@ html
         .text
           h2 自定义
           p Framework7 的所有样式文件都被分类放在了一个个小的 <code>less</code> 文件中，所以你可以只选择自己需要的部分文件。
-          p 这里有很多使用Framework7并且上架App Store的应用 <a href="showcase/">Showcase</a>:
+          p 这里有很多使用Framework7并且上架App Store的 iOS & Android 应用 <a href="showcase/">Showcase</a>:
         .pic
           img(src="i/showcase/delights1.jpeg")
           img(src="i/showcase/series72.png")
@@ -208,10 +229,10 @@ html
           h2 并且它是完全免费的
           p Framework7 是完全免费开源的（MIT 协议）
           p
-            a(href="https://github.com/nolimits4web/Framework7/archive/v1.0.7.zip") 下载
+            a(href="https://github.com/nolimits4web/Framework7/archive/v1.2.0.zip") 下载
             a(href="./get-started/") 开始使用 Framework7
             a(href="./docs/") 文档
-            a(href="./contribute/") 贡献
+            a(href="./contribute/") 贡献代码
       
       .home-block.home-products
         h2 More Great Products By iDangero.us

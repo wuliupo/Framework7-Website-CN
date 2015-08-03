@@ -32,7 +32,35 @@ block content
             th 说明
         tbody
           tr
-            th(colspan="4") 缓存(Caching)
+            th(colspan="4") Material Theme (Material theme only)
+          tr
+            td material
+            td boolean
+            td false
+            td Set to <b>true</b> to activate Material-specific App JS behavior
+          tr
+            td materialPageLoadDelay
+            td number
+            td 0
+            td Delay (in ms) before animation of loaded page. Can be increased a bit to improve performance
+          tr
+            td materialRipple
+            td boolean
+            td true
+            td Enable/disable Material-specific touch ripple effect
+          tr
+            td materialRippleElements
+            td string
+            td '.ripple, a.link, a.item-link, .button, .modal-button, .tab-link, .label-radio, .label-checkbox, .actions-modal-button, a.searchbar-clear, .floating-button'
+            td CSS selector of elements to apply touch ripple effect on click
+          tr
+            td materialPreloaderSvg
+            td string
+            td '&lt;svg xmlns="http://www.w3.org/2000/svg" height="75" width="75" viewbox="0 0 75 75"&gt;&lt;circle cx="37.5" cy="37.5" r="33.5" stroke-width="8"/&gt;&lt;/svg&gt;'
+            td HTML of Material' theme SVG preloader
+          
+          tr
+            th(colspan="4") Caching
           tr
             td cache
             td boolean
@@ -68,7 +96,7 @@ block content
           tr
             td fastClicksDistanceThreshold
             td number
-            td 0
+            td 10
             td 需要阻止tab事件的距离。当 tap/move 的距离超过这个值的时候，不会触发click事件。
           tr
             td activeState
@@ -137,7 +165,7 @@ block content
             td animateNavBackIcon
             td boolean
             td false
-            td 当启用这个功能时，动态导航栏中的 back-link 图标的动画会更接近iOS的风格。只有当你使用动态导航栏并且使用了默认的 back-link 图标时才应该把这个值设置为 "sliding"。
+            td 当启用这个功能时，动态导航栏中的 back-link 图标的动画会更接近iOS的风格。只有当你使用动态导航栏并且使用了默认的 back-link 图标时才应该把这个值设置为 "sliding"。 <span class="ios-only">iOS theme only</span>
           tr 
             td animatePages
             td boolean
@@ -191,7 +219,7 @@ block content
             td If enabled, the first pop state event on app load will be ignored, as it can casue issues that load unnecessary. But useful to disable when you init app using async loaders like Require.js
           
           tr
-            th(colspan="4") 滑动返回上一页(Swipe back)
+            th(colspan="4") 滑动返回上一页(iOS theme only)
           tr
             td swipeBackPage
             td boolean
@@ -274,11 +302,6 @@ block content
             td boolean
             td true
             td 点击 panel 外面来关闭她。
-          tr
-            td panelsVisibleZIndex
-            td number
-            td 6000
-            td panel 对应的CSS z-index
           tr
             th(colspan="4") 弹层(Modals)
           tr
@@ -453,17 +476,17 @@ block content
             td notificationTitle
             td string
             td undefined
-            td 所有通知(notifications)的默认标题
+            td 所有通知(notifications)的默认标题<span class="ios-only">iOS theme only</span>
           tr
             td notificationSubtitle
             td string
             td undefined
-            td 所有通知(notifications)的默认副标题
+            td 所有通知(notifications)的默认副标题<span class="ios-only">iOS theme only</span>
           tr
             td notificationMedia
             td string
             td undefined
-            td 所有通知(notifications)的默认图标
+            td 所有通知(notifications)的默认图标<span class="ios-only">iOS theme only</span>
           tr
             td notificationHold
             td number
@@ -478,9 +501,14 @@ block content
             td notificationCloseIcon
             td boolean
             td true
-            td 设置为true，则默认就会显示一个关闭按钮
+            td 设置为true，则默认就会显示一个关闭按钮<span class="ios-only">iOS theme only</span>
           tr
-            th(colspan="4") 状态栏(Status Bar)
+            td notificationCloseButtonText
+            td string
+            td 'Close'
+            td Default text for Snackbars' close button <span class="material-only">Material theme only</span>
+          tr
+            th(colspan="4") 状态栏(Status Bar)<span class="ios-only">iOS theme only</span>
           tr
             td statusbarOverlay
             td boolean

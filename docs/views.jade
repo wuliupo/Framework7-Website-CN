@@ -80,7 +80,7 @@ block content
             td dynamicNavbar
             td boolean
             td false
-            td 在当前View中是否使用动态导航栏
+            td 在当前View中是否使用动态导航栏<span class="ios-only">iOS theme only</span>
           tr
             td url
             td string
@@ -145,7 +145,7 @@ block content
               p Allows to override the same <a href="init-app.html">App callback</a> but for the current View
               p <a href="init-app.html#example-with-preroute">Example</a>
           tr
-            th(colspan="4") 滑动返回上一步
+            th(colspan="4") 滑动返回上一步(iOS theme only)
           tr
             td swipeBackPage
             td boolean
@@ -172,7 +172,7 @@ block content
             td 
             td 默认和app中对应的参数相同。可以在当前View中重置<a href="init-app.html">App参数</a>
           tr
-            th(colspan="4") 回调函数(Callbacks)
+            th(colspan="4") 回调函数(Callbacks)(iOS theme only)
           tr
             td onSwipeBackMove(callbackData)
             td function
@@ -273,6 +273,7 @@ block content
             td 销毁初始化过的View，解除事件绑定，禁用浏览导航
       
       h2 View 事件
+      p.ios-only 这些事件只有在 iOS 主题中才有
       table.events-table
         thead
           tr

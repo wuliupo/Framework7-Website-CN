@@ -128,6 +128,7 @@
             <li><a href="accordion.html">Accordion / Collapsible</a></li>
             <li><a href="cards.html">卡片</a></li>
             <li><a href="buttons.html">按钮</a></li>
+            <li><a href="floating-action-button.html">浮动操作按钮</a></li>
             <li>表单
               <ul>
                 <li><a href="form-elements.html">表单布局</a></li>
@@ -160,12 +161,13 @@
             <li class="title">Fast Clicks</li>
             <li> <a href="active-state.html">激活状态</a></li>
             <li> <a href="tap-hold.html">长按事件</a></li>
+            <li> <a href="touch-ripple.html">点击水波效果(Material)</a></li>
             <li class="title">工具</li>
             <li> <a href="device-api.html">设备 API</a></li>
             <li> <a href="support-api.html">API</a></li>
             <li class="title"><a href="plugins-api.html">插件 API</a></li>
             <li class="title"><a href="custom-build.html">自定义下载</a><a href="custom-build.html">Custom Build  </a></li>
-          </ul>
+          </ul><a href="#" class="toggle-docs-nav"><span></span></a>
         </div>
         <div class="docs-content with-device">
           <div class="full-width">
@@ -212,12 +214,13 @@
                 <p>Checkbox (&lt;input type="checkbox"&gt;) 必须是 "item-content" 的第一个子元素</p>
               </li>
               <li>
-                <p>Checkbox 图标必须在 "item-media" 里</p>
+                <p>Checkbox icon must be in "item-media"</p>
               </li>
             </ul>
           </div>
-          <h2 data-device-preview="../docs-demos/checkboxes-radios-radios.html">单选按钮组</h2>
-          <pre><code>&lt;div class="list-block"&gt;
+          <h2 data-device-preview="../docs-demos/checkboxes-radios-radios.html">Radios group iOS</h2>
+          <p>Let's look at radio inputs group layout:
+            <pre><code>&lt;div class="list-block"&gt;
   &lt;ul&gt;
     &lt;!-- Single radio input --&gt;
     &lt;li&gt;
@@ -232,7 +235,6 @@
     &lt;!-- Another radio input --&gt;
     &lt;li&gt;
       &lt;label class="label-radio item-content"&gt;
-        &lt;!-- Checked by default --&gt;
         &lt;input type="radio" name="my-radio" value="Movies"&gt;
         &lt;div class="item-inner"&gt;
           &lt;div class="item-title"&gt;Movies&lt;/div&gt;
@@ -241,19 +243,54 @@
     &lt;/li&gt;
     ...
   &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;                       </code></pre>
+          </p>
           <div class="important-note">
             <ul>
               <li>
                 <p>"item-content" 应该是一个Label元素，并且需要有一个 "label-radio" class</p>
               </li>
               <li>
-                <p>单选按钮 (&lt;input type="radio"&gt;) 必须是 item-content 的第一个子元素</p>
+                <p>Radio input (&lt;input type="radio"&gt;) must be a first child of "item-content"</p>
               </li>
             </ul>
           </div>
-          <h2 data-device-preview="../docs-demos/checkboxes-radios-media.html">在 media list 中使用</h2>
-          <p>你可以在 media list 中使用单选/复选按钮:</p>
+          <h2 data-device-preview="../docs-demos/checkboxes-radios-radios-material.html">Radios group Material</h2>
+          <div class="important-note">
+            <p>Note that in Material theme you'll have to add additional icon for Radios:</p>
+          </div>
+          <pre><code>&lt;div class="list-block"&gt;
+  &lt;ul&gt;
+    &lt;!-- Single radio input --&gt;
+    &lt;li&gt;
+      &lt;label class="label-radio item-content"&gt;
+        &lt;!-- Checked by default --&gt;
+        &lt;input type="radio" name="my-radio" value="Books" checked="checked"&gt;
+        &lt;div class="item-media"&gt;
+          &lt;i class="icon icon-form-radio"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="item-inner"&gt;
+          &lt;div class="item-title"&gt;Books&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/li&gt;
+    &lt;!-- Another radio input --&gt;
+    &lt;li&gt;
+      &lt;label class="label-radio item-content"&gt;
+        &lt;input type="radio" name="my-radio" value="Movies"&gt;
+        &lt;div class="item-media"&gt;
+          &lt;i class="icon icon-form-radio"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="item-inner"&gt;
+          &lt;div class="item-title"&gt;Movies&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/li&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;    </code></pre>
+          <h2 data-device-preview="../docs-demos/checkboxes-radios-media.html">With media list view</h2>
+          <p>You can use checkboxes and radios groups with media list view:</p>
           <pre><code>&lt;div class="content-block-title"&gt;Select Message&lt;/div&gt;
 &lt;div class="list-block media-list"&gt;
   &lt;ul&gt;

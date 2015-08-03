@@ -12,10 +12,11 @@ block content
     .docs-nav
       include ../jade/_docs-menu
     .docs-content.with-device
-      h1(data-device-preview="../docs-demos/buttons.html") 按钮(buttons)
-      p Framework7 有一大坨可用的按钮。你需要做的只是把正确的class加到链接或者按钮上即可
-      h3 普通按钮(Usual Buttons)
-      p 只需要增加一个 <code>buttong</code> class 在任何链接或者按钮上：
+      h1 Buttons
+      p Framework7 comes with a bunch of ready to use buttons. All you need is to just add appropriate classes to your links or submit/button inputs:
+      h2(data-device-preview="../docs-demos/buttons.html") iOS Theme Buttons
+      h3 Usual Buttons
+      p Just add <code>button</code> class to any link or button input:
       pre
         code.
           &lt;p&gt;&lt;a href="#" class="button"&gt;Usual Button 1&lt;/a&gt;&lt;/p&gt;
@@ -47,27 +48,12 @@ block content
         p <strong>在"buttons-row"中每个button的宽度是相同的</strong>
       p 只需要给 button 外面加上一个 有 <code>buttons-row</code> class 的元素即可
       pre
-        code.
-          &lt;p class="buttons-row"&gt;
-            &lt;a href="#" class="button"&gt;Button 1&lt;/a&gt;
-            &lt;a href="#" class="button"&gt;Button 2&lt;/a&gt;
-            &lt;a href="#" class="button"&gt;Button 3&lt;/a&gt;
-          &lt;/p&gt;
-          &lt;p class="buttons-row"&gt;
-            &lt;a href="#" class="button active"&gt;Button 1&lt;/a&gt;
-            &lt;a href="#" class="button"&gt;Button 2&lt;/a&gt;
-            &lt;a href="#" class="button"&gt;Button 3&lt;/a&gt;
-          &lt;/p&gt;
-          &lt;p class="buttons-row"&gt;
-            &lt;a href="#" class="button button-round"&gt;Button 1&lt;/a&gt;
-            &lt;a href="#" class="button button-round"&gt;Button 2&lt;/a&gt;
-          &lt;/p&gt;
-          &lt;p class="buttons-row"&gt;
-            &lt;a href="#" class="button button-round"&gt;Button 1&lt;/a&gt;
-            &lt;a href="#" class="button button-round active"&gt;Button 2&lt;/a&gt;
-          &lt;/p&gt;
-      h3 不同颜色的按钮(Color Buttons)
-      p 给按钮加上 <code>button-submit</code> 会变成绿色, 加上 <code>button-cancel</code> 会变成红色
+        code
+          | &lt;a href="#" class="button button-fill"&gt;Fill Button &lt;/a&gt;
+          | &lt;a href="#" class="button button-round button-fill"&gt;Round Fill Button&lt;/a&gt;
+          | &lt;a href="#" class="button button-big button-fill"&gt;Big Fill Button &lt;/a&gt;
+      h3 Color Buttons
+      p You can use 10 default <a href="color-themes.html#ios-theme-colors">color themes</a> to colorize buttons
       pre
         code.
           &lt;a href="#" class="button button-submit"&gt;Submit&lt;/a&gt;
@@ -116,5 +102,137 @@ block content
           |   &lt;/div&gt;
           |   &lt;div class="col-50"&gt;
           |     &lt;a href="#" class="button button-big button-green"&gt;Submit&lt;/a&gt;
+          |   &lt;/div&gt;
+          | &lt;/div&gt;          
+      h2(data-device-preview="../docs-demos/buttons-material.html") Material Theme Buttons
+      h3 Usual/Flat Buttons
+      p As in iOS Theme just add button class to any link or button input:
+      pre
+        code
+          | &lt;p&gt;&lt;a href="#" class="button"&gt;Button&lt;/a&gt;&lt;/p&gt;
+          | &lt;p&gt;&lt;a href="#" class="button"&gt;Button&lt;/a&gt;&lt;/p&gt;          
+      h3 Buttons Row
+      p Just wrap buttons with element with <code>buttons-row</code> class:
+      pre
+        code
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button"&gt;Button&lt;/a&gt;
+          | &lt;/p&gt;          
+      h3 Raised Buttons
+      p Add <code>button-raised</code> class to button:
+      pre
+        code
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-raised"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised"&gt;Button&lt;/a&gt;
+          | &lt;/p&gt;          
+      h3 Raised Fill Buttons
+      p Add <code>button-fill</code> class to button:
+      pre
+        code
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-fill button-raised"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button button-fill button-raised"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button button-fill button-raised"&gt;Button&lt;/a&gt;
+          | &lt;/p&gt;          
+      h3 Color Buttons
+      p You can use 20 default <a href="color-themes.html#material-theme-colors">Material color themes</a> to colorize buttons
+      pre
+        code
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button color-red"&gt;Red&lt;/a&gt;
+          |   &lt;a href="#" class="button color-green"&gt;Green&lt;/a&gt;
+          |   &lt;a href="#" class="button color-blue"&gt;Blue&lt;/a&gt;
+          | &lt;/p&gt;
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button color-orange"&gt;Orange&lt;/a&gt;
+          |   &lt;a href="#" class="button color-pink"&gt;Pink&lt;/a&gt;
+          |   &lt;a href="#" class="button color-purple"&gt;Purple&lt;/a&gt;
+          | &lt;/p&gt;
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button color-cyan"&gt;Cyan&lt;/a&gt;
+          |   &lt;a href="#" class="button color-teal"&gt;Teal&lt;/a&gt;
+          |   &lt;a href="#" class="button color-indigo"&gt;Indigo&lt;/a&gt;
+          | &lt;/p&gt;          
+      h3 Color Fill Buttons
+      pre
+        code
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-fill color-red"&gt;Red&lt;/a&gt;
+          |   &lt;a href="#" class="button button-fill color-green"&gt;Green&lt;/a&gt;
+          |   &lt;a href="#" class="button button-fill color-blue"&gt;Blue&lt;/a&gt;
+          | &lt;/p&gt;
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-fill color-orange"&gt;Orange&lt;/a&gt;
+          |   &lt;a href="#" class="button button-fill color-pink"&gt;Pink&lt;/a&gt;
+          |   &lt;a href="#" class="button button-fill color-purple"&gt;Purple&lt;/a&gt;
+          | &lt;/p&gt;
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-fill color-cyan"&gt;Cyan&lt;/a&gt;
+          |   &lt;a href="#" class="button button-fill color-teal"&gt;Teal&lt;/a&gt;
+          |   &lt;a href="#" class="button button-fill color-indigo"&gt;Indigo&lt;/a&gt;
+          | &lt;/p&gt;          
+      h3 Color Raised Fill Buttons
+      pre
+        code
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-red"&gt;Red&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-green"&gt;Green&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-blue"&gt;Blue&lt;/a&gt;
+          | &lt;/p&gt;
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-orange"&gt;Orange&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-pink"&gt;Pink&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-purple"&gt;Purple&lt;/a&gt;
+          | &lt;/p&gt;
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-cyan"&gt;Cyan&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-teal"&gt;Teal&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-indigo"&gt;Indigo&lt;/a&gt;
+          | &lt;/p&gt;          
+      h3 Color Ripple Buttons
+      p To add ripple of different color, just add <code>ripple-<b>[color]</b></code> class to button
+      pre
+        code
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button ripple-blue"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button color-green ripple-pink"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button color-teal ripple-amber"&gt;Button&lt;/a&gt;
+          | &lt;/p&gt;
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-orange ripple-green"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-pink ripple-blue"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button button-raised button-fill color-purple ripple-yellow"&gt;Button&lt;/a&gt;
+          | &lt;/p&gt;          
+      h3 Big Buttons
+      p Add <code>button-big</code> class to button
+      pre
+        code
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-big color-green"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button button-big color-red"&gt;Button&lt;/a&gt;
+          | &lt;/p&gt;
+          | &lt;p class="buttons-row"&gt;
+          |   &lt;a href="#" class="button button-big button-fill button-raised color-pink"&gt;Button&lt;/a&gt;
+          |   &lt;a href="#" class="button button-big button-fill button-raised color-teal"&gt;Button&lt;/a&gt;
+          | &lt;/p&gt;          
+      h3 List Block Buttons
+      pre
+        code
+          | &lt;div class="card"&gt;
+          |   &lt;div class="list-block"&gt;
+          |     &lt;ul&gt;
+          |       &lt;li&gt;
+          |         &lt;a href="#" class="list-button item-link"&gt;List Button 1&lt;/a&gt;
+          |       &lt;/li&gt;
+          |       &lt;li&gt;
+          |         &lt;a href="#" class="list-button item-link"&gt;List Button 2&lt;/a&gt;
+          |       &lt;/li&gt;
+          |       &lt;li&gt;
+          |         &lt;a href="#" class="list-button item-link"&gt;List Button 2&lt;/a&gt;
+          |       &lt;/li&gt;
+          |     &lt;/ul&gt;
           |   &lt;/div&gt;
           | &lt;/div&gt;          
