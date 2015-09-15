@@ -3,12 +3,11 @@ html
   head
     meta(charset="utf-8")
     title Framework7 - Full Featured Mobile HTML Framework For Building iOS & Android Apps
-    meta(property="og:image", content="http://idangero.us/framework7/i/f7-banner.jpg")
+    meta(property="og:image", content="i/f7-banner.jpg")
     link(rel="stylesheet", href="css/normalize.css")
     link(rel="stylesheet", href="css/main.css")
     link(rel="shortcut icon" href="favicon.png")
     script(src="js/vendor/modernizr-2.7.1.min.js")
-    include jade/_ga
   body
     header(style='height: 760px;')
       .center
@@ -61,11 +60,8 @@ html
         .share
           include jade/_share
         .flattr-button 
-          a(target="_blank", href="https://flattr.com/submit/auto?\
-              user_id=nolimits4web&url=http://www.idangero.us/framework7/&title=Framework7&\
-              description=Full Featured HTML Framework For Building iOS Apps&language=en_GB&\
-              tags=api,programming,mobile,framework&category=software")
-            img(src="https://api.flattr.com/button/flattr-badge-large.png")
+          a(target="_blank", href="https://flattr.com/submit/auto?user_id=nolimits4web&url=http://www.idangero.us/framework7/&title=Framework7&description=Full%20Featured%20HTML%20Framework%20For%20Building%20iOS%20Apps&language=en_GB&tags=api,programming,mobile,framework&category=software")
+            img(src="i/flattr-badge-large.png")
         .clearfix
     .content.center
       .home-block.home-intro
@@ -272,7 +268,6 @@ html
         .copy 翻译 by SDC-ALIBABA <a href='mailto:hongxun.lhx@alibaba-inc.com'>联系我们</a>
         .copy 如果你有兴趣，欢迎 <a href='https://github.com/sdc-fe/Framework7-Website'>加入我们</a>
 
-    //script(src="http://10.68.167.187:8080/target/target-script-min.js#anonymous") 需要一个公共的服务器
     script(src="js/vendor/jquery-1.11.0.min.js")
     script(src="js/plugins.js")
     script(src="js/main.js")

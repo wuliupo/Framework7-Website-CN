@@ -4,7 +4,7 @@ html
   head
     meta(charset="utf-8")
     title=title
-    meta(property="og:image", content="http://idangero.us/framework7/i/f7-banner.jpg")
+    meta(property="og:image", content="../i/f7-banner.jpg")
     link(rel="stylesheet", href="../css/normalize.css")
     link(rel="stylesheet", href="../css/main.css")
     link(rel="stylesheet", href="../css/highlight.css")
@@ -89,13 +89,10 @@ html
       .center
         .share
           include _share
+        .flattr-button 
+          a(target="_blank", href="https://flattr.com/submit/auto?user_id=nolimits4web&url=http://www.idangero.us/framework7/&title=Framework7&description=Full%20Featured%20HTML%20Framework%20For%20Building%20iOS%20Apps&language=en_GB&tags=api,programming,mobile,framework&category=software")
+            img(src="../i/flattr-badge-large.png")
         .github-buttons
-          .flattr-button 
-            a(target="_blank", href="https://flattr.com/submit/auto?\
-              user_id=nolimits4web&url=http://www.idangero.us/framework7/&title=Framework7&\
-              description=Full Featured HTML Framework For Building iOS Apps&language=en_GB&\
-              tags=api,programming,mobile,framework&category=software")
-              img(src="https://api.flattr.com/button/flattr-badge-large.png")
           include _github-buttons
         .clearfix
     .content.center
@@ -104,13 +101,10 @@ html
       .center 
         .share
           include _share
+        .flattr-button 
+          a(target="_blank", href="https://flattr.com/submit/auto?user_id=nolimits4web&url=http://www.idangero.us/framework7/&title=Framework7&description=Full%20Featured%20HTML%20Framework%20For%20Building%20iOS%20Apps&language=en_GB&tags=api,programming,mobile,framework&category=software")
+            img(src="../i/flattr-badge-large.png")
         .github-buttons
-          .flattr-button 
-            a(target="_blank", href="https://flattr.com/submit/auto?\
-              user_id=nolimits4web&url=http://www.idangero.us/framework7/&title=Framework7&\
-              description=Full Featured HTML Framework For Building iOS Apps&language=en_GB&\
-              tags=api,programming,mobile,framework&category=software")
-              img(src="https://api.flattr.com/button/flattr-badge-large.png")
           include _github-buttons
         .clearfix
     footer
@@ -132,7 +126,3 @@ html
     script(src="../js/vendor/jquery-1.11.0.min.js")
     script(src="../js/plugins.js")
     script(src="../js/main.js")
-    script.
-      var addthis_config = {"data_track_addressbar":true};
-    script(src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52c9b0605d63191c")
-    block scripts
